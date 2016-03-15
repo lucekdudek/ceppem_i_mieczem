@@ -5,8 +5,9 @@ Window::Window() {
 	// TODO Auto-generated constructor stub
 	init(1280, 720, (char *) "Tytuł okna");
 
-	textures = new unsigned int[1];
+	textures = new unsigned int[2];
 	textures[0] = loadGLTexture((char *) "texture.png");
+	textures[1] = loadGLTexture((char *) "png.png");
 
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
@@ -138,8 +139,11 @@ int Window::loadGLTexture(char* fileName) {
 		glBindTexture(GL_TEXTURE_2D, textureId);
 
 		//Generate the texture.
-		glTexImage2D(GL_TEXTURE_2D, 0, 3, textureImage->w, textureImage->h, 0,
-		GL_RGB, GL_UNSIGNED_BYTE, textureImage->pixels);
+		if (textureImage->format->BytesPerPixel == 4) {
+			glTexImage2D(GL_TEXTURE_2D, 0, 4, textureImage->w, textureImage->h,0,GL_RGBA, GL_UNSIGNED_BYTE, textureImage->pixels);
+		}else{
+			glTexImage2D(GL_TEXTURE_2D, 0, 3, textureImage->w, textureImage->h,0,GL_RGB, GL_UNSIGNED_BYTE, textureImage->pixels);
+		}
 
 		//Linear filtering.
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -173,6 +177,8 @@ void Window::renderFrame() {
 	//glColor3f(0.7, 0.5, 0.8);
 
 	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// For Ortho mode, of course
 	int Width = 616;
@@ -181,6 +187,7 @@ void Window::renderFrame() {
 	int Y = (720 - Height) / 2;
 
 	drawImage(X, Y, textures[0], Width, Height);
+	drawImage(X, Y, textures[1], Width, Height);
 
 	//glRecti(50, 100, 200, 300);
 	SDL_GL_SwapWindow(mainWindow);
