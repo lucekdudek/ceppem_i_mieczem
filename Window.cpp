@@ -5,9 +5,12 @@ Window::Window() {
 	// TODO Auto-generated constructor stub
 	init(1280, 720, (char *) "Tytuł okna");
 
-	textures = new unsigned int[2];
+	textures = new unsigned int[3];
 	textures[0] = loadGLTexture((char *) "texture.png");
 	textures[1] = loadGLTexture((char *) "png.png");
+
+	TTF_Font *fontArial = loadFont((char *) "arial.ttf", 50);
+	textures[2] = renderText((char *) "hello world", fontArial);
 
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
@@ -45,6 +48,7 @@ void Window::init(int width, int height, char* title) {
 void Window::initSDL(Uint32 width, Uint32 height, char* title, Uint32 flags) {
 	int error;
 	error = SDL_Init(SDL_INIT_EVERYTHING);
+	TTF_Init();// TODO
 
 	if (error) {
 		printf("ERROR SDL INIT: %i\n", error);
@@ -157,6 +161,38 @@ int Window::loadGLTexture(char* fileName) {
 	}
 }
 
+TTF_Font* Window::loadFont(char* fileName, int fontSize){
+	TTF_Font *text_font = TTF_OpenFont("arial.ttf", 50);
+	if( text_font == NULL ) {
+		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
+		return 0;
+	}
+	return text_font;
+}
+
+int Window::renderText(char* text, TTF_Font *text_font){
+	SDL_Color textColor = { 128, 0, 0 };
+
+	SDL_Surface* sdl_surface = TTF_RenderText_Blended(text_font, text, textColor);
+	if( sdl_surface == NULL ) {
+		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
+		return 0;
+	}
+
+	GLuint texture_id;
+
+	glGenTextures(1, &texture_id);
+	glBindTexture(GL_TEXTURE_2D, texture_id);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sdl_surface->w, sdl_surface->h, 0, GL_BGRA, GL_UNSIGNED_BYTE, sdl_surface->pixels);
+
+	return texture_id;
+}
+
 void Window::drawImage(int x, int y, int textureId, int width, int height) {
 	y = h - y - height;
 	glBindTexture(GL_TEXTURE_2D, textureId);
@@ -187,7 +223,8 @@ void Window::renderFrame() {
 	int Y = (720 - Height) / 2;
 
 	drawImage(X, Y, textures[0], Width, Height);
-	drawImage(X, Y, textures[1], Width, Height);
+	drawImage(X, Y, textures[1], 800, 600);
+	drawImage(X, Y, textures[2], 242, 57);
 
 	//glRecti(50, 100, 200, 300);
 	SDL_GL_SwapWindow(mainWindow);

@@ -3,6 +3,7 @@
 #include "SDL.h"
 #include "SDL_opengl.h"
 #include "SDL_image.h"
+#include "SDL_ttf.h"
 
 class Window {
 protected:
@@ -16,6 +17,8 @@ public:
 	void drawImage(int x, int y, int textureId, int width=0, int height=0);
 	int done;
 	int loadGLTexture(char* fileName);
+	TTF_Font* loadFont(char* fileName, int fontSize);
+	int renderText(char* text, TTF_Font *text_font);
 private:
 	SDL_Cursor* cursor1;
 	SDL_Cursor* cursor2;
