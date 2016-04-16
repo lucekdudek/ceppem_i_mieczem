@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include "View/Window.h"
+#include "view/window.h"
 
 using namespace std;
 
