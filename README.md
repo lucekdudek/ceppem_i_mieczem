@@ -21,6 +21,6 @@ Bartosz Wilk
 7. skopiuj katalog bin ze ścieszki ".\SDL2_ttf-2.0.14\i686-w64-mingw32" do katalogu ".\ceppem_i_mieczem"  
 8. skopiuj katalog bin ze ścieszki ".\SDL2_image-2.0.1\i686-w64-mingw32" do katalogu ".\ceppem_i_mieczem"  
 9. uruchamiamy skrypt compile.bat  
-10. urucham skrypt run.bat aby włączyć grę  
+10. urucham skrypt ceppem.bat aby włączyć grę  
 
 ## Dokumentacja:
