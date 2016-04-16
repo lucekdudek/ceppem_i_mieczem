@@ -6,3 +6,4 @@
 /bin/*.dll
 .idea/
 CMakeLists.txt
+compilation.log
