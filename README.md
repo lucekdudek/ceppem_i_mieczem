@@ -1,18 +1,18 @@
 # ceppem_i_mieczem
 
 # Opis:
-Gra RPG__
+Gra RPG  
 
 # Autorzy:
-Łukasz Bryniarski__
-Lucjan Dudek__
-Jakub Gacek__
-Michał Łukasik__
-Bartosz Wilk__
+Łukasz Bryniarski  
+Lucjan Dudek  
+Jakub Gacek  
+Michał Łukasik  
+Bartosz Wilk  
 
 # Jak kompilować:
-[MinGW](http://www.mingw.org/)__
+[MinGW](http://www.mingw.org/)  
 
 # Dokumentacja:
 
-![alt tag](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/ceppem_i_mieczem.png)__
+![alt tag](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/ceppem_i_mieczem.png)  
