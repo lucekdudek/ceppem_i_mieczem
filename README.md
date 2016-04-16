@@ -17,8 +17,10 @@ Bartosz Wilk
 3. sciągnij [SDL2](https://www.libsdl.org/release/SDL2-devel-2.0.4-mingw.tar.gz), rozpakuj i skopiuj katalogi include i lib ze ścieszki ".\SDL2-2.0.4\i686-w64-mingw32" do katalogu "MinGW" domyślnie "C:\MinGW\" 
 4. sciągnij [SDL2_ttf](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.14-mingw.tar.gz), rozpakuj i skopiuj katalogi include i lib ze ścieszki ".\SDL2_ttf-2.0.14\i686-w64-mingw32" do katalogu "MinGW" domyślnie "C:\MinGW\"    
 5. sciągnij [SDL2_image](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.1-mingw.tar.gz), rozpakuj i skopiuj katalogi include i lib ze ścieszki ".\SDL2_image-2.0.1\i686-w64-mingw32" do katalogu "MinGW" domyślnie "C:\MinGW\"  
-6. kompilujemy
-7. 
+6. uruchamiamy skrypt compile.bat  
+7. skopiuj katalogi bin ze ścieszki ".\SDL2-2.0.4\i686-w64-mingw32" do katalogu" ".\ceppem_i_mieczem"  
+8. skopiuj katalogi bin ze ścieszki ".\SDL2_ttf-2.0.14\i686-w64-mingw32" do katalogu" ".\ceppem_i_mieczem"  
+9. skopiuj katalogi bin ze ścieszki ".\SDL2_image-2.0.1\i686-w64-mingw32" do katalogu" ".\ceppem_i_mieczem"  
 
 ## Dokumentacja:
 
