@@ -12,10 +12,12 @@ Bartosz Wilk
 
 ## Jak kompilować:
 #### Windows
-[MinGW](https://sourceforge.net/projects/mingw/files/latest/download?source=files)  
-[SDL2](https://www.libsdl.org/release/SDL2-devel-2.0.4-mingw.tar.gz)  
-[SDL2_ttf](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.14-mingw.tar.gz)  
-[SDL2_image](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.1-mingw.tar.gz)  
+1. git clone https://github.com/lucekdudek/ceppem_i_mieczem.git  
+2. skompiluj //TODO
+3. sciągnij [MinGW](https://sourceforge.net/projects/mingw/files/latest/download?source=files) i zainstaluj  
+4. sciągnij [SDL2](https://www.libsdl.org/release/SDL2-devel-2.0.4-mingw.tar.gz), rozpakuj i   
+5. sciągnij [SDL2_ttf](https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-devel-2.0.14-mingw.tar.gz)  
+6. sciągnij [SDL2_image](https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-2.0.1-mingw.tar.gz)  
 
 ## Dokumentacja:
 
