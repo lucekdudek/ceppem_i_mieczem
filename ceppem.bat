@@ -2,3 +2,4 @@
 echo Uruchamianie
 cd bin
 ceppem.exe
+cd ..
