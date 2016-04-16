@@ -24,5 +24,3 @@ Bartosz Wilk
 10. urucham skrypt run.bat aby włączyć grę  
 
 ## Dokumentacja:
-
-![alt tag](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/ceppem_i_mieczem.png)  
