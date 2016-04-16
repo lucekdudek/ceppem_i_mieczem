@@ -4,3 +4,5 @@
 .project
 /bin/ceppem.exe
 /bin/*.dll
+.idea/
+CMakeLists.txt
