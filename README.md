@@ -12,8 +12,8 @@ Bartosz Wilk
 
 # Jak kompilować:
 ## Windows
-[MinGW](https://sourceforge.net/projects/mingw/files/latest/download?source=files)
-[SDL](https://www.libsdl.org/release/SDL2-devel-2.0.4-mingw.tar.gz)
+[MinGW](https://sourceforge.net/projects/mingw/files/latest/download?source=files)  
+[SDL](https://www.libsdl.org/release/SDL2-devel-2.0.4-mingw.tar.gz)  
 
 # Dokumentacja:
 
