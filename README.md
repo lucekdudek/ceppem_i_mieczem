@@ -11,7 +11,9 @@ Michał Łukasik
 Bartosz Wilk  
 
 # Jak kompilować:
-[MinGW](http://www.mingw.org/)  
+## Windows
+[MinGW](https://sourceforge.net/projects/mingw/files/latest/download?source=files)
+[SDL](https://www.libsdl.org/release/SDL2-devel-2.0.4-mingw.tar.gz)
 
 # Dokumentacja:
 
