@@ -1,6 +1,6 @@
 # ceppem_i_mieczem
 
-# Opis
+# Opis:
 Gra RPG
 
 # Autorzy:
@@ -10,9 +10,9 @@ Jakub Gacek
 Michał Łukasik
 Bartosz Wilk
 
-# Jak kompilować
+# Jak kompilować:
 [MinGW](http://www.mingw.org/)
 
-# Dokumentacja
+# Dokumentacja:
 
 ![alt tag](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/ceppem_i_mieczem.png)
