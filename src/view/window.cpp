@@ -1,5 +1,5 @@
 #include "window.h"
-
+#include "../controller/controller.h"
 #include <stdio.h>
 
 Window::Window() {
@@ -16,18 +16,6 @@ Window::Window() {
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
 
-	while (!done) {
-		previousTime = SDL_GetTicks();
-		eventLoop();
-		renderFrame();
-		currentTime = SDL_GetTicks();
-
-		int value = 1000 / MAX_FPS - (currentTime - previousTime);
-
-		if (value > 0) {
-			SDL_Delay(value);
-		}
-	}
 }
 
 Window::~Window() {
@@ -81,11 +69,11 @@ void Window::eventLoop() {
 		switch (event.type) {
 		case SDL_KEYDOWN:
 			// Quit when user presses a key.
-			done = true;
+			Controller::setDone();
 			break;
 
 		case SDL_QUIT:
-			done = true;
+			Controller::setDone();
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
