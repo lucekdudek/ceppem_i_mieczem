@@ -16,6 +16,9 @@ Window::Window() {
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
 
+
+	SDL_GetCurrentDisplayMode(0, &this->current);
+	printf("Screen size: %ix%i.\n", this->current.w, this->current.h);
 }
 
 Window::~Window() {
@@ -77,6 +80,8 @@ void Window::eventLoop() {
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
+			SDL_GetCurrentDisplayMode(0, &this->current);
+
 			SDL_GetMouseState(&x, &y);
 			w = 616;
 			h = 409;
@@ -88,7 +93,7 @@ void Window::eventLoop() {
 					createOrthoProj(1280.0, 720.0);
 					SDL_SetWindowFullscreen(mainWindow, 0);
 				} else {
-					glViewport(0, 0, 1920, 1080);
+					glViewport(0, (this->current.h-this->current.w/16.0*9.0)/2.0, this->current.w, this->current.w/16.0*9.0);
 					createOrthoProj(1280.0, 720.0);
 					SDL_SetWindowFullscreen(mainWindow,
 							SDL_WINDOW_FULLSCREEN_DESKTOP);
