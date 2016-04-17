@@ -34,6 +34,7 @@ private:
     void initSDL(Uint32 width, Uint32 height, char *title, Uint32 flags);
     static Uint32 gameLoopTimer(Uint32 interval, void *param);
     void createOrthoProj(int width, int height);
+    SDL_DisplayMode current;
 };
 
 const int MAX_FPS = 60;
