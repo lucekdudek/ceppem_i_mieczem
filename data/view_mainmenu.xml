@@ -7,8 +7,8 @@
         <width>1280</width>
         <height>720</height>
         <textures>
-            <texture>mainmenuBackground.png</texture>
-            <texture>mainmenuText.png</texture>
+            <texture>mainmenu\background.png</texture>
+            <texture>mainmenu\backgroundText.png</texture>
         </textures>
     </element>
     <!-- continueGame -->
@@ -19,10 +19,10 @@
         <height>240</height>
         <onclick>continueGame</onclick>
         <onhover>
-            <texture>focus.png</texture>
+            <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>continueGame.png</texture>
+            <texture>mainmenu\continueGame.png</texture>
             <text>{continueGame}</text>
         </textures>
     </element>
@@ -34,10 +34,10 @@
         <height>240</height>
         <onclick>newGame</onclick>
         <onhover>
-            <texture>focus.png</texture>
+            <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>newGame.png</texture>
+            <texture>mainmenu\newGame.png</texture>
             <text>{newGame}</text>
         </textures>
     </element>
@@ -49,10 +49,10 @@
         <height>240</height>
         <onclick>loadGame</onclick>
         <onhover>
-            <texture>focus.png</texture>
+            <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>loadGame.png</texture>
+            <texture>mainmenu\loadGame.png</texture>
             <text>{loadGame}</text>
         </textures>
     </element>
@@ -64,10 +64,10 @@
         <height>240</height>
         <onclick>options</onclick>
         <onhover>
-            <texture>focus.png</texture>
+            <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>options.png</texture>
+            <texture>mainmenu\options.png</texture>
             <text>{options}</text>
         </textures>
     </element>
@@ -79,10 +79,10 @@
         <height>240</height>
         <onclick>exitGame</onclick>
         <onhover>
-            <texture>focus.png</texture>
+            <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>exitGame.png</texture>
+            <texture>mainmenu\exitGame.png</texture>
             <text>{exitGame}</text>
         </textures>
     </element>
