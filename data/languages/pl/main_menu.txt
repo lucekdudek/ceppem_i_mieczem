@@ -1,0 +1,4 @@
+﻿1. Rozpocznij grę
+2. Wczytaj grę
+3. Opcje
+4. Wyjście z gry
