@@ -93,7 +93,7 @@ void Window::eventLoop() {
 					createOrthoProj(1280.0, 720.0);
 					SDL_SetWindowFullscreen(mainWindow, 0);
 				} else {
-					glViewport(0, 0, this->current.w, this->current.h);
+					glViewport(0, (this->current.h-this->current.w/16.0*9.0)/2.0, this->current.w, this->current.w/16.0*9.0);
 					createOrthoProj(1280.0, 720.0);
 					SDL_SetWindowFullscreen(mainWindow,
 							SDL_WINDOW_FULLSCREEN_DESKTOP);
