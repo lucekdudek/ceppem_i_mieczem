@@ -7,8 +7,8 @@ Window::Window() {
 	init(1280, 720, (char *) "Tytuł okna");
 
 	textures = new unsigned int[3];
-	textures[0] = loadGLTexture((char *) "texture.png");
-	textures[1] = loadGLTexture((char *) "png.png");
+	textures[0] = loadGLTexture((char *) "../data/mainmenu/background.png");
+	textures[1] = loadGLTexture((char *) "../data/mainmenu/backgroundText.png");
 
 	TTF_Font *fontArial = loadFont((char *) "arial.ttf", 50);
 	textures[2] = renderText((char *) "hello world", fontArial);
@@ -81,7 +81,7 @@ void Window::eventLoop() {
 		switch (event.type) {
 		case SDL_KEYDOWN:
 			// Quit when user presses a key.
-			done = true;
+			//done = true;
 			break;
 
 		case SDL_QUIT:
@@ -101,7 +101,7 @@ void Window::eventLoop() {
 					SDL_SetWindowFullscreen(mainWindow, 0);
 				} else {
 					glViewport(0, 0, 1920, 1080);
-					createOrthoProj(1920.0, 1080.0);
+					createOrthoProj(1280.0, 720.0);
 					SDL_SetWindowFullscreen(mainWindow,
 							SDL_WINDOW_FULLSCREEN_DESKTOP);
 				}
@@ -231,8 +231,8 @@ void Window::renderFrame() {
 	int X = (1280 - Width) / 2;
 	int Y = (720 - Height) / 2;
 
-	drawImage(X, Y, textures[0], Width, Height);
-	drawImage(X, Y, textures[1], 800, 600);
+	drawImage(0, 0, textures[0], 1280, 720);
+	drawImage(100, 100, textures[1], 394, 198);
 	drawImage(X, Y, textures[2], 242, 57);
 
 	//glRecti(50, 100, 200, 300);
