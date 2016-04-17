@@ -22,7 +22,7 @@
             <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>mainmenu\continueGame.png</texture>
+            <texture>mainmenu\button.png</texture>
             <text>{continueGame}</text>
         </textures>
     </element>
@@ -37,7 +37,7 @@
             <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>mainmenu\newGame.png</texture>
+            <texture>mainmenu\button.png</texture>
             <text>{newGame}</text>
         </textures>
     </element>
@@ -52,7 +52,7 @@
             <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>mainmenu\loadGame.png</texture>
+            <texture>mainmenu\button.png</texture>
             <text>{loadGame}</text>
         </textures>
     </element>
@@ -67,7 +67,7 @@
             <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>mainmenu\options.png</texture>
+            <texture>mainmenu\button.png</texture>
             <text>{options}</text>
         </textures>
     </element>
@@ -82,7 +82,7 @@
             <texture>mainmenu\focus.png</texture>
         </onhover>
         <textures>
-            <texture>mainmenu\exitGame.png</texture>
+            <texture>mainmenu\button.png</texture>
             <text>{exitGame}</text>
         </textures>
     </element>
