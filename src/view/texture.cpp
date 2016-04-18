@@ -15,6 +15,7 @@ Texture::Texture(int x, int y, int width, int height, char* path) {
 	this->width = width;
 	this->height = height;
 	string(path).copy(this->path,256,0);
+	this->path[strlen(path)]='\0';
 }
 
 Texture::~Texture() {
