@@ -3,7 +3,7 @@
 
 #include "timer.h"
 
-class FpsHandler: public Timer
+class FpsHandler : public Timer
 {
 public:
     FpsHandler();
