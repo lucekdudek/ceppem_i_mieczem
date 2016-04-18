@@ -1,6 +1,7 @@
 #ifndef SRC_VIEW_ELEMENT_H_
 #define SRC_VIEW_ELEMENT_H_
 
+#include "../view/texture.h"
 #include <list>
 #include <string>
 
@@ -11,16 +12,16 @@ public:
 	Element(int x, int y, int width=0, int height=0);
 	~Element();
 
-	void addTexture(unsigned int id);
+	void addTexture(Texture texture);
 	void setOnClick();
 	void setOnHover();
-	list<unsigned int> getTextures();
-private:
-	list<unsigned int> textures;
+	list<Texture> getTextures();
 	int x;
 	int y;
 	int width;
 	int height;
+private:
+	list<Texture> textures;
 	string text;
 
 	bool isClickable;

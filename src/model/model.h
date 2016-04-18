@@ -12,6 +12,9 @@
 #include "element.h"
 #include <unordered_map>
 #include <list>
+#include "../view/view.h"
+#include "../view/Window.h"
+
 class Model
 {
 public:
@@ -20,8 +23,9 @@ public:
     Model();
     ~Model();
 
-    list<Element> getXml();
+    View *getXml();
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
+    int loadGLTexture(string fileName);
 
 private:
     void parseXml(rapidxml::xml_document<> &doc, std::string xmlName);

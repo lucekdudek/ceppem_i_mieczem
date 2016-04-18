@@ -5,6 +5,7 @@
 #include "SDL2/SDL_opengl.h"
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
+#include "view.h"
 
 class Window {
 protected:
@@ -18,11 +19,15 @@ public:
 
     void eventLoop();
     void drawImage(int x, int y, int textureId, int width = 0, int height = 0);
-    int loadGLTexture(char *fileName);
+    static int loadGLTexture(string fileName);
     TTF_Font *loadFont(char *fileName, int fontSize);
     int renderText(char *text, TTF_Font *text_font);
     void renderFrame();
+
+    void setView(View* view);
 private:
+    View* view;
+
     SDL_Cursor *cursor1;
     SDL_Cursor *cursor2;
     int previousTime;

@@ -1,4 +1,5 @@
 #include "element.h"
+#include <iostream>
 
 Element::Element(int x, int y, int width, int height) {
 	this->x = x;
@@ -12,8 +13,10 @@ Element::~Element() {
 
 }
 
-void Element::addTexture(unsigned int id) {
-	textures.push_back(id);
+void Element::addTexture(Texture texture) {
+	texture.x+=this->x;
+	texture.y+=this->y;
+	textures.push_back(texture);
 }
 
 void Element::setOnClick() {
@@ -24,6 +27,6 @@ void Element::setOnHover() {
 
 }
 
-list<unsigned int> Element::getTextures() {
+list<Texture> Element::getTextures() {
 		return textures;
 }

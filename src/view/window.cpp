@@ -1,6 +1,8 @@
 #include "window.h"
 #include "../controller/controller.h"
 #include <stdio.h>
+#include <iostream>
+#include <string>
 
 Window::Window() {
 	// TODO Auto-generated constructor stub
@@ -91,10 +93,13 @@ void Window::eventLoop() {
 						& SDL_WINDOW_FULLSCREEN_DESKTOP) {
 					glViewport(0, 0, 1280, 720);
 					createOrthoProj(1280.0, 720.0);
+					SDL_SetWindowSize(mainWindow, 1280, 720);
 					SDL_SetWindowFullscreen(mainWindow, 0);
 				} else {
 					glViewport(0, (this->current.h-this->current.w/16.0*9.0)/2.0, this->current.w, this->current.w/16.0*9.0);
+					//glViewport(0, 0, 1920, 1080);
 					createOrthoProj(1280.0, 720.0);
+					SDL_SetWindowSize(mainWindow, 1920, 1080);
 					SDL_SetWindowFullscreen(mainWindow,
 							SDL_WINDOW_FULLSCREEN_DESKTOP);
 				}
@@ -120,12 +125,12 @@ void Window::eventLoop() {
 	}   // End while
 }
 
-int Window::loadGLTexture(char *fileName) {
+int Window::loadGLTexture(string fileName) {
 	unsigned int textureId;
 	SDL_Surface *textureImage;
-	textureImage = IMG_Load(fileName);
+	textureImage = IMG_Load(fileName.c_str());
 	if (!textureImage) {
-		fprintf(stderr, "Couldn't load %s.\n", fileName);
+		fprintf(stderr, "Couldn't load %s.\n", fileName.c_str());
 		return 0;
 	} else {
 
@@ -224,11 +229,38 @@ void Window::renderFrame() {
 	int X = (1280 - Width) / 2;
 	int Y = (720 - Height) / 2;
 
-	drawImage(0, 0, textures[0], 1280, 720);
-	drawImage(100, 100, textures[1], 394, 198);
-	drawImage(X, Y, textures[2], 242, 57);
+	std::list<Element> el=this->view->getList();
+	for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++){
+		Element e= ((Element)(*it));
+		std::list<Texture> tex=e.getTextures();
+
+		for (std::list<Texture>::iterator it2 = tex.begin(); it2 != tex.end(); it2++){
+			drawImage((*it2).x, (*it2).y, (*it2).id, (*it2).width, (*it2).height);
+		}
+	}
 
 	//glRecti(50, 100, 200, 300);
 	SDL_GL_SwapWindow(mainWindow);
 }
 
+void Window::setView(View* view){
+	this->view=view;
+
+    std::list<Element> el=this->view->getList();
+    /*for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++){
+    	std::cout<<((Element)(*it)).x<<"\n";
+    }*/
+
+
+
+	//std::list<Element> el=this->view->getList();
+	/*for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++){
+		Element e= ((Element)(*it));
+
+		std::list<unsigned int> tex=e.getTextures();
+
+		for (std::list<unsigned int>::iterator it2 = tex.begin(); it2 != tex.end(); it2++){
+			std::cout<<(*it2)<<std::endl;
+		}
+	}*/
+}

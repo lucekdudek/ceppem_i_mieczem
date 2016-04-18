@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+    <!-- mainmenuBackground -->
+    <element>
+        <x>0</x>
+        <y>0</y>
+        <width>1280</width>
+        <height>720</height>
+        <textures>
+            <texture x="0" y="0" width="1280" height="720">mainmenu\background.png</texture>
+            <texture x="100" y="100" width="394" height="198">mainmenu\backgroundText.png</texture>
+            <text x="100" y="100" width="394" height="198" align="center" valign="center" font_size="50">{continueGame}</text>
+        </textures>
+		<textfield x="100" y="100" width="1280" height="720" align="center" valign="center" font_size="50">{continueGame}</textfield>
+    </element>
+    <!-- continueGame -->
+    <element>
+        <y>55</y>
+        <x>240</x>
+        <width>170</width>
+        <height>240</height>
+        <onclick>continueGame</onclick>
+        <onhover>
+            <texture>mainmenu\focus.png</texture>
+        </onhover>
+        <textures>
+            <texture>mainmenu\button.png</texture>
+            <text>{continueGame}</text>
+        </textures>
+    </element>
+    <!-- newGame -->
+    <element>
+        <y>305</y>
+        <x>240</x>
+        <width>170</width>
+        <height>240</height>
+        <onclick>newGame</onclick>
+        <onhover>
+            <texture>mainmenu\focus.png</texture>
+        </onhover>
+        <textures>
+            <texture>mainmenu\button.png</texture>
+            <text>{newGame}</text>
+        </textures>
+    </element>
+    <!-- loadGame -->
+    <element>
+        <y>555</y>
+        <x>240</x>
+        <width>170</width>
+        <height>240</height>
+        <onclick>loadGame</onclick>
+        <onhover>
+            <texture>mainmenu\focus.png</texture>
+        </onhover>
+        <textures>
+            <texture>mainmenu\button.png</texture>
+            <text>{loadGame}</text>
+        </textures>
+    </element>
+    <!-- options -->
+    <element>
+        <y>805</y>
+        <x>240</x>
+        <width>170</width>
+        <height>240</height>
+        <onclick>options</onclick>
+        <onhover>
+            <texture>mainmenu\focus.png</texture>
+        </onhover>
+        <textures>
+            <texture>mainmenu\button.png</texture>
+            <text>{options}</text>
+        </textures>
+    </element>
+    <!-- exitGame -->
+    <element>
+        <y>1055</y>
+        <x>240</x>
+        <width>170</width>
+        <height>240</height>
+        <onclick>exitGame</onclick>
+        <onhover>
+            <texture>mainmenu\focus.png</texture>
+        </onhover>
+        <textures>
+            <texture>mainmenu\button.png</texture>
+            <text>{exitGame}</text>
+        </textures>
+    </element>
+</view>

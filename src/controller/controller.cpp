@@ -23,6 +23,7 @@ void Controller::event(std::string event_name)
 
 void Controller::run()
 {
+	window.setView(model.getXml());
     FpsHandler clock;
     while (running)
     {

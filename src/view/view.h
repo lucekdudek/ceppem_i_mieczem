@@ -7,6 +7,7 @@ class View {
 public:
 	View(std::list<Element> textures);
 	~View();
+	std::list<Element> getList();
 private:
 	std::list<Element> textures;
 };
