@@ -1,5 +1,6 @@
 #ifndef CEPEM_I_MIECZEM_CONTROLLER_H
 #define CEPEM_I_MIECZEM_CONTROLLER_H
+
 #include <string>
 #include "../view/window.h"
 

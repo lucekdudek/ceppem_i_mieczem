@@ -3,21 +3,28 @@
 #include "fpshandler.h"
 //#include "../view/window.h"
 
-bool Controller::running=true;
+bool Controller::running = true;
 Window Controller::window;
 
-Controller :: Controller()
+Controller::Controller()
 {
+
 }
 
-Controller :: ~Controller()
+Controller::~Controller()
 {
+
 }
 
-void Controller :: run()
+void Controller::event(std::string event_name)
+{
+
+}
+
+void Controller::run()
 {
     FpsHandler clock;
-    while(running)
+    while (running)
     {
         clock.start();
         window.eventLoop();
@@ -26,8 +33,8 @@ void Controller :: run()
     }
 }
 
-void Controller :: setDone()
+void Controller::setDone()
 {
     running = false;
-    std::cout<<running;
+    std::cout << running;
 }
