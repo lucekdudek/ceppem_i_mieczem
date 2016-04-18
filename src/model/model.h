@@ -10,6 +10,8 @@
 #include <vector>
 #include "../rapidxml-1.13/rapidxml.hpp"
 #include "element.h"
+#include <unordered_map>
+#include <list>
 class Model
 {
 public:
@@ -17,9 +19,13 @@ public:
 
     Model();
     ~Model();
-    void getXmlFile(rapidxml::xml_document<> &doc, std::string xmlName);
-    std::vector < std::string > getLanguageFile(std::string filename);
-    Element getMainMenu();
+
+    list<Element> getXml();
+    std::unordered_map<std::string, std::string> getTextMap(std::string filename);
+
+private:
+    void parseXml(rapidxml::xml_document<> &doc, std::string xmlName);
+
 };
 
 #endif //CEPPEM_I_MIECZEM_MODEL_H

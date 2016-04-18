@@ -25,5 +25,5 @@ void Element::setOnHover() {
 }
 
 list<unsigned int> Element::getTextures() {
-	return textures;
+		return textures;
 }

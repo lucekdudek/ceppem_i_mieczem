@@ -1,0 +1,10 @@
+﻿continueGame
+Kontynuuj grę
+newGame
+Rozpocznij grę
+loadGame
+Wczytaj grę
+options
+Opcje
+exitGame
+Wyjście z gry
