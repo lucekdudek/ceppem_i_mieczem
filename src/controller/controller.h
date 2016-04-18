@@ -3,6 +3,7 @@
 
 #include <string>
 #include "../view/window.h"
+#include "../model/model.h"
 
 class Controller
 {
@@ -15,6 +16,7 @@ public:
 private:
     static bool running;
     static Window window;
+    static Model model;
 };
 
 #endif //CEPEM_I_MIECZEM_CONTROLLER_H

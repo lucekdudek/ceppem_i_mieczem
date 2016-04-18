@@ -1,10 +1,10 @@
 #include <iostream>
 #include "controller.h"
 #include "fpshandler.h"
-//#include "../view/window.h"
 
 bool Controller::running = true;
 Window Controller::window;
+Model Controller::model;
 
 Controller::Controller()
 {
