@@ -1,21 +1,19 @@
 #include "model.h"
 
 Model::Model() {
-	std::cout << "testing ctor" << std::endl;
 }
 
 Model::~Model() {
 
 }
-;
 
 View *Model::getXml() {
 	std::list<Element> elements;
 	rapidxml::xml_document<> doc;
 	parseXml(doc, "view_mainmenu.xml");
 
-	string str = "../data/";
-	string temp;
+	std::string str = "../data/";
+	std::string temp;
 	char buffer[256];
 
 	for (rapidxml::xml_node<> *child = doc.first_node("view")->first_node(
@@ -26,14 +24,17 @@ View *Model::getXml() {
 				atoi(child->first_node("y")->value()),
 				atoi(child->first_node("width")->value()),
 				atoi(child->first_node("height")->value()));
+		if(child->first_node("onclick")!=NULL){
+			el.setOnClick(child->first_node("onclick")->value());
+		}
 
 		//load textures into list
-		list<Texture> tex = el.getTextures();
+		std::list<Texture> tex = el.getTextures();
 		for (rapidxml::xml_node<> *textures =
 				child->first_node("textures")->first_node(); textures;
 				textures = textures->next_sibling()) {
 			if (strcmp(textures->name(), "texture") == 0) {
-				temp = str + string(textures->value());
+				temp = str + std::string(textures->value());
 				temp.copy(buffer, temp.length(), 0);
 				buffer[temp.length()] = '\0';
 
@@ -56,18 +57,18 @@ View *Model::getXml() {
 }
 
 void Model::parseXml(rapidxml::xml_document<> &doc, std::string xmlName) {
-	string input_xml;
-	string line;
+	std::string input_xml;
+	std::string line;
 
-	ifstream in("../data/" + xmlName);
+	std::ifstream in("../data/" + xmlName);
 	if (!in.good()) { //is opened?
-		cout << "ERROR xml read" << endl;
+		std::cout << "ERROR xml read" << std::endl;
 	}
 
 	// read file into input_xml
 	while (getline(in, line))
 		input_xml += line;
-	vector<char> xml_copy(input_xml.begin(), input_xml.end());
+	std::vector<char> xml_copy(input_xml.begin(), input_xml.end());
 	xml_copy.push_back('\0');
 
 	//parse XML

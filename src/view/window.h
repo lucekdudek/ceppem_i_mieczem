@@ -6,6 +6,7 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include "view.h"
+#include <vector>
 
 class Window {
 protected:
@@ -25,14 +26,16 @@ public:
     void renderFrame();
 
     void setView(View* view);
+    void toggleFullscreen();
 private:
     View* view;
+    char** clickmap;
+    std::vector<std::string> buttons;
 
     SDL_Cursor *cursor1;
     SDL_Cursor *cursor2;
     int previousTime;
     int currentTime;
-    unsigned int *textures;
     int w, h;
 
     void init(int width, int height, char *title);

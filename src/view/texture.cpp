@@ -14,8 +14,9 @@ Texture::Texture(int x, int y, int width, int height, char* path) {
 	this->y = y;
 	this->width = width;
 	this->height = height;
-	string(path).copy(this->path,256,0);
+	std::string(path).copy(this->path,256,0);
 	this->path[strlen(path)]='\0';
+	this->id=-1;
 }
 
 Texture::~Texture() {

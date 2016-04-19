@@ -19,15 +19,23 @@ void Element::addTexture(Texture texture) {
 	textures.push_back(texture);
 }
 
-void Element::setOnClick() {
+void Element::setOnClick(std::string onclick) {
 	isClickable = true;
+	this->onclick = onclick;
+}
+std::string Element::getOnClick() {
+	return this->onclick;
+}
+
+bool Element::clickable() {
+	return isClickable;
 }
 
 void Element::setOnHover() {
 
 }
 
-list<Texture> Element::getTextures() {
+std::list<Texture> Element::getTextures() {
 		return textures;
 }
 

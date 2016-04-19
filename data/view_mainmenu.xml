@@ -11,15 +11,28 @@
             <texture x="100" y="100" width="394" height="198">mainmenu/backgroundText.png</texture>
         </textures>
     </element>
+	<!-- newGame -->
+    <element>
+        <x>55</x>
+        <y>500</y>
+        <width>240</width>
+        <height>170</height>
+        <onclick>newGame</onclick>
+        <textures>
+            <texture x="0" y="0" width="240" height="170">mainmenu/button.png</texture>
+            <text>{newGame}</text>
+        </textures>
+    </element>
 	<!-- exitGame -->
     <element>
-        <x>1055</x>
-        <y>240</y>
-        <width>170</width>
-        <height>240</height>
+        <x>310</x>
+        <y>500</y>
+        <width>240</width>
+        <height>170</height>
         <onclick>exitGame</onclick>
         <textures>
-            <texture x="0" y="0" width="170" height="240">mainmenu/button.png</texture>
+            <texture x="-10" y="-10" width="260" height="190">mainmenu/focus.png</texture>
+            <texture x="0" y="0" width="240" height="170">mainmenu/button.png</texture>
             <text>{exitGame}</text>
         </textures>
     </element>

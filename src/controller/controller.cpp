@@ -37,5 +37,4 @@ void Controller::run()
 void Controller::setDone()
 {
     running = false;
-    std::cout << running;
 }

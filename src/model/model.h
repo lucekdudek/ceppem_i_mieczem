@@ -25,7 +25,7 @@ public:
 
     View *getXml();
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
-    int loadGLTexture(string fileName);
+    int loadGLTexture(std::string fileName);
 
 private:
     void parseXml(rapidxml::xml_document<> &doc, std::string xmlName);
