@@ -14,17 +14,18 @@ View *Model::getXml() {
 	rapidxml::xml_document<> doc;
 	parseXml(doc, "view_mainmenu.xml");
 
+	string str = "../data/";
+	string temp;
+	char buffer[256];
+
 	for (rapidxml::xml_node<> *child = doc.first_node("view")->first_node(
 			"element"); child; child = child->next_sibling()) {
+
+		//Create Element object
 		Element el(atoi(child->first_node("x")->value()),
 				atoi(child->first_node("y")->value()),
 				atoi(child->first_node("width")->value()),
 				atoi(child->first_node("height")->value()));
-
-
-		string str="../data/";
-		string st;
-		char buffer[256];
 
 		//load textures into list
 		list<Texture> tex = el.getTextures();
@@ -32,25 +33,21 @@ View *Model::getXml() {
 				child->first_node("textures")->first_node(); textures;
 				textures = textures->next_sibling()) {
 			if (strcmp(textures->name(), "texture") == 0) {
-				st=string("../data/")+string(textures->value());
-				st.copy(buffer,st.length(),0);
-				buffer[st.length()]='\0';
+				temp = str + string(textures->value());
+				temp.copy(buffer, temp.length(), 0);
+				buffer[temp.length()] = '\0';
 
-				int x=atoi(textures->first_attribute("x")->value());
-				int y=atoi(textures->first_attribute("y")->value());
-				int width=atoi(textures->first_attribute("width")->value());
-				int height=atoi(textures->first_attribute("height")->value());
-				tex.push_back(Texture(x,y,width,height,buffer));
+				int x = atoi(textures->first_attribute("x")->value());
+				int y = atoi(textures->first_attribute("y")->value());
+				int width = atoi(textures->first_attribute("width")->value());
+				int height = atoi(textures->first_attribute("height")->value());
+				//load textures into opengl and add it to Element
+				el.addTexture(Texture(x, y, width, height, buffer));
 			}
 		}
 
-		//load textures into opengl and add it to Element
-		for (std::list<Texture>::iterator it = tex.begin(); it != tex.end(); it++){
-			(*it).loadTexture();
-			el.addTexture((*it));
-		}
+		elements.push_back(el); //add Element to list
 
-		elements.push_back(el);//add Element to list
 	}
 
 	View *view = new View(elements);

@@ -5,11 +5,11 @@
 
 class View {
 public:
-	View(std::list<Element> textures);
+	View(std::list<Element> elements);
 	~View();
 	std::list<Element> getList();
 private:
-	std::list<Element> textures;
+	std::list<Element> elements;
 };
 
 #endif /* SRC_VIEW_VIEW_H_ */

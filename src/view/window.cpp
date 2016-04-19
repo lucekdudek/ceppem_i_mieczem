@@ -8,12 +8,12 @@ Window::Window() {
 	// TODO Auto-generated constructor stub
 	init(1280, 720, (char *) "Tytuł okna");
 
-	textures = new unsigned int[3];
+	/*textures = new unsigned int[3];
 	textures[0] = loadGLTexture((char *) "../data/mainmenu/background.png");
-	textures[1] = loadGLTexture((char *) "../data/mainmenu/backgroundText.png");
+	textures[1] = loadGLTexture((char *) "../data/mainmenu/backgroundText.png");*/
 
 	TTF_Font *fontArial = loadFont((char *) "arial.ttf", 50);
-	textures[2] = renderText((char *) "hello world", fontArial);
+	//textures[2] = renderText((char *) "hello world", fontArial);
 
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
@@ -125,12 +125,12 @@ void Window::eventLoop() {
 	}   // End while
 }
 
-int Window::loadGLTexture(string fileName) {
+int Window::loadGLTexture(char* fileName) {
 	unsigned int textureId;
 	SDL_Surface *textureImage;
-	textureImage = IMG_Load(fileName.c_str());
+	textureImage = IMG_Load(fileName);
 	if (!textureImage) {
-		fprintf(stderr, "Couldn't load %s.\n", fileName.c_str());
+		fprintf(stderr, "Couldn't load %s.\n", fileName);
 		return 0;
 	} else {
 
@@ -245,22 +245,4 @@ void Window::renderFrame() {
 
 void Window::setView(View* view){
 	this->view=view;
-
-    std::list<Element> el=this->view->getList();
-    /*for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++){
-    	std::cout<<((Element)(*it)).x<<"\n";
-    }*/
-
-
-
-	//std::list<Element> el=this->view->getList();
-	/*for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++){
-		Element e= ((Element)(*it));
-
-		std::list<unsigned int> tex=e.getTextures();
-
-		for (std::list<unsigned int>::iterator it2 = tex.begin(); it2 != tex.end(); it2++){
-			std::cout<<(*it2)<<std::endl;
-		}
-	}*/
 }

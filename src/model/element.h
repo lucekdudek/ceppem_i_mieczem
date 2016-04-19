@@ -16,6 +16,7 @@ public:
 	void setOnClick();
 	void setOnHover();
 	list<Texture> getTextures();
+	void loadTextures();
 	int x;
 	int y;
 	int width;

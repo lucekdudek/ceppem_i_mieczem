@@ -30,3 +30,12 @@ void Element::setOnHover() {
 list<Texture> Element::getTextures() {
 		return textures;
 }
+
+void Element::loadTextures(){
+	for(auto i = textures.begin(); i != textures.end();){
+		auto tmpElem = *i;
+		i = textures.erase(i);
+		tmpElem.loadTexture();
+		textures.insert(i,tmpElem);
+	}
+}

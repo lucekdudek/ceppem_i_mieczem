@@ -18,7 +18,7 @@ Controller::~Controller()
 
 void Controller::event(std::string event_name)
 {
-
+	std::cout<<event_name<<std::endl;
 }
 
 void Controller::run()

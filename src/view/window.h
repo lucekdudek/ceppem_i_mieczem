@@ -19,7 +19,7 @@ public:
 
     void eventLoop();
     void drawImage(int x, int y, int textureId, int width = 0, int height = 0);
-    static int loadGLTexture(string fileName);
+    static int loadGLTexture(char* fileName);
     TTF_Font *loadFont(char *fileName, int fontSize);
     int renderText(char *text, TTF_Font *text_font);
     void renderFrame();
