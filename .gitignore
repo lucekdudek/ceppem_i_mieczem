@@ -6,5 +6,5 @@
 /bin/*.dll
 .idea/
 CMakeLists.txt
-compilation.log
+scripts/compilation.log
 list_of_files.txt
