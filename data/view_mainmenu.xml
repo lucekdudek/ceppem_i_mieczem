@@ -17,7 +17,7 @@
         <y>500</y>
         <width>240</width>
         <height>170</height>
-        <onclick>newGame</onclick>
+        <onclick>NEW_GAME</onclick>
         <textures>
             <texture x="0" y="0" width="240" height="170">mainmenu/button.png</texture>
             <text>{newGame}</text>
@@ -29,7 +29,7 @@
         <y>500</y>
         <width>240</width>
         <height>170</height>
-        <onclick>exitGame</onclick>
+        <onclick>EXIT_GAME</onclick>
         <textures>
             <texture x="-10" y="-10" width="260" height="190">mainmenu/focus.png</texture>
             <texture x="0" y="0" width="240" height="170">mainmenu/button.png</texture>
