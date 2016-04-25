@@ -3,6 +3,22 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <SDL2/SDL_version.h>
+#include <SDL2/SDL_syswm.h>
+
+void setWindowsIcon(SDL_Window *sdlWindow) {
+    HINSTANCE handle = ::GetModuleHandle(nullptr);
+    HICON icon = ::LoadIcon(handle, "IDI_MAIN_ICON");
+    if(icon != nullptr){
+        SDL_SysWMinfo wminfo;
+        SDL_VERSION(&wminfo.version);
+        if(SDL_GetWindowWMInfo(sdlWindow,&wminfo) == 1){
+            HWND hwnd = wminfo.info.win.window;
+            ::SetClassLong(hwnd, GCL_HICON, reinterpret_cast<LONG>(icon));
+            SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)icon);
+        }
+    }
+}
 
 Window::Window() {
 	// TODO Auto-generated constructor stub
@@ -54,7 +70,7 @@ void Window::initSDL(Uint32 width, Uint32 height, char *title, Uint32 flags) {
 	mainWindow = SDL_CreateWindow(title,
 	SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 	mainGLContext = SDL_GL_CreateContext(mainWindow);
-
+	setWindowsIcon(mainWindow);
 }
 
 void Window::createOrthoProj(int width, int height) {
@@ -86,10 +102,8 @@ void Window::eventLoop() {
 			cx = ((cx * w) / cw);
 			cy = ((cy * h) / ch);
 
-			SDL_GetCurrentDisplayMode(0, &this->current);
-
 			if (clickmap[cx][cy] > -1) {
-				std::cout << buttons[clickmap[cx][cy]] << std::endl;
+				Controller::event(buttons[clickmap[cx][cy]]);
 			}
 			break;
 
@@ -205,6 +219,7 @@ void Window::drawImage(int x, int y, int textureId, int width, int height) {
 void Window::renderFrame() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	//glColor3f(0.7, 0.5, 0.8);
+	//glColor4f(1.0f,1.0f,1.0f,0.5f);//set opacity
 
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
@@ -261,14 +276,12 @@ void Window::toggleFullscreen() {
 	if (SDL_GetWindowFlags(mainWindow) & SDL_WINDOW_FULLSCREEN_DESKTOP) {
 		glViewport(0, 0, 1280, 720);
 		createOrthoProj(1280.0, 720.0);
-		SDL_SetWindowSize(mainWindow, 1280, 720);
 		SDL_SetWindowFullscreen(mainWindow, 0);
 	} else {
 		glViewport(0, (this->current.h - this->current.w / 16.0 * 9.0) / 2.0,
 				this->current.w, this->current.w / 16.0 * 9.0);
 		//glViewport(0, 0, 1920, 1080);
 		createOrthoProj(1280.0, 720.0);
-		SDL_SetWindowSize(mainWindow, 1920, 1080);
 		SDL_SetWindowFullscreen(mainWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	}
 }
