@@ -22,11 +22,12 @@ public:
     void drawImage(int x, int y, int textureId, int width = 0, int height = 0);
     static int loadGLTexture(char* fileName);
     TTF_Font *loadFont(char *fileName, int fontSize);
-    int renderText(char *text, TTF_Font *text_font);
+    static int renderText(char *text, int &w, int &h, TTF_Font *text_font);
     void renderFrame();
 
     void setView(View* view);
     void toggleFullscreen();
+    static TTF_Font *font;
 private:
     View* view;
     char** clickmap;
@@ -44,7 +45,5 @@ private:
     void createOrthoProj(int width, int height);
     SDL_DisplayMode current;
 };
-
-const int MAX_FPS = 60;
 
 #endif /* WINDOW_H_ */

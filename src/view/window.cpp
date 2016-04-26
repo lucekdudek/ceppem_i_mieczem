@@ -6,6 +6,8 @@
 #include <SDL2/SDL_version.h>
 #include <SDL2/SDL_syswm.h>
 
+TTF_Font *Window::font;
+
 void setWindowsIcon(SDL_Window *sdlWindow) {
     HINSTANCE handle = ::GetModuleHandle(nullptr);
     HICON icon = ::LoadIcon(handle, "IDI_MAIN_ICON");
@@ -24,13 +26,12 @@ Window::Window() {
 	// TODO Auto-generated constructor stub
 	init(1280, 720, (char *) "Tytuł okna");
 
-	TTF_Font *fontArial = loadFont((char *) "arial.ttf", 50);
-
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
 
 	SDL_GetCurrentDisplayMode(0, &this->current);
 	printf("Screen size: %ix%i.\n", this->current.w, this->current.h);
+    Window::font = loadFont((char *) "arial.ttf", 50);
 }
 
 Window::~Window() {
@@ -175,11 +176,13 @@ TTF_Font *Window::loadFont(char *fileName, int fontSize) {
 	return text_font;
 }
 
-int Window::renderText(char *text, TTF_Font *text_font) {
+int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font) {
 	SDL_Color textColor = { 128, 0, 0 };
 
-	SDL_Surface *sdl_surface = TTF_RenderText_Blended(text_font, text,
+	SDL_Surface *sdl_surface = TTF_RenderText_Blended(Window::font, text,
 			textColor);
+	w=sdl_surface->w;
+	h=sdl_surface->h;
 	if (sdl_surface == NULL) {
 		printf("Unable to render text surface! SDL_ttf Error: %s\n",
 		TTF_GetError());
