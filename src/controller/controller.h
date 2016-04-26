@@ -21,6 +21,7 @@ private:
     static void startNewGame();
     static void mainMenuEvent(std::string event_name);
     static void newGameEvent(std::string event_name);
+    static void settingsEvent(std::string event_name);
     inline static void changeView(std::string view);
 
 };
