@@ -7,10 +7,10 @@ Model::~Model() {
 
 }
 
-View *Model::getXml() {
+View *Model::getXml(std::string file_name) {
 	std::list<Element> elements;
 	rapidxml::xml_document<> doc;
-	parseXml(doc, "view_mainmenu.xml");
+	parseXml(doc, file_name + ".xml");
 
 	std::string str = "../data/";
 	std::string temp;
