@@ -29,7 +29,7 @@ public:
 
 private:
     void parseXml(rapidxml::xml_document<> &doc, std::string xmlName);
-
+    TTF_Font *fontArial;
 };
 
 #endif //CEPPEM_I_MIECZEM_MODEL_H

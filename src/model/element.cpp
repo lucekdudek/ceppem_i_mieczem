@@ -14,8 +14,8 @@ Element::~Element() {
 }
 
 void Element::addTexture(Texture texture) {
-	texture.x+=this->x;
-	texture.y+=this->y;
+	texture.x += this->x;
+	texture.y += this->y;
 	textures.push_back(texture);
 }
 
@@ -36,14 +36,23 @@ void Element::setOnHover() {
 }
 
 std::list<Texture> Element::getTextures() {
-		return textures;
+	return textures;
 }
 
-void Element::loadTextures(){
-	for(auto i = textures.begin(); i != textures.end();){
+void Element::loadTextures() {
+	for (auto i = textures.begin(); i != textures.end();) {
+		auto &tmpElem = *i;
+		i = textures.erase(i);
+		tmpElem.load();
+		textures.insert(i, tmpElem);
+	}
+}
+
+void Element::removeTextures() {
+	for (auto i = textures.begin(); i != textures.end();) {
 		auto tmpElem = *i;
 		i = textures.erase(i);
-		tmpElem.loadTexture();
-		textures.insert(i,tmpElem);
+		tmpElem.remove();
+		textures.insert(i, tmpElem);
 	}
 }

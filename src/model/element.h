@@ -16,6 +16,7 @@ public:
 	void setOnHover();
 	std::list<Texture> getTextures();
 	void loadTextures();
+	void removeTextures();
 	bool clickable();
 	int x;
 	int y;

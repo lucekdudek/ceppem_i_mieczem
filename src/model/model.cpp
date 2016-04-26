@@ -1,10 +1,11 @@
 #include "model.h"
 
 Model::Model() {
+	fontArial = Window::loadFont((char *) "arial.ttf", 50);
 }
 
 Model::~Model() {
-
+	delete fontArial;
 }
 
 View *Model::getXml() {
@@ -29,7 +30,6 @@ View *Model::getXml() {
 		}
 
 		//load textures into list
-		std::list<Texture> tex = el.getTextures();
 		for (rapidxml::xml_node<> *textures =
 				child->first_node("textures")->first_node(); textures;
 				textures = textures->next_sibling()) {
@@ -44,6 +44,17 @@ View *Model::getXml() {
 				int height = atoi(textures->first_attribute("height")->value());
 				//load textures into opengl and add it to Element
 				el.addTexture(Texture(x, y, width, height, buffer));
+			}else if (strcmp(textures->name(), "text") == 0) {
+				temp = std::string(textures->value());
+				temp.copy(buffer, temp.length(), 0);
+				buffer[temp.length()] = '\0';
+
+				int x = atoi(textures->first_attribute("x")->value());
+				int y = atoi(textures->first_attribute("y")->value());
+				int width = atoi(textures->first_attribute("width")->value());
+				int height = atoi(textures->first_attribute("height")->value());
+				//load textures into opengl and add it to Element
+				el.addTexture(Texture(x, y, width, height, buffer, fontArial));
 			}
 		}
 

@@ -85,6 +85,7 @@ void Controller::changeView(std::string view)
 {
     std::cout<<"changed view to: "<<std::setw(10)<<view<<std::endl;
     current_view = view;
+    //model.getXml();
     window.setView(model.getXml());
 }
 

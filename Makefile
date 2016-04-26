@@ -7,6 +7,7 @@ OBJS = $(wildcard src/*.cpp src/*.h src/*/*.cpp src/*/*.h src/*/*.hpp)
 
 #CC specifies which compiler we're using
 CC = g++
+WINDRES = windres.exe
 
 #COMPILER_FLAGS specifies the additional compilation options we're using
 # -w suppresses all warnings
@@ -20,5 +21,9 @@ LINKER_FLAGS = -lmingw32 -lopengl32 -lSDL2_ttf -lSDL2_image -lSDL2main -lSDL2 -s
 OBJ_NAME = bin\ceppem.exe
 
 #This is the target that compiles our executable
-all : $(OBJS)
-	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+all : res/resources.res
+	$(CC) $(OBJS) res/resources.res $(LINKER_FLAGS) -o $(OBJ_NAME)
+	echo All done
+	
+res/resources.res: res/resources.rc
+	$(WINDRES) --input=res/resources.rc --input-format=rc --output=res/resources.res --output-format=coff

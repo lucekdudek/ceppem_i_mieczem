@@ -6,6 +6,7 @@
 #include <SDL2/SDL_version.h>
 #include <SDL2/SDL_syswm.h>
 
+TTF_Font *Window::fontArial;
 void setWindowsIcon(SDL_Window *sdlWindow) {
     HINSTANCE handle = ::GetModuleHandle(nullptr);
     HICON icon = ::LoadIcon(handle, "IDI_MAIN_ICON");
@@ -24,17 +25,21 @@ Window::Window() {
 	// TODO Auto-generated constructor stub
 	init(1280, 720, (char *) "Tytuł okna");
 
-	TTF_Font *fontArial = loadFont((char *) "arial.ttf", 50);
-
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
 
 	SDL_GetCurrentDisplayMode(0, &this->current);
 	printf("Screen size: %ix%i.\n", this->current.w, this->current.h);
+	Window::fontArial = Window::loadFont((char *) "arial.ttf", 50);
 }
 
 Window::~Window() {
 	// TODO Auto-generated destructor stub
+	if(this->view != 0){//remove view if is set
+		delete this->view;
+		this->view = 0;
+	}
+
 	SDL_GL_DeleteContext(mainGLContext);
 	SDL_DestroyWindow(mainWindow);
 	SDL_Quit();
@@ -166,24 +171,27 @@ int Window::loadGLTexture(char* fileName) {
 	}
 }
 
+void Window::removeGLTexture(unsigned int textureId){
+	glDeleteTextures(1, &textureId);
+}
+
 TTF_Font *Window::loadFont(char *fileName, int fontSize) {
-	TTF_Font *text_font = TTF_OpenFont("arial.ttf", 50);
-	if (text_font == NULL) {
+	TTF_Font *text_font = TTF_OpenFont(fileName, fontSize);
+	if (text_font == 0) {
 		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
 		return 0;
 	}
 	return text_font;
 }
 
-int Window::renderText(char *text, TTF_Font *text_font) {
-	SDL_Color textColor = { 128, 0, 0 };
+Text Window::renderText(char *text, TTF_Font *text_font) {
+	SDL_Color textColor{ 128, 0, 0 };
 
-	SDL_Surface *sdl_surface = TTF_RenderText_Blended(text_font, text,
-			textColor);
+	SDL_Surface *sdl_surface = TTF_RenderText_Blended(text_font, text, textColor);
 	if (sdl_surface == NULL) {
 		printf("Unable to render text surface! SDL_ttf Error: %s\n",
 		TTF_GetError());
-		return 0;
+		return Text{0,0,0};
 	}
 
 	GLuint texture_id;
@@ -198,7 +206,7 @@ int Window::renderText(char *text, TTF_Font *text_font) {
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sdl_surface->w, sdl_surface->h, 0,
 	GL_BGRA, GL_UNSIGNED_BYTE, sdl_surface->pixels);
 
-	return texture_id;
+	return Text{texture_id,sdl_surface->w,sdl_surface->h};
 }
 
 void Window::drawImage(int x, int y, int textureId, int width, int height) {
@@ -248,6 +256,10 @@ void Window::renderFrame() {
 }
 
 void Window::setView(View* view) {
+	if(this->view != 0){
+		delete this->view;
+		this->view = 0;
+	}
 	this->view = view;
 
 	for (int i = 0; i < w; i++) {

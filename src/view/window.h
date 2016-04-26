@@ -6,6 +6,7 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include "view.h"
+#include "text.h"
 #include <vector>
 
 class Window {
@@ -21,12 +22,15 @@ public:
     void eventLoop();
     void drawImage(int x, int y, int textureId, int width = 0, int height = 0);
     static int loadGLTexture(char* fileName);
-    TTF_Font *loadFont(char *fileName, int fontSize);
-    int renderText(char *text, TTF_Font *text_font);
+    static void removeGLTexture(unsigned int textureId);
+    static Text renderText(char *text, TTF_Font *text_font);
+    static TTF_Font *loadFont(char *fileName, int fontSize);
     void renderFrame();
 
     void setView(View* view);
     void toggleFullscreen();
+    static TTF_Font *fontArial;
+    static int asdf;
 private:
     View* view;
     char** clickmap;
