@@ -23,7 +23,7 @@ public:
     Model();
     ~Model();
 
-    View *getXml();
+    View *getXml(std::string file_name);
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
     int loadGLTexture(std::string fileName);
 
