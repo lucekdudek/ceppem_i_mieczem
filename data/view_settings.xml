@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+    <!-- mainmenuBackground -->
+    <element>
+        <x>0</x>
+        <y>0</y>
+        <width>1280</width>
+        <height>720</height>
+        <textures>
+            <texture x="0" y="0" width="1280" height="720">mainmenu/background.png</texture>
+            <texture x="100" y="100" width="394" height="198">mainmenu/backgroundText.png</texture>
+        </textures>
+    </element>
+    <!-- label -->
+    <element>
+        <x>540</x>
+        <y>50</y>
+        <width>240</width>
+        <height>170</height>
+        <textures>
+            <text x="0" y="0" width="200" height="90">{chooseLang}</text>
+        </textures>
+    </element>
+	<!-- polish -->
+    <element>
+        <x>590</x>
+        <y>180</y>
+        <width>150</width>
+        <height>90</height>
+        <onclick>LANGUAGE_pl</onclick>
+        <textures>
+            <texture x="-5" y="-5" width="160" height="100">settings/focus.png</texture>
+            <texture x="0" y="0" width="150" height="90">settings/pl.png</texture>
+        </textures>
+    </element>
+	<!-- english -->
+    <element>
+        <x>590</x>
+        <y>310</y>
+        <width>150</width>
+        <height>90</height>
+        <onclick>LANGUAGE_en</onclick>
+        <textures>
+            <texture x="-5" y="-5" width="160" height="100">settings/focus.png</texture>
+            <texture x="0" y="0" width="150" height="90">settings/en.png</texture>
+        </textures>
+    </element>
+    <!-- German -->
+    <element>
+        <x>590</x>
+        <y>440</y>
+        <width>150</width>
+        <height>90</height>
+        <onclick>LANGUAGE_de</onclick>
+        <textures>
+            <texture x="-5" y="-5" width="160" height="100">settings/focus.png</texture>
+            <texture x="0" y="0" width="150" height="90">settings/de.png</texture>
+        </textures>
+    </element>
+    <!-- back -->
+    <element>
+        <x>55</x>
+        <y>580</y>
+        <width>240</width>
+        <height>90</height>
+        <onclick>BACK</onclick>
+        <textures>
+            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+            <text x="0" y="0" width="240" height="90">{back}</text>
+        </textures>
+    </element>
+</view>

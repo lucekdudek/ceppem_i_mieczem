@@ -1,29 +1,32 @@
 #ifndef SRC_VIEW_ELEMENT_H_
 #define SRC_VIEW_ELEMENT_H_
 
+#include "../view/texture.h"
 #include <list>
 #include <string>
-
-using namespace std;
 
 class Element {
 public:
 	Element(int x, int y, int width=0, int height=0);
 	~Element();
 
-	void addTexture(unsigned int id);
-	void setOnClick();
+	void addTexture(Texture texture);
+	void setOnClick(std::string onclick);
+	std::string getOnClick();
 	void setOnHover();
-	list<unsigned int> getTextures();
-private:
-	list<unsigned int> textures;
+	std::list<Texture> getTextures();
+	void loadTextures();
+	bool clickable();
 	int x;
 	int y;
 	int width;
 	int height;
-	string text;
+private:
+	std::list<Texture> textures;
+	std::string text;
 
 	bool isClickable;
+	std::string onclick;
 };
 
 #endif /* SRC_VIEW_ELEMENT_H_ */

@@ -1,5 +1,7 @@
 @echo off
 echo Kompilowanie
 set PATH=%PATH%;c:\MinGW\bin
-g++ src\*\*.h src\*\*.cpp src\main.cpp -o bin\ceppem.exe -lmingw32 -lopengl32 -lSDL2_ttf -lSDL2_image -lSDL2main -lSDL2 -static-libgcc -static-libstdc++ > compilation.log 2>&1
+
+mingw32-make 2> error.log
+type error.log
 pause

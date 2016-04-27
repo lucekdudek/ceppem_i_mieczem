@@ -1,33 +1,37 @@
 #include "window.h"
-
+#include "../controller/controller.h"
 #include <stdio.h>
+#include <iostream>
+#include <string>
+#include <SDL2/SDL_version.h>
+#include <SDL2/SDL_syswm.h>
+
+TTF_Font *Window::font;
+
+void setWindowsIcon(SDL_Window *sdlWindow) {
+    HINSTANCE handle = ::GetModuleHandle(nullptr);
+    HICON icon = ::LoadIcon(handle, "IDI_MAIN_ICON");
+    if(icon != nullptr){
+        SDL_SysWMinfo wminfo;
+        SDL_VERSION(&wminfo.version);
+        if(SDL_GetWindowWMInfo(sdlWindow,&wminfo) == 1){
+            HWND hwnd = wminfo.info.win.window;
+            ::SetClassLong(hwnd, GCL_HICON, reinterpret_cast<LONG>(icon));
+            SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)icon);
+        }
+    }
+}
 
 Window::Window() {
 	// TODO Auto-generated constructor stub
 	init(1280, 720, (char *) "Tytuł okna");
 
-	textures = new unsigned int[3];
-	textures[0] = loadGLTexture((char *) "texture.png");
-	textures[1] = loadGLTexture((char *) "png.png");
-
-	TTF_Font *fontArial = loadFont((char *) "arial.ttf", 50);
-	textures[2] = renderText((char *) "hello world", fontArial);
-
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
 
-	while (!done) {
-		previousTime = SDL_GetTicks();
-		eventLoop();
-		renderFrame();
-		currentTime = SDL_GetTicks();
-
-		int value = 1000 / MAX_FPS - (currentTime - previousTime);
-
-		if (value > 0) {
-			SDL_Delay(value);
-		}
-	}
+	SDL_GetCurrentDisplayMode(0, &this->current);
+	printf("Screen size: %ix%i.\n", this->current.w, this->current.h);
+    Window::font = loadFont((char *) "arial.ttf", 50);
 }
 
 Window::~Window() {
@@ -41,6 +45,11 @@ void Window::init(int width, int height, char *title) {
 	done = false;
 	w = width;
 	h = height;
+
+	clickmap = new char*[width];
+	for (int i = 0; i < width; ++i)
+		clickmap[i] = new char[height];
+
 	// Create window.
 	initSDL(width, height, title, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 	createOrthoProj(width, height);
@@ -62,7 +71,7 @@ void Window::initSDL(Uint32 width, Uint32 height, char *title, Uint32 flags) {
 	mainWindow = SDL_CreateWindow(title,
 	SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 	mainGLContext = SDL_GL_CreateContext(mainWindow);
-
+	setWindowsIcon(mainWindow);
 }
 
 void Window::createOrthoProj(int width, int height) {
@@ -77,44 +86,35 @@ void Window::eventLoop() {
 	SDL_Event event;
 
 	while (SDL_PollEvent(&event)) {
-		int x, y, w, h;
+		int cx, cy, cw, ch; //current mouse position
 		switch (event.type) {
 		case SDL_KEYDOWN:
 			// Quit when user presses a key.
-			done = true;
+			//Controller::setDone();
 			break;
 
 		case SDL_QUIT:
-			done = true;
+			Controller::setDone();
 			break;
 
 		case SDL_MOUSEBUTTONDOWN:
-			SDL_GetMouseState(&x, &y);
-			w = 616;
-			h = 409;
-			if (x > (640 - w / 2) && x < (640 + w / 2) && y > (360 - h / 2)
-					&& y < (360 + h / 2)) {
-				if (SDL_GetWindowFlags(mainWindow)
-						& SDL_WINDOW_FULLSCREEN_DESKTOP) {
-					glViewport(0, 0, 1280, 720);
-					createOrthoProj(1280.0, 720.0);
-					SDL_SetWindowFullscreen(mainWindow, 0);
-				} else {
-					glViewport(0, 0, 1920, 1080);
-					createOrthoProj(1920.0, 1080.0);
-					SDL_SetWindowFullscreen(mainWindow,
-							SDL_WINDOW_FULLSCREEN_DESKTOP);
-				}
+			SDL_GetMouseState(&cx, &cy);
+			SDL_GetWindowSize(mainWindow, &cw, &ch);
+			cx = ((cx * w) / cw);
+			cy = ((cy * h) / ch);
+
+			if (clickmap[cx][cy] > -1) {
+				Controller::event(buttons[clickmap[cx][cy]]);
 			}
 			break;
 
 		case SDL_MOUSEMOTION:
-			SDL_GetMouseState(&x, &y);
-			//fprintf(stdout, "MOUSE x:%i y:%i\n", x, y);
-			w = 616;
-			h = 409;
-			if (x > (640 - w / 2) && x < (640 + w / 2) && y > (360 - h / 2)
-					&& y < (360 + h / 2))
+			SDL_GetMouseState(&cx, &cy);
+			SDL_GetWindowSize(mainWindow, &cw, &ch);
+			cx = ((cx * w) / cw);
+			cy = ((cy * h) / ch);
+			//fprintf(stdout, "MOUSE x:%i y:%i\n", cx, cy);break;
+			if (clickmap[cx][cy] > -1)
 				SDL_SetCursor(cursor2);
 			else
 				SDL_SetCursor(cursor1);
@@ -127,7 +127,7 @@ void Window::eventLoop() {
 	}   // End while
 }
 
-int Window::loadGLTexture(char *fileName) {
+int Window::loadGLTexture(char* fileName) {
 	unsigned int textureId;
 	SDL_Surface *textureImage;
 	textureImage = IMG_Load(fileName);
@@ -176,14 +176,16 @@ TTF_Font *Window::loadFont(char *fileName, int fontSize) {
 	return text_font;
 }
 
-int Window::renderText(char *text, TTF_Font *text_font) {
+int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font) {
 	SDL_Color textColor = { 128, 0, 0 };
 
-	SDL_Surface *sdl_surface = TTF_RenderText_Blended(text_font, text,
+	SDL_Surface *sdl_surface = TTF_RenderText_Blended(Window::font, text,
 			textColor);
+	w=sdl_surface->w;
+	h=sdl_surface->h;
 	if (sdl_surface == NULL) {
 		printf("Unable to render text surface! SDL_ttf Error: %s\n",
-				TTF_GetError());
+		TTF_GetError());
 		return 0;
 	}
 
@@ -197,7 +199,7 @@ int Window::renderText(char *text, TTF_Font *text_font) {
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sdl_surface->w, sdl_surface->h, 0,
-			GL_BGRA, GL_UNSIGNED_BYTE, sdl_surface->pixels);
+	GL_BGRA, GL_UNSIGNED_BYTE, sdl_surface->pixels);
 
 	return texture_id;
 }
@@ -220,6 +222,7 @@ void Window::drawImage(int x, int y, int textureId, int width, int height) {
 void Window::renderFrame() {
 	glClear(GL_COLOR_BUFFER_BIT);
 	//glColor3f(0.7, 0.5, 0.8);
+	//glColor4f(1.0f,1.0f,1.0f,0.5f);//set opacity
 
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_BLEND);
@@ -231,11 +234,57 @@ void Window::renderFrame() {
 	int X = (1280 - Width) / 2;
 	int Y = (720 - Height) / 2;
 
-	drawImage(X, Y, textures[0], Width, Height);
-	drawImage(X, Y, textures[1], 800, 600);
-	drawImage(X, Y, textures[2], 242, 57);
+	std::list<Element> el = this->view->getList();
+	for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++) {
+		Element e = ((Element) (*it));
+		std::list<Texture> tex = e.getTextures();
+
+		for (std::list<Texture>::iterator it2 = tex.begin(); it2 != tex.end();
+				it2++) {
+			drawImage((*it2).x, (*it2).y, (*it2).id, (*it2).width,
+					(*it2).height);
+		}
+	}
 
 	//glRecti(50, 100, 200, 300);
 	SDL_GL_SwapWindow(mainWindow);
 }
 
+void Window::setView(View* view) {
+	this->view = view;
+
+	for (int i = 0; i < w; i++) {
+		for (int j = 0; j < h; j++) {
+			clickmap[i][j] = -1;
+		}
+	}
+
+	buttons.clear();
+
+	std::list<Element> el = this->view->getList();
+	for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++) {
+		Element e = ((Element) (*it));
+
+		if (e.clickable()) {
+			for (int i = e.x; i < (e.width + e.x); i++) {
+				for (int j = e.y; j < (e.height + e.y); j++) {
+					clickmap[i][j] = buttons.size();
+				}
+			}
+			buttons.push_back(e.getOnClick());
+		}
+	}
+}
+void Window::toggleFullscreen() {
+	if (SDL_GetWindowFlags(mainWindow) & SDL_WINDOW_FULLSCREEN_DESKTOP) {
+		glViewport(0, 0, 1280, 720);
+		createOrthoProj(1280.0, 720.0);
+		SDL_SetWindowFullscreen(mainWindow, 0);
+	} else {
+		glViewport(0, (this->current.h - this->current.w / 16.0 * 9.0) / 2.0,
+				this->current.w, this->current.w / 16.0 * 9.0);
+		//glViewport(0, 0, 1920, 1080);
+		createOrthoProj(1280.0, 720.0);
+		SDL_SetWindowFullscreen(mainWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	}
+}
