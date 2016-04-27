@@ -51,7 +51,7 @@ void Window::init(int width, int height, char *title) {
 		clickmap[i] = new char[height];
 
 	// Create window.
-	initSDL(width, height, title, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+	initSDL(width, height, title, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 	createOrthoProj(width, height);
 }
 
@@ -70,6 +70,8 @@ void Window::initSDL(Uint32 width, Uint32 height, char *title, Uint32 flags) {
 	// Create the window
 	mainWindow = SDL_CreateWindow(title,
 	SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+	SDL_SetWindowMinimumSize(mainWindow,1280,720);
+	SDL_SetWindowMaximumSize(mainWindow,1280,720);
 	mainGLContext = SDL_GL_CreateContext(mainWindow);
 	setWindowsIcon(mainWindow);
 }
@@ -119,7 +121,13 @@ void Window::eventLoop() {
 			else
 				SDL_SetCursor(cursor1);
 			break;
-
+		case SDL_WINDOWEVENT:
+			switch (event.window.event) {
+				case SDL_WINDOWEVENT_MAXIMIZED:
+					Window::toggleFullscreen();
+					break;
+			}
+			break;
 		default:
 			break;
 		}   // End switch
@@ -181,8 +189,8 @@ int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font) {
 
 	SDL_Surface *sdl_surface = TTF_RenderText_Blended(Window::font, text,
 			textColor);
-	w=sdl_surface->w;
-	h=sdl_surface->h;
+	w=(sdl_surface->w*1280)/1920;
+	h=(sdl_surface->h*1280)/1920;
 	if (sdl_surface == NULL) {
 		printf("Unable to render text surface! SDL_ttf Error: %s\n",
 		TTF_GetError());
