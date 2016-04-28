@@ -2,9 +2,10 @@
 /.settings/
 .cproject
 .project
-/bin/ceppem.exe
+*.exe
 /bin/*.dll
 .idea/
 CMakeLists.txt
 scripts/list_of_files.txt
 error.log
+/res/*.res
