@@ -56,7 +56,6 @@ std::list<Texture> Element::getTextures() {
 void Element::loadTextures() {
 	if(this->onhover!=NULL){
 		this->onhover->loadTexture();
-		std::cout<<"----load"<<std::endl;
 	}
 	for (auto i = textures.begin(); i != textures.end();) {
 		auto tmpElem = *i;

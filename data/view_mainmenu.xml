@@ -31,7 +31,6 @@
         <height>90</height>
         <onclick>SETTINGS</onclick>
         <textures>
-            <texture x="0" y="0" width="240" height="90">mainmenu/focus.png</texture>
             <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
             <text x="0" y="0" width="240" height="90">{settings}</text>
         </textures>
@@ -44,7 +43,6 @@
         <height>90</height>
         <onclick>EXIT_GAME</onclick>
         <textures>
-            <texture x="-10" y="-10" width="260" height="110">mainmenu/focus.png</texture>
             <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
             <text x="0" y="0" width="240" height="90">{exitGame}</text>
         </textures>
