@@ -23,6 +23,7 @@ void setWindowsIcon(SDL_Window *sdlWindow) {
 }
 
 Window::Window() {
+	hovered = NULL;
 	// TODO Auto-generated constructor stub
 	init(1280, 720, (char *) "Tytuł okna");
 
@@ -116,10 +117,13 @@ void Window::eventLoop() {
 			cx = ((cx * w) / cw);
 			cy = ((cy * h) / ch);
 			//fprintf(stdout, "MOUSE x:%i y:%i\n", cx, cy);break;
-			if (clickmap[cx][cy] > -1)
+			if (clickmap[cx][cy] > -1){
 				SDL_SetCursor(cursor2);
-			else
+				hovered = buttonsElements[clickmap[cx][cy]].getOnHover();
+			}else{
 				SDL_SetCursor(cursor1);
+				hovered = NULL;
+			}
 			break;
 		case SDL_WINDOWEVENT:
 			switch (event.window.event) {
@@ -254,6 +258,10 @@ void Window::renderFrame() {
 		}
 	}
 
+	if(hovered!=NULL){
+		drawImage(hovered->x, hovered->y, hovered->id, hovered->width,hovered->height);
+	}
+
 	//glRecti(50, 100, 200, 300);
 	SDL_GL_SwapWindow(mainWindow);
 }
@@ -268,18 +276,20 @@ void Window::setView(View* view) {
 	}
 
 	buttons.clear();
+	buttonsElements.clear();
 
 	std::list<Element> el = this->view->getList();
 	for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++) {
 		Element e = ((Element) (*it));
 
 		if (e.clickable()) {
-			for (int i = e.x; i < (e.width + e.x); i++) {
-				for (int j = e.y; j < (e.height + e.y); j++) {
+			for (int i = e.getX(); i < (e.getWidth() + e.getX()); i++) {
+				for (int j = e.getY(); j < (e.getHeight() + e.getY()); j++) {
 					clickmap[i][j] = buttons.size();
 				}
 			}
 			buttons.push_back(e.getOnClick());
+			buttonsElements.push_back(e);
 		}
 	}
 }

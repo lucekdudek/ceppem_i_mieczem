@@ -32,6 +32,7 @@ private:
     View* view;
     char** clickmap;
     std::vector<std::string> buttons;
+    std::vector<Element> buttonsElements;
 
     SDL_Cursor *cursor1;
     SDL_Cursor *cursor2;
@@ -44,6 +45,8 @@ private:
     static Uint32 gameLoopTimer(Uint32 interval, void *param);
     void createOrthoProj(int width, int height);
     SDL_DisplayMode current;
+
+    Texture* hovered;
 };
 
 #endif /* WINDOW_H_ */

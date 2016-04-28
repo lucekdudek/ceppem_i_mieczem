@@ -28,8 +28,9 @@
         <width>150</width>
         <height>90</height>
         <onclick>LANGUAGE_pl</onclick>
+		<onhover x="0" y="0" width="150" height="90">settings/focus.png</onhover>
         <textures>
-            <texture x="-5" y="-5" width="160" height="100">settings/focus.png</texture>
+            <texture x="-5" y="-5" width="160" height="100">settings/background.png</texture>
             <texture x="0" y="0" width="150" height="90">settings/pl.png</texture>
         </textures>
     </element>
@@ -40,8 +41,9 @@
         <width>150</width>
         <height>90</height>
         <onclick>LANGUAGE_en</onclick>
+		<onhover x="0" y="0" width="150" height="90">settings/focus.png</onhover>
         <textures>
-            <texture x="-5" y="-5" width="160" height="100">settings/focus.png</texture>
+            <texture x="-5" y="-5" width="160" height="100">settings/background.png</texture>
             <texture x="0" y="0" width="150" height="90">settings/en.png</texture>
         </textures>
     </element>
@@ -52,8 +54,9 @@
         <width>150</width>
         <height>90</height>
         <onclick>LANGUAGE_de</onclick>
+		<onhover x="0" y="0" width="150" height="90">settings/focus.png</onhover>
         <textures>
-            <texture x="-5" y="-5" width="160" height="100">settings/focus.png</texture>
+            <texture x="-5" y="-5" width="160" height="100">settings/background.png</texture>
             <texture x="0" y="0" width="150" height="90">settings/de.png</texture>
         </textures>
     </element>

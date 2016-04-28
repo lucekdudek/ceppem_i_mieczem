@@ -13,20 +13,61 @@ public:
 	void addTexture(Texture texture);
 	void setOnClick(std::string onclick);
 	std::string getOnClick();
-	void setOnHover();
+	void setOnHover(Texture* t);
+	Texture* getOnHover();
 	std::list<Texture> getTextures();
 	void loadTextures();
 	bool clickable();
-	int x;
-	int y;
-	int width;
-	int height;
+
+	int getHeight() const {
+		return height;
+	}
+
+	int getWidth() const {
+		return width;
+	}
+
+	int getX() const {
+		return x;
+	}
+
+	int getY() const {
+		return y;
+	}
+
+	int getHheight() const {
+		return hheight;
+	}
+
+	int getHwidth() const {
+		return hwidth;
+	}
+
+	int getHx() const {
+		return hx;
+	}
+
+	int getHy() const {
+		return hy;
+	}
+
 private:
 	std::list<Texture> textures;
 	std::string text;
 
 	bool isClickable;
 	std::string onclick;
+	bool isHoverable;
+	Texture *onhover;
+	int hx;
+	int hy;
+	int hwidth;
+	int hheight;
+
+	int x;
+	int y;
+	int width;
+	int height;
 };
 
 #endif /* SRC_VIEW_ELEMENT_H_ */

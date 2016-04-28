@@ -24,8 +24,19 @@ View *Model::getXml(std::string file_name) {
 				atoi(child->first_node("y")->value()),
 				atoi(child->first_node("width")->value()),
 				atoi(child->first_node("height")->value()));
-		if(child->first_node("onclick")!=NULL){
+		if (child->first_node("onclick") != NULL) {
 			el.setOnClick(child->first_node("onclick")->value());
+		}
+		if (child->first_node("onhover") != NULL) {
+			rapidxml::xml_node<> *onhover=child->first_node("onhover");
+			int x = atoi(onhover->first_attribute("x")->value());
+			int y = atoi(onhover->first_attribute("y")->value());
+			int width = atoi(onhover->first_attribute("width")->value());
+			int height = atoi(onhover->first_attribute("height")->value());
+			temp = str + std::string(onhover->value());
+			temp.copy(buffer, temp.length(), 0);
+			buffer[temp.length()] = '\0';
+			el.setOnHover(new Texture(x, y, width, height, buffer));
 		}
 
 		//load textures into list
@@ -44,7 +55,7 @@ View *Model::getXml(std::string file_name) {
 				int height = atoi(textures->first_attribute("height")->value());
 				//load textures into opengl and add it to Element
 				el.addTexture(Texture(x, y, width, height, buffer));
-			}else if (strcmp(textures->name(), "text") == 0) {
+			} else if (strcmp(textures->name(), "text") == 0) {
 				temp = std::string(textures->value());
 				temp.copy(buffer, temp.length(), 0);
 				buffer[temp.length()] = '\0';
@@ -54,7 +65,7 @@ View *Model::getXml(std::string file_name) {
 				int width = atoi(textures->first_attribute("width")->value());
 				int height = atoi(textures->first_attribute("height")->value());
 				//load textures into opengl and add it to Element
-				el.addTexture(Texture(x, y, width, height, buffer,NULL));
+				el.addTexture(Texture(x, y, width, height, buffer, NULL));
 			}
 		}
 
