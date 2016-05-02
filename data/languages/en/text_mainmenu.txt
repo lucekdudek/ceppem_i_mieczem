@@ -1,0 +1,10 @@
+﻿{continueGame}
+Continue game
+{newGame}
+New game
+{loadGame}
+Load game
+{settings}
+Settings
+{exitGame}
+Exit

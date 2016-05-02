@@ -92,6 +92,8 @@ void Controller::settingsEvent(std::string event_name)
     else if (event_name.substr(0, 9) == "LANGUAGE_")
     {
         std::cout << "new language: " << event_name.substr(9) << std::endl;
+        model.setLanguage(event_name.substr(9));
+        changeView("settings");
     }
     else
     {

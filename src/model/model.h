@@ -18,16 +18,22 @@
 class Model
 {
 public:
-    std::string language = "pl";
-
     Model();
     ~Model();
 
     View *getXml(std::string file_name);
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
-    int loadGLTexture(std::string fileName);
+
+	const std::string& getLanguage() const {
+		return language;
+	}
+
+	void setLanguage(const std::string& language = "pl") {
+		this->language = language;
+	}
 
 private:
+    std::string language = "pl";
     void parseXml(rapidxml::xml_document<> &doc, std::string xmlName);
 
 };
