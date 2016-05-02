@@ -3,10 +3,14 @@
 #include "controller.h"
 #include "fpshandler.h"
 
+#include <stdlib.h>
+
 bool Controller::running = true;
 Window Controller::window;
 Model Controller::model;
-std::string Controller::current_view;
+std::string Controller::current_view_name;
+int strength=5;
+View* Controller::current_view;
 
 Controller::Controller()
 {
@@ -33,21 +37,21 @@ void Controller::run()
 
 void Controller::event(std::string event_name)
 {
-    if (current_view == "mainmenu")
+    if (current_view_name == "mainmenu")
     {
         mainMenuEvent(event_name);
     }
-    else if (current_view == "new_game")
+    else if (current_view_name == "new_game")
     {
         newGameEvent(event_name);
     }
-    else if (current_view == "settings")
+    else if (current_view_name == "settings")
     {
         settingsEvent(event_name);
     }
     else
     {
-        std::cout << "error, view \"" << current_view << "\" is invalid\n";
+        std::cout << "error, view \"" << current_view_name << "\" is invalid\n";
     }
 }
 
@@ -56,6 +60,9 @@ void Controller::mainMenuEvent(std::string event_name)
     if (event_name == "NEW_GAME")
     {
         startNewGame();
+        char buff[3];
+        snprintf(buff, sizeof(buff), "%d", strength);
+		current_view->setText("{strength_value}",buff);
     }
     else if (event_name == "SETTINGS")
     {
@@ -73,11 +80,26 @@ void Controller::mainMenuEvent(std::string event_name)
 
 void Controller::newGameEvent(std::string event_name)
 {
-    if (event_name == "NEW_GAME")
-    {
-        changeView("mainmenu");
-    }
-    else
+	char buff[3];
+	if (event_name == "NEW_GAME")
+	{
+		changeView("mainmenu");
+	}
+	else if (event_name == "DEC_STRENGTH")
+	{
+		strength--;
+		if(strength<1) strength = 1;
+		snprintf(buff, sizeof(buff), "%d", strength);
+		current_view->setText("{strength_value}",buff);
+	}
+	else if (event_name == "INC_STRENGTH")
+	{
+		strength++;
+		if(strength>9) strength = 10;
+		snprintf(buff, sizeof(buff), "%d", strength);
+		current_view->setText("{strength_value}",buff);
+	}
+	else
     {
         std::cout << "error, unexpected command:" << std::setw(10) << event_name << std::endl;
     }
@@ -111,8 +133,9 @@ void Controller::startNewGame()
 void Controller::changeView(std::string view)
 {
     std::cout << "changed view to: " << std::setw(10) << view << std::endl;
-    current_view = view;
-    window.setView(model.getXml("view_" + current_view));
+    current_view_name = view;
+    current_view = model.getXml("view_" + current_view_name);
+    window.setView(current_view);
 }
 
 void Controller::setDone()

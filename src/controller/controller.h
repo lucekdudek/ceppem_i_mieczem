@@ -17,7 +17,8 @@ private:
     static bool running;
     static Window window;
     static Model model;
-    static std::string current_view;                 //zawiera informację o aktualnie wyświetlanym widoku.
+    static std::string current_view_name;                 //zawiera informację o aktualnie wyświetlanym widoku.
+    static View* current_view;
     static void startNewGame();
     static void mainMenuEvent(std::string event_name);
     static void newGameEvent(std::string event_name);
