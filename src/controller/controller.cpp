@@ -82,7 +82,7 @@ void Controller::mainMenuEvent(std::string event_name)
 void Controller::newGameEvent(std::string event_name)
 {
 	char buff[3];
-	if (event_name == "NEW_GAME")
+	if (event_name == "BACK")
 	{
 		changeView("mainmenu");
 	}

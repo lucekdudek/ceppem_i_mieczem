@@ -10,39 +10,221 @@
             <texture x="0" y="0" width="1280" height="720">mainmenu/background.png</texture>
         </textures>
     </element>
+    <!-- strenght -->
     <element>
-        <x>255</x>
-        <y>50</y>
+        <x>80</x>
+        <y>100</y>
         <width>240</width>
         <height>50</height>
-        <onclick>NEW_GAME</onclick>
         <textures>
-			<texture x="0" y="0" width="240" height="50">mainmenu/background.png</texture>
-			<texture x="300" y="0" width="80" height="50">mainmenu/background.png</texture>
             <text x="0" y="0" width="240" height="50">{strength}</text>
             <text x="300" y="0" width="80" height="50">{strength_value}</text>
         </textures>
     </element>
 	<element>
-        <x>500</x>
-        <y>50</y>
+        <x>325</x>
+        <y>100</y>
         <width>50</width>
         <height>50</height>
         <onclick>DEC_STRENGTH</onclick>
         <textures>
-            <texture x="0" y="0" width="50" height="50">mainmenu/background.png</texture>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
 			<text x="0" y="0" width="50" height="50">-</text>
         </textures>
     </element>
     <element>
-        <x>640</x>
-        <y>50</y>
+        <x>465</x>
+        <y>100</y>
         <width>50</width>
         <height>50</height>
         <onclick>INC_STRENGTH</onclick>
         <textures>
-            <texture x="0" y="0" width="50" height="50">mainmenu/background.png</texture>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
 			<text x="0" y="0" width="50" height="50">+</text>
+        </textures>
+    </element>
+
+    <!-- dexterity -->
+    <element>
+        <x>80</x>
+        <y>170</y>
+        <width>240</width>
+        <height>50</height>
+        <textures>
+            <text x="0" y="0" width="240" height="50">{dexterity}</text>
+            <text x="300" y="0" width="80" height="50">{dexterity_value}</text>
+        </textures>
+    </element>
+    <element>
+        <x>325</x>
+        <y>170</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>DEC_DEXTERITY</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">-</text>
+        </textures>
+    </element>
+    <element>
+        <x>465</x>
+        <y>170</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>INC_DEXTERITY</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">+</text>
+        </textures>
+    </element>
+
+    <!-- agility -->
+    <element>
+        <x>80</x>
+        <y>240</y>
+        <width>240</width>
+        <height>50</height>
+        <textures>
+            <text x="0" y="0" width="240" height="50">{agility}</text>
+            <text x="300" y="0" width="80" height="50">{agility_value}</text>
+        </textures>
+    </element>
+    <element>
+        <x>325</x>
+        <y>240</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>DEC_AGILITY</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">-</text>
+        </textures>
+    </element>
+    <element>
+        <x>465</x>
+        <y>240</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>INC_AGILITY</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">+</text>
+        </textures>
+    </element>
+
+    <!-- wisdom -->
+    <element>
+        <x>80</x>
+        <y>310</y>
+        <width>240</width>
+        <height>50</height>
+        <textures>
+            <text x="0" y="0" width="240" height="50">{wisdom}</text>
+            <text x="300" y="0" width="80" height="50">{wisdom_value}</text>
+        </textures>
+    </element>
+    <element>
+        <x>325</x>
+        <y>310</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>DEC_WISDOM</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">-</text>
+        </textures>
+    </element>
+    <element>
+        <x>465</x>
+        <y>310</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>INC_WISDOM</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">+</text>
+        </textures>
+    </element>
+
+    <!-- inteligence -->
+    <element>
+        <x>80</x>
+        <y>380</y>
+        <width>240</width>
+        <height>50</height>
+        <textures>
+            <text x="0" y="0" width="240" height="50">{inteligence}</text>
+            <text x="300" y="0" width="80" height="50">{inteligence_value}</text>
+        </textures>
+    </element>
+    <element>
+        <x>325</x>
+        <y>380</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>DEC_INTELIGENCE</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">-</text>
+        </textures>
+    </element>
+    <element>
+        <x>465</x>
+        <y>380</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>INC_INTELIGENCE</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">+</text>
+        </textures>
+    </element>
+
+    <!-- charisma -->
+    <element>
+        <x>80</x>
+        <y>450</y>
+        <width>240</width>
+        <height>50</height>
+        <textures>
+
+            <text x="0" y="0" width="240" height="50">{charisma}</text>
+            <text x="300" y="0" width="80" height="50">{charisma_value}</text>
+        </textures>
+    </element>
+    <element>
+        <x>325</x>
+        <y>450</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>DEC_CHARISMA</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">-</text>
+        </textures>
+    </element>
+    <element>
+        <x>465</x>
+        <y>450</y>
+        <width>50</width>
+        <height>50</height>
+        <onclick>INC_CHARISMA</onclick>
+        <textures>
+            <texture x="0" y="0" width="50" height="50">mainmenu/button.png</texture>
+            <text x="0" y="0" width="50" height="50">+</text>
+        </textures>
+    </element>
+
+    <!-- back -->
+    <element>
+        <x>55</x>
+        <y>580</y>
+        <width>240</width>
+        <height>90</height>
+        <onclick>BACK</onclick>
+        <textures>
+            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+            <text x="0" y="0" width="240" height="90">{back}</text>
         </textures>
     </element>
 </view>
