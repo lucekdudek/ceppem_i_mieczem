@@ -191,7 +191,7 @@ TTF_Font *Window::loadFont(char *fileName, int fontSize) {
 int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font) {
 	SDL_Color textColor = { 128, 0, 0 };
 
-	SDL_Surface *sdl_surface = TTF_RenderText_Blended(Window::font, text,
+	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::font, text,
 			textColor);
 	w=(sdl_surface->w*1280)/1920;
 	h=(sdl_surface->h*1280)/1920;
@@ -253,13 +253,13 @@ void Window::renderFrame() {
 
 		for (std::list<Texture>::iterator it2 = tex.begin(); it2 != tex.end();
 				it2++) {
-			drawImage((*it2).x, (*it2).y, (*it2).id, (*it2).width,
-					(*it2).height);
+			drawImage((*it2).getX(), (*it2).getY(), (*it2).getId(), (*it2).getWidth(),
+					(*it2).getHeight());
 		}
 	}
 
 	if(hovered!=NULL){
-		drawImage(hovered->x, hovered->y, hovered->id, hovered->width,hovered->height);
+		drawImage(hovered->getX(), hovered->getY(), hovered->getId(), hovered->getWidth(),hovered->getHeight());
 	}
 
 	//glRecti(50, 100, 200, 300);

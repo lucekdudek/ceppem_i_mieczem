@@ -18,6 +18,7 @@ public:
 	std::list<Texture> getTextures();
 	void loadTextures();
 	bool clickable();
+	void setText(char* name, char* text);
 
 	int getHeight() const {
 		return height;

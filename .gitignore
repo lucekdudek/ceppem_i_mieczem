@@ -9,3 +9,4 @@ CMakeLists.txt
 scripts/list_of_files.txt
 error.log
 /res/*.res
+/Release/
