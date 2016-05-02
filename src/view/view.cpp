@@ -10,9 +10,6 @@ View::View(std::list<Element> elements) {
 		tmpElem.loadTextures();
 		this->elements.insert(i, tmpElem);
 	}
-	setText("{newGame}","Nowa gra");
-	setText("{settings}","Ustawienia");
-	setText("{exitGame}","Wyjście");
 }
 
 View::~View() {

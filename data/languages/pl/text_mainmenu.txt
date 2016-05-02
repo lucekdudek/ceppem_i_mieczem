@@ -1,10 +1,10 @@
-﻿continueGame
+﻿{continueGame}
 Kontynuuj grę
-newGame
-Rozpocznij grę
-loadGame
+{newGame}
+Nowa gra
+{loadGame}
 Wczytaj grę
-options
-Opcje
-exitGame
-Wyjście z gry
+{settings}
+Ustawienia
+{exitGame}
+Wyjście

@@ -74,6 +74,18 @@ View *Model::getXml(std::string file_name) {
 	}
 
 	View *view = new View(elements);
+	file_name.replace(0,4,"text");
+	std::cout<<file_name<<std::endl;
+
+	std::unordered_map<std::string, std::string> map = getTextMap(file_name);
+	for (auto& x: map){
+		char first[256];
+		char second[256];
+		strcpy(first,x.first.c_str());
+		strcpy(second,x.second.c_str());
+		std::cout<<first<<":"<<second<<strcmp("{back}",first)<<std::endl;
+		view->setText(first,second);
+	}
 
 	return view;
 }
@@ -100,7 +112,7 @@ void Model::parseXml(rapidxml::xml_document<> &doc, std::string xmlName) {
 
 std::unordered_map<std::string, std::string> Model::getTextMap(
 		std::string filename) {
-	std::string path = "../data/languages/" + language + "/" + filename;
+	std::string path = "../data/languages/" + language + "/" + filename + ".txt";
 	std::string id;
 	std::string text;
 	std::ifstream lang_file;
