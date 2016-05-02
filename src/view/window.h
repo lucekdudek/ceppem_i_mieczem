@@ -21,6 +21,7 @@ public:
     void eventLoop();
     void drawImage(int x, int y, int textureId, int width = 0, int height = 0);
     static int loadGLTexture(char* fileName);
+    static void unloadGLTexture(int id);
     TTF_Font *loadFont(char *fileName, int fontSize);
     static int renderText(char *text, int &w, int &h, TTF_Font *text_font);
     void renderFrame();

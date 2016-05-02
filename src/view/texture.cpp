@@ -41,6 +41,9 @@ Texture::~Texture() {
 
 void Texture::loadTexture() {
 	if (strlen(this->text) > 0) {
+		if(this->id > 0){
+			unloadTexture();
+		}
 		int w, h;
 		this->id = Window::renderText(this->text, w, h, NULL);
 		this->x += (this->width - w) / 2;
@@ -50,6 +53,10 @@ void Texture::loadTexture() {
 	} else {
 		this->id = Window::loadGLTexture(path);
 	}
+}
+
+void Texture::unloadTexture(){
+	Window::unloadGLTexture(this->id);
 }
 
 void Texture::setText(char* text) {

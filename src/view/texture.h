@@ -17,6 +17,7 @@ public:
 	Texture(int x, int y, int width, int height, char* text, TTF_Font *font);
 	virtual ~Texture();
 	void loadTexture();
+	void unloadTexture();
 	void setText(char* text);
 	char* getName();
 

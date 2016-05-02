@@ -267,6 +267,19 @@ void Window::renderFrame() {
 }
 
 void Window::setView(View* view) {
+	if(this->view!=NULL){
+		std::list<Element> el2 = this->view->getList();
+		for (std::list<Element>::iterator it = el2.begin(); it != el2.end(); it++) {
+			Element e = ((Element) (*it));
+			std::list<Texture> tex = e.getTextures();
+
+			for (std::list<Texture>::iterator it2 = tex.begin(); it2 != tex.end();it2++) {
+				//usuń
+				(*it2).unloadTexture();
+			}
+		}
+	}
+
 	this->view = view;
 
 	for (int i = 0; i < w; i++) {
@@ -305,4 +318,8 @@ void Window::toggleFullscreen() {
 		createOrthoProj(1280.0, 720.0);
 		SDL_SetWindowFullscreen(mainWindow, SDL_WINDOW_FULLSCREEN_DESKTOP);
 	}
+}
+
+void Window::unloadGLTexture(int id){
+	glDeleteTextures(1,(GLuint*)&id);
 }
