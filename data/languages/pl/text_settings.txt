@@ -1,6 +1,4 @@
-﻿{text_settings}
-text_settings
+﻿{back}
+Cofnij
 {chooseLang}
 Wybierz język
-{back}
-Cofnij

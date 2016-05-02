@@ -75,7 +75,6 @@ View *Model::getXml(std::string file_name) {
 
 	View *view = new View(elements);
 	file_name.replace(0,4,"text");
-	std::cout<<file_name<<std::endl;
 
 	std::unordered_map<std::string, std::string> map = getTextMap(file_name);
 	for (auto& x: map){
@@ -83,7 +82,6 @@ View *Model::getXml(std::string file_name) {
 		char second[256];
 		strcpy(first,x.first.c_str());
 		strcpy(second,x.second.c_str());
-		std::cout<<first<<":"<<second<<strcmp("{back}",first)<<std::endl;
 		view->setText(first,second);
 	}
 
@@ -115,10 +113,12 @@ std::unordered_map<std::string, std::string> Model::getTextMap(
 	std::string path = "../data/languages/" + language + "/" + filename + ".txt";
 	std::string id;
 	std::string text;
+
 	std::ifstream lang_file;
 	std::unordered_map<std::string, std::string> textMap;
 
 	lang_file.open(path.c_str());
+	lang_file.seekg( 3, std::ios::beg );
 	while (std::getline(lang_file, id) && std::getline(lang_file, text)) {
 		//textMap={id, text};
 		textMap.insert(std::make_pair(id, text));
