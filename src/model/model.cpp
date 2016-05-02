@@ -75,7 +75,6 @@ View *Model::getXml(std::string file_name) {
 
 	View *view = new View(elements);
 	file_name.replace(0,4,"text");
-
 	std::unordered_map<std::string, std::string> map = getTextMap(file_name);
 	for (auto& x: map){
 		char first[256];

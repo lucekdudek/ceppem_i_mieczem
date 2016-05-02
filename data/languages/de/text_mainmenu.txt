@@ -1,0 +1,10 @@
+﻿{continueGame}
+Weiter Spiel
+{newGame}
+Neues Spiel
+{loadGame}
+Spiel laden
+{settings}
+Einstellungen
+{exitGame}
+Verlassen

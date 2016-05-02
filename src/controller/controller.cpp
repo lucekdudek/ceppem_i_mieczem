@@ -115,7 +115,7 @@ void Controller::changeView(std::string view)
     window.setView(model.getXml("view_" + current_view));
 }
 
-inline void Controller::setDone()
+void Controller::setDone()
 {
     running = false;
 }

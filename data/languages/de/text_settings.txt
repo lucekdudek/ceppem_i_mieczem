@@ -1,0 +1,4 @@
+﻿{back}
+Zurück
+{chooseLang}
+Wähle eine Sprache
