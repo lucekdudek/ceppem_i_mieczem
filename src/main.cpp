@@ -3,8 +3,8 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]) {
-    Controller c;
-    c.run();
+int main(int argc, char *argv[])
+{
+    Controller::getController().run();
     return 0;
 }

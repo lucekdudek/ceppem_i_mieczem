@@ -8,22 +8,24 @@
 class Controller
 {
 public:
-    Controller();
-    ~Controller();
     static void event(std::string event_name);
     static void run();
-    inline static void setDone();
+    static inline void setDone();
+    static Controller & getController();
 private:
-    static bool running;
-    static Window window;
-    static Model model;
-    static std::string current_view_name;                 //zawiera informację o aktualnie wyświetlanym widoku.
-    static View* current_view;
-    static void startNewGame();
-    static void mainMenuEvent(std::string event_name);
-    static void newGameEvent(std::string event_name);
-    static void settingsEvent(std::string event_name);
-    inline static void changeView(std::string view);
+    int strenght;
+    Controller();
+    ~Controller();
+    bool running;
+    std::string current_view_name;                 //zawiera informację o aktualnie wyświetlanym widoku.
+    Window* window;
+    Model* model;
+    View* current_view;
+    void startNewGame();
+    void mainMenuEvent(std::string event_name);
+    void newGameEvent(std::string event_name);
+    void settingsEvent(std::string event_name);
+    inline void changeView(std::string view);
 
 };
 
