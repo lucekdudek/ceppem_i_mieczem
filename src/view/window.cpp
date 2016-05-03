@@ -9,7 +9,7 @@
 TTF_Font *Window::font;
 
 void setWindowsIcon(SDL_Window *sdlWindow) {
-    /*HINSTANCE handle = ::GetModuleHandle(nullptr);
+    HINSTANCE handle = ::GetModuleHandle(nullptr);
     HICON icon = ::LoadIcon(handle, "IDI_MAIN_ICON");
     if(icon != nullptr){
         SDL_SysWMinfo wminfo;
@@ -19,13 +19,13 @@ void setWindowsIcon(SDL_Window *sdlWindow) {
             ::SetClassLong(hwnd, GCL_HICON, reinterpret_cast<LONG>(icon));
             SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)icon);
         }
-    }*/
+    }
 }
 
 Window::Window() {
 	hovered = NULL;
 	// TODO Auto-generated constructor stub
-	init(1280, 720, (char *) "Tytuł okna");
+	init(1280, 720, (char *) "Ceppem i mieczem");
 
 	cursor1 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_ARROW);
 	cursor2 = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);

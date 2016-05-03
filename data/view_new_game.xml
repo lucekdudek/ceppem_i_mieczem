@@ -227,4 +227,16 @@
             <text x="0" y="0" width="240" height="90">{back}</text>
         </textures>
     </element>
+	<!-- start -->
+    <element>
+        <x>1000</x>
+        <y>580</y>
+        <width>240</width>
+        <height>90</height>
+        <onclick>START_GAME</onclick>
+        <textures>
+            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+            <text x="0" y="0" width="240" height="90">{startGame}</text>
+        </textures>
+    </element>
 </view>

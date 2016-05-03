@@ -1,0 +1,16 @@
+﻿{back}
+Back
+{startGame}
+Start Game
+{strength}
+Strength
+{dexterity}
+Dexterity
+{agility}
+Agility
+{wisdom}
+Wisdom
+{inteligence}
+Inteligence
+{charisma}
+Charisma

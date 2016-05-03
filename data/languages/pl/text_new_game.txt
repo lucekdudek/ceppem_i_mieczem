@@ -1,0 +1,16 @@
+﻿{back}
+Cofnij
+{startGame}
+Rozpocznij
+{strength}
+Siła
+{dexterity}
+Zręczność
+{agility}
+Zwinność
+{wisdom}
+Wiedza
+{inteligence}
+Inteligencja
+{charisma}
+Charyzma

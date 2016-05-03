@@ -18,8 +18,11 @@ Controller::~Controller()
     delete window;
     delete model;
     delete current_view;
-    if(player != nullptr)
-        delete player;
+	if (player != nullptr)
+	{
+		delete player;
+		player=nullptr;
+	}
 }
 
 void Controller::run()
@@ -62,7 +65,7 @@ void Controller::mainMenuEvent(std::string event_name)
     if (event_name == "NEW_GAME")
     {
         startNewGame();
-        player = new Char();
+        player = new Character();
 		loadStats(player);
     }
     else if (event_name == "SETTINGS")
@@ -84,6 +87,7 @@ void Controller::newGameEvent(std::string event_name)
 	if (event_name == "BACK")
 	{
         delete player;
+		player = nullptr;
 		changeView("mainmenu");
 	}
 	else if (event_name == "DEC_STRENGTH")
@@ -203,7 +207,7 @@ std::string Controller::asText(int number)
     return buff;
 }
 
-void Controller::loadStats(Char *character)
+void Controller::loadStats(Character *character)
 {
     current_view->setText("{strength_value}", asText(character->getStrength()));
     current_view->setText("{dexterity_value}", asText(character->getDexterity()));

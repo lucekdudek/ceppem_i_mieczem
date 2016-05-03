@@ -2,140 +2,140 @@
 // Created by Aschali on 02.05.2016.
 //
 
-#include "Char.h"
+#include "character.h"
 
-Char::Char(int basic): strength(basic), dexterity(basic), agility(basic), wisdom(basic), inteligence(basic), charisma(basic)
+Character::Character(int basic): strength(basic), dexterity(basic), agility(basic), wisdom(basic), inteligence(basic), charisma(basic)
 {
 
 }
 
-int Char::getStrength()
+int Character::getStrength()
 {
     return strength;
 }
 
-int Char::getDexterity()
+int Character::getDexterity()
 {
     return dexterity;
 }
 
-int Char::getAgility()
+int Character::getAgility()
 {
     return agility;
 }
 
-int Char::getWisdom()
+int Character::getWisdom()
 {
     return wisdom;
 }
 
-int Char::getInteligence()
+int Character::getInteligence()
 {
     return inteligence;
 }
 
-int Char::getCharisma()
+int Character::getCharisma()
 {
     return charisma;
 }
 
-void Char::setStrength(int value)
+void Character::setStrength(int value)
 {
     strength = value;
 }
 
-void Char::setDexterity(int value)
+void Character::setDexterity(int value)
 {
     dexterity = value;
 }
 
-void Char::setAgility(int value)
+void Character::setAgility(int value)
 {
     agility = value;
 }
 
-void Char::setWisdom(int value)
+void Character::setWisdom(int value)
 {
     wisdom = value;
 }
 
-void Char::setInteligence(int value)
+void Character::setInteligence(int value)
 {
     inteligence = value;
 }
 
-void Char::setCharisma(int value)
+void Character::setCharisma(int value)
 {
     charisma = value;
 }
 
-void Char::decStrength()
+void Character::decStrength()
 {
     if(strength >1)
         strength --;
 }
 
-void Char::incStrength()
+void Character::incStrength()
 {
     if(strength <10)
         strength ++;
 }
 
-void Char::decDexterity()
+void Character::decDexterity()
 {
     if(dexterity >1)
         dexterity --;
 }
 
-void Char::incDexterity()
+void Character::incDexterity()
 {
     if(dexterity <10)
         dexterity ++;
 }
 
-void Char::decAgility()
+void Character::decAgility()
 {
     if(agility >1)
         agility --;
 }
 
-void Char::incAgility()
+void Character::incAgility()
 {
     if(agility <10)
         agility ++;
 }
 
-void Char::decWisdom()
+void Character::decWisdom()
 {
     if(wisdom >1)
         wisdom --;
 }
 
-void Char::incWisdom()
+void Character::incWisdom()
 {
     if(wisdom <10)
         wisdom ++;
 }
 
-void Char::decInteligence()
+void Character::decInteligence()
 {
     if(inteligence >1)
         inteligence --;
 }
 
-void Char::incInteligence()
+void Character::incInteligence()
 {
     if(inteligence <10)
         inteligence ++;
 }
 
-void Char::decCharisma()
+void Character::decCharisma()
 {
     if(charisma >1)
         charisma --;
 }
 
-void Char::incCharisma()
+void Character::incCharisma()
 {
     if(charisma <10)
         charisma ++;
