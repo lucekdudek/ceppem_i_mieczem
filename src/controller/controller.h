@@ -4,7 +4,7 @@
 #include <string>
 #include "../view/window.h"
 #include "../model/model.h"
-#include "../model/char.h"
+#include "../model/character.h"
 
 class Controller
 {
@@ -19,7 +19,7 @@ private:
     Window* window;
     Model* model;
     View* current_view;
-    Char* player;
+    Character* player;
     Controller();
     ~Controller();
     void startNewGame();
@@ -28,7 +28,7 @@ private:
     void settingsEvent(std::string event_name);
     inline void changeView(std::string view);
     static inline std::string asText(int number);
-    void loadStats(Char *character);
+    void loadStats(Character *character);
 
 };
 

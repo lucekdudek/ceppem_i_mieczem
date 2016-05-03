@@ -6,10 +6,10 @@
 #define CEPEM_I_MIECZEM_CHAR_H
 
 
-class Char
+class Character
 {
 public:
-    Char(int basic=4);
+    Character(int basic=4);
     int getStrength();
     int getDexterity();
     int getAgility();
