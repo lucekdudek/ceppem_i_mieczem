@@ -33,7 +33,7 @@ private:
     View* view;
     char** clickmap;
     std::vector<std::string> buttons;
-    std::vector<Element> buttonsElements;
+    std::vector<Element*> buttonsElements;
 
     SDL_Cursor *cursor1;
     SDL_Cursor *cursor2;

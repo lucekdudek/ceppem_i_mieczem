@@ -9,18 +9,23 @@ Element::Element(int x, int y, int width, int height) {
 	this->height = height;
 	isClickable = false;
 	isHoverable = false;
-	this->onhover = NULL;
+	this->onhover = nullptr;
 }
 
 Element::~Element() {
-	/*if(this->onhover != NULL){
+	if(this->onhover != nullptr){
 		delete this->onhover;
-	}*/
+	}
+
+	for (auto i = textures.begin(); i != textures.end();i++) {
+		auto tmpElem = *i;
+		delete tmpElem;
+	}
 }
 
-void Element::addTexture(Texture texture) {
-	texture.setX(texture.getX()+this->x);
-	texture.setY(texture.getY()+this->y);
+void Element::addTexture(Texture* texture) {
+	texture->setX(texture->getX()+this->x);
+	texture->setY(texture->getY()+this->y);
 	textures.push_back(texture);
 }
 
@@ -50,30 +55,20 @@ Texture* Element::getOnHover() {
 	return this->onhover;
 }
 
-std::list<Texture> Element::getTextures() {
+std::list<Texture*> Element::getTextures() {
 	return textures;
 }
 
-void Element::loadTextures() {
-	if(this->onhover!=NULL){
-		this->onhover->loadTexture();
-	}
-	for (auto i = textures.begin(); i != textures.end();) {
-		auto tmpElem = *i;
-		i = textures.erase(i);
-		tmpElem.loadTexture();
-		textures.insert(i, tmpElem);
-	}
-}
-
 void Element::setText(char* name, char* text){
-	for (auto i = textures.begin(); i != textures.end();) {
+	for (auto i = textures.begin(); i != textures.end();i++) {
 		auto tmpElem = *i;
-		i = textures.erase(i);
-		if(strcmp(tmpElem.getName(),name)==0){
-			tmpElem.setText(text);
-			tmpElem.loadTexture();
+		if (Text* t = dynamic_cast<Text*>(tmpElem))
+		{
+			if (strcmp(t->getName(), name) == 0)
+			{
+				tmpElem->setText(text);
+				//tmpElem->loadTexture();
+			}
 		}
-		textures.insert(i, tmpElem);
 	}
 }

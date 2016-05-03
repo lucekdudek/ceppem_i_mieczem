@@ -9,7 +9,7 @@
 TTF_Font *Window::font;
 
 void setWindowsIcon(SDL_Window *sdlWindow) {
-    HINSTANCE handle = ::GetModuleHandle(nullptr);
+    /*HINSTANCE handle = ::GetModuleHandle(nullptr);
     HICON icon = ::LoadIcon(handle, "IDI_MAIN_ICON");
     if(icon != nullptr){
         SDL_SysWMinfo wminfo;
@@ -19,7 +19,7 @@ void setWindowsIcon(SDL_Window *sdlWindow) {
             ::SetClassLong(hwnd, GCL_HICON, reinterpret_cast<LONG>(icon));
             SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)icon);
         }
-    }
+    }*/
 }
 
 Window::Window() {
@@ -32,7 +32,7 @@ Window::Window() {
 
 	SDL_GetCurrentDisplayMode(0, &this->current);
 	printf("Screen size: %ix%i.\n", this->current.w, this->current.h);
-    Window::font = loadFont((char *) "arial.ttf", 50);
+    Window::font = loadFont((char *) "../data/arial.ttf", 50);
 }
 
 Window::~Window() {
@@ -119,7 +119,7 @@ void Window::eventLoop() {
 			//fprintf(stdout, "MOUSE x:%i y:%i\n", cx, cy);break;
 			if (clickmap[cx][cy] > -1){
 				SDL_SetCursor(cursor2);
-				hovered = buttonsElements[clickmap[cx][cy]].getOnHover();
+				hovered = buttonsElements[clickmap[cx][cy]]->getOnHover();
 			}else{
 				SDL_SetCursor(cursor1);
 				hovered = NULL;
@@ -180,7 +180,7 @@ int Window::loadGLTexture(char* fileName) {
 }
 
 TTF_Font *Window::loadFont(char *fileName, int fontSize) {
-	TTF_Font *text_font = TTF_OpenFont("arial.ttf", 50);
+	TTF_Font *text_font = TTF_OpenFont("../data/arial.ttf", 50);
 	if (text_font == NULL) {
 		printf("Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError());
 		return 0;
@@ -246,15 +246,14 @@ void Window::renderFrame() {
 	int X = (1280 - Width) / 2;
 	int Y = (720 - Height) / 2;
 
-	std::list<Element> el = this->view->getList();
-	for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++) {
-		Element e = ((Element) (*it));
-		std::list<Texture> tex = e.getTextures();
+	std::list<Element*> el = this->view->getList();
+	for (std::list<Element*>::iterator it = el.begin(); it != el.end(); it++) {
+		Element* e = ((Element*) (*it));
+		std::list<Texture*> tex = e->getTextures();
 
-		for (std::list<Texture>::iterator it2 = tex.begin(); it2 != tex.end();
-				it2++) {
-			drawImage((*it2).getX(), (*it2).getY(), (*it2).getId(), (*it2).getWidth(),
-					(*it2).getHeight());
+		for (std::list<Texture*>::iterator it2 = tex.begin(); it2 != tex.end(); it2++) {
+			drawImage((*it2)->getX(), (*it2)->getY(), (*it2)->getId(), (*it2)->getWidth(),
+					(*it2)->getHeight());
 		}
 	}
 
@@ -267,20 +266,16 @@ void Window::renderFrame() {
 }
 
 void Window::setView(View* view) {
-	if(this->view!=NULL){
-		std::list<Element> el2 = this->view->getList();
-		for (std::list<Element>::iterator it = el2.begin(); it != el2.end(); it++) {
-			Element e = ((Element) (*it));
-			std::list<Texture> tex = e.getTextures();
-
-			for (std::list<Texture>::iterator it2 = tex.begin(); it2 != tex.end();it2++) {
-				//usuń
-				(*it2).unloadTexture();
-			}
-		}
+	View* temp = nullptr;
+	if(this->view!= nullptr){
+		temp = this->view;
 	}
 
 	this->view = view;
+
+	if (temp != nullptr) {
+		delete temp;
+	}
 
 	for (int i = 0; i < w; i++) {
 		for (int j = 0; j < h; j++) {
@@ -291,17 +286,17 @@ void Window::setView(View* view) {
 	buttons.clear();
 	buttonsElements.clear();
 
-	std::list<Element> el = this->view->getList();
-	for (std::list<Element>::iterator it = el.begin(); it != el.end(); it++) {
-		Element e = ((Element) (*it));
+	std::list<Element*> el = this->view->getList();
+	for (std::list<Element*>::iterator it = el.begin(); it != el.end(); it++) {
+		Element* e = ((Element*) (*it));
 
-		if (e.clickable()) {
-			for (int i = e.getX(); i < (e.getWidth() + e.getX()); i++) {
-				for (int j = e.getY(); j < (e.getHeight() + e.getY()); j++) {
+		if (e->clickable()) {
+			for (int i = e->getX(); i < (e->getWidth() + e->getX()); i++) {
+				for (int j = e->getY(); j < (e->getHeight() + e->getY()); j++) {
 					clickmap[i][j] = buttons.size();
 				}
 			}
-			buttons.push_back(e.getOnClick());
+			buttons.push_back(e->getOnClick());
 			buttonsElements.push_back(e);
 		}
 	}

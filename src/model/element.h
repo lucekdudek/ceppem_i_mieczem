@@ -2,6 +2,7 @@
 #define SRC_VIEW_ELEMENT_H_
 
 #include "../view/texture.h"
+#include "../view/text.h"
 #include <list>
 #include <string>
 
@@ -10,13 +11,12 @@ public:
 	Element(int x, int y, int width=0, int height=0);
 	~Element();
 
-	void addTexture(Texture texture);
+	void addTexture(Texture* texture);
 	void setOnClick(std::string onclick);
 	std::string getOnClick();
 	void setOnHover(Texture* t);
 	Texture* getOnHover();
-	std::list<Texture> getTextures();
-	void loadTextures();
+	std::list<Texture*> getTextures();
 	bool clickable();
 	void setText(char* name, char* text);
 
@@ -53,7 +53,7 @@ public:
 	}
 
 private:
-	std::list<Texture> textures;
+	std::list<Texture*> textures;
 	std::string text;
 
 	bool isClickable;

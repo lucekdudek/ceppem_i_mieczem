@@ -16,10 +16,7 @@ public:
 	Texture(int x, int y, int width, int height, char* path);
 	Texture(int x, int y, int width, int height, char* text, TTF_Font *font);
 	virtual ~Texture();
-	void loadTexture();
-	void unloadTexture();
 	void setText(char* text);
-	char* getName();
 
 	int getHeight() const {
 		return height;
@@ -50,16 +47,16 @@ public:
 	}
 
 private:
+	void loadTexture();
+	void unloadTexture();
+
 	int x;
 	int y;
 	int width;
 	int height;
 	int id;
 
-	int tx;
-	int ty;
-	int twidth;
-	int theight;
+protected:
 	char path[256];
 	char text[256];
 };

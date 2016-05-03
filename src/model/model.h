@@ -8,7 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "../rapidxml-1.13/rapidxml.hpp"
+#include "../tinyxml/tinyxml.h"
 #include "element.h"
 #include <unordered_map>
 #include <list>
@@ -34,8 +34,6 @@ public:
 
 private:
     std::string language = "pl";
-    void parseXml(rapidxml::xml_document<> &doc, std::string xmlName);
-
 };
 
 #endif //CEPPEM_I_MIECZEM_MODEL_H
