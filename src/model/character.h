@@ -9,32 +9,34 @@
 class Character
 {
 public:
-    Character(int basic=4);
+    Character(int basic=4, int points=10);
+	int getPoints();
     int getStrength();
-    int getDexterity();
-    int getAgility();
-    int getWisdom();
-    int getInteligence();
-    int getCharisma();
-    inline void setStrength(int value);
-    inline void setDexterity(int value);
-    inline void setAgility(int value);
-    inline void setWisdom(int value);
-    inline void  setInteligence(int value);
-    inline void setCharisma(int value);
-    void decStrength();
+	void decStrength();
     void incStrength();
+    void setStrength(int value);
+    int getDexterity();
     void decDexterity();
     void incDexterity();
+    void setDexterity(int value);
+    int getAgility();
     void decAgility();
     void incAgility();
+    void setAgility(int value);
+    int getWisdom();
     void decWisdom();
     void incWisdom();
+    void setWisdom(int value);
+    int getInteligence();
     void decInteligence();
     void incInteligence();
+    void  setInteligence(int value);
+    int getCharisma();
     void decCharisma();
     void incCharisma();
+    void setCharisma(int value);
 private:
+	int points;
     int strength;
     int dexterity;
     int agility;

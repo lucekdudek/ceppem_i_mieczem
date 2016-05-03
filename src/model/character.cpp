@@ -4,9 +4,14 @@
 
 #include "character.h"
 
-Character::Character(int basic): strength(basic), dexterity(basic), agility(basic), wisdom(basic), inteligence(basic), charisma(basic)
+Character::Character(int basic, int points): points(points), strength(basic), dexterity(basic), agility(basic), wisdom(basic), inteligence(basic), charisma(basic)
 {
 
+}
+
+int Character::getPoints()
+{
+	return points;
 }
 
 int Character::getStrength()
@@ -71,75 +76,112 @@ void Character::setCharisma(int value)
 
 void Character::decStrength()
 {
-    if(strength >1)
-        strength --;
+	if (strength > 1)
+	{
+		strength--;
+		points++;
+	}
 }
 
 void Character::incStrength()
 {
-    if(strength <10)
-        strength ++;
+	if (strength < 10 && points > 0)
+	{
+		strength++;
+		points--;
+	}
 }
 
 void Character::decDexterity()
 {
-    if(dexterity >1)
-        dexterity --;
+	if (dexterity > 1)
+	{
+		dexterity--;
+		points++;
+	}
 }
 
 void Character::incDexterity()
 {
-    if(dexterity <10)
-        dexterity ++;
+	if (dexterity < 10 && points > 0)
+	{
+		dexterity++;
+		points--;
+	}
 }
 
 void Character::decAgility()
 {
-    if(agility >1)
-        agility --;
+	if (agility > 1)
+	{
+		agility--;
+		points++;
+	}
 }
 
 void Character::incAgility()
 {
-    if(agility <10)
-        agility ++;
+	if (agility < 10 && points > 0)
+	{
+		agility++;
+		points--;
+	}
 }
 
 void Character::decWisdom()
 {
-    if(wisdom >1)
-        wisdom --;
+	if (wisdom > 1)
+	{
+		wisdom--;
+		points++;
+	}
 }
 
 void Character::incWisdom()
 {
-    if(wisdom <10)
-        wisdom ++;
+	if (wisdom < 10 && points > 0)
+	{
+		wisdom++;
+		points--;
+	}
 }
 
 void Character::decInteligence()
 {
-    if(inteligence >1)
-        inteligence --;
+	if (inteligence > 1)
+	{
+		inteligence--;
+		points++;
+	}
 }
 
 void Character::incInteligence()
 {
-    if(inteligence <10)
-        inteligence ++;
+	if (inteligence < 10 && points > 0)
+	{
+		inteligence++;
+		points--;
+	}
 }
 
 void Character::decCharisma()
 {
-    if(charisma >1)
-        charisma --;
+	if (charisma > 1)
+	{
+		charisma--;
+		points++;
+	}
 }
 
 void Character::incCharisma()
 {
-    if(charisma <10)
-        charisma ++;
+	if (charisma < 10 && points > 0)
+	{
+		charisma++;
+		points--;
+	}
 }
+
 
 
 

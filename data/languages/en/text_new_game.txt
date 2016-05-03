@@ -1,5 +1,7 @@
 ﻿{back}
 Back
+{points}
+Points
 {startGame}
 Start Game
 {strength}
@@ -11,6 +13,6 @@ Agility
 {wisdom}
 Wisdom
 {inteligence}
-Inteligence
+Intelligence
 {charisma}
 Charisma

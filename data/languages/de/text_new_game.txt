@@ -1,18 +1,18 @@
 ﻿{back}
-Cofnij
+Back
 {points}
-Punkty
+Punkte
 {startGame}
-Rozpocznij
+Spiel beginnen
 {strength}
-Siła
+Stärke
 {dexterity}
-Zręczność
+Geschicklichkeit
 {agility}
-Zwinność
+Beweglichkeit
 {wisdom}
-Wiedza
+Weisheit
 {inteligence}
-Inteligencja
+Intelligenz
 {charisma}
-Charyzma
+Charisma
