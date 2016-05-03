@@ -8,7 +8,7 @@ public:
 	View(std::list<Element*> elements);
 	~View();
 	std::list<Element*> getList();
-	void setText(char* name, char* text);
+	void setText(char* name, std::string text);
 private:
 	std::list<Element*> elements;
 };

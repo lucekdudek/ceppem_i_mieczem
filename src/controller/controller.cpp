@@ -9,7 +9,6 @@
 Controller::Controller()
 {
     running = true;
-    strenght = 5;
     window = new Window();
     model = new Model;
 }
@@ -19,6 +18,8 @@ Controller::~Controller()
     delete window;
     delete model;
     delete current_view;
+    if(player != nullptr)
+        delete player;
 }
 
 void Controller::run()
@@ -61,9 +62,8 @@ void Controller::mainMenuEvent(std::string event_name)
     if (event_name == "NEW_GAME")
     {
         startNewGame();
-        char buff[3];
-        snprintf(buff, sizeof(buff), "%d", strenght);
-		current_view->setText("{strength_value}",buff);
+        player = new Char();
+		loadStats(player);
     }
     else if (event_name == "SETTINGS")
     {
@@ -81,25 +81,71 @@ void Controller::mainMenuEvent(std::string event_name)
 
 void Controller::newGameEvent(std::string event_name)
 {
-	char buff[3];
 	if (event_name == "BACK")
 	{
+        delete player;
 		changeView("mainmenu");
 	}
 	else if (event_name == "DEC_STRENGTH")
 	{
-        strenght--;
-		if(strenght<1) strenght = 1;
-		snprintf(buff, sizeof(buff), "%d", strenght);
-		current_view->setText("{strength_value}",buff);
+        player->decStrength();
+		current_view->setText("{strength_value}", asText(player->getStrength()));
 	}
 	else if (event_name == "INC_STRENGTH")
 	{
-        strenght++;
-		if(strenght>9) strenght = 10;
-		snprintf(buff, sizeof(buff), "%d", strenght);
-		current_view->setText("{strength_value}",buff);
+        player->incStrength();
+		current_view->setText("{strength_value}", asText(player->getStrength()));
 	}
+    else if (event_name == "DEC_DEXTERITY")
+    {
+        player->decDexterity();
+        current_view->setText("{dexterity_value}", asText(player->getDexterity()));
+    }
+    else if (event_name == "INC_DEXTERITY")
+    {
+        player->incDexterity();
+        current_view->setText("{dexterity_value}", asText(player->getDexterity()));
+    }
+    else if (event_name == "DEC_AGILITY")
+    {
+        player->decAgility();
+        current_view->setText("{agility_value}", asText(player->getAgility()));
+    }
+    else if (event_name == "INC_AGILITY")
+    {
+        player->incAgility();
+        current_view->setText("{agility_value}", asText(player->getAgility()));
+    }
+    else if (event_name == "DEC_WISDOM")
+    {
+        player->decWisdom();
+        current_view->setText("{wisdom_value}", asText(player->getWisdom()));
+    }
+    else if (event_name == "INC_WISDOM")
+    {
+        player->incWisdom();
+        current_view->setText("{wisdom_value}", asText(player->getWisdom()));
+    }
+    else if (event_name == "DEC_INTELIGENCE")
+    {
+        player->decInteligence();
+        current_view->setText("{inteligence_value}", asText(player->getInteligence()));
+    }
+    else if (event_name == "INC_INTELIGENCE")
+    {
+        player->incInteligence();
+        current_view->setText("{inteligence_value}", asText(player->getInteligence()));
+    }
+    else if (event_name == "DEC_CHARISMA")
+    {
+        player->decCharisma();
+        current_view->setText("{charisma_value}", asText(player->getCharisma()));
+    }
+    else if (event_name == "INC_CHARISMA")
+    {
+        player->incCharisma();
+        current_view->setText("{charisma_value}", asText(player->getCharisma()));
+    }
 	else
     {
         std::cout << "error, unexpected command:" << std::setw(10) << event_name << std::endl;
@@ -149,3 +195,24 @@ Controller &Controller::getController()
     static Controller controller;
     return controller;
 }
+
+std::string Controller::asText(int number)
+{
+    char buff[3];
+    snprintf(buff, sizeof(buff), "%d", number);
+    return buff;
+}
+
+void Controller::loadStats(Char *character)
+{
+    current_view->setText("{strength_value}", asText(character->getStrength()));
+    current_view->setText("{dexterity_value}", asText(character->getDexterity()));
+    current_view->setText("{agility_value}", asText(character->getAgility()));
+    current_view->setText("{wisdom_value}", asText(character->getWisdom()));
+    current_view->setText("{inteligence_value}", asText(character->getInteligence()));
+    current_view->setText("{charisma_value}", asText(character->getCharisma()));
+}
+
+
+
+

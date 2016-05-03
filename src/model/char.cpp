@@ -4,10 +4,14 @@
 
 #include "Char.h"
 
-
-int Char::getStrenght()
+Char::Char(int basic): strength(basic), dexterity(basic), agility(basic), wisdom(basic), inteligence(basic), charisma(basic)
 {
-    return strenght;
+
+}
+
+int Char::getStrength()
+{
+    return strength;
 }
 
 int Char::getDexterity()
@@ -35,9 +39,9 @@ int Char::getCharisma()
     return charisma;
 }
 
-void Char::setStrenght(int value)
+void Char::setStrength(int value)
 {
-    strenght = value;
+    strength = value;
 }
 
 void Char::setDexterity(int value)
@@ -64,6 +68,79 @@ void Char::setCharisma(int value)
 {
     charisma = value;
 }
+
+void Char::decStrength()
+{
+    if(strength >1)
+        strength --;
+}
+
+void Char::incStrength()
+{
+    if(strength <10)
+        strength ++;
+}
+
+void Char::decDexterity()
+{
+    if(dexterity >1)
+        dexterity --;
+}
+
+void Char::incDexterity()
+{
+    if(dexterity <10)
+        dexterity ++;
+}
+
+void Char::decAgility()
+{
+    if(agility >1)
+        agility --;
+}
+
+void Char::incAgility()
+{
+    if(agility <10)
+        agility ++;
+}
+
+void Char::decWisdom()
+{
+    if(wisdom >1)
+        wisdom --;
+}
+
+void Char::incWisdom()
+{
+    if(wisdom <10)
+        wisdom ++;
+}
+
+void Char::decInteligence()
+{
+    if(inteligence >1)
+        inteligence --;
+}
+
+void Char::incInteligence()
+{
+    if(inteligence <10)
+        inteligence ++;
+}
+
+void Char::decCharisma()
+{
+    if(charisma >1)
+        charisma --;
+}
+
+void Char::incCharisma()
+{
+    if(charisma <10)
+        charisma ++;
+}
+
 
 
 

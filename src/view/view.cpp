@@ -18,11 +18,12 @@ std::list<Element*> View::getList() {
 	return this->elements;
 }
 
-void View::setText(char* name, char* text) {
+void View::setText(char* name, std::string text) {
+	char * t = _strdup(text.c_str());
 	for (auto i = this->elements.begin(); i != this->elements.end();) {
 		auto tmpElem = *i;
 		i = this->elements.erase(i);
-		tmpElem->setText(name,text);
+		tmpElem->setText(name,t);
 		this->elements.insert(i, tmpElem);
 	}
 }
