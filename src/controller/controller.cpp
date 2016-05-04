@@ -203,6 +203,15 @@ void Controller::changeView(std::string view)
     current_view_name = view;
     current_view = model->getXml("view_" + current_view_name);
     window->setView(current_view);
+	if (view == "mainmenu")
+	{
+		std::cout << "menu glowne" << std::endl;
+		View* v = model->getXml("view");
+		current_view->extendView(v);
+		window->updateClickmap();
+		current_view->removeLastView();
+		window->updateClickmap();
+	}
 }
 
 void Controller::setDone()

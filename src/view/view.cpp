@@ -27,3 +27,32 @@ void View::setText(char* name, std::string text) {
 		this->elements.insert(i, tmpElem);
 	}
 }
+
+void View::extendView(View* v)
+{
+	auto iter = this->elements.end();
+	iter--;
+	iterators.push_back(iter);
+	for (auto i = v->elements.begin(); i != v->elements.end();)
+	{
+		auto tmpElem = *i;
+		i = v->elements.erase(i);
+		
+		this->elements.push_back(tmpElem);
+	}
+}
+
+void View::removeLastView()
+{
+	std::cout << iterators.size() << std::endl;
+	if (iterators.size() > 0) {
+		for (std::list<Element*>::iterator i = ++iterators.back(); i != this->elements.end();)
+		{
+			std::cout << "*" << std::endl;
+			auto tmpElem = *i;
+			delete tmpElem;
+			i = this->elements.erase(i);
+		}
+		iterators.pop_back();
+	}
+}
