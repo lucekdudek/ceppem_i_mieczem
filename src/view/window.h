@@ -29,6 +29,7 @@ public:
     void setView(View* view);
     void toggleFullscreen();
     static TTF_Font *font;
+	void updateClickmap();
 private:
     View* view;
     char** clickmap;
@@ -47,7 +48,10 @@ private:
     void createOrthoProj(int width, int height);
     SDL_DisplayMode current;
 
-    Texture* hovered;
+	Texture* hovered;
+	Texture* restore;
+	static Uint32 unlock(Uint32 interval, void* param);
+	static bool locked;
 };
 
 #endif /* WINDOW_H_ */
