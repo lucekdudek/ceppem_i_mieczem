@@ -14,9 +14,9 @@ Texture::Texture(int x, int y, int width, int height, char* path) {
 	loadTexture();
 }
 
-Texture::Texture(int x, int y, int width, int height, char* text,
-		TTF_Font *font) {
-	
+Texture::Texture()
+{
+
 }
 
 Texture::~Texture() {
@@ -35,7 +35,7 @@ void Texture::unloadTexture(){
 }
 
 void Texture::setText(char* text) {
-	std::string(text).copy(this->text, 256, 0);
+	std::string(text).copy(this->text, 1024, 0);
 	this->text[strlen(text)] = '\0';
 
 	loadTexture();

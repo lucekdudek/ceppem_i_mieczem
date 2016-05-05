@@ -1,12 +1,15 @@
 #include "text.h"
 #include "window.h"
 
-Text::Text(int x, int y, int width, int height, char* text, TTF_Font *font, bool box) : Texture(x, y, width, height, text, font)
+Text::Text(int x, int y, int width, int height, char* text, TTF_Font *font, bool box)
 {
 	this->x = x;
 	this->y = y;
 	this->width = width;
 	this->height = height;
+
+	this->t_x = x;
+	this->t_y = y;
 	this->t_width = width;
 	this->t_height = height;
 	this->box = box;
@@ -41,8 +44,8 @@ void Text::loadTexture()
 	else
 	{
 		this->id = Window::renderText(this->text, w, h, NULL);
-		this->x += (this->width - w) / 2;
-		this->y += (this->height - h) / 2;
+		this->x = this->x + (this->width - w) / 2;
+		this->y = this->y + (this->height - h) / 2;
 	}
 	this->width = w;
 	this->height = h;

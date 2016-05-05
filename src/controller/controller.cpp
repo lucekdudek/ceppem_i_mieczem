@@ -78,6 +78,8 @@ void Controller::newGameEvent(std::string event_name)
 	{
 		setView("location");
 		addView("player_card", false);
+		std::string t = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisi id orci rutrum lobortis eget et diam. Curabitur lectus erat, sagittis a tellus sed, imperdiet consectetur metus. Nulla nibh nunc, sodales condimentum iaculis ut, faucibus ac ex. Nunc volutpat metus a dui eleifend consectetur. Fusce sed nunc fermentum, accumsan neque ac, interdum odio.";
+		current_view->setText("{log_console}", t);
 	}
 	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
 	{

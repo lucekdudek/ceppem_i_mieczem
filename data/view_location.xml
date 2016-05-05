@@ -7,8 +7,7 @@
     <width>1280</width>
     <height>720</height>
     <textures>
-      <texture x="0" y="0" width="1280" height="720">mainmenu/background.png</texture>
-      <texture x="100" y="100" width="394" height="198">mainmenu/backgroundText.png</texture>
+      <texture x="0" y="0" width="1280" height="720">lokacja.jpg</texture>
     </textures>
   </element>
   <!-- logConsoleBackground -->

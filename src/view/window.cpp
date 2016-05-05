@@ -323,7 +323,7 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 
 	int line_height = getTextHeight("Jjysad", text_font);
 
-	std::list<std::string> words = splitString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisi id orci rutrum lobortis eget et diam. Curabitur lectus erat, sagittis a tellus sed, imperdiet consectetur metus. Nulla nibh nunc, sodales condimentum iaculis ut, faucibus ac ex. Nunc volutpat metus a dui eleifend consectetur. Fusce sed nunc fermentum, accumsan neque ac, interdum odio.");
+	std::list<std::string> words = splitString(text);
 
 	std::list<std::string> lines;
 	std::string prev = "";
@@ -377,12 +377,13 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 
 	//create transparent surface
 	SDL_Surface* sdl_surface = SDL_CreateRGBSurface(0, max_width, max_height, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);
-
+	
 	
 	int index = 0;
 	for (auto i = lines.begin(); i != lines.end(); i++)
 	{
 		SDL_Surface *surface = TTF_RenderUTF8_Blended(Window::font, (*i).c_str(), textColor);
+		SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_NONE);
 		SDL_Rect dest;
 		dest.x = 0;
 		dest.y = (line_height)*index;

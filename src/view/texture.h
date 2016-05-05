@@ -14,8 +14,7 @@
 class Texture {
 public:
 	Texture(int x, int y, int width, int height, char* path);
-	Texture(int x, int y, int width, int height, char* text, TTF_Font *font);
-	virtual ~Texture();
+	~Texture();
 	void setText(char* text);
 
 	int getHeight() const {
@@ -38,17 +37,18 @@ public:
 		return y;
 	}
 
-	void setX(int x) {
+	virtual void setX(int x) {
 		this->x = x;
 	}
 
-	void setY(int y) {
+	virtual void setY(int y) {
 		this->y = y;
 	}
 
 private:
 	void unloadTexture();
 protected:
+	Texture();
 	virtual void loadTexture();
 
 	int x;
@@ -58,7 +58,7 @@ protected:
 	int id;
 
 	char path[256];
-	char text[256];
+	char text[1024];
 };
 
 #endif /* SRC_VIEW_TEXTURE_H_ */

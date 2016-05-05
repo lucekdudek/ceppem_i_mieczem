@@ -67,7 +67,6 @@ void Element::setText(char* name, char* text){
 			if (strcmp(t->getName(), name) == 0)
 			{
 				tmpElem->setText(text);
-				//tmpElem->loadTexture();
 			}
 		}
 	}
