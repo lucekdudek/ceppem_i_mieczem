@@ -17,7 +17,7 @@
         <y>400</y>
         <width>1000</width>
         <height>60</height>
-        <onclick>PCARD_ACTION_A</onclick>
+        <onclick>PCARD_ACTIONA</onclick>
         <textures>
           <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
         </textures>
@@ -28,7 +28,7 @@
         <y>480</y>
         <width>1000</width>
         <height>60</height>
-        <onclick>PCARD_ACTION_B</onclick>
+        <onclick>PCARD_ACTIONB</onclick>
         <textures>
           <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
         </textures>
@@ -39,7 +39,7 @@
         <y>560</y>
         <width>1000</width>
         <height>60</height>
-        <onclick>PCARD_ACTION_C</onclick>
+        <onclick>PCARD_ACTIONC</onclick>
         <textures>
           <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
         </textures>
@@ -50,7 +50,7 @@
         <y>640</y>
         <width>1000</width>
         <height>60</height>
-        <onclick>PCARD_ACTION_D</onclick>
+        <onclick>PCARD_ACTIOND</onclick>
         <textures>
           <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
         </textures>
@@ -73,7 +73,7 @@
         <y>480</y>
         <width>60</width>
         <height>60</height>
-        <onclick>PCARD_MENU</onclick>
+        <onclick>PCARD_MAP</onclick>
         <textures>
             <texture x="0" y="0" width="60" height="60">high_resolution_textures/black.png</texture>
             <text x="0" y="0" width="60" height="60">{map}</text>
@@ -97,7 +97,7 @@
     <y>640</y>
     <width>60</width>
     <height>60</height>
-    <onclick>PCARD_MAP</onclick>
+    <onclick>PCARD_MENU</onclick>
     <textures>
       <texture x="0" y="0" width="60" height="60">high_resolution_textures/black.png</texture>
       <text x="0" y="0" width="60" height="60">{menu}</text>
