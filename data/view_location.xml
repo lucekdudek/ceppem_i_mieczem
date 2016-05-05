@@ -1,13 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view>
-    <!-- background -->
-    <element>
-        <x>0</x>
-        <y>0</y>
-        <width>1280</width>
-        <height>720</height>
-        <textures>
-          <texture x="0" y="0" width="1280" height="720">high_resolution_textures/wood.png</texture>
-        </textures>
-    </element>
+  <!-- mainmenuBackground -->
+  <element>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+    <textures>
+      <texture x="0" y="0" width="1280" height="720">mainmenu/background.png</texture>
+      <texture x="100" y="100" width="394" height="198">mainmenu/backgroundText.png</texture>
+    </textures>
+  </element>
+  <!-- logConsoleBackground -->
+  <element>
+    <x>40</x>
+    <y>40</y>
+    <width>1200</width>
+    <height>340</height>
+    <textures>
+      <texture x="0" y="0" width="1080" height="340">high_resolution_textures/black.png</texture>
+      <text x="10" y="10" width="1080" height="320">{log_console}</text>
+    </textures>
+  </element>
+  <!-- actionA -->
+  <element>
+    <x>40</x>
+    <y>400</y>
+    <width>1000</width>
+    <height>60</height>
+    <onclick>ACTIONA</onclick>
+    <textures>
+      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1080" height="60">{action_a}</text>
+    </textures>
+  </element>
+  <!-- actionB -->
+  <element>
+    <x>40</x>
+    <y>480</y>
+    <width>1000</width>
+    <height>60</height>
+    <onclick>ACTIONB</onclick>
+    <textures>
+      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1080" height="60">{action_b}</text>
+    </textures>
+  </element>
+  <!-- actionC -->
+  <element>
+    <x>40</x>
+    <y>560</y>
+    <width>1080</width>
+    <height>60</height>
+    <onclick>ACTIONC</onclick>
+    <textures>
+      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1080" height="60">{action_c}</text>
+    </textures>
+  </element>
+  <!-- actionD -->
+  <element>
+    <x>40</x>
+    <y>640</y>
+    <width>1080</width>
+    <height>60</height>
+    <onclick>ACTIOND</onclick>
+    <textures>
+      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1080" height="60">{action_d}</text>
+    </textures>
+  </element>
 </view>

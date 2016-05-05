@@ -30,13 +30,13 @@ private:
 	void settingsEvent(std::string event_name);
 	void playerPanelEvent(std::string event_name);
 	void playerCardEvent(std::string event_name);
+	void locationEvent(std::string event_name);
 	void lvl_up(std::string event_name);
 	inline void setView(std::string view);
 	inline void addView(std::string view, bool deactivation = false);
 	inline void delView();
 	static inline std::string asText(int number);
 	void loadStats(Character *character);
-
 };
 
 #endif //CEPEM_I_MIECZEM_CONTROLLER_H

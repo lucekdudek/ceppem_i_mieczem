@@ -37,7 +37,7 @@ public:
     void setCharisma(int value);
 private:
 	int points;
-    int strength;
+    int strength, min_strength;
     int dexterity;
     int agility;
     int wisdom;

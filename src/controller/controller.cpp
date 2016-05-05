@@ -56,6 +56,10 @@ void Controller::event(std::string event_name)
     {
         controller.settingsEvent(event_name);
     }
+	else if(controller.current_view_name == "location")
+	{
+		controller.locationEvent(event_name);
+	}
     else
     {
         std::cout << "error, view \"" << controller.current_view_name << "\" is invalid\n";
@@ -72,7 +76,7 @@ void Controller::newGameEvent(std::string event_name)
 	}
 	else if (event_name == "START_GAME")
 	{
-		setView("mainmenu");
+		setView("location");
 		addView("player_card", false);
 	}
 	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
@@ -217,23 +221,39 @@ void Controller::playerCardEvent(std::string event_name)
 	}
 	else if (event_name == "MENU")
 	{
-		delView();
+		setView("mainmenu");
 	}
-	else if (event_name == "ACTIONA")
+	else
+	{
+		std::cout << "error, unexpected command in card:" << std::setw(10) << event_name << std::endl;
+	}
+}
+
+void Controller::locationEvent(std::string event_name)
+{
+	if(event_name == "ACTIONA")
 	{
 		location->runActionA();
 	}
-	else if (event_name == "ACTIONB")
+	else if(event_name == "ACTIONB")
 	{
 		location->runActionB();
 	}
-	else if (event_name == "ACTIONC")
+	else if(event_name == "ACTIONC")
 	{
 		location->runActionC();
 	}
-	else if (event_name == "ACTIOND")
+	else if(event_name == "ACTIOND")
 	{
 		location->runActionD();
+	}
+	else if(event_name.substr(0, 6) == "PCARD_")
+	{
+		playerCardEvent(event_name.substr(6));
+	}
+	else if(event_name.substr(0, 6) == "PANEL_")
+	{
+		playerPanelEvent(event_name.substr(6));
 	}
 	else
 	{
@@ -262,14 +282,6 @@ void Controller::mainMenuEvent(std::string event_name)
 	else if(event_name == "EXIT_GAME")
 	{
 		setDone();
-	}
-	else if(event_name.substr(0, 6) == "PCARD_")
-	{
-		playerCardEvent(event_name.substr(6));
-	}
-	else if(event_name.substr(0, 6) == "PANEL_")
-	{
-		playerPanelEvent(event_name.substr(6));
 	}
 	else
 	{
