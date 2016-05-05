@@ -60,28 +60,6 @@ void Controller::event(std::string event_name)
     }
 }
 
-void Controller::mainMenuEvent(std::string event_name)
-{
-    if (event_name == "NEW_GAME")
-    {
-        startNewGame();
-        player = new Character();
-		loadStats(player);
-    }
-    else if (event_name == "SETTINGS")
-    {
-        setView("settings");
-    }
-    else if (event_name == "EXIT_GAME")
-    {
-        setDone();
-    }
-    else
-    {
-        std::cout << "error, unexpected command:" << std::setw(10) << event_name << std::endl;
-    }
-}
-
 void Controller::newGameEvent(std::string event_name)
 {
 	if (event_name == "BACK")
@@ -90,87 +68,99 @@ void Controller::newGameEvent(std::string event_name)
 		player = nullptr;
 		setView("mainmenu");
 	}
-	else if (event_name == "DEC_STRENGTH")
-	{
-        player->decStrength();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-		current_view->setText("{strength_value}", asText(player->getStrength()));
-	}
-	else if (event_name == "INC_STRENGTH")
-	{
-        player->incStrength();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-		current_view->setText("{strength_value}", asText(player->getStrength()));
-	}
-    else if (event_name == "DEC_DEXTERITY")
-    {
-        player->decDexterity();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{dexterity_value}", asText(player->getDexterity()));
-    }
-    else if (event_name == "INC_DEXTERITY")
-    {
-        player->incDexterity();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{dexterity_value}", asText(player->getDexterity()));
-    }
-    else if (event_name == "DEC_AGILITY")
-    {
-        player->decAgility();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{agility_value}", asText(player->getAgility()));
-    }
-    else if (event_name == "INC_AGILITY")
-    {
-        player->incAgility();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{agility_value}", asText(player->getAgility()));
-    }
-    else if (event_name == "DEC_WISDOM")
-    {
-        player->decWisdom();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{wisdom_value}", asText(player->getWisdom()));
-    }
-    else if (event_name == "INC_WISDOM")
-    {
-        player->incWisdom();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{wisdom_value}", asText(player->getWisdom()));
-    }
-    else if (event_name == "DEC_INTELIGENCE")
-    {
-        player->decInteligence();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{inteligence_value}", asText(player->getInteligence()));
-    }
-    else if (event_name == "INC_INTELIGENCE")
-    {
-        player->incInteligence();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{inteligence_value}", asText(player->getInteligence()));
-    }
-    else if (event_name == "DEC_CHARISMA")
-    {
-        player->decCharisma();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{charisma_value}", asText(player->getCharisma()));
-    }
-    else if (event_name == "INC_CHARISMA")
-    {
-        player->incCharisma();
-		current_view->setText("{points_value}", asText(player->getPoints()));
-        current_view->setText("{charisma_value}", asText(player->getCharisma()));
-    }
 	else if (event_name == "START_GAME")
 	{
 		setView("mainmenu");
 		addView("player_card", false);
 	}
+	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
+	{
+		lvl_up(event_name);
+	}
 	else
     {
         std::cout << "error, unexpected command:" << std::setw(10) << event_name << std::endl;
     }
+}
+
+void Controller::lvl_up(std::string event_name)
+{
+	if(event_name == "DEC_STRENGTH")
+	{
+		player->decStrength();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{strength_value}", asText(player->getStrength()));
+	}
+	else if(event_name == "INC_STRENGTH")
+	{
+		player->incStrength();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{strength_value}", asText(player->getStrength()));
+	}
+	else if(event_name == "DEC_DEXTERITY")
+	{
+		player->decDexterity();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{dexterity_value}", asText(player->getDexterity()));
+	}
+	else if(event_name == "INC_DEXTERITY")
+	{
+		player->incDexterity();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{dexterity_value}", asText(player->getDexterity()));
+	}
+	else if(event_name == "DEC_AGILITY")
+	{
+		player->decAgility();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{agility_value}", asText(player->getAgility()));
+	}
+	else if(event_name == "INC_AGILITY")
+	{
+		player->incAgility();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{agility_value}", asText(player->getAgility()));
+	}
+	else if(event_name == "DEC_WISDOM")
+	{
+		player->decWisdom();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{wisdom_value}", asText(player->getWisdom()));
+	}
+	else if(event_name == "INC_WISDOM")
+	{
+		player->incWisdom();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{wisdom_value}", asText(player->getWisdom()));
+	}
+	else if(event_name == "DEC_INTELIGENCE")
+	{
+		player->decInteligence();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{inteligence_value}", asText(player->getInteligence()));
+	}
+	else if(event_name == "INC_INTELIGENCE")
+	{
+		player->incInteligence();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{inteligence_value}", asText(player->getInteligence()));
+	}
+	else if(event_name == "DEC_CHARISMA")
+	{
+		player->decCharisma();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{charisma_value}", asText(player->getCharisma()));
+	}
+	else if(event_name == "INC_CHARISMA")
+	{
+		player->incCharisma();
+		current_view->setText("{points_value}", asText(player->getPoints()));
+		current_view->setText("{charisma_value}", asText(player->getCharisma()));
+	}
+	else
+	{
+		std::cout << "error, unexpected command:" << std::setw(10) << event_name << std::endl;
+	}
 }
 
 void Controller::settingsEvent(std::string event_name)
@@ -192,10 +182,73 @@ void Controller::settingsEvent(std::string event_name)
     }
 }
 
+void Controller::playerPanelEvent(std::string event_name)
+{
+	if(event_name == "BACK")
+	{
+		delView();
+	}
+	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
+	{
+		lvl_up(event_name);
+	}
+	else
+	{
+		std::cout << "error, unexpected command in panel:" << std::setw(10) << event_name << std::endl;
+	}
+}
+
+void Controller::playerCardEvent(std::string event_name)
+{
+	if(event_name == "SETTINGS")
+	{
+		delView();
+	}
+	else if(event_name == "PROFILE")
+	{
+		addView("player_panel");
+		loadStats(player);
+	}
+	else
+	{
+		std::cout << "error, unexpected command in card:" << std::setw(10) << event_name << std::endl;
+	}
+}
+
 void Controller::startNewGame()
 {
     std::cout << "new game starting\n";
     setView("new_game");
+}
+
+void Controller::mainMenuEvent(std::string event_name)
+{
+	if(event_name == "NEW_GAME")
+	{
+		startNewGame();
+		player = new Character();
+		loadStats(player);
+	}
+	else if(event_name == "SETTINGS")
+	{
+		setView("settings");
+	}
+	else if(event_name == "EXIT_GAME")
+	{
+		setDone();
+	}
+	else if(event_name.substr(0, 6) == "PCARD_")
+	{
+		playerCardEvent(event_name.substr(6));
+	}
+	else if(event_name.substr(0, 6) == "PANEL_")
+	{
+		playerPanelEvent(event_name.substr(6));
+	}
+	else
+	{
+		std::cout << "error, unexpected command:" << std::setw(10) << event_name << std::endl;
+	}
 }
 
 void Controller::setView(std::string view)

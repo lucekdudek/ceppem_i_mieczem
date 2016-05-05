@@ -9,28 +9,31 @@
 class Controller
 {
 public:
-    static void event(std::string event_name);
-    static void run();
-    static inline void setDone();
-    static Controller & getController();
+	static void event(std::string event_name);
+	static void run();
+	static inline void setDone();
+	static Controller & getController();
 private:
-    bool running;
-    std::string current_view_name;                 //zawiera informację o aktualnie wyświetlanym widoku.
-    Window* window;
-    Model* model;
-    View* current_view;
-    Character* player;
-    Controller();
-    ~Controller();
-    void startNewGame();
-    void mainMenuEvent(std::string event_name);
-    void newGameEvent(std::string event_name);
-    void settingsEvent(std::string event_name);
-    inline void setView(std::string view);
+	bool running;
+	std::string current_view_name;                 //zawiera informację o aktualnie wyświetlanym widoku.
+	Window* window;
+	Model* model;
+	View* current_view;
+	Character* player;
+	Controller();
+	~Controller();
+	void startNewGame();
+	void mainMenuEvent(std::string event_name);
+	void newGameEvent(std::string event_name);
+	void settingsEvent(std::string event_name);
+	void playerPanelEvent(std::string event_name);
+	void playerCardEvent(std::string event_name);
+	void lvl_up(std::string event_name);
+	inline void setView(std::string view);
 	inline void addView(std::string view, bool deactivation = false);
 	inline void delView();
-    static inline std::string asText(int number);
-    void loadStats(Character *character);
+	static inline std::string asText(int number);
+	void loadStats(Character *character);
 
 };
 
