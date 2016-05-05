@@ -28,7 +28,7 @@ Controller::~Controller()
 void Controller::run()
 {
     Controller &controller = getController();
-    controller.changeView("mainmenu");
+    controller.setView("mainmenu");
     FpsHandler clock;
     while (controller.running)
     {
@@ -70,7 +70,7 @@ void Controller::mainMenuEvent(std::string event_name)
     }
     else if (event_name == "SETTINGS")
     {
-        changeView("settings");
+        setView("settings");
     }
     else if (event_name == "EXIT_GAME")
     {
@@ -88,7 +88,7 @@ void Controller::newGameEvent(std::string event_name)
 	{
         delete player;
 		player = nullptr;
-		changeView("mainmenu");
+		setView("mainmenu");
 	}
 	else if (event_name == "DEC_STRENGTH")
 	{
@@ -164,7 +164,8 @@ void Controller::newGameEvent(std::string event_name)
     }
 	else if (event_name == "START_GAME")
 	{
-		std::cout << "to jeszcze nie dziala chle, chle, chle...\n";
+		setView("mainmenu");
+		addView("player_card", true);
 	}
 	else
     {
@@ -176,13 +177,13 @@ void Controller::settingsEvent(std::string event_name)
 {
     if (event_name == "BACK")
     {
-        changeView("mainmenu");
+        setView("mainmenu");
     }
     else if (event_name.substr(0, 9) == "LANGUAGE_")
     {
         std::cout << "new language: " << event_name.substr(9) << std::endl;
         model->setLanguage(event_name.substr(9));
-        changeView("settings");
+        setView("settings");
     }
     else
     {
@@ -194,24 +195,34 @@ void Controller::settingsEvent(std::string event_name)
 void Controller::startNewGame()
 {
     std::cout << "new game starting\n";
-    changeView("new_game");
+    setView("new_game");
 }
 
-void Controller::changeView(std::string view)
+void Controller::setView(std::string view)
 {
     std::cout << "changed view to: " << std::setw(10) << view << std::endl;
     current_view_name = view;
-    current_view = model->getXml("view_" + current_view_name);
+    current_view = model->getXml("view_" + view);
     window->setView(current_view);
-	if (view == "mainmenu")
+}
+
+void Controller::addView(std::string view, bool deactivation)
+{
+	View* v;
+	if (deactivation)
 	{
-		std::cout << "menu glowne" << std::endl;
-		View* v = model->getXml("view");
+		v = model->getXml("view_blockade");
 		current_view->extendView(v);
-		window->updateClickmap();
-		current_view->removeLastView();
-		window->updateClickmap();
 	}
+	v = model->getXml("view_" + view);
+	current_view->extendView(v);
+	window->updateClickmap();
+}
+
+void Controller::delView()
+{
+	current_view->removeLastView();
+	window->updateClickmap();
 }
 
 void Controller::setDone()

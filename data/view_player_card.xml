@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+    <!-- playerPanelBackground -->
+    <element>
+        <x>1000</x>
+        <y>0</y>
+        <width>280</width>
+        <height>720</height>
+        <textures>
+          <texture x="0" y="0" width="280" height="720">high_resolution_textures/rainbow.png</texture>
+        </textures>
+    </element>
+	<!-- equipment -->
+    <element>
+        <x>1020</x>
+        <y>100</y>
+        <width>240</width>
+        <height>90</height>
+        <onclick>NEW_GAME</onclick>
+        <textures>
+            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+            <text x="0" y="0" width="240" height="90">{equipment}</text>
+        </textures>
+    </element>
+	<!-- settings -->
+    <element>
+        <x>1020</x>
+        <y>200</y>
+        <width>240</width>
+        <height>90</height>
+        <onclick>SETTINGS</onclick>
+        <textures>
+            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+            <text x="0" y="0" width="240" height="90">{settings}</text>
+        </textures>
+    </element>
+    <!-- playerProfile -->
+    <element>
+        <x>1020</x>
+        <y>300</y>
+        <width>240</width>
+        <height>90</height>
+        <onclick>PLAYER_PROFILE</onclick>
+        <textures>
+            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+            <text x="0" y="0" width="240" height="90">{player_profile}</text>
+        </textures>
+    </element>
+</view>

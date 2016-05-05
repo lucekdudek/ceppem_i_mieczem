@@ -26,7 +26,9 @@ private:
     void mainMenuEvent(std::string event_name);
     void newGameEvent(std::string event_name);
     void settingsEvent(std::string event_name);
-    inline void changeView(std::string view);
+    inline void setView(std::string view);
+	inline void addView(std::string view, bool deactivation = false);
+	inline void delView();
     static inline std::string asText(int number);
     void loadStats(Character *character);
 
