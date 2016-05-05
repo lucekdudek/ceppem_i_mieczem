@@ -5,6 +5,7 @@
 #include "../view/window.h"
 #include "../model/model.h"
 #include "../model/character.h"
+#include "../locations/location.h"
 
 class Controller
 {
@@ -20,6 +21,7 @@ private:
 	Model* model;
 	View* current_view;
 	Character* player;
+	Location* location;
 	Controller();
 	~Controller();
 	void startNewGame();

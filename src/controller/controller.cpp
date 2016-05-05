@@ -2,6 +2,7 @@
 #include <iomanip>
 #include "controller.h"
 #include "fpshandler.h"
+#include "../locations/l_small_farm.h"
 
 #include <stdlib.h>
 
@@ -11,6 +12,7 @@ Controller::Controller()
     running = true;
     window = new Window();
     model = new Model;
+	location = new L_Small_Farm();
 }
 
 Controller::~Controller()
@@ -200,14 +202,38 @@ void Controller::playerPanelEvent(std::string event_name)
 
 void Controller::playerCardEvent(std::string event_name)
 {
-	if(event_name == "SETTINGS")
+	if(event_name == "EQUIPMENT")
 	{
-		delView();
+		;
 	}
 	else if(event_name == "PROFILE")
 	{
 		addView("player_panel");
 		loadStats(player);
+	}
+	else if (event_name == "MAP")
+	{
+		;
+	}
+	else if (event_name == "MENU")
+	{
+		delView();
+	}
+	else if (event_name == "ACTIONA")
+	{
+		location->runActionA();
+	}
+	else if (event_name == "ACTIONB")
+	{
+		location->runActionB();
+	}
+	else if (event_name == "ACTIONC")
+	{
+		location->runActionC();
+	}
+	else if (event_name == "ACTIOND")
+	{
+		location->runActionD();
 	}
 	else
 	{
