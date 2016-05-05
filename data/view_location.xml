@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+    <!-- background -->
+    <element>
+        <x>0</x>
+        <y>0</y>
+        <width>1280</width>
+        <height>720</height>
+        <textures>
+          <texture x="0" y="0" width="1280" height="720">high_resolution_textures/wood.png</texture>
+        </textures>
+    </element>
+</view>

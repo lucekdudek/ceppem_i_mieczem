@@ -1,49 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view>
-    <!-- playerPanelBackground -->
+    <!-- logConsoleBackground -->
     <element>
-        <x>1000</x>
-        <y>0</y>
-        <width>280</width>
-        <height>720</height>
+        <x>40</x>
+        <y>40</y>
+        <width>1200</width>
+        <height>340</height>
         <textures>
-          <texture x="0" y="0" width="280" height="720">high_resolution_textures/rainbow.png</texture>
+          <texture x="0" y="0" width="1200" height="340">high_resolution_textures/black.png</texture>
+        </textures>
+    </element>
+    <!-- actionA -->
+    <element>
+        <x>140</x>
+        <y>400</y>
+        <width>1000</width>
+        <height>60</height>
+        <onclick>PCARD_ACTION_A</onclick>
+        <textures>
+          <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
+        </textures>
+    </element>
+  <!-- actionB -->
+    <element>
+        <x>140</x>
+        <y>480</y>
+        <width>1000</width>
+        <height>60</height>
+        <onclick>PCARD_ACTION_B</onclick>
+        <textures>
+          <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
+        </textures>
+    </element>
+  <!-- actionC -->
+    <element>
+        <x>140</x>
+        <y>560</y>
+        <width>1000</width>
+        <height>60</height>
+        <onclick>PCARD_ACTION_C</onclick>
+        <textures>
+          <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
+        </textures>
+    </element>
+  <!-- actionD -->
+    <element>
+        <x>140</x>
+        <y>640</y>
+        <width>1000</width>
+        <height>60</height>
+        <onclick>PCARD_ACTION_D</onclick>
+        <textures>
+          <texture x="0" y="0" width="1000" height="60">high_resolution_textures/black.png</texture>
         </textures>
     </element>
 	<!-- equipment -->
     <element>
-        <x>1020</x>
-        <y>100</y>
-        <width>240</width>
-        <height>90</height>
-        <onclick>PCARD_NEW_GAME</onclick>
+        <x>1180</x>
+        <y>400</y>
+        <width>60</width>
+        <height>60</height>
+        <onclick>PCARD_EQUIPMENT</onclick>
         <textures>
-            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
-            <text x="0" y="0" width="240" height="90">{equipment}</text>
+            <texture x="0" y="0" width="60" height="60">high_resolution_textures/black.png</texture>
+            <text x="0" y="0" width="60" height="60">{equipment}</text>
         </textures>
     </element>
-	<!-- settings -->
+  <!-- map -->
     <element>
-        <x>1020</x>
-        <y>200</y>
-        <width>240</width>
-        <height>90</height>
-        <onclick>PCARD_SETTINGS</onclick>
+        <x>1180</x>
+        <y>480</y>
+        <width>60</width>
+        <height>60</height>
+        <onclick>PCARD_MENU</onclick>
         <textures>
-            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
-            <text x="0" y="0" width="240" height="90">{settings}</text>
+            <texture x="0" y="0" width="60" height="60">high_resolution_textures/black.png</texture>
+            <text x="0" y="0" width="60" height="60">{map}</text>
         </textures>
     </element>
     <!-- playerProfile -->
     <element>
-        <x>1020</x>
-        <y>300</y>
-        <width>240</width>
-        <height>90</height>
+        <x>1180</x>
+        <y>560</y>
+        <width>60</width>
+        <height>60</height>
         <onclick>PCARD_PROFILE</onclick>
         <textures>
-            <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
-            <text x="0" y="0" width="240" height="90">{player_profile}</text>
+            <texture x="0" y="0" width="60" height="60">high_resolution_textures/black.png</texture>
+            <text x="0" y="0" width="60" height="60">{player_profile}</text>
         </textures>
     </element>
+  <!-- menu -->
+  <element>
+    <x>1180</x>
+    <y>640</y>
+    <width>60</width>
+    <height>60</height>
+    <onclick>PCARD_MAP</onclick>
+    <textures>
+      <texture x="0" y="0" width="60" height="60">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="60" height="60">{menu}</text>
+    </textures>
+  </element>
 </view>
