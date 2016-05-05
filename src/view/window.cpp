@@ -9,6 +9,24 @@
 TTF_Font *Window::font;
 bool Window::locked;
 
+std::list<std::string> splitString(std::string str)
+{
+	std::list<std::string> words;
+
+	std::size_t last = -1;
+	std::size_t found;
+
+	while ((found = str.find_first_of(" ")) != std::string::npos)
+	{
+		words.push_back(str.substr(last + 1, found - last - 1));
+		last = found;
+		str[found] = '*';
+	}
+	words.push_back(str.substr(last + 1));
+
+	return words;
+}
+
 void setWindowsIcon(SDL_Window *sdlWindow)
 {
 	HINSTANCE handle = ::GetModuleHandle(nullptr);
@@ -274,6 +292,131 @@ int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font)
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sdl_surface->w, sdl_surface->h, 0,
 		GL_BGRA, GL_UNSIGNED_BYTE, sdl_surface->pixels);
+	SDL_FreeSurface(sdl_surface);
+
+	return texture_id;
+}
+
+int Window::getTextWidth(const char *text, TTF_Font *text_font)
+{
+	SDL_Color textColor = { 128, 0, 0 };
+	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::font, text, textColor);
+	int sw = sdl_surface->w;
+	SDL_FreeSurface(sdl_surface);
+	return sw;
+}
+int Window::getTextHeight(const char *text, TTF_Font *text_font)
+{
+	SDL_Color textColor = { 128, 0, 0 };
+	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::font, text, textColor);
+	int sh = sdl_surface->h;
+	SDL_FreeSurface(sdl_surface);
+	return sh;
+}
+
+int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth, TTF_Font *text_font)
+{	
+	t_width = (t_width * 1920) / 1280;
+	t_heigth = (t_heigth * 1920) / 1280;
+	SDL_Color textColor = { 128, 0, 0 };
+	int text_width = 200;
+
+	int line_height = getTextHeight("Jjysad", text_font);
+
+	std::list<std::string> words = splitString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisi id orci rutrum lobortis eget et diam. Curabitur lectus erat, sagittis a tellus sed, imperdiet consectetur metus. Nulla nibh nunc, sodales condimentum iaculis ut, faucibus ac ex. Nunc volutpat metus a dui eleifend consectetur. Fusce sed nunc fermentum, accumsan neque ac, interdum odio.");
+
+	std::cout << getTextWidth("Please, replace the", text_font) << '\n';
+
+	std::list<std::string> lines;
+	std::string prev = "";
+	std::string curr = "";
+	for (auto i = words.begin(); i != words.end(); i++)
+	{
+		auto tmpElem = *i;
+
+		if (curr.length() > 0)
+		{
+			curr = curr + " ";
+		}
+		curr = curr + *i;
+		if (getTextWidth(curr.c_str(), text_font) > t_width)
+		{
+			if (i != words.begin())
+			{
+				lines.push_back(prev);
+				i--;
+			}
+			else
+			{
+				break;
+			}
+			prev = "";
+			curr = "";
+		}
+		else
+		{
+			prev = curr;
+		}
+	}
+	if (curr.length() > 0)
+	{
+		lines.push_back(curr);
+	}
+
+	//get width of the longest line
+	int max_width = 0;
+	for (auto i = lines.begin(); i != lines.end(); i++)
+	{
+		int curr_width = getTextWidth((*i).c_str(), text_font);
+		if (curr_width > max_width)
+		{
+			max_width = curr_width;
+		}
+	}
+
+	//get height of text
+	int max_height = lines.size()*line_height;
+
+	//create transparent surface
+	SDL_Surface* sdl_surface = SDL_CreateRGBSurface(0, max_width, max_height, 32, 0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000);
+
+	
+	int index = 0;
+	for (auto i = lines.begin(); i != lines.end(); i++)
+	{
+		SDL_Surface *surface = TTF_RenderUTF8_Blended(Window::font, (*i).c_str(), textColor);
+		SDL_Rect dest;
+		dest.x = 0;
+		dest.y = (line_height)*index;
+		dest.w = surface->w;
+		dest.h = surface->h;
+		SDL_BlitSurface(surface, NULL, sdl_surface, &dest);
+		SDL_FreeSurface(surface);
+		index++;
+	}
+
+	if (sdl_surface == NULL)
+	{
+		printf("Unable to render text surface! SDL_ttf Error: %s\n",
+			TTF_GetError());
+		return 0;
+	}
+
+	GLuint texture_id;
+
+	glGenTextures(1, &texture_id);
+	glBindTexture(GL_TEXTURE_2D, texture_id);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, sdl_surface->w, sdl_surface->h, 0,
+		GL_BGRA, GL_UNSIGNED_BYTE, sdl_surface->pixels);
+	SDL_FreeSurface(sdl_surface);
+
+	w = (sdl_surface->w * 1280) / 1920;
+	h = (sdl_surface->h * 1280) / 1920;
 
 	return texture_id;
 }

@@ -12,6 +12,7 @@ Controller::Controller()
     running = true;
     window = new Window();
     model = new Model;
+
 	location = new L_Small_Farm();
 }
 
