@@ -138,6 +138,7 @@ bool Controller::newGameEvent(std::string event_name)
 	}
 	else if(event_name == "START_GAME")
 	{
+		player->saveAttributes();
 		setView("location");
 		addView("player_card", false);
 		std::string t = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisi id orci rutrum lobortis eget et diam. Curabitur lectus erat, sagittis a tellus sed, imperdiet consectetur metus. Nulla nibh nunc, sodales condimentum iaculis ut, faucibus ac ex. Nunc volutpat metus a dui eleifend consectetur. Fusce sed nunc fermentum, accumsan neque ac, interdum odio.";
@@ -184,6 +185,12 @@ bool Controller::playerPanelEvent(std::string event_name)
 {
 	if(event_name == "BACK")
 	{
+		player->clearAttributes();
+		delView();
+	}
+	else if(event_name == "SAVE")
+	{
+		player->saveAttributes();
 		delView();
 	}
 	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")

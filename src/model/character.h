@@ -35,14 +35,22 @@ public:
     void decCharisma();
     void incCharisma();
     void setCharisma(int value);
+	void saveAttributes();
+	void clearAttributes();
 private:
 	int points;
-    int strength, min_strength;
-    int dexterity;
+	int strength;
+	int min_strength;
+	int dexterity;
+	int min_dexterity;
     int agility;
+    int min_agility;
     int wisdom;
+    int min_wisdom;
     int inteligence;
+    int min_inteligence;
     int charisma;
+    int min_charisma;
 };
 
 

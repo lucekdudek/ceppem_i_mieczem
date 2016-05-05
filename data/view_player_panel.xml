@@ -225,17 +225,28 @@
       <text x="0" y="0" width="50" height="50">+</text>
     </textures>
   </element>
-
   <!-- back -->
   <element>
-    <x>55</x>
-    <y>580</y>
+    <x>255</x>
+    <y>560</y>
     <width>240</width>
     <height>90</height>
     <onclick>BACK</onclick>
     <textures>
       <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
       <text x="0" y="0" width="240" height="90">{back}</text>
+    </textures>
+  </element>
+  <!-- save -->
+  <element>
+    <x>790</x>
+    <y>560</y>
+    <width>240</width>
+    <height>90</height>
+    <onclick>SAVE</onclick>
+    <textures>
+      <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+      <text x="0" y="0" width="240" height="90">{save}</text>
     </textures>
   </element>
 </view>
