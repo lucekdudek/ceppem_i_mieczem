@@ -143,7 +143,7 @@ void Window::eventLoop()
 			{//1246,10,24,24
 				locked = true;
 				toggleFullscreen();
-				SDL_TimerID timerID = SDL_AddTimer(500, &unlock,"");
+				SDL_TimerID timerID = SDL_AddTimer(500, &unlock, "");
 			}
 			break;
 
@@ -400,7 +400,10 @@ void Window::updateClickmap()
 	buttonsElements.clear();
 
 	std::list<Element*> el = this->view->getList();
-	for (std::list<Element*>::iterator it = el.begin(); it != el.end(); it++)
+
+	std::list<Element*>::iterator it = el.begin();
+	std::advance(it, this->view->getClickMap());
+	for (; it != el.end(); it++)
 	{
 		Element* e = ((Element*)(*it));
 
