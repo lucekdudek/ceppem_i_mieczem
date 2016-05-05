@@ -16,21 +16,7 @@ Texture::Texture(int x, int y, int width, int height, char* path) {
 
 Texture::Texture(int x, int y, int width, int height, char* text,
 		TTF_Font *font) {
-	this->x = x;
-	this->y = y;
-	this->width = width;
-	this->height = height;
-
-	std::string s=text;
-
-	s.copy(this->text, 256, 0);
-	this->text[strlen(text)] = '\0';
-
-	s.copy(this->path, 256, 0);
-	this->path[strlen(text)] = '\0';
-
-	this->id = -1;
-	loadTexture();
+	
 }
 
 Texture::~Texture() {
@@ -39,16 +25,7 @@ Texture::~Texture() {
 
 void Texture::loadTexture() {
 	unloadTexture();
-	if (strlen(this->text) > 0) {
-		int w, h;
-		this->id = Window::renderText(this->text, w, h, NULL);
-		this->x += (this->width - w) / 2;
-		this->y += (this->height - h) / 2;
-		this->width = w;
-		this->height = h;
-	} else {
-		this->id = Window::loadGLTexture(path);
-	}
+	this->id = Window::loadGLTexture(path);
 }
 
 void Texture::unloadTexture(){

@@ -47,8 +47,9 @@ public:
 	}
 
 private:
-	void loadTexture();
 	void unloadTexture();
+protected:
+	virtual void loadTexture();
 
 	int x;
 	int y;
@@ -56,7 +57,6 @@ private:
 	int height;
 	int id;
 
-protected:
 	char path[256];
 	char text[256];
 };

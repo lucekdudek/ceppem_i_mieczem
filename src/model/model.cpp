@@ -73,7 +73,14 @@ View *Model::getXml(std::string file_name)
 				else
 				{
 					text = _strdup(temp.c_str());
-					el->addTexture(new Text(x, y, width, height, text, NULL));
+					if (pParm2->Attribute("display") != nullptr)
+					{
+						el->addTexture(new Text(x, y, width, height, text, NULL, true));
+					}
+					else
+					{
+						el->addTexture(new Text(x, y, width, height, text, NULL));
+					}
 				}
 			}
 			pParm2 = pParm2->NextSiblingElement();

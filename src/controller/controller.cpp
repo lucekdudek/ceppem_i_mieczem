@@ -11,6 +11,8 @@ Controller::Controller()
     running = true;
     window = new Window();
     model = new Model;
+
+	int a, b;
 }
 
 Controller::~Controller()
