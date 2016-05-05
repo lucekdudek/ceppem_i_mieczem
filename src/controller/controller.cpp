@@ -165,7 +165,7 @@ void Controller::newGameEvent(std::string event_name)
 	else if (event_name == "START_GAME")
 	{
 		setView("mainmenu");
-		addView("player_card", true);
+		addView("player_card", false);
 	}
 	else
     {
