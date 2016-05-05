@@ -325,8 +325,6 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 
 	std::list<std::string> words = splitString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisi id orci rutrum lobortis eget et diam. Curabitur lectus erat, sagittis a tellus sed, imperdiet consectetur metus. Nulla nibh nunc, sodales condimentum iaculis ut, faucibus ac ex. Nunc volutpat metus a dui eleifend consectetur. Fusce sed nunc fermentum, accumsan neque ac, interdum odio.");
 
-	std::cout << getTextWidth("Please, replace the", text_font) << '\n';
-
 	std::list<std::string> lines;
 	std::string prev = "";
 	std::string curr = "";

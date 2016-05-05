@@ -12,7 +12,6 @@ Controller::Controller()
     running = true;
     window = new Window();
     model = new Model;
-
 	location = new L_Small_Farm();
 }
 
@@ -213,7 +212,7 @@ void Controller::playerCardEvent(std::string event_name)
 	}
 	else if(event_name == "PROFILE")
 	{
-		addView("player_panel");
+		addView("player_panel", true);
 		loadStats(player);
 	}
 	else if (event_name == "MAP")
@@ -300,14 +299,8 @@ void Controller::setView(std::string view)
 
 void Controller::addView(std::string view, bool deactivation)
 {
-	View* v;
-	if (deactivation)
-	{
-		v = model->getXml("view_blockade");
-		current_view->extendView(v);
-	}
-	v = model->getXml("view_" + view);
-	current_view->extendView(v);
+	View* v = model->getXml("view_" + view);
+	current_view->extendView(v, deactivation);
 	window->updateClickmap();
 }
 
