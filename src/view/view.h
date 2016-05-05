@@ -14,7 +14,7 @@ public:
 	int getClickMap();
 private:
 	std::list<Element*> elements;
-	std::list<std::list<Element*>::iterator> iterators;
+	std::list<int> views;
 	std::list<int> clickMap;
 };
 

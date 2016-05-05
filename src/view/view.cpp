@@ -31,9 +31,7 @@ void View::setText(char* name, std::string text) {
 
 void View::extendView(View* v, bool locked)
 {
-	auto iter = this->elements.end();
-	iter--;
-	iterators.push_back(iter);
+	views.push_back(this->elements.size());
 
 	if (locked)
 	{
@@ -51,20 +49,23 @@ void View::extendView(View* v, bool locked)
 
 void View::removeLastView()
 {
-	if (iterators.size() > 0) {
-		if ((this->clickMap.back() - 1) == (std::distance(this->elements.begin(), iterators.back())))
+	if (views.size() > 0) {
+		std::list<Element*>::iterator it = this->elements.begin();
+		std::advance(it, this->views.back());
+
+		if (this->clickMap.back() == this->views.back())
 		{
 			this->clickMap.pop_back();
 		}
 
-		for (std::list<Element*>::iterator i = ++iterators.back(); i != this->elements.end();)
+		for (std::list<Element*>::iterator i = it; i != this->elements.end();)
 		{
 			auto tmpElem = *i;
 			delete tmpElem;
 			i = this->elements.erase(i);
 		}
 
-		iterators.pop_back();
+		views.pop_back();
 	}
 }
 
