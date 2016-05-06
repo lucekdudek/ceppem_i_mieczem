@@ -51,7 +51,7 @@ void Controller::event(std::string event_name)
 			if(controller.locationEvent(event_name))
 				break;
 		}
-		
+
 		else if(*it == "mainmenu")
 		{
 			if(controller.mainMenuEvent(event_name))
@@ -102,7 +102,6 @@ bool Controller::containerOpenEvent(std::string event_name)
 
 bool Controller::locationEvent(std::string event_name)
 {
-	std::cout << "loc:" << event_name << std::endl;
 	if(event_name.substr(0, 7) == "PERSON_")
 	{
 		return personEvent(event_name.substr(7));
@@ -152,7 +151,7 @@ bool Controller::newGameEvent(std::string event_name)
 	else if(event_name == "START_GAME")
 	{
 		player->saveAttributes();
-		setView("location");
+		setView("location", "small_farm");
 		addView("player_card", false);
 		std::string t = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisi id orci rutrum lobortis eget et diam. Curabitur lectus erat, sagittis a tellus sed, imperdiet consectetur metus. Nulla nibh nunc, sodales condimentum iaculis ut, faucibus ac ex. Nunc volutpat metus a dui eleifend consectetur. Fusce sed nunc fermentum, accumsan neque ac, interdum odio.";
 		current_view->setText("{log_console}", t);
@@ -170,7 +169,7 @@ bool Controller::newGameEvent(std::string event_name)
 
 bool Controller::personEvent(std::string event_name)
 {
-	
+
 	if(event_name.substr(0, 13) == "CONVERSATION_")
 	{
 		return personConversationEvent(event_name.substr(13));
@@ -358,20 +357,30 @@ void Controller::setView(std::string view)
 	std::cout << "changed view to: " << std::setw(10) << view << std::endl;
 	current_view_name.clear();
 	current_view_name.push_front(view);
-	if (view == "location")
-	{
-		current_view = model->getXml("view_" + view, "location_small_farm");
-	}
-	else
-	{
-		current_view = model->getXml("view_" + view);
-	}
+	current_view = model->getXml("view_" + view);
+	window->setView(current_view);
+}
+
+void Controller::setView(std::string view, std::string location)
+{
+	std::cout << "changed view to: " << std::setw(10) << view << std::endl;
+	current_view_name.clear();
+	current_view_name.push_front(view);
+	current_view = model->getXml("view_" + view, "location_" + location);
 	window->setView(current_view);
 }
 
 void Controller::addView(std::string view, bool deactivation)
 {
 	View* v = model->getXml("view_" + view);
+	current_view_name.push_front(view);
+	current_view->extendView(v, deactivation);
+	window->updateClickmap();
+}
+
+void Controller::addView(std::string view, std::string location, bool deactivation)
+{
+	View* v = model->getXml("view_" + view, "location_" + location);
 	current_view_name.push_front(view);
 	current_view->extendView(v, deactivation);
 	window->updateClickmap();

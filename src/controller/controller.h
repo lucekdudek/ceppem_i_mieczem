@@ -39,7 +39,9 @@ private:
 	bool settingsEvent(std::string event_name);
 	bool lvl_up(std::string event_name);
 	inline void setView(std::string view);
+	inline void setView(std::string view, std::string location);
 	inline void addView(std::string view, bool deactivation = false);
+	inline void addView(std::string view, std::string location, bool deactivation = false);
 	inline void delView();
 	static inline std::string asText(int number);
 	void loadStats(Character *character);
