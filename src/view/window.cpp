@@ -436,6 +436,7 @@ void Window::drawImage(int x, int y, int textureId, int width, int height)
 	glEnd();
 }
 
+GLubyte array[3 * 100 * 100];
 void Window::renderFrame()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -474,6 +475,11 @@ void Window::renderFrame()
 	{
 		drawImage(restore->getX(), restore->getY(), restore->getId(), restore->getWidth(), restore->getHeight());
 	}
+
+
+	/*glReadBuffer(GL_BACK_LEFT);
+	glReadPixels(1280/2, 720/2, 100, 100, GL_RGB, GL_UNSIGNED_BYTE, array);
+	glDrawPixels(100, 100, GL_RGB, GL_UNSIGNED_BYTE, array);*/
 
 	//glRecti(50, 100, 200, 300);
 	SDL_GL_SwapWindow(mainWindow);
