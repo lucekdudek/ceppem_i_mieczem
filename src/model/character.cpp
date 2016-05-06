@@ -23,6 +23,17 @@ Character::Character(int basic, int points)
 	min_charisma = basic;
 }
 
+Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
+{
+	points = pkt;
+	min_strength = strength = st;
+	min_dexterity = dexterity = dex;
+	min_agility = agility = ag;
+	min_wisdom = wisdom = wi;
+	min_inteligence = inteligence = in;
+	min_charisma = charisma = ch;
+}
+
 int Character::getPoints()
 {
 	return points;
