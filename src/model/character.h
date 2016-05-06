@@ -53,5 +53,4 @@ private:
     int min_charisma;
 };
 
-
 #endif //CEPEM_I_MIECZEM_CHAR_H

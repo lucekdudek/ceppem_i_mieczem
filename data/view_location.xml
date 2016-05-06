@@ -27,7 +27,7 @@
     <y>400</y>
     <width>1000</width>
     <height>60</height>
-    <onclick>ACTIONA</onclick>
+    <onclick>{ACTIONA}</onclick>
     <textures>
       <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
       <text x="0" y="0" width="1080" height="60">{action_a}</text>

@@ -4,6 +4,8 @@
 
 #include "character.h"
 
+const int MAX_ATTRIBUTE = 99;
+
 Character::Character(int basic, int points)
 {
 	this->points = points;
@@ -97,7 +99,7 @@ void Character::decStrength()
 
 void Character::incStrength()
 {
-	if (strength < 10 && points > 0)
+	if (strength < MAX_ATTRIBUTE && points > 0)
 	{
 		strength++;
 		points--;
@@ -115,7 +117,7 @@ void Character::decDexterity()
 
 void Character::incDexterity()
 {
-	if (dexterity < 10 && points > 0)
+	if (dexterity < MAX_ATTRIBUTE && points > 0)
 	{
 		dexterity++;
 		points--;
@@ -133,7 +135,7 @@ void Character::decAgility()
 
 void Character::incAgility()
 {
-	if (agility < 10 && points > 0)
+	if (agility < MAX_ATTRIBUTE && points > 0)
 	{
 		agility++;
 		points--;
@@ -151,7 +153,7 @@ void Character::decWisdom()
 
 void Character::incWisdom()
 {
-	if (wisdom < 10 && points > 0)
+	if (wisdom < MAX_ATTRIBUTE && points > 0)
 	{
 		wisdom++;
 		points--;
@@ -169,7 +171,7 @@ void Character::decInteligence()
 
 void Character::incInteligence()
 {
-	if (inteligence < 10 && points > 0)
+	if (inteligence < MAX_ATTRIBUTE && points > 0)
 	{
 		inteligence++;
 		points--;
@@ -187,7 +189,7 @@ void Character::decCharisma()
 
 void Character::incCharisma()
 {
-	if (charisma < 10 && points > 0)
+	if (charisma < MAX_ATTRIBUTE && points > 0)
 	{
 		charisma++;
 		points--;
