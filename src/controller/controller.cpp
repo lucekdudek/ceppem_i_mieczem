@@ -358,7 +358,14 @@ void Controller::setView(std::string view)
 	std::cout << "changed view to: " << std::setw(10) << view << std::endl;
 	current_view_name.clear();
 	current_view_name.push_front(view);
-	current_view = model->getXml("view_" + view);
+	if (view == "location")
+	{
+		current_view = model->getXml("view_" + view, "location_small_farm");
+	}
+	else
+	{
+		current_view = model->getXml("view_" + view);
+	}
 	window->setView(current_view);
 }
 

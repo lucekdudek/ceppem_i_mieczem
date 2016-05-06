@@ -9,12 +9,21 @@ Model::~Model()
 
 }
 
-View *Model::getXml(std::string file_name)
+View *Model::getXml(std::string file_name, std::string location_name)
 {
 	std::list<Element*> elements;
 
 	TiXmlDocument doc(("../data/" + file_name + ".xml").c_str());
 	doc.LoadFile();
+
+	TiXmlDocument doc2(("../data/" + location_name + ".xml").c_str());
+	TiXmlElement *pRoot2, *pEvent;
+	pRoot2 = NULL;
+	if (location_name.length() > 0)
+	{
+		doc2.LoadFile();
+		pRoot2 = doc2.FirstChildElement("location");
+	}
 
 	TiXmlElement *pRoot, *pParm, *pParm2;
 	pRoot = doc.FirstChildElement("view");
@@ -29,9 +38,27 @@ View *Model::getXml(std::string file_name)
 			atoi(pParm->FirstChildElement("height")->FirstChild()->ToText()->Value())
 			);
 
+		std::string eventName = "";
 		if (pParm->FirstChildElement("onclick") != nullptr)
 		{
-			el->setOnClick(pParm->FirstChildElement("onclick")->FirstChild()->ToText()->Value());
+			if (location_name.length() > 0)
+			{
+				eventName = pParm->FirstChildElement("onclick")->FirstChild()->ToText()->Value();
+
+				pEvent = pRoot2->FirstChildElement("event");
+				while (pEvent)
+				{
+					if (eventName == pEvent->Attribute("place"))
+					{
+						el->setOnClick(pEvent->FirstChildElement("onclick")->FirstChild()->ToText()->Value());
+					}
+					pEvent = pEvent->NextSiblingElement();
+				}
+			}
+			else
+			{
+				el->setOnClick(pParm->FirstChildElement("onclick")->FirstChild()->ToText()->Value());
+			}
 		}
 
 		if (pParm->FirstChildElement("onhover") != nullptr)
@@ -75,10 +102,27 @@ View *Model::getXml(std::string file_name)
 					text = _strdup(temp.c_str());
 					if (pParm2->Attribute("display") != nullptr)
 					{
+						if (location_name.length() > 0)
+						{
+							pEvent = pRoot2->FirstChildElement("console");
+							text = _strdup(pEvent->FirstChild()->ToText()->Value());
+						}
 						el->addTexture(new Text(x, y, width, height, text, NULL, true));
 					}
 					else
 					{
+						if (location_name.length() > 0)
+						{
+							pEvent = pRoot2->FirstChildElement("event");
+							while (pEvent)
+							{
+								if (eventName == pEvent->Attribute("place"))
+								{
+									text = _strdup(pEvent->FirstChildElement("text")->FirstChild()->ToText()->Value());
+								}
+								pEvent = pEvent->NextSiblingElement();
+							}
+						}
 						el->addTexture(new Text(x, y, width, height, text, NULL));
 					}
 				}
@@ -104,6 +148,18 @@ View *Model::getXml(std::string file_name)
 		view->setText(first, second);
 	}
 
+	if (location_name.length() > 0)
+	{
+		map = getTextMap("text_" + location_name);
+		for (auto& x : map)
+		{
+			char first[256];
+			char second[256];
+			strcpy(first, x.first.c_str());
+			strcpy(second, x.second.c_str());
+			view->setText(first, second);
+		}
+	}
 	return view;
 }
 

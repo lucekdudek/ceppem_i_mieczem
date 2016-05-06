@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <location>
+  <console>
+    {console}
+  </console>
   <!-- conversation with farmer -->
-  <event>
-    <place>{EVENTA}</place>
+  <event place="{EVENTA}">
     <text>{conversation with} {farmer}</text>
     <onclick>PERSON_CONVERSATION_FARMER</onclick>
   </event>
   <!-- conversation with farmer's wife -->
-  <event>
-    <place>{EVENTB}</place>
+  <event place="{EVENTB}">
     <text>{conversation with} {farmer_wife}</text>
     <onclick>PERSON_CONVERSATION_FARMER_WIFE</onclick>
   </event>
   <!-- attack farmer -->
-  <event>
-    <place>{EVENTC}</place>
+  <event place="{EVENTC}">
     <text>{attack} {farmer}</text>
     <onclick>PERSON_ATTACK_FARMER</onclick>
   </event>
   <!-- open chest -->
-  <event>
-    <place>{EVENTD}</place>
+  <event place="{EVENTD}">
     <text>{open_container} {chest}</text>
     <onclick>CONTAINER_OPEN_CHEST</onclick>
   </event>
