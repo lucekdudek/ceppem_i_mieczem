@@ -46,12 +46,16 @@ void Controller::event(std::string event_name)
 	Controller &controller = getController();
 	for(std::list<std::string>::iterator it = controller.current_view_name.begin(); it != controller.current_view_name.end(); it++)
 	{
-		if(*it == "location")
+		if(*it == "equipment")
+		{
+			if(controller.equipmentEvent(event_name))
+				break;
+		}
+		else if(*it == "location")
 		{
 			if(controller.locationEvent(event_name))
 				break;
 		}
-
 		else if(*it == "mainmenu")
 		{
 			if(controller.mainMenuEvent(event_name))
@@ -82,7 +86,6 @@ void Controller::event(std::string event_name)
 
 bool Controller::containerEvent(std::string event_name)
 {
-	std::cout << "container:" << event_name << std::endl;
 	if(event_name.substr(0, 5) == "OPEN_")
 	{
 		return containerOpenEvent(event_name.substr(5));
@@ -97,6 +100,20 @@ bool Controller::containerEvent(std::string event_name)
 bool Controller::containerOpenEvent(std::string event_name)
 {
 	std::cout << event_name << " opened\n";
+	return true;
+}
+
+bool Controller::equipmentEvent(std::string event_name)
+{
+	if(event_name == "BACK")
+	{
+		player->clearAttributes();
+		delView();
+	}
+	else
+	{
+		return false;
+	}
 	return true;
 }
 
@@ -201,7 +218,7 @@ bool Controller::playerCardEvent(std::string event_name)
 {
 	if(event_name == "EQUIPMENT")
 	{
-		;
+		addView("equipment", true);
 	}
 	else if(event_name == "MAP")
 	{

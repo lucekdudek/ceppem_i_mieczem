@@ -227,14 +227,14 @@
   </element>
   <!-- back -->
   <element>
-    <x>255</x>
-    <y>560</y>
-    <width>240</width>
-    <height>90</height>
+    <x>1000</x>
+    <y>30</y>
+    <width>70</width>
+    <height>70</height>
     <onclick>BACK</onclick>
     <textures>
-      <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
-      <text x="0" y="0" width="240" height="90">{back}</text>
+      <texture x="0" y="0" width="70" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="70" height="70">X</text>
     </textures>
   </element>
   <!-- save -->

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+  <!-- mainmenuBackground -->
+  <element>
+    <x>240</x>
+    <y>60</y>
+    <width>800</width>
+    <height>600</height>
+    <textures>
+      <texture x="0" y="0" width="800" height="600">high_resolution_textures/rainbow.png</texture>
+    </textures>
+  </element>
+  <!-- previous -->
+  <element>
+    <x>280</x>
+    <y>90</y>
+    <width>180</width>
+    <height>50</height>
+    <onclick>PREVIOUS</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{previous}</text>
+    </textures>
+  </element>
+  <!-- item1 -->
+  <element>
+    <x>280</x>
+    <y>160</y>
+    <width>120</width>
+    <height>50</height>
+    <onclick>ITEM1</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{item1}</text>
+    </textures>
+  </element>
+  <!-- item2 -->
+  <element>
+    <x>280</x>
+    <y>230</y>
+    <width>120</width>
+    <height>50</height>
+    <onclick>ITEM2</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{item2}</text>
+    </textures>
+  </element>
+  <!-- item3 -->
+  <element>
+    <x>280</x>
+    <y>300</y>
+    <width>120</width>
+    <height>50</height>
+    <onclick>ITEM3</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{item3}</text>
+    </textures>
+  </element>
+  <!-- item4 -->
+  <element>
+    <x>280</x>
+    <y>370</y>
+    <width>120</width>
+    <height>50</height>
+    <onclick>ITEM4</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{item4}</text>
+    </textures>
+  </element>
+  <!-- item5 -->
+  <element>
+    <x>280</x>
+    <y>440</y>
+    <width>120</width>
+    <height>50</height>
+    <onclick>ITEM5</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{item5}</text>
+    </textures>
+  </element>
+  <!-- item6 -->
+  <element>
+    <x>280</x>
+    <y>510</y>
+    <width>120</width>
+    <height>50</height>
+    <onclick>ITEM6</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{item6}</text>
+    </textures>
+  </element>
+  <!-- next -->
+  <element>
+    <x>280</x>
+    <y>580</y>
+    <width>180</width>
+    <height>50</height>
+    <onclick>NEXT</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50">{next}</text>
+    </textures>
+  </element>
+  <!-- description -->
+  <element>
+    <x>470</x>
+    <y>160</y>
+    <width>550</width>
+    <height>340</height>
+    <textures>
+      <texture x="0" y="0" width="550" height="340">high_resolution_textures/black.png</texture>
+      <text x="10" y="10" width="550" height="320" display="box">{item_description}</text>
+    </textures>
+  </element>
+  <!-- use -->
+  <element>
+    <x>470</x>
+    <y>510</y>
+    <width>270</width>
+    <height>50</height>
+    <onclick>USE</onclick>
+    <textures>
+      <texture x="0" y="0" width="270" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="270" height="50">{use}</text>
+    </textures>
+  </element>
+  <!-- throw -->
+  <element>
+    <x>750</x>
+    <y>510</y>
+    <width>270</width>
+    <height>50</height>
+    <onclick>THROW</onclick>
+    <textures>
+      <texture x="0" y="0" width="270" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="270" height="50">{throw}</text>
+    </textures>
+  </element>
+  
+  <!-- back -->
+  <element>
+    <x>1000</x>
+    <y>30</y>
+    <width>70</width>
+    <height>70</height>
+    <onclick>BACK</onclick>
+    <textures>
+      <texture x="0" y="0" width="70" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="70" height="70">X</text>
+    </textures>
+  </element>
+</view>
