@@ -161,7 +161,7 @@ void Window::eventLoop()
 			{//1246,10,24,24
 				locked = true;
 				toggleFullscreen();
-				SDL_TimerID timerID = SDL_AddTimer(500, &unlock, "");
+				//SDL_TimerID timerID = SDL_AddTimer(500, &unlock, "");
 			}
 			break;
 
@@ -194,6 +194,10 @@ void Window::eventLoop()
 				if (!locked)
 				{
 					Window::toggleFullscreen();
+				}
+				else
+				{
+					locked = false;
 				}
 				break;
 			default:
@@ -511,6 +515,8 @@ void Window::toggleFullscreen()
 		Uint32 flags = (SDL_GetWindowFlags(mainWindow) ^ SDL_WINDOW_FULLSCREEN_DESKTOP);
 		SDL_SetWindowFullscreen(mainWindow, flags);
 		SDL_RestoreWindow(mainWindow);
+		SDL_SetWindowSize(mainWindow, 1280, 720);
+		SDL_SetWindowPosition(mainWindow, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
 	}
 	else
 	{
