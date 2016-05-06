@@ -16,7 +16,7 @@
         <y>400</y>
         <width>60</width>
         <height>60</height>
-        <onclick>PCARD_EQUIPMENT</onclick>
+        <onclick>EQUIPMENT</onclick>
         <textures>
             <texture x="0" y="0" width="60" height="60">high_resolution_textures/red.png</texture>
             <text x="0" y="0" width="60" height="60">{equipment}</text>
@@ -28,7 +28,7 @@
         <y>480</y>
         <width>60</width>
         <height>60</height>
-        <onclick>PCARD_MAP</onclick>
+        <onclick>MAP</onclick>
         <textures>
             <texture x="0" y="0" width="60" height="60">high_resolution_textures/cyan.png</texture>
             <text x="0" y="0" width="60" height="60">{map}</text>
@@ -40,7 +40,7 @@
         <y>560</y>
         <width>60</width>
         <height>60</height>
-        <onclick>PCARD_PROFILE</onclick>
+        <onclick>PROFILE</onclick>
         <textures>
             <texture x="0" y="0" width="60" height="60">high_resolution_textures/green.png</texture>
             <text x="0" y="0" width="60" height="60">{player_profile}</text>
@@ -52,7 +52,7 @@
     <y>640</y>
     <width>60</width>
     <height>60</height>
-    <onclick>PCARD_MENU</onclick>
+    <onclick>MENU</onclick>
     <textures>
       <texture x="0" y="0" width="60" height="60">high_resolution_textures/yellow.png</texture>
       <text x="0" y="0" width="60" height="60">{menu}</text>

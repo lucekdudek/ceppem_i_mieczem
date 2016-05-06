@@ -2,6 +2,7 @@
 #define CEPEM_I_MIECZEM_CONTROLLER_H
 
 #include <string>
+#include <list>
 #include "../view/window.h"
 #include "../model/model.h"
 #include "../model/character.h"
@@ -16,7 +17,7 @@ public:
 	static Controller & getController();
 private:
 	bool running;
-	std::string current_view_name;                 //zawiera informację o aktualnie wyświetlanym widoku.
+	std::list <std::string> current_view_name;                 //zawiera informację o aktualnie wyświetlanych widokach.
 	Window* window;
 	Model* model;
 	View* current_view;
@@ -25,13 +26,13 @@ private:
 	Controller();
 	~Controller();
 	void startNewGame();
-	void mainMenuEvent(std::string event_name);
-	void newGameEvent(std::string event_name);
-	void settingsEvent(std::string event_name);
-	void playerPanelEvent(std::string event_name);
-	void playerCardEvent(std::string event_name);
-	void locationEvent(std::string event_name);
-	void lvl_up(std::string event_name);
+	bool mainMenuEvent(std::string event_name);
+	bool newGameEvent(std::string event_name);
+	bool settingsEvent(std::string event_name);
+	bool playerPanelEvent(std::string event_name);
+	bool playerCardEvent(std::string event_name);
+	bool locationEvent(std::string event_name);
+	bool lvl_up(std::string event_name);
 	inline void setView(std::string view);
 	inline void addView(std::string view, bool deactivation = false);
 	inline void delView();

@@ -4,9 +4,21 @@
 
 #include "character.h"
 
-Character::Character(int basic, int points): points(points), strength(basic), dexterity(basic), agility(basic), wisdom(basic), inteligence(basic), charisma(basic)
+Character::Character(int basic, int points)
 {
-
+	this->points = points;
+	strength = basic;
+	min_strength = basic;
+	agility = basic;
+	min_agility = basic;
+	dexterity = basic;
+	min_dexterity = basic;
+	wisdom = basic;
+	min_wisdom = basic;
+	inteligence = basic;
+	min_inteligence = basic;
+	charisma = basic;
+	min_charisma = basic;
 }
 
 int Character::getPoints()
@@ -76,7 +88,7 @@ void Character::setCharisma(int value)
 
 void Character::decStrength()
 {
-	if (strength > 1)
+	if (strength > min_strength)
 	{
 		strength--;
 		points++;
@@ -94,7 +106,7 @@ void Character::incStrength()
 
 void Character::decDexterity()
 {
-	if (dexterity > 1)
+	if (dexterity > min_dexterity)
 	{
 		dexterity--;
 		points++;
@@ -112,7 +124,7 @@ void Character::incDexterity()
 
 void Character::decAgility()
 {
-	if (agility > 1)
+	if (agility > min_agility)
 	{
 		agility--;
 		points++;
@@ -130,7 +142,7 @@ void Character::incAgility()
 
 void Character::decWisdom()
 {
-	if (wisdom > 1)
+	if (wisdom > min_wisdom)
 	{
 		wisdom--;
 		points++;
@@ -148,7 +160,7 @@ void Character::incWisdom()
 
 void Character::decInteligence()
 {
-	if (inteligence > 1)
+	if (inteligence > min_inteligence)
 	{
 		inteligence--;
 		points++;
@@ -166,7 +178,7 @@ void Character::incInteligence()
 
 void Character::decCharisma()
 {
-	if (charisma > 1)
+	if (charisma > min_charisma)
 	{
 		charisma--;
 		points++;
@@ -182,27 +194,22 @@ void Character::incCharisma()
 	}
 }
 
+void Character::saveAttributes()
+{
+	min_strength = strength;
+	min_agility = agility;
+	min_dexterity = dexterity;
+	min_wisdom = wisdom;
+	min_inteligence = inteligence;
+	min_charisma = charisma;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void Character::clearAttributes()
+{
+	strength = min_strength;
+	agility = min_agility;
+	dexterity = min_dexterity;
+	wisdom = min_wisdom;
+	inteligence = min_inteligence;
+	charisma = min_charisma;
+}
