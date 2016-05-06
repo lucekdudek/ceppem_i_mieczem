@@ -39,7 +39,7 @@
     <y>480</y>
     <width>1000</width>
     <height>60</height>
-    <onclick>ACTIONB</onclick>
+    <onclick>{ACTIONB}</onclick>
     <textures>
       <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
       <text x="0" y="0" width="1080" height="60">{action_b}</text>
@@ -51,7 +51,7 @@
     <y>560</y>
     <width>1080</width>
     <height>60</height>
-    <onclick>ACTIONC</onclick>
+    <onclick>{ACTIONC}</onclick>
     <textures>
       <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
       <text x="0" y="0" width="1080" height="60">{action_c}</text>
@@ -63,7 +63,7 @@
     <y>640</y>
     <width>1080</width>
     <height>60</height>
-    <onclick>ACTIOND</onclick>
+    <onclick>{ACTIOND}</onclick>
     <textures>
       <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
       <text x="0" y="0" width="1080" height="60">{action_d}</text>

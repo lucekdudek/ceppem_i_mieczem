@@ -80,23 +80,36 @@ void Controller::event(std::string event_name)
 	}
 }
 
+bool Controller::containerEvent(std::string event_name)
+{
+	std::cout << "container:" << event_name << std::endl;
+	if(event_name.substr(0, 5) == "OPEN_")
+	{
+		return containerOpenEvent(event_name.substr(5));
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+bool Controller::containerOpenEvent(std::string event_name)
+{
+	std::cout << event_name << " opened\n";
+	return true;
+}
+
 bool Controller::locationEvent(std::string event_name)
 {
-	if(event_name == "ACTIONA")
+	std::cout << "loc:" << event_name << std::endl;
+	if(event_name.substr(0, 7) == "PERSON_")
 	{
-		location->runActionA();
+		return personEvent(event_name.substr(7));
 	}
-	else if(event_name == "ACTIONB")
+	else if(event_name.substr(0, 10) == "CONTAINER_")
 	{
-		location->runActionB();
-	}
-	else if(event_name == "ACTIONC")
-	{
-		location->runActionC();
-	}
-	else if(event_name == "ACTIOND")
-	{
-		location->runActionD();
+		return containerEvent(event_name.substr(10));
 	}
 	else
 	{
@@ -152,6 +165,36 @@ bool Controller::newGameEvent(std::string event_name)
 	{
 		return false;
 	}
+	return true;
+}
+
+bool Controller::personEvent(std::string event_name)
+{
+	
+	if(event_name.substr(0, 13) == "CONVERSATION_")
+	{
+		return personConversationEvent(event_name.substr(13));
+	}
+	else if(event_name.substr(0, 7) == "ATTACK_")
+	{
+		return personFightEvent(event_name.substr(7));
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+bool Controller::personConversationEvent(std::string event_name)
+{
+	std::cout << "conversation with " << event_name << std::endl;
+	return true;
+}
+
+bool Controller::personFightEvent(std::string event_name)
+{
+	std::cout << "fighting with " << event_name << std::endl;
 	return true;
 }
 
