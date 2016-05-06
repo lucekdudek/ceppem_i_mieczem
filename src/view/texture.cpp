@@ -34,9 +34,25 @@ void Texture::unloadTexture(){
 	}
 }
 
-void Texture::setText(char* text) {
-	std::string(text).copy(this->text, 1024, 0);
-	this->text[strlen(text)] = '\0';
+void Texture::setText(char* text, char* name) {
+	std::string str = this->text;
+	std::string str2 = "";
+	if (name != NULL)
+	{
+		str2 = name;
+		str.replace(str.find(str2), str2.length(), text);
+		str.copy(this->text, 1024, 0);
+		this->text[str.length()] = '\0';
+	}
+	else
+	{
+		std::string(text).copy(this->text, 1024, 0);
+		this->text[strlen(text)] = '\0';
+	}
+	/*std::cout << str2 << std::endl;
+	std::cout << str << std::endl;*/
+	
+
 
 	loadTexture();
 }

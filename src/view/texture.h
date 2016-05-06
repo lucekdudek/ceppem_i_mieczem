@@ -15,7 +15,7 @@ class Texture {
 public:
 	Texture(int x, int y, int width, int height, char* path);
 	~Texture();
-	void setText(char* text);
+	void setText(char* text, char* name=NULL);
 
 	int getHeight() const {
 		return height;

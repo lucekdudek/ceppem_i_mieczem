@@ -64,9 +64,14 @@ void Element::setText(char* name, char* text){
 		auto tmpElem = *i;
 		if (Text* t = dynamic_cast<Text*>(tmpElem))
 		{
+			char * pch = strstr(t->getName(), name);
 			if (strcmp(t->getName(), name) == 0)
 			{
 				tmpElem->setText(text);
+			}
+			else if (pch != NULL)
+			{
+				tmpElem->setText(text, name);
 			}
 		}
 	}
