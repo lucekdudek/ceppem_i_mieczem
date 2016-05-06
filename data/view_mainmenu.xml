@@ -9,6 +9,7 @@
         <textures>
             <texture x="0" y="0" width="1280" height="720">mainmenu/background.png</texture>
             <texture x="100" y="100" width="394" height="198">mainmenu/backgroundText.png</texture>
+            <texture x="200" y="330" width="220" height="220">icons/icon256.png</texture>
         </textures>
     </element>
 	<!-- newGame -->
