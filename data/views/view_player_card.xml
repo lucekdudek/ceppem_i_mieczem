@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+  <!-- background -->
+  <element>
+    <x>1140</x>
+    <y>0</y>
+    <width>280</width>
+    <height>720</height>
+    <textures>
+      <texture x="0" y="0" width="140" height="720">menu.jpg</texture>
+    </textures>
+  </element>
+	<!-- equipment -->
+    <element>
+        <x>1180</x>
+        <y>400</y>
+        <width>71</width>
+        <height>71</height>
+        <onclick>EQUIPMENT</onclick>
+        <textures>
+            <texture x="0" y="0" width="71" height="71">menuEquipment.png</texture>
+        </textures>
+    </element>
+  <!-- map -->
+    <element>
+        <x>1180</x>
+        <y>480</y>
+        <width>71</width>
+        <height>71</height>
+        <onclick>MAP</onclick>
+        <textures>
+            <texture x="0" y="0" width="71" height="71">menuMap.png</texture>
+        </textures>
+    </element>
+    <!-- playerProfile -->
+    <element>
+        <x>1180</x>
+        <y>560</y>
+        <width>71</width>
+        <height>71</height>
+        <onclick>PROFILE</onclick>
+        <textures>
+            <texture x="0" y="0" width="71" height="71">menuPlayer.png</texture>
+        </textures>
+    </element>
+  <!-- menu -->
+  <element>
+    <x>1180</x>
+    <y>640</y>
+    <width>71</width>
+    <height>71</height>
+    <onclick>MENU</onclick>
+    <textures>
+      <texture x="0" y="0" width="71" height="71">menuMenu.png</texture>
+    </textures>
+  </element>
+</view>

@@ -46,12 +46,16 @@ void Controller::event(std::string event_name)
 	Controller &controller = getController();
 	for(std::list<std::string>::iterator it = controller.current_view_name.begin(); it != controller.current_view_name.end(); it++)
 	{
-		if(*it == "location")
+		if(*it == "equipment")
+		{
+			if(controller.equipmentEvent(event_name))
+				break;
+		}
+		else if(*it == "location")
 		{
 			if(controller.locationEvent(event_name))
 				break;
 		}
-
 		else if(*it == "mainmenu")
 		{
 			if(controller.mainMenuEvent(event_name))
@@ -72,9 +76,14 @@ void Controller::event(std::string event_name)
 			if(controller.playerPanelEvent(event_name))
 				break;
 		}
-		else if(*it == "settings")
+		else if (*it == "settings")
 		{
-			if(controller.settingsEvent(event_name))
+			if (controller.settingsEvent(event_name))
+				break;
+		}
+		else if (*it == "map")
+		{
+			if (controller.mapEvent(event_name))
 				break;
 		}
 	}
@@ -82,7 +91,6 @@ void Controller::event(std::string event_name)
 
 bool Controller::containerEvent(std::string event_name)
 {
-	std::cout << "container:" << event_name << std::endl;
 	if(event_name.substr(0, 5) == "OPEN_")
 	{
 		return containerOpenEvent(event_name.substr(5));
@@ -97,6 +105,33 @@ bool Controller::containerEvent(std::string event_name)
 bool Controller::containerOpenEvent(std::string event_name)
 {
 	std::cout << event_name << " opened\n";
+	return true;
+}
+
+bool Controller::equipmentEvent(std::string event_name)
+{
+	if (event_name == "BACK")
+	{
+		player->clearAttributes();
+		delView();
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+bool Controller::mapEvent(std::string event_name)
+{
+	if (event_name == "BACK")
+	{
+		delView();
+	}
+	else
+	{
+		return false;
+	}
 	return true;
 }
 
@@ -153,8 +188,6 @@ bool Controller::newGameEvent(std::string event_name)
 		player->saveAttributes();
 		setView("location", "small_farm");
 		addView("player_card", false);
-		std::string t = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta nisi id orci rutrum lobortis eget et diam. Curabitur lectus erat, sagittis a tellus sed, imperdiet consectetur metus. Nulla nibh nunc, sodales condimentum iaculis ut, faucibus ac ex. Nunc volutpat metus a dui eleifend consectetur. Fusce sed nunc fermentum, accumsan neque ac, interdum odio.";
-		current_view->setText("{log_console}", t);
 	}
 	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
 	{
@@ -201,13 +234,13 @@ bool Controller::playerCardEvent(std::string event_name)
 {
 	if(event_name == "EQUIPMENT")
 	{
-		;
+		addView("equipment", true);
 	}
 	else if(event_name == "MAP")
 	{
-		;
+		addView("map", "small_farm", true);
 	}
-	else if(event_name == "PROFILE")
+	else if (event_name == "PROFILE")
 	{
 		addView("player_panel", true);
 		loadStats(player);
@@ -373,6 +406,7 @@ void Controller::setView(std::string view, std::string location)
 void Controller::addView(std::string view, bool deactivation)
 {
 	View* v = model->getXml("view_" + view);
+
 	current_view_name.push_front(view);
 	current_view->extendView(v, deactivation);
 	window->updateClickmap();
@@ -380,7 +414,15 @@ void Controller::addView(std::string view, bool deactivation)
 
 void Controller::addView(std::string view, std::string location, bool deactivation)
 {
-	View* v = model->getXml("view_" + view, "location_" + location);
+	View* v;
+	if (view == "map")
+	{
+		v = model->getMap("view_" + view, "location_" + location);
+	}
+	else
+	{
+		v = model->getXml("view_" + view, "location_" + location);
+	}
 	current_view_name.push_front(view);
 	current_view->extendView(v, deactivation);
 	window->updateClickmap();

@@ -22,6 +22,7 @@ public:
     ~Model();
 
     View *getXml(std::string file_name, std::string location_name="");
+	View *getMap(std::string file_name, std::string location_name);
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
 
 	const std::string& getLanguage() const {
