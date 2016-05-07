@@ -7,7 +7,7 @@
     <width>800</width>
     <height>600</height>
     <textures>
-      <texture x="0" y="0" width="800" height="600">playerSettings.jpg</texture>
+      <texture x="0" y="0" width="800" height="600">high_resolution_textures/magenta.png</texture>
     </textures>
   </element>
   <!-- points -->
@@ -227,14 +227,14 @@
   </element>
   <!-- back -->
   <element>
-    <x>1000</x>
-    <y>30</y>
-    <width>70</width>
-    <height>70</height>
+    <x>255</x>
+    <y>560</y>
+    <width>240</width>
+    <height>90</height>
     <onclick>BACK</onclick>
     <textures>
-      <texture x="0" y="0" width="70" height="70">mainmenu/button.png</texture>
-      <text x="0" y="0" width="70" height="70">X</text>
+      <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+      <text x="0" y="0" width="240" height="90">{back}</text>
     </textures>
   </element>
   <!-- save -->

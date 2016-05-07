@@ -23,11 +23,4 @@
     <text>{open_container} {chest}</text>
     <onclick>CONTAINER_OPEN_CHEST</onclick>
   </event>
-  <road>
-    <place>{PLACEA}</place>
-    <place>{PLACEB}</place>
-    <place>{PLACEC}</place>
-    <place>{PLACED}</place>
-    <place>{PLACEE}</place>
-  </road>
 </location>

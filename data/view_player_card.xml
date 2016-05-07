@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+  <!-- background -->
+  <element>
+    <x>1140</x>
+    <y>0</y>
+    <width>280</width>
+    <height>720</height>
+    <textures>
+      <texture x="0" y="0" width="140" height="720">high_resolution_textures/blue.png</texture>
+    </textures>
+  </element>
+	<!-- equipment -->
+    <element>
+        <x>1180</x>
+        <y>400</y>
+        <width>60</width>
+        <height>60</height>
+        <onclick>EQUIPMENT</onclick>
+        <textures>
+            <texture x="0" y="0" width="60" height="60">high_resolution_textures/red.png</texture>
+            <text x="0" y="0" width="60" height="60">{equipment}</text>
+        </textures>
+    </element>
+  <!-- map -->
+    <element>
+        <x>1180</x>
+        <y>480</y>
+        <width>60</width>
+        <height>60</height>
+        <onclick>MAP</onclick>
+        <textures>
+            <texture x="0" y="0" width="60" height="60">high_resolution_textures/cyan.png</texture>
+            <text x="0" y="0" width="60" height="60">{map}</text>
+        </textures>
+    </element>
+    <!-- playerProfile -->
+    <element>
+        <x>1180</x>
+        <y>560</y>
+        <width>60</width>
+        <height>60</height>
+        <onclick>PROFILE</onclick>
+        <textures>
+            <texture x="0" y="0" width="60" height="60">high_resolution_textures/green.png</texture>
+            <text x="0" y="0" width="60" height="60">{player_profile}</text>
+        </textures>
+    </element>
+  <!-- menu -->
+  <element>
+    <x>1180</x>
+    <y>640</y>
+    <width>60</width>
+    <height>60</height>
+    <onclick>MENU</onclick>
+    <textures>
+      <texture x="0" y="0" width="60" height="60">high_resolution_textures/yellow.png</texture>
+      <text x="0" y="0" width="60" height="60">{menu}</text>
+    </textures>
+  </element>
+</view>
