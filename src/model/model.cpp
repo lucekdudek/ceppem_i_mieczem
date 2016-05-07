@@ -13,10 +13,10 @@ View *Model::getXml(std::string file_name, std::string location_name)
 {
 	std::list<Element*> elements;
 
-	TiXmlDocument doc(("../data/" + file_name + ".xml").c_str());
+	TiXmlDocument doc(("../data/views/" + file_name + ".xml").c_str());
 	doc.LoadFile();
 
-	TiXmlDocument doc2(("../data/" + location_name + ".xml").c_str());
+	TiXmlDocument doc2(("../data/locations/" + location_name + ".xml").c_str());
 	TiXmlElement *pRoot2, *pEvent;
 	pRoot2 = NULL;
 	if (location_name.length() > 0)
@@ -206,7 +206,7 @@ View* Model::getMap(std::string file_name, std::string location_name)
 	el->addTexture(new Text(-90, -50, 200, 50, "test", NULL));
 	elements.push_back(el);
 
-	TiXmlDocument doc(("../data/" + location_name + ".xml").c_str());
+	TiXmlDocument doc(("../data/locations/" + location_name + ".xml").c_str());
 	doc.LoadFile();
 	TiXmlElement *pRoot, *pRoad;
 	pRoot = doc.FirstChildElement("location");
