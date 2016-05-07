@@ -29,6 +29,8 @@ private:
 	bool containerEvent(std::string event_name);
 	bool containerOpenEvent(std::string event_name);
 	bool equipmentEvent(std::string event_name);
+	bool exitEvent(std::string event_name);
+	bool gameMenuEvent(std::string event_name);
 	bool locationEvent(std::string event_name);
 	bool mainMenuEvent(std::string event_name);
 	bool newGameEvent(std::string event_name);
@@ -40,6 +42,8 @@ private:
 	bool settingsEvent(std::string event_name);
 	bool mapEvent(std::string event_name);
 	bool lvl_up(std::string event_name);
+	void saveGame();
+	void loadGame();
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);
 	inline void addView(std::string view, bool deactivation = false);

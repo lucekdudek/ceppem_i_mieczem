@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+  <!-- mainmenuBackground -->
+  <element>
+    <x>490</x>
+    <y>160</y>
+    <width>300</width>
+    <height>400</height>
+    <textures>
+      <texture x="0" y="0" width="300" height="400">playerSettings.jpg</texture>
+    </textures>
+  </element>
+  <!-- back -->
+  <element>
+    <x>500</x>
+    <y>170</y>
+    <width>280</width>
+    <height>70</height>
+    <onclick>BACK</onclick>
+    <textures>
+      <texture x="0" y="0" width="280" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="280" height="70">{back_to_game}</text>
+    </textures>
+  </element>
+  <!-- save -->
+  <element>
+    <x>500</x>
+    <y>245</y>
+    <width>280</width>
+    <height>70</height>
+    <onclick>SAVE</onclick>
+    <textures>
+      <texture x="0" y="0" width="280" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="280" height="70">{save_game}</text>
+    </textures>
+  </element>
+  <!-- load -->
+  <element>
+    <x>500</x>
+    <y>320</y>
+    <width>280</width>
+    <height>70</height>
+    <onclick>LOAD</onclick>
+    <textures>
+      <texture x="0" y="0" width="280" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="280" height="70">{load_game}</text>
+    </textures>
+  </element>
+  <!-- exit to menu -->
+  <element>
+    <x>500</x>
+    <y>395</y>
+    <width>280</width>
+    <height>70</height>
+    <onclick>EXIT_MENU</onclick>
+    <textures>
+      <texture x="0" y="0" width="280" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="280" height="70">{exit_to_menu}</text>
+    </textures>
+  </element>
+  <!-- exit to desktop -->
+  <element>
+    <x>500</x>
+    <y>470</y>
+    <width>280</width>
+    <height>70</height>
+    <onclick>EXIT_DESKTOP</onclick>
+    <textures>
+      <texture x="0" y="0" width="280" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="280" height="70">{exit_to_desktop}</text>
+    </textures>
+  </element>
+</view>

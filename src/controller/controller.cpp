@@ -86,6 +86,11 @@ void Controller::event(std::string event_name)
 			if (controller.mapEvent(event_name))
 				break;
 		}
+		else if (*it == "game_menu")
+		{
+			if (controller.gameMenuEvent(event_name))
+				break;
+		}
 	}
 }
 
@@ -114,6 +119,48 @@ bool Controller::equipmentEvent(std::string event_name)
 	{
 		player->clearAttributes();
 		delView();
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+bool Controller::exitEvent(std::string event_name)
+{
+	if(event_name == "MENU")
+	{
+		setView("mainmenu");
+	}
+	else if(event_name == "DESKTOP")
+	{
+		setDone();
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
+bool Controller::gameMenuEvent(std::string event_name)
+{
+	if(event_name == "BACK")
+	{
+		delView();
+	}
+	else if(event_name == "SAVE")
+	{
+		saveGame();
+	}
+	else if(event_name == "LOAD")
+	{
+		loadGame();
+	}
+	else if(event_name.substr(0, 5) == "EXIT_")
+	{
+		return exitEvent(event_name.substr(5));
 	}
 	else
 	{
@@ -247,7 +294,7 @@ bool Controller::playerCardEvent(std::string event_name)
 	}
 	else if(event_name == "MENU")
 	{
-		setView("mainmenu");
+		addView("game_menu", true);
 	}
 	else
 	{
@@ -377,6 +424,16 @@ bool Controller::lvl_up(std::string event_name)
 		return false;
 	}
 	return true;
+}
+
+void Controller::saveGame()
+{
+	std::cout << "game saved\n";
+}
+
+void Controller::loadGame()
+{
+	std::cout << "game loaded\n";
 }
 
 void Controller::startNewGame()
