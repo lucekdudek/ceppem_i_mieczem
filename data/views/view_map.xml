@@ -2,12 +2,12 @@
 <view>
   <!-- mainmenuBackground -->
   <element>
-    <x>240</x>
-    <y>60</y>
+    <x>180</x>
+    <y>30</y>
     <width>800</width>
     <height>600</height>
     <textures>
-      <texture x="0" y="0" width="800" height="600">playerSettings.jpg</texture>
+      <texture x="0" y="0" width="893" height="655">map.png</texture>
     </textures>
   </element>
   <!-- back -->
