@@ -4,7 +4,7 @@
 
 #ifndef CEPEM_I_MIECZEM_CHAR_H
 #define CEPEM_I_MIECZEM_CHAR_H
-
+#include "items/itemz.h"
 
 class Character
 {
@@ -52,6 +52,13 @@ private:
     int min_inteligence;
     int charisma;
     int min_charisma;
+
+	Itemz* weapon;
+	Itemz* head;
+	Itemz* chest;
+	Itemz* legs;
+	Itemz* feet;
+	Itemz* hands;
 };
 
 #endif //CEPEM_I_MIECZEM_CHAR_H
