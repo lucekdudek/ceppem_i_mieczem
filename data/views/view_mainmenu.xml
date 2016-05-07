@@ -14,7 +14,7 @@
     </element>
 	<!-- newGame -->
     <element>
-        <x>260</x>
+        <x>130</x>
         <y>580</y>
         <width>240</width>
         <height>90</height>
@@ -24,9 +24,21 @@
             <text x="0" y="0" width="240" height="90">{newGame}</text>
         </textures>
     </element>
+  <!-- loadGame -->
+  <element>
+    <x>390</x>
+    <y>580</y>
+    <width>240</width>
+    <height>90</height>
+    <onclick>LOAD_GAME</onclick>
+    <textures>
+      <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
+      <text x="0" y="0" width="240" height="90">{load_game}</text>
+    </textures>
+  </element>
 	<!-- settings -->
     <element>
-        <x>520</x>
+        <x>650</x>
         <y>580</y>
         <width>240</width>
         <height>90</height>
@@ -38,7 +50,7 @@
     </element>
     <!-- exitGame -->
     <element>
-        <x>780</x>
+        <x>910</x>
         <y>580</y>
         <width>240</width>
         <height>90</height>

@@ -207,6 +207,10 @@ bool Controller::mainMenuEvent(std::string event_name)
 		player = new Character();
 		loadStats(player);
 	}
+	else if(event_name == "LOAD_GAME")
+	{
+		loadGame();
+	}
 	else if(event_name == "SETTINGS")
 	{
 		setView("settings");
