@@ -221,9 +221,17 @@ View* Model::getMap(std::string file_name, std::string location_name)
 
 	int i = 0;
 	pRoad = pRoot->FirstChildElement("road")->FirstChildElement("place");
+
+	int seed = 0;
+	for (int i = 0; i < location_name.length(); i++)
+	{
+		seed += location_name.at(i);
+		std::cout << seed << std::endl;
+	}
+	srand(seed);
 	while (pRoad){
-		int x = 0, y = -200;
-		rotatePoint(x, y, 360.0/points*i);
+		int x = 0, y = -150 + (std::rand() % 50) - 25;
+		rotatePoint(x, y, 360.0 / points*i + (std::rand() % 50) - 25);
 		Element* el = new Element(630+x, 350+y, 20, 20);
 		el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
 		char * text = _strdup(pRoad->FirstChild()->ToText()->Value());
