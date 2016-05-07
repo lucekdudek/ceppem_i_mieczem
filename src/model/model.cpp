@@ -52,7 +52,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 					{
 						el->setOnClick(pEvent->FirstChildElement("onclick")->FirstChild()->ToText()->Value());
 					}
-					pEvent = pEvent->NextSiblingElement();
+					pEvent = pEvent->NextSiblingElement("event");
 				}
 			}
 			else
@@ -120,7 +120,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 								{
 									text = _strdup(pEvent->FirstChildElement("text")->FirstChild()->ToText()->Value());
 								}
-								pEvent = pEvent->NextSiblingElement();
+								pEvent = pEvent->NextSiblingElement("event");
 							}
 						}
 						el->addTexture(new Text(x, y, width, height, text, NULL));
@@ -183,4 +183,61 @@ std::unordered_map<std::string, std::string> Model::getTextMap(
 	lang_file.close();
 
 	return textMap;
+}
+
+void rotatePoint(int &x, int &y, float angle)
+{//angle in degrees
+	double rad = angle * M_PI / 180.0;//deg to rad
+	double c = cos(rad);
+	double s = sin(rad);
+
+	int tx = x*c - y*s;
+	int ty = x*s + y*c;
+	x = tx;
+	y = ty;
+}
+
+View* Model::getMap(std::string file_name, std::string location_name)
+{
+	std::list<Element*> elements;
+
+	Element* el = new Element(630, 350, 20, 20);
+	el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
+	el->addTexture(new Text(-90, -50, 200, 50, "test", NULL));
+	elements.push_back(el);
+
+	TiXmlDocument doc(("../data/" + location_name + ".xml").c_str());
+	doc.LoadFile();
+	TiXmlElement *pRoot, *pRoad;
+	pRoot = doc.FirstChildElement("location");
+
+	pRoad = pRoot->FirstChildElement("road")->FirstChildElement("place");
+	int points = 0;
+	while (pRoad)
+	{
+		points++;
+		pRoad = pRoad->NextSiblingElement("place");
+	}
+
+	int i = 0;
+	pRoad = pRoot->FirstChildElement("road")->FirstChildElement("place");
+	while (pRoad){
+		int x = 0, y = -200;
+		rotatePoint(x, y, 360.0/points*i);
+		Element* el = new Element(630+x, 350+y, 20, 20);
+		el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
+		char * text = _strdup(pRoad->FirstChild()->ToText()->Value());
+		el->setOnClick(text);
+		el->setOnHover(new Text(-90, -50, 200, 50, text, NULL));
+		elements.push_back(el);
+
+		i++;
+		pRoad = pRoad->NextSiblingElement("place");
+	}
+
+	View* temp = new View(elements);
+	View* v = getXml(file_name);
+	v->extendView(temp);
+	delete temp;
+	return v;
 }

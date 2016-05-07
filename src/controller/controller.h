@@ -38,6 +38,7 @@ private:
 	bool playerCardEvent(std::string event_name);
 	bool playerPanelEvent(std::string event_name);
 	bool settingsEvent(std::string event_name);
+	bool mapEvent(std::string event_name);
 	bool lvl_up(std::string event_name);
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);
