@@ -226,7 +226,6 @@ View* Model::getMap(std::string file_name, std::string location_name)
 	for (int i = 0; i < location_name.length(); i++)
 	{
 		seed += location_name.at(i);
-		std::cout << seed << std::endl;
 	}
 	srand(seed);
 	while (pRoad){
