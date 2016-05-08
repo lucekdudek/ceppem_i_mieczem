@@ -243,7 +243,7 @@ bool Controller::newGameEvent(std::string event_name)
 	else if(event_name == "START_GAME")
 	{
 		player->saveAttributes();
-		setLocation("small_farm");
+		setLocation("smallfarm");
 	}
 	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
 	{
