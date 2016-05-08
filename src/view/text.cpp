@@ -49,6 +49,7 @@ char* Text::getName()
 }
 void Text::loadTexture()
 {
+	unloadTexture();
 	int w, h;
 	if (box)
 	{
@@ -69,4 +70,5 @@ void Text::setColor(unsigned char r, unsigned char g, unsigned char b)
 	this->r = r;
 	this->g = g;
 	this->b = b;
+	loadTexture();
 }
