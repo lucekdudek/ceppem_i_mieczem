@@ -9,6 +9,7 @@ public:
 	~View();
 	std::list<Element*> getList();
 	void setText(char* name, std::string text);
+	void setOnHoverText(char* name, std::string text);
 	void extendView(View* v, bool locked = false);
 	void removeLastView();
 	int getClickMap();

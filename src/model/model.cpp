@@ -264,6 +264,11 @@ View* Model::getMap(std::string file_name, std::string location_name)
 		seed += location_name.at(i);
 	}
 	srand(seed);
+
+	//load text
+	location_name.replace(0, 8, "locations/text");
+	std::unordered_map<std::string, std::string> map = getTextMap(location_name);
+
 	while (pRoad){
 		int x = 0, y = -150 + (std::rand() % 50) - 25;
 		rotatePoint(x, y, 360.0 / points*i + (std::rand() % 50) - 25);
@@ -274,6 +279,12 @@ View* Model::getMap(std::string file_name, std::string location_name)
 		char * text = _strdup(pRoad->Attribute("onclick"));
 		el->setOnClick(text);
 		text = _strdup(pRoad->FirstChild()->ToText()->Value());
+		char * temp_text = _strdup(map[text].c_str());
+		if (strlen(temp_text) > 0)
+		{
+			text = temp_text;
+		}
+
 		el->setOnHover(new Text(-90, -50, 200, 50, text, 0));
 		elements.push_back(el);
 
@@ -282,6 +293,7 @@ View* Model::getMap(std::string file_name, std::string location_name)
 	}
 
 	View* temp = new View(elements);
+
 	View* v = getXml(file_name);
 	v->extendView(temp);
 	delete temp;

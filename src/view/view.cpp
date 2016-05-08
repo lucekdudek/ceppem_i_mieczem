@@ -29,6 +29,19 @@ void View::setText(char* name, std::string text) {
 	}
 }
 
+void View::setOnHoverText(char * name, std::string text)
+{
+	std::cout << "onHover" << std::endl;
+	char * t = _strdup(text.c_str());
+	for (auto i = this->elements.begin(); i != this->elements.end();)
+	{
+		auto tmpElem = *i;
+		i = this->elements.erase(i);
+		tmpElem->setText(name, t);
+		this->elements.insert(i, tmpElem);
+	}
+}
+
 void View::extendView(View* v, bool locked)
 {
 	views.push_back(this->elements.size());

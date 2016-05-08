@@ -60,6 +60,7 @@ private:
 	std::string onclick;
 	bool isHoverable;
 	Texture *onhover;
+	std::string onHoverName;
 	int hx;
 	int hy;
 	int hwidth;

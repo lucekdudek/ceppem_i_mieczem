@@ -56,3 +56,8 @@ void Texture::setText(char* text, char* name) {
 
 	loadTexture();
 }
+
+char* Texture::getPath()
+{
+	return this->path;
+}
