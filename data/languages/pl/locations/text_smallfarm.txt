@@ -1,14 +1,16 @@
-﻿{console}
-To jest przykładowy tekst. zażółć gęślą jaźń. ZAŻÓŁĆ GĘŚLĄ JAŹŃ. To jest przykładowy tekst. zażółć gęślą jaźń. ZAŻÓŁĆ GĘŚLĄ JAŹŃ.
+﻿{none}
+-
+{console}
+Widzisz małą farmę, przyjaźnjie wyglądajacego farmera Henryka i jego żone. Dostrtzegarz szkynie pod ścianą budynku i zzstanawiasz sie co jest w środku.
+{walk to}
+podejdź do
 {farmer}
-farmerem
+farmera
 {farmer_wife}
-żoną farmera
-{attack}
-Walcz z
-{open_container}
-Otwórz
+żony farmera
 {chest}
-skrzynię
+skrzyni
 {city}
 Miasto
+{forest}
+Las
