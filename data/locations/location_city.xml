@@ -24,6 +24,6 @@
     <onclick>VISIT_BORDELO</onclick>
   </event>
   <road>
-    <place>GOTO_SMALL_FARM</place>
+    <place onclick="GOTO_SMALL_FARM">{small_farm}</place>
   </road>
 </location>
