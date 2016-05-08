@@ -19,7 +19,7 @@
     <onclick>PREVIOUS</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{previous}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="30">{previous}</text>
     </textures>
   </element>
   <!-- item1 -->
@@ -31,7 +31,7 @@
     <onclick>ITEM1</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{item1}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item1}</text>
     </textures>
   </element>
   <!-- item2 -->
@@ -43,7 +43,7 @@
     <onclick>ITEM2</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{item2}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item2}</text>
     </textures>
   </element>
   <!-- item3 -->
@@ -55,7 +55,7 @@
     <onclick>ITEM3</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{item3}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item3}</text>
     </textures>
   </element>
   <!-- item4 -->
@@ -67,7 +67,7 @@
     <onclick>ITEM4</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{item4}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item4}</text>
     </textures>
   </element>
   <!-- item5 -->
@@ -79,7 +79,7 @@
     <onclick>ITEM5</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{item5}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item5}</text>
     </textures>
   </element>
   <!-- item6 -->
@@ -91,7 +91,7 @@
     <onclick>ITEM6</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{item6}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item6}</text>
     </textures>
   </element>
   <!-- next -->
@@ -103,7 +103,7 @@
     <onclick>NEXT</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50">{next}</text>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="30">{next}</text>
     </textures>
   </element>
   <!-- description -->
@@ -114,7 +114,7 @@
     <height>340</height>
     <textures>
       <texture x="0" y="0" width="550" height="340">high_resolution_textures/black.png</texture>
-      <text x="10" y="10" width="550" height="320" display="box">{item_description}</text>
+      <text x="15" y="15" width="545" height="315" color="255,255,255" size="25" display="box">{item_description}</text>
     </textures>
   </element>
   <!-- use -->
@@ -126,7 +126,7 @@
     <onclick>USE</onclick>
     <textures>
       <texture x="0" y="0" width="270" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="270" height="50">{use}</text>
+      <text x="0" y="0" width="270" height="50" color="255,255,255" size="30">{use}</text>
     </textures>
   </element>
   <!-- throw -->
@@ -138,10 +138,10 @@
     <onclick>THROW</onclick>
     <textures>
       <texture x="0" y="0" width="270" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="270" height="50">{throw}</text>
+      <text x="0" y="0" width="270" height="50" color="255,255,255" size="30">{throw}</text>
     </textures>
   </element>
-  
+
   <!-- back -->
   <element>
     <x>1000</x>
@@ -151,7 +151,7 @@
     <onclick>BACK</onclick>
     <textures>
       <texture x="0" y="0" width="70" height="70">mainmenu/button.png</texture>
-      <text x="0" y="0" width="70" height="70">X</text>
+      <text x="0" y="0" width="70" height="70" size="45">X</text>
     </textures>
   </element>
 </view>

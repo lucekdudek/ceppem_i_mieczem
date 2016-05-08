@@ -21,7 +21,7 @@
         <onclick>NEW_GAME</onclick>
         <textures>
             <texture x="0" y="0" width="240" height="90">mainmenu/button.png</texture>
-            <text x="0" y="0" width="240" height="90" color="128,0,128" size="30">{newGame}</text>
+            <text x="0" y="0" width="240" height="90">{newGame}</text>
         </textures>
     </element>
   <!-- loadGame -->
