@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location>
+  <console>
+    {console}
+  </console>
+  <!-- no action -->
+  <event place="{EVENTA}">
+    <text>{none}</text>
+    <onclick>NONE</onclick>
+  </event>
+  <!-- no action -->
+  <event place="{EVENTB}">
+    <text>{none}</text>
+    <onclick>NONE</onclick>
+  </event>
+  <!-- no action -->
+  <event place="{EVENTC}">
+    <text>{none}</text>
+    <onclick>NONE</onclick>
+  </event>
+  <!-- no action -->
+  <event place="{EVENTD}">
+    <text>{none}</text>
+    <onclick>NONE</onclick>
+  </event>
+  <road>
+    <place onclick="GOTO_SMALL_FARM">{small_farm}</place>
+    <place onclick="GOTO_CITYGATE">{city}</place>
+  </road>
+</location>

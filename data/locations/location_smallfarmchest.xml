@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location>
+  <console>
+    {console}
+  </console>
+  <!-- check what is in chest -->
+  <event place="{EVENTA}">
+    <text>{check} {content}</text>
+    <onclick>CONTAINER_INVESTIGATE_SMALLFARMCHEST</onclick>
+  </event>
+  <!-- take stuff drom chest -->
+  <event place="{EVENTB}">
+    <text>{steal} {stuff}</text>
+    <onclick>CONTAINER_OPEN_SMALLFARMCHEST</onclick>
+  </event>
+  <!-- back to small farm view -->
+  <event place="{EVENTC}">
+    <text>{small_farm}</text>
+    <onclick>GOTO_SMALLFARM</onclick>
+  </event>
+  <!-- no action -->
+  <event place="{EVENTD}">
+    <text>{none}</text>
+    <onclick>NONE</onclick>
+  </event>
+  <road>
+    <place onclick="GOTO_SMALLFARM">{small_farm}</place>
+  </road>
+</location>

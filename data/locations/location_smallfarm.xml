@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location>
+  <console>
+    {console}
+  </console>
+  <!-- conversation with farmer -->
+  <event place="{EVENTA}">
+    <text>{walk to} {farmer}</text>
+    <onclick>GOTO_FHENRY</onclick>
+  </event>
+  <!-- conversation with farmer's wife -->
+  <event place="{EVENTB}">
+    <text>{walk to} {farmer_wife}</text>
+    <onclick>PERSON_CONVERSATION_FHENRYWIFE</onclick>
+  </event>
+  <!-- walk to chest -->
+  <event place="{EVENTC}">
+    <text>{walk to} {chest}</text>
+    <onclick>GOTO_SMALLFARMCHEST</onclick>
+  </event>
+  <!-- no action -->
+  <event place="{EVENTD}">
+    <text>{none}</text>
+    <onclick>NONE</onclick>
+  </event>
+  <road>
+	<place onclick="GOTO_CITYGATE">{city}</place>
+    <place onclick="GOTO_FORREST">{forrest}</place>
+  </road>
+</location>

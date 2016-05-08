@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location>
+  <console>
+    {console}
+  </console>
+  <!-- ask guard if you can enter the city -->
+  <event place="{EVENTA}">
+    <text>{conversation with} {guard} {about} {letting you in}</text>
+    <onclick>PERSON_CONVERSATION_CITYGUARD_LETTINGIN</onclick>
+  </event>
+  <!-- ask guard why city is close -->
+  <event place="{EVENTB}">
+    <text>{conversation with} {guard} {about} {close city}</text>
+    <onclick>PERSON_CONVERSATION_CITYGUARD_CLOSECITY</onclick>
+  </event>
+  <!-- attack guard -->
+  <event place="{EVENTC}">
+    <text>{attack} {guard}</text>
+    <onclick>PERSON_ATTACK_CITYGUARD</onclick>
+  </event>
+  <!-- steal guard's shield -->
+  <event place="{EVENTD}">
+    <text>{steal} {shield}</text>
+    <onclick>CONTAINER_OPEN_CITYGUARDSHIELD</onclick>
+  </event>
+  <road>
+    <place onclick="GOTO_SMALL_FARM">{small_farm}</place>
+    <place onclick="GOTO_FORREST">{forrest}</place>
+  </road>
+</location>

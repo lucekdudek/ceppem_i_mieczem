@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location>
+  <console>
+    {console}
+  </console>
+  <!-- conversation about Henry's wife job -->
+  <event place="{EVENTA}">
+    <text>{conversation about} {fhenry's wife job}</text>
+    <onclick>PERSON_CONVERSATION_FHENRYWIFE_JOB</onclick>
+  </event>
+  <!-- conversation about Henry's wife needs -->
+  <event place="{EVENTB}">
+    <text>{conversation about} {helping fhenrywife}</text>
+    <onclick>PERSON_CONVERSATION_FHENRYWIFE_HELP</onclick>
+  </event>
+  <!-- take wifes' flail -->
+  <event place="{EVENTC}">
+    <text>{steal} {flail}</text>
+    <onclick>CONTAINER_OPEN_FHENRYWIFE</onclick>
+  </event>
+  <!-- back to small farm view -->
+  <event place="{EVENTD}">
+    <text>{small_farm}</text>
+    <onclick>GOTO_SMALLFARM</onclick>
+  </event>
+  <road>
+    <place onclick="GOTO_SMALLFARM">{small_farm}</place>
+  </road>
+</location>

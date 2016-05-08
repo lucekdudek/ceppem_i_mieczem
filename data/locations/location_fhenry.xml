@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<location>
+  <console>
+    {console}
+  </console>
+  <!-- conversation about Henry's job -->
+  <event place="{EVENTA}">
+    <text>{conversation about} {job}</text>
+    <onclick>PERSON_CONVERSATION_FHENRY_JOB</onclick>
+  </event>
+  <!-- conversation about Henry's needs -->
+  <event place="{EVENTB}">
+    <text>{conversation about} {helping fhenry}</text>
+    <onclick>PERSON_CONVERSATION_FHENRY_HELP</onclick>
+  </event>
+  <!-- attack Henry -->
+  <event place="{EVENTC}">
+    <text>{attack} {fhenry}</text>
+    <onclick>PERSON_ATTACK_FHENRY</onclick>
+  </event>
+  <!-- bacck to small farm view -->
+  <event place="{EVENTD}">
+    <text>{small_farm}</text>
+    <onclick>GOTO_SMALLFARM</onclick>
+  </event>
+  <road>
+    <place onclick="GOTO_SMALLFARM">{small_farm}</place>
+  </road>
+</location>
