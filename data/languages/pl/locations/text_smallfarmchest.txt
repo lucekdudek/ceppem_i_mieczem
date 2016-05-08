@@ -1,0 +1,14 @@
+{none}
+-
+{console}
+Mała skrzynka, zawiera niezbędne narzędzia każdego farmera.
+{check}
+sprawdź
+{content}
+zawartość
+{steal}
+ukradnij
+{staff}
+przedmioty
+{smallfarm}
+mała farma
