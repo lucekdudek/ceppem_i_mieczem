@@ -107,7 +107,13 @@ View *Model::getXml(std::string file_name, std::string location_name)
 							pEvent = pRoot2->FirstChildElement("console");
 							text = _strdup(pEvent->FirstChild()->ToText()->Value());
 						}
-						Text * t = new Text(x, y, width, height, text, NULL, true);
+						int fontSize = 0;
+						if (pParm2->Attribute("size") != nullptr)
+						{
+							std::string fontSizeAttribute = pParm2->Attribute("size");
+							fontSize = strtol(fontSizeAttribute.c_str(), NULL, 10);
+						}
+						Text * t = new Text(x, y, width, height, text, fontSize, true);
 						if (pParm2->Attribute("color") != nullptr)
 						{
 							std::string color = pParm2->Attribute("color");
@@ -135,7 +141,14 @@ View *Model::getXml(std::string file_name, std::string location_name)
 							}
 						}
 
-						Text * t = new Text(x, y, width, height, text, NULL);
+						int fontSize = 0;
+						if (pParm2->Attribute("size") != nullptr)
+						{
+							std::string fontSizeAttribute = pParm2->Attribute("size");
+							fontSize = strtol(fontSizeAttribute.c_str(), NULL, 10);
+						}
+
+						Text * t = new Text(x, y, width, height, text, fontSize);
 						if (pParm2->Attribute("color") != nullptr)
 						{
 							std::string color = pParm2->Attribute("color");
@@ -226,7 +239,7 @@ View* Model::getMap(std::string file_name, std::string location_name)
 
 	Element* el = new Element(630, 350, 20, 20);
 	el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
-	el->addTexture(new Text(-90, -50, 200, 50, "test", NULL));
+	el->addTexture(new Text(-90, -50, 200, 50, "test", 0));
 	elements.push_back(el);
 
 	TiXmlDocument doc(("../data/locations/" + location_name + ".xml").c_str());
@@ -258,7 +271,7 @@ View* Model::getMap(std::string file_name, std::string location_name)
 		el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
 		char * text = _strdup(pRoad->FirstChild()->ToText()->Value());
 		el->setOnClick(text);
-		el->setOnHover(new Text(-90, -50, 200, 50, text, NULL));
+		el->setOnHover(new Text(-90, -50, 200, 50, text, 0));
 		elements.push_back(el);
 
 		i++;

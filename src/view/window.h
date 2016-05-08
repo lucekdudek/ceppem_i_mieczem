@@ -6,6 +6,7 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include "view.h"
+#include "font.h"
 #include <vector>
 
 class Window {
@@ -24,17 +25,17 @@ public:
     static void unloadGLTexture(int id);
 
     TTF_Font *loadFont(char *fileName, int fontSize);
-	static int renderText(char *text, int &w, int &h, TTF_Font *text_font, unsigned char r = 128, unsigned char g = 0, unsigned char b = 0);
-	static int getTextWidth(const char *text, TTF_Font *text_font);
-	static int getTextHeight(const char *text, TTF_Font *text_font);
-	static int renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth, TTF_Font *text_font, unsigned char r=128, unsigned char g=0, unsigned char b=0);
+	static int renderText(char *text, int &w, int &h, int fontSize, unsigned char r = 128, unsigned char g = 0, unsigned char b = 0);
+	static int getTextWidth(const char *text, int fontSize);
+	static int getTextHeight(const char *text, int fontSize);
+	static int renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth, int fontSize, unsigned char r=128, unsigned char g=0, unsigned char b=0);
 
     void renderFrame();
 
     void setView(View* view);
     void toggleFullscreen();
-    static TTF_Font *font;
 	void updateClickmap();
+	static Font* fontLoader;
 private:
     View* view;
     char** clickmap;

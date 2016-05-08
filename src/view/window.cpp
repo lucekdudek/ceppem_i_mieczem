@@ -6,7 +6,7 @@
 #include <SDL2/SDL_version.h>
 #include <SDL2/SDL_syswm.h>
 
-TTF_Font *Window::font;
+Font *Window::fontLoader;
 bool Window::locked;
 
 std::list<std::string> splitString(std::string str)
@@ -69,7 +69,7 @@ Window::Window()
 
 	SDL_GetCurrentDisplayMode(0, &this->current);
 	printf("Screen size: %ix%i.\n", this->current.w, this->current.h);
-	Window::font = loadFont((char *) "../data/arial.ttf", 50);
+	fontLoader = new Font("../data/arial.ttf");
 	restore = new Texture(1246, 10, 24, 24, "../data/restore.png");
 }
 
@@ -270,11 +270,11 @@ TTF_Font *Window::loadFont(char *fileName, int fontSize)
 	return text_font;
 }
 
-int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font, unsigned char r, unsigned char g, unsigned char b)
+int Window::renderText(char *text, int &w, int &h, int fontSize, unsigned char r, unsigned char g, unsigned char b)
 {
 	SDL_Color textColor = { r, g, b };
 
-	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::font, text,
+	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::fontLoader->getFont(fontSize), text,
 		textColor);
 	w = (sdl_surface->w * 1280) / 1920;
 	h = (sdl_surface->h * 1280) / 1920;
@@ -301,31 +301,31 @@ int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font, unsigned
 	return texture_id;
 }
 
-int Window::getTextWidth(const char *text, TTF_Font *text_font)
+int Window::getTextWidth(const char *text, int fontSize)
 {
 	SDL_Color textColor = { 128, 0, 0 };
-	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::font, text, textColor);
+	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::fontLoader->getFont(fontSize), text, textColor);
 	int sw = sdl_surface->w;
 	SDL_FreeSurface(sdl_surface);
 	return sw;
 }
-int Window::getTextHeight(const char *text, TTF_Font *text_font)
+int Window::getTextHeight(const char *text, int fontSize)
 {
 	SDL_Color textColor = { 128, 0, 0 };
-	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::font, text, textColor);
+	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::fontLoader->getFont(fontSize), text, textColor);
 	int sh = sdl_surface->h;
 	SDL_FreeSurface(sdl_surface);
 	return sh;
 }
 
-int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth, TTF_Font *text_font, unsigned char r, unsigned char g, unsigned char b)
+int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth, int fontSize, unsigned char r, unsigned char g, unsigned char b)
 {	
 	t_width = (t_width * 1920) / 1280;
 	t_heigth = (t_heigth * 1920) / 1280;
 	SDL_Color textColor = { r, g, b };
 	int text_width = 200;
 
-	int line_height = getTextHeight("Jjysad", text_font);
+	int line_height = getTextHeight("Jjysad", fontSize);
 
 	std::list<std::string> words = splitString(text);
 
@@ -341,7 +341,7 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 			curr = curr + " ";
 		}
 		curr = curr + *i;
-		if (getTextWidth(curr.c_str(), text_font) > t_width)
+		if (getTextWidth(curr.c_str(), fontSize) > t_width)
 		{
 			if (i != words.begin())
 			{
@@ -369,7 +369,7 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 	int max_width = 0;
 	for (auto i = lines.begin(); i != lines.end(); i++)
 	{
-		int curr_width = getTextWidth((*i).c_str(), text_font);
+		int curr_width = getTextWidth((*i).c_str(), fontSize);
 		if (curr_width > max_width)
 		{
 			max_width = curr_width;
@@ -386,7 +386,7 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 	int index = 0;
 	for (auto i = lines.begin(); i != lines.end(); i++)
 	{
-		SDL_Surface *surface = TTF_RenderUTF8_Blended(Window::font, (*i).c_str(), textColor);
+		SDL_Surface *surface = TTF_RenderUTF8_Blended(Window::fontLoader->getFont(fontSize), (*i).c_str(), textColor);
 		SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_NONE);
 		SDL_Rect dest;
 		dest.x = 0;

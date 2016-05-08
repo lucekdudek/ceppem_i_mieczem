@@ -5,7 +5,7 @@ class Text :
 	public Texture
 {
 public:
-	Text(int x, int y, int width, int height, char* text, TTF_Font *font, bool box=false);
+	Text(int x, int y, int width, int height, char* text, int fontSize, bool box=false);
 	~Text();
 	char* getName();
 	void loadTexture();
@@ -29,5 +29,6 @@ private:
 	int t_width;
 	int t_height;
 	char r, g, b;
+	int fontSize;
 };
 #endif //TEXT_H_
