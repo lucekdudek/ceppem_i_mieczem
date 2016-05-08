@@ -107,7 +107,18 @@ View *Model::getXml(std::string file_name, std::string location_name)
 							pEvent = pRoot2->FirstChildElement("console");
 							text = _strdup(pEvent->FirstChild()->ToText()->Value());
 						}
-						el->addTexture(new Text(x, y, width, height, text, NULL, true));
+						Text * t = new Text(x, y, width, height, text, NULL, true);
+						if (pParm2->Attribute("color") != nullptr)
+						{
+							std::string color = pParm2->Attribute("color");
+							int f1 = color.find(',');
+							int f2 = color.find(',', f1 + 1);
+							unsigned char r = strtol(color.substr(0, f1).c_str(), NULL, 10);
+							unsigned char g = strtol(color.substr(f1 + 1, f2 - f1 - 1).c_str(), NULL, 10);
+							unsigned char b = strtol(color.substr(f2 + 1, color.length() - f2 - 1).c_str(), NULL, 10);
+							t->setColor(r, g, b);
+						}
+						el->addTexture(t);
 					}
 					else
 					{
@@ -123,7 +134,19 @@ View *Model::getXml(std::string file_name, std::string location_name)
 								pEvent = pEvent->NextSiblingElement("event");
 							}
 						}
-						el->addTexture(new Text(x, y, width, height, text, NULL));
+
+						Text * t = new Text(x, y, width, height, text, NULL);
+						if (pParm2->Attribute("color") != nullptr)
+						{
+							std::string color = pParm2->Attribute("color");
+							int f1 = color.find(',');
+							int f2 = color.find(',', f1 + 1);
+							unsigned char r = strtol(color.substr(0, f1).c_str(), NULL, 10);
+							unsigned char g = strtol(color.substr(f1 + 1, f2 - f1 - 1).c_str(), NULL, 10);
+							unsigned char b = strtol(color.substr(f2 + 1, color.length() - f2 - 1).c_str(), NULL, 10);
+							t->setColor(r, g, b);
+						}
+						el->addTexture(t);
 					}
 				}
 			}

@@ -9,6 +9,7 @@ public:
 	~Text();
 	char* getName();
 	void loadTexture();
+	void setColor(unsigned char r, unsigned char g, unsigned char b);
 
 	virtual void setX(int x)
 	{
@@ -27,5 +28,6 @@ private:
 	int t_y;
 	int t_width;
 	int t_height;
+	char r, g, b;
 };
 #endif //TEXT_H_

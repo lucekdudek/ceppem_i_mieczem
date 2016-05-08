@@ -18,7 +18,7 @@
     <height>340</height>
     <textures>
       <texture x="0" y="0" width="1080" height="340">high_resolution_textures/black.png</texture>
-      <text x="10" y="10" width="1080" height="320" display="box">{log_console}</text>
+      <text x="10" y="10" width="1080" height="320" display="box" color="128,0,128">{log_console}</text>
     </textures>
   </element>
   <!-- actionA -->

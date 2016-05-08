@@ -270,9 +270,9 @@ TTF_Font *Window::loadFont(char *fileName, int fontSize)
 	return text_font;
 }
 
-int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font)
+int Window::renderText(char *text, int &w, int &h, TTF_Font *text_font, unsigned char r, unsigned char g, unsigned char b)
 {
-	SDL_Color textColor = { 128, 0, 0 };
+	SDL_Color textColor = { r, g, b };
 
 	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::font, text,
 		textColor);
@@ -318,11 +318,11 @@ int Window::getTextHeight(const char *text, TTF_Font *text_font)
 	return sh;
 }
 
-int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth, TTF_Font *text_font)
+int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth, TTF_Font *text_font, unsigned char r, unsigned char g, unsigned char b)
 {	
 	t_width = (t_width * 1920) / 1280;
 	t_heigth = (t_heigth * 1920) / 1280;
-	SDL_Color textColor = { 128, 0, 0 };
+	SDL_Color textColor = { r, g, b };
 	int text_width = 200;
 
 	int line_height = getTextHeight("Jjysad", text_font);
