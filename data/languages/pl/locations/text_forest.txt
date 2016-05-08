@@ -1,4 +1,6 @@
-﻿{none}
+﻿{locationName}
+Las
+{none}
 -
 {console}
 Las las las, nic ciekawego.
