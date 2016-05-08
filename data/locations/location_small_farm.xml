@@ -24,10 +24,10 @@
     <onclick>CONTAINER_OPEN_CHEST</onclick>
   </event>
   <road>
-    <place>{PLACEA}</place>
-    <place>{PLACEB}</place>
-    <place>{PLACEC}</place>
-    <place>{PLACED}</place>
-    <place>{PLACEE}</place>
+    <place onclick="GOTO_MOUNTAINS">{mountains}</place>
+    <place onclick="GOTO_MOUNTAINS">{PLACEB}</place>
+    <place onclick="GOTO_MOUNTAINS">{PLACEC}</place>
+    <place onclick="GOTO_MOUNTAINS">{PLACED}</place>
+    <place onclick="GOTO_MOUNTAINS">{PLACEE}</place>
   </road>
 </location>

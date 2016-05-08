@@ -269,8 +269,11 @@ View* Model::getMap(std::string file_name, std::string location_name)
 		rotatePoint(x, y, 360.0 / points*i + (std::rand() % 50) - 25);
 		Element* el = new Element(630+x, 350+y, 20, 20);
 		el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
-		char * text = _strdup(pRoad->FirstChild()->ToText()->Value());
+
+
+		char * text = _strdup(pRoad->Attribute("onclick"));
 		el->setOnClick(text);
+		text = _strdup(pRoad->FirstChild()->ToText()->Value());
 		el->setOnHover(new Text(-90, -50, 200, 50, text, 0));
 		elements.push_back(el);
 
