@@ -18,6 +18,7 @@ public:
 private:
 	bool running;
 	std::list <std::string> current_view_name;                 //zawiera informację o aktualnie wyświetlanych widokach.
+	std::string current_location;
 	Window* window;
 	Model* model;
 	View* current_view;
@@ -44,6 +45,8 @@ private:
 	bool lvl_up(std::string event_name);
 	void saveGame();
 	void loadGame();
+	void travel(std::string destination);
+	void setLocation(std::string view);
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);
 	inline void addView(std::string view, bool deactivation = false);

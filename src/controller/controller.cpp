@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 #include "controller.h"
 #include "fpshandler.h"
 #include "../locations/l_small_farm.h"
@@ -43,6 +44,7 @@ void Controller::run()
 
 void Controller::event(std::string event_name)
 {
+	std::cout << "event occured: " << event_name << std::endl;
 	Controller &controller = getController();
 	for(std::list<std::string>::iterator it = controller.current_view_name.begin(); it != controller.current_view_name.end(); it++)
 	{
@@ -175,6 +177,10 @@ bool Controller::mapEvent(std::string event_name)
 	{
 		delView();
 	}
+	else if(event_name.substr(0, 5) == "GOTO_")
+	{
+		travel(event_name.substr(5));
+	}
 	else
 	{
 		return false;
@@ -237,8 +243,7 @@ bool Controller::newGameEvent(std::string event_name)
 	else if(event_name == "START_GAME")
 	{
 		player->saveAttributes();
-		setView("location", "small_farm");
-		addView("player_card", false);
+		setLocation("small_farm");
 	}
 	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
 	{
@@ -289,7 +294,7 @@ bool Controller::playerCardEvent(std::string event_name)
 	}
 	else if(event_name == "MAP")
 	{
-		addView("map", "small_farm", true);
+		addView("map", current_location, true);
 	}
 	else if (event_name == "PROFILE")
 	{
@@ -338,7 +343,6 @@ bool Controller::settingsEvent(std::string event_name)
 	}
 	else if(event_name.substr(0, 9) == "LANGUAGE_")
 	{
-		std::cout << "new language: " << event_name.substr(9) << std::endl;
 		model->setLanguage(event_name.substr(9));
 		setView("settings");
 	}
@@ -440,15 +444,27 @@ void Controller::loadGame()
 	std::cout << "game loaded\n";
 }
 
+void Controller::travel(std::string destination)
+{
+	std::transform(destination.begin(), destination.end(), destination.begin(), ::tolower);
+	setLocation(destination);
+	
+}
+
 void Controller::startNewGame()
 {
-	std::cout << "new game starting\n";
 	setView("new_game");
+}
+
+void Controller::setLocation(std::string location)
+{
+	current_location = location;
+	setView("location", location);
+	addView("player_card", false);
 }
 
 void Controller::setView(std::string view)
 {
-	std::cout << "changed view to: " << std::setw(10) << view << std::endl;
 	current_view_name.clear();
 	current_view_name.push_front(view);
 	current_view = model->getXml("view_" + view);
@@ -457,7 +473,6 @@ void Controller::setView(std::string view)
 
 void Controller::setView(std::string view, std::string location)
 {
-	std::cout << "changed view to: " << std::setw(10) << view << std::endl;
 	current_view_name.clear();
 	current_view_name.push_front(view);
 	current_view = model->getXml("view_" + view, "location_" + location);
@@ -467,7 +482,6 @@ void Controller::setView(std::string view, std::string location)
 void Controller::addView(std::string view, bool deactivation)
 {
 	View* v = model->getXml("view_" + view);
-
 	current_view_name.push_front(view);
 	current_view->extendView(v, deactivation);
 	window->updateClickmap();
