@@ -1,4 +1,6 @@
-﻿{none}
+﻿{locationName}
+Mała farma
+{none}
 -
 {console}
 Widzisz małą farmę, przyjaźnie wyglądającego farmera Henryka i jego żonę. Dostrzegasz skrzynię pod ścianą budynku i zastanawiasz się, co jest w środku.
