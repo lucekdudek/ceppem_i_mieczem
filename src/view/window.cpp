@@ -70,7 +70,7 @@ Window::Window()
 	SDL_GetCurrentDisplayMode(0, &this->current);
 	printf("Screen size: %ix%i.\n", this->current.w, this->current.h);
 	fontLoader = new Font("../data/arial.ttf");
-	restore = new Texture(1246, 10, 24, 24, "../data/restore.png");
+	restore = new Texture(1246, 10, 24, 24, "../data/images/restore.png");
 }
 
 Window::~Window()

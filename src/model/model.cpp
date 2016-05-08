@@ -23,6 +23,13 @@ View *Model::getXml(std::string file_name, std::string location_name)
 	{
 		doc2.LoadFile();
 		pRoot2 = doc2.FirstChildElement("location");
+
+
+		Element* bgElement = new Element(0, 0, 1280, 720);
+		std::string tmp = "../data/images/" + std::string(pRoot2->FirstChildElement("background")->FirstChild()->ToText()->Value());
+		char* background = _strdup(tmp.c_str());
+		bgElement->addTexture(new Texture(0, 0, 1280, 720, background));
+		elements.push_back(bgElement);
 	}
 
 	TiXmlElement *pRoot, *pParm, *pParm2;
@@ -69,7 +76,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 			int width = atoi(onHover->Attribute("width"));
 			int height = atoi(onHover->Attribute("height"));
 			std::string temp = onHover->FirstChild()->ToText()->Value();
-			temp = "../data/" + temp;
+			temp = "../data/images/" + temp;
 			char * text = _strdup(temp.c_str());
 			el->setOnHover(new Texture(x, y, width, height, text));
 		}
@@ -92,7 +99,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 				std::string temp = pParm2->FirstChild()->ToText()->Value();
 				if (strcmp(name, "texture") == 0)
 				{
-					temp = "../data/" + temp;
+					temp = "../data/images/" + temp;
 					text = _strdup(temp.c_str());
 					//load textures into opengl and add it to Element
 					el->addTexture(new Texture(x, y, width, height, text));
@@ -238,7 +245,7 @@ View* Model::getMap(std::string file_name, std::string location_name)
 	std::list<Element*> elements;
 
 	Element* el = new Element(630, 350, 20, 20);
-	el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
+	el->addTexture(new Texture(0, 0, 20, 20, "../data/images/point.png"));
 	el->addTexture(new Text(-90, -50, 200, 50, "test", 0));
 	elements.push_back(el);
 
@@ -273,7 +280,7 @@ View* Model::getMap(std::string file_name, std::string location_name)
 		int x = 0, y = -150 + (std::rand() % 50) - 25;
 		rotatePoint(x, y, 360.0 / points*i + (std::rand() % 50) - 25);
 		Element* el = new Element(630+x, 350+y, 20, 20);
-		el->addTexture(new Texture(0, 0, 20, 20, "../data/point.png"));
+		el->addTexture(new Texture(0, 0, 20, 20, "../data/images/point.png"));
 
 
 		char * text = _strdup(pRoad->Attribute("onclick"));
