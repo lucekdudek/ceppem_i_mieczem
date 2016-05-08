@@ -1,7 +1,7 @@
 ﻿{none}
 -
 {console}
-Miasto wygląda na zamkniete, ciekawe dlaczego.
+Miasto wygląda na zamknięte, ciekawe dlaczego.
 {conversation with}
 zapytaj
 {guard}

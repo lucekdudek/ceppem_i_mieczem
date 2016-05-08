@@ -5,9 +5,9 @@ Farmer Henryk wygląda niegroźnie.
 {conversation about}
 Zapytaj
 {job}
-czym sie zajmuje.
+czym się zajmuje.
 {helping fhenry}
-czy otrzebuje pomocy
+czy potrzebuje pomocy
 {attack}
 zaatakuj
 {fhenry}

@@ -5,9 +5,9 @@
 {conversation about}
 Zapytaj
 {job}
-czym sie zajmuje.
+czym się zajmuje.
 {helping fhenrywife}
-czy otrzebuje pomocy
+czy potrzebuje pomocy
 {steal}
 ukradnij
 {flail}
