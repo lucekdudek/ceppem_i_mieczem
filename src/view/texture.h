@@ -46,11 +46,10 @@ public:
 		this->y = y;
 	}
 
-private:
-	void unloadTexture();
 protected:
 	Texture();
 	virtual void loadTexture();
+	void unloadTexture();
 
 	int x;
 	int y;
