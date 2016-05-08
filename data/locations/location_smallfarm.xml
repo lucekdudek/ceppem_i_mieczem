@@ -26,6 +26,6 @@
   </event>
   <road>
 	<place onclick="GOTO_CITYGATE">{city}</place>
-    <place onclick="GOTO_FORREST">{forrest}</place>
+    <place onclick="GOTO_FOREST">{forest}</place>
   </road>
 </location>
