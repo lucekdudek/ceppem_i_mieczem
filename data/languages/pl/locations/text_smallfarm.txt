@@ -1,7 +1,5 @@
 ﻿{console}
 To jest przykładowy tekst. zażółć gęślą jaźń. ZAŻÓŁĆ GĘŚLĄ JAŹŃ. To jest przykładowy tekst. zażółć gęślą jaźń. ZAŻÓŁĆ GĘŚLĄ JAŹŃ.
-{conversation with}
-Rozmowiaja z
 {farmer}
 farmerem
 {farmer_wife}
@@ -12,3 +10,5 @@ Walcz z
 Otwórz
 {chest}
 skrzynię
+{city}
+Miasto

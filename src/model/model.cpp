@@ -191,9 +191,10 @@ View *Model::getXml(std::string file_name, std::string location_name)
 		view->setText(first, second);
 	}
 
+	location_name.replace(0, 8, "locations/text");
 	if (location_name.length() > 0)
 	{
-		map = getTextMap("text_" + location_name);
+		map = getTextMap(location_name);
 		for (auto& x : map)
 		{
 			char first[256];
