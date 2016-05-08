@@ -23,6 +23,13 @@ View *Model::getXml(std::string file_name, std::string location_name)
 	{
 		doc2.LoadFile();
 		pRoot2 = doc2.FirstChildElement("location");
+
+
+		Element* bgElement = new Element(0, 0, 1280, 720);
+		std::string tmp = "../data/" + std::string(pRoot2->FirstChildElement("background")->FirstChild()->ToText()->Value());
+		char* background = _strdup(tmp.c_str());
+		bgElement->addTexture(new Texture(0, 0, 1280, 720, background));
+		elements.push_back(bgElement);
 	}
 
 	TiXmlElement *pRoot, *pParm, *pParm2;

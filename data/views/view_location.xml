@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view>
-  <!-- mainmenuBackground -->
-  <element>
-    <x>0</x>
-    <y>0</y>
-    <width>1280</width>
-    <height>720</height>
-    <textures>
-      <texture x="0" y="0" width="1280" height="720">lokacja.jpg</texture>
-    </textures>
-  </element>
   <!-- logConsoleBackground -->
   <element>
     <x>40</x>
