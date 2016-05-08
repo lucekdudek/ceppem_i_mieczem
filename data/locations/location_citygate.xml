@@ -25,7 +25,7 @@
     <onclick>CONTAINER_OPEN_CITYGUARDSHIELD</onclick>
   </event>
   <road>
-    <place onclick="GOTO_SMALL_FARM">{small_farm}</place>
+    <place onclick="GOTO_SMALLFARM">{small_farm}</place>
     <place onclick="GOTO_FOREST">{forest}</place>
   </road>
 </location>
