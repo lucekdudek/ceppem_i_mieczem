@@ -1,0 +1,8 @@
+﻿{none}
+-
+{console}
+Las las las, nic ciekawego.
+{city}
+Miasto
+{smallfarm}
+Mała farma

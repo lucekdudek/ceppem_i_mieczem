@@ -1,0 +1,17 @@
+﻿{none}
+-
+{console}
+Żonka Hanryka to niebrzydka kobietka. Dobrze włada ceppem.
+{conversation about}
+Zapytaj
+{job}
+czym się zajmuje.
+{helping fhenrywife}
+czy potrzebuje pomocy
+{steal}
+ukradnij
+{flail}
+cep
+{smallfarm}
+Mała farma
+
