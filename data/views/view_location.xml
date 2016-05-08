@@ -3,60 +3,60 @@
   <!-- logConsoleBackground -->
   <element>
     <x>40</x>
-    <y>40</y>
-    <width>1200</width>
-    <height>340</height>
+    <y>480</y>
+    <width>1060</width>
+    <height>200</height>
     <textures>
-      <texture x="0" y="0" width="1080" height="340">high_resolution_textures/black.png</texture>
-      <text x="10" y="10" width="1060" height="320" display="box" color="128,0,128" size="30">{log_console}</text>
+      <texture x="0" y="0" width="1060" height="200">high_resolution_textures/black.png</texture>
+      <text x="15" y="15" width="1045" height="185" display="box" color="255,255,255" size="30">{log_console}</text>
     </textures>
   </element>
   <!-- actionA -->
   <element>
     <x>40</x>
-    <y>400</y>
+    <y>155</y>
     <width>1000</width>
-    <height>60</height>
+    <height>40</height>
     <onclick>{EVENTA}</onclick>
     <textures>
-      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="1080" height="60">{action_a}</text>
+      <texture x="0" y="0" width="1060" height="40">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1060" height="40" color="255,255,255" size="25">{action_a}</text>
     </textures>
   </element>
   <!-- actionB -->
   <element>
     <x>40</x>
-    <y>480</y>
+    <y>200</y>
     <width>1000</width>
-    <height>60</height>
+    <height>40</height>
     <onclick>{EVENTB}</onclick>
     <textures>
-      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="1080" height="60">{action_b}</text>
+      <texture x="0" y="0" width="1060" height="40">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1060" height="40" color="255,255,255" size="25">{action_b}</text>
     </textures>
   </element>
   <!-- actionC -->
   <element>
     <x>40</x>
-    <y>560</y>
-    <width>1080</width>
-    <height>60</height>
+    <y>245</y>
+    <width>1060</width>
+    <height>40</height>
     <onclick>{EVENTC}</onclick>
     <textures>
-      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="1080" height="60">{action_c}</text>
+      <texture x="0" y="0" width="1060" height="40">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1060" height="40" color="255,255,255" size="25">{action_c}</text>
     </textures>
   </element>
   <!-- actionD -->
   <element>
     <x>40</x>
-    <y>640</y>
-    <width>1080</width>
-    <height>60</height>
+    <y>290</y>
+    <width>1060</width>
+    <height>40</height>
     <onclick>{EVENTD}</onclick>
     <textures>
-      <texture x="0" y="0" width="1080" height="60">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="1080" height="60">{action_d}</text>
+      <texture x="0" y="0" width="1060" height="40">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="1060" height="40" color="255,255,255" size="25">{action_d}</text>
     </textures>
   </element>
 </view>
