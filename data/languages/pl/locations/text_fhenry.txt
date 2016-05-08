@@ -1,0 +1,16 @@
+﻿{none}
+-
+{console}
+Farmer Henryk wygląda niegroźnie.
+{conversation about}
+Zapytaj
+{job}
+czym sie zajmuje.
+{helping fhenry}
+czy otrzebuje pomocy
+{attack}
+zaatakuj
+{fhenry}
+Henryka
+{smallfarm}
+Mała farma

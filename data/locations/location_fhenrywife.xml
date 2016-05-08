@@ -6,7 +6,7 @@
   </console>
   <!-- conversation about Henry's wife job -->
   <event place="{EVENTA}">
-    <text>{conversation about} {fhenry's wife job}</text>
+    <text>{conversation about} {job}</text>
     <onclick>PERSON_CONVERSATION_FHENRYWIFE_JOB</onclick>
   </event>
   <!-- conversation about Henry's wife needs -->
