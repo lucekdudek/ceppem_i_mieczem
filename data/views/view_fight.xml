@@ -7,7 +7,8 @@
     <width>1280</width>
     <height>720</height>
     <textures>
-      <texture x="0" y="0" width="1280" height="720">forest.jpg</texture>
+      <texture x="0" y="0" width="1280" height="720">fight.jpg</texture>
+      <texture x="750" y="180" width="235" height="235">enemy.png</texture>
     </textures>
   </element>
   <!-- heroHealth -->
