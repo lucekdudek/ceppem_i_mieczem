@@ -179,11 +179,17 @@ bool Controller::mapEvent(std::string event_name)
 	}
 	else if(event_name.substr(0, 5) == "GOTO_")
 	{
+		srand(time(NULL));
 		if (rand() % 2)
 		{
-
+			next_view_name = event_name.substr(5);
+			//open fight view
+			setView("fight");
 		}
-		travel(event_name.substr(5));
+		else
+		{
+			travel(event_name.substr(5));
+		}
 	}
 	else
 	{

@@ -24,6 +24,7 @@ private:
 	View* current_view;
 	Character* player;
 	Location* location;
+	std::string next_view_name="";
 	Controller();
 	~Controller();
 	void startNewGame();

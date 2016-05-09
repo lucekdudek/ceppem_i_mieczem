@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+	<!-- logConsoleBackground -->
+  <element>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+    <textures>
+      <texture x="0" y="0" width="1280" height="720">forest.jpg</texture>
+    </textures>
+  </element>
+  <!-- heroHealth -->
+  <element>
+    <x>40</x>
+    <y>50</y>
+    <width>200</width>
+    <height>200</height>
+    <textures>
+        <texture x="0" y="0" width="300" height="50">high_resolution_textures/black.png</texture>
+        <texture x="5" y="35" width="150" height="10">high_resolution_textures/black.png</texture>
+        <text x="0" y="5" width="300" height="20" color="255,255,255" size="30">Ja</text>
+    </textures>
+  </element>
+  <!-- enemyHealth -->
+  <element>
+    <x>800</x>
+    <y>400</y>
+    <width>200</width>
+    <height>200</height>
+    <textures>
+      <texture x="0" y="0" width="300" height="50">high_resolution_textures/black.png</texture>
+      <texture x="5" y="35" width="150" height="10">high_resolution_textures/black.png</texture>
+      <text x="0" y="5" width="300" height="20" color="255,255,255" size="30">Potwor</text>
+    </textures>
+  </element>
+  <!-- buttons -->
+  <element>
+    <x>40</x>
+    <y>480</y>
+    <width>100</width>
+    <height>100</height>
+    <textures>
+      <texture x="0" y="0" width="100" height="100">high_resolution_textures/black.png</texture>
+    </textures>
+  </element>
+  <element>
+    <x>40</x>
+    <y>581</y>
+    <width>100</width>
+    <height>100</height>
+    <textures>
+      <texture x="0" y="0" width="100" height="100">high_resolution_textures/black.png</texture>
+    </textures>
+  </element>
+  <element>
+    <x>141</x>
+    <y>480</y>
+    <width>100</width>
+    <height>100</height>
+    <textures>
+      <texture x="0" y="0" width="100" height="100">high_resolution_textures/black.png</texture>
+    </textures>
+  </element>
+  <element>
+    <x>141</x>
+    <y>581</y>
+    <width>100</width>
+    <height>100</height>
+    <textures>
+      <texture x="0" y="0" width="100" height="100">high_resolution_textures/black.png</texture>
+    </textures>
+  </element>
+  <!-- logConsoleBackground -->
+  <element>
+    <x>250</x>
+    <y>480</y>
+    <width>850</width>
+    <height>200</height>
+    <textures>
+      <texture x="0" y="0" width="850" height="201">high_resolution_textures/black.png</texture>
+      <text x="15" y="15" width="820" height="185" display="box" color="255,255,255" size="30">{log_console}</text>
+    </textures>
+  </element>
+</view>
