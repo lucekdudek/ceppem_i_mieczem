@@ -179,6 +179,10 @@ bool Controller::mapEvent(std::string event_name)
 	}
 	else if(event_name.substr(0, 5) == "GOTO_")
 	{
+		if (rand() % 2)
+		{
+
+		}
 		travel(event_name.substr(5));
 	}
 	else

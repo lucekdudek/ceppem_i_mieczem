@@ -1,7 +1,5 @@
-{points}
+﻿{points}
 Punkty
-{startGame}
-Rozpocznij
 {strength}
 Siła
 {dexterity}
