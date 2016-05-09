@@ -3,15 +3,12 @@
 
 #include "itemz.h"
 
-class Weapon: Itemz
+class Weapon: public Itemz
 {
 public:
 	Weapon(int id, std::string name, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
 	~Weapon();
 	
-	int getId();
-	std::string getName();
-	int getGoldValue();
 	int getMinDamage();
 	int getMaxDamage();
 	int getStrength();

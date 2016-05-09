@@ -23,18 +23,6 @@ int Potion::use()
 	else return 0;
 }
 
-int Potion::getId()
-{
-	return id;
-}
-std::string Potion::getName()
-{
-	return name;
-}
-int Potion::getGoldValue()
-{
-	return goldValue;
-}
 void Potion::setId(int value)
 {
 	id = value;

@@ -2,16 +2,13 @@
 #define WEARABLE_H
 #include "itemz.h"
 
-class Wearable: Itemz
+class Wearable: public Itemz
 {
 public:
 	Wearable(int id, std::string name, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
 	~Wearable();
 
-	int getId();
-	std::string getName();
 	int getSlot();
-	int getGoldValue();
 	int getArmor();
 	int getStrength();
 	int getDexterity();
