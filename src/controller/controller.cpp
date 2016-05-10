@@ -235,7 +235,7 @@ void Controller::equipmentLoadData(int current_element, int active_slot)
 	current_view->setText("{item4}", player->getInventoryItemName(current_element + 4));
 	current_view->setText("{item5}", player->getInventoryItemName(current_element + 5));
 	Itemz* item = player->getInventoryItem(active_slot);
-	current_view->setText("{item_description}", item->getName() + " \n " + item->getDescription());
+	current_view->setText("{item_description}", item->getName() + " \n \n " + item->getDescription());
 }
 
 bool Controller::exitEvent(std::string event_name)
