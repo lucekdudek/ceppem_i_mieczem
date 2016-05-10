@@ -10,6 +10,17 @@
       <texture x="0" y="0" width="140" height="720">menu.jpg</texture>
     </textures>
   </element>
+  <!-- equipment -->
+    <element>
+        <x>1180</x>
+        <y>560</y>
+        <width>71</width>
+        <height>71</height>
+        <onclick>EQUIPMENT</onclick>
+        <textures>
+            <texture x="0" y="0" width="71" height="71">menuEquipment.png</texture>
+        </textures>
+    </element>
   <!-- menu -->
   <element>
     <x>1180</x>
