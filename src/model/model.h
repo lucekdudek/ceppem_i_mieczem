@@ -14,7 +14,11 @@
 #include <list>
 #include "../view/view.h"
 #include "../view/Window.h"
-
+#include "items/itemz.h"
+#include "items/wearable.h"
+#include "items/weapon.h"
+#include "items/potion.h"
+#include <fstream>
 class Model
 {
 public:
@@ -24,6 +28,7 @@ public:
     View *getXml(std::string file_name, std::string location_name="");
 	View *getMap(std::string file_name, std::string location_name);
 	View* getFightView(std::string file_name, std::string name, std::string image_file);
+	Itemz* loadItem(std::string name);
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
 
 	const std::string& getLanguage() const {

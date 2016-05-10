@@ -1,9 +1,10 @@
 #include "wearable.h"
 
-Wearable::Wearable(int id, std::string name, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma)
+Wearable::Wearable(int id, std::string name, std::string description, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma)
 {
 	Wearable::id = id;
 	Wearable::name = name;
+	Wearable::description = description;
 	Wearable::slot = slot;
 	Wearable::goldValue = goldValue;
 	Wearable::armor = armor;
@@ -19,6 +20,12 @@ Wearable::~Wearable()
 {
 
 }
+
+std::string Wearable::getType()
+{
+	return "wearable";
+}
+
 int Wearable::getArmor()
 {
 	return armor;
@@ -52,14 +59,6 @@ int Wearable::getCharisma()
 	return charisma;
 }
 
-void Wearable::setId(int value)
-{
-	id = value;
-}
-void Wearable::setName(std::string value)
-{
-	name = value;
-}
 void Wearable::setSlot(int value)
 {
 	slot = value;

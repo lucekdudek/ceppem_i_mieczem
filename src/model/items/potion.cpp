@@ -1,14 +1,13 @@
 #include "potion.h"
 
-
-
-Potion::Potion(int id, std::string name, int goldValue, int healing, int stack)
+Potion::Potion(int id, std::string name, std::string description, int goldValue, int healing, int stack)
 {
 	Potion::id = id;
 	Potion::name = name;
 	Potion::goldValue = goldValue;
 	Potion::healing = healing;
 	Potion::stack = stack;
+	Potion::description = description;
 }
 
 Potion::~Potion()
@@ -16,22 +15,18 @@ Potion::~Potion()
 	
 }
 
+std::string Potion::getType()
+{
+	return "potion";
+}
+
 int Potion::use()
 {
 	if (stack > 0)
+	{
+		stack--;
 		return healing;
+	}
+		
 	else return 0;
-}
-
-void Potion::setId(int value)
-{
-	id = value;
-}
-void Potion::setName(std::string value)
-{
-	name = value;
-}
-void Potion::setGoldValue(int value)
-{
-	goldValue = value;
 }

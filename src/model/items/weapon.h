@@ -6,9 +6,11 @@
 class Weapon: public Itemz
 {
 public:
-	Weapon(int id, std::string name, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
+	Weapon(int id, std::string name, std::string description, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
 	~Weapon();
 	
+	std::string getType();
+
 	int getMinDamage();
 	int getMaxDamage();
 	int getStrength();
@@ -18,9 +20,6 @@ public:
 	int getInteligence();
 	int getCharisma();
 
-	void setId(int value);
-	void setName(std::string value);
-	void setGoldValue(int value);
 	void setMinDamage(int value);
 	void setMaxDamage(int value);
 	void setStrength(int value);
