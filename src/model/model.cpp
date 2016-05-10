@@ -338,8 +338,10 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 
 	View* temp = getXml(file_name);
 	std::unordered_map<std::string, std::string> map = getTextMap("oponents/"+name);
-	temp->setText("{oponent}", map["{oponent}"]);
-	temp->setText("{log_console}", map["{log_console}"]);
+	if(map["{oponent}"]!="")
+		temp->setText("{oponent}", map["{oponent}"]);
+	if (map["{log_console}"] != "")
+		temp->setText("{log_console}", map["{log_console}"]);
 
 	View* v = new View(elements);
 	v->extendView(temp);

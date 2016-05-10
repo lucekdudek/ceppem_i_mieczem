@@ -4,7 +4,6 @@
 #include "controller.h"
 #include "fpshandler.h"
 #include "../locations/l_small_farm.h"
-
 #include <stdlib.h>
 
 
@@ -100,9 +99,45 @@ void Controller::event(std::string event_name)
 		}
 		else if(*it == "fight")
 		{
-			std::cout << "fight event" << std::endl;
+			if (controller.playerFightEvent(event_name))
+				break;
 		}
 	}
+}
+
+bool Controller::playerFightEvent(std::string event_name)
+{
+	if (event_name == "WEAPONA")
+	{
+		std::cout << "use weapon A" << std::endl;
+		enemy->decHealth(player->getStrength() * 2);
+	}
+	else if (event_name == "WEAPONB")
+	{
+		std::cout << "use weapon B" << std::endl;
+		enemy->decHealth(player->getStrength());
+	}
+
+	player->decHealth(enemy->getStrength() * (rand() % 2 + 1));
+
+	current_view->setFill("player", player->getHealth());
+	current_view->setFill("oponent", enemy->getHealth());
+	if (player->getHealth() == 0)
+	{
+		std::cout << "game over" << std::endl;
+		player->incHealth(10);
+		travel(next_view_name);
+		delete enemy;
+		enemy = nullptr;
+	}
+	else if (enemy->getHealth() == 0)
+	{
+		std::cout << "you won -> open container" << std::endl;
+		travel(next_view_name);
+		delete enemy;
+		enemy = nullptr;
+	}
+	return true;
 }
 
 bool Controller::containerEvent(std::string event_name)
@@ -270,6 +305,7 @@ bool Controller::mapEvent(std::string event_name)
 
 void Controller::fight(std::string next_view, std::string oponent)
 {
+	enemy = new Enemy(oponent);
 	next_view_name = next_view;
 	std::transform(oponent.begin(), oponent.end(), oponent.begin(), ::tolower);
 	char* oponent_name = _strdup(oponent.c_str());
@@ -278,7 +314,7 @@ void Controller::fight(std::string next_view, std::string oponent)
 	setView("fight", oponent_name, oponent_file_name);
 	addView("fight_card", false);
 	current_view->setFill("player", player->getHealth());
-	current_view->setFill("oponent", 50);
+	current_view->setFill("oponent", enemy->getHealth());
 }
 
 bool Controller::locationEvent(std::string event_name)
@@ -374,6 +410,7 @@ bool Controller::personEvent(std::string event_name)
 bool Controller::personFightEvent(std::string event_name)
 {
 	std::cout << "fighting with " << event_name << std::endl;
+	fight(current_location, event_name);
 	return true;
 }
 
