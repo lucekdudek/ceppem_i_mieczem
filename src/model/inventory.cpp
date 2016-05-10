@@ -12,6 +12,16 @@ Itemz* Inventory::getItem(int itemNumber)
 	return *it;
 }
 
+int Inventory::getLength()
+{
+	int result = 0;
+	/*for(std::list<Itemz*>::iterator it = itemList.begin(); it != itemList.end(); it++)
+	{
+		result++;
+	}*/
+	return result;
+}
+
 Inventory::Inventory()
 {
 	

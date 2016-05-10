@@ -2,6 +2,7 @@
 // Created by Aschali on 02.05.2016.
 //
 
+#include <iostream>
 #include "character.h"
 
 const int MAX_ATTRIBUTE = 99;
@@ -21,6 +22,7 @@ Character::Character(int basic, int points)
 	min_inteligence = basic;
 	charisma = basic;
 	min_charisma = basic;
+	health = 100;
 }
 
 Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
@@ -32,6 +34,7 @@ Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
 	min_wisdom = wisdom = wi;
 	min_inteligence = inteligence = in;
 	min_charisma = charisma = ch;
+	health = 100;
 }
 
 int Character::getPoints()
@@ -240,4 +243,33 @@ void Character::incHealth(int value)
 void Character::decHealth(int value)
 {
 	health -= value;
+}
+
+Itemz * Character::getInventoryItem(int number)
+{
+	int len = backpack->getLength();
+	if(len > number)
+	{
+		return backpack->getItem(number);
+	}
+	else
+	{
+		return new Itemz();
+	}
+}
+
+char* Character::getInventoryItemName(int number)
+{
+
+	int len = backpack->getLength();
+	std::cout << len << ">" << number << std::endl;
+	return _strdup("-");
+	if(len > number)
+	{
+		return _strdup(backpack->getItem(number)->getName().c_str());
+	}
+	else
+	{
+		return "-";
+	}
 }

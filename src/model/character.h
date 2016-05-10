@@ -42,6 +42,8 @@ public:
 	int getHealth();
 	void incHealth(int value);
 	void decHealth(int value);
+	Itemz *getInventoryItem(int number);
+	char *getInventoryItemName(int number);
 private:
 	int points;
 	int strength;
@@ -64,8 +66,6 @@ private:
 	Itemz* legs;
 	Itemz* feet;
 	Itemz* hands;
-	Itemz* slot1;
-	Itemz* slot2;
 
 	Inventory* backpack;
 };

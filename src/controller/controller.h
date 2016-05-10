@@ -32,13 +32,13 @@ private:
 	bool containerOpenEvent(std::string event_name);
 	bool conversationEvent(std::string event_name);
 	bool equipmentEvent(std::string event_name);
+	void equipmentLoadData(int current_element, int active_slot);
 	bool exitEvent(std::string event_name);
 	bool gameMenuEvent(std::string event_name);
 	bool locationEvent(std::string event_name);
 	bool mainMenuEvent(std::string event_name);
 	bool newGameEvent(std::string event_name);
 	bool personEvent(std::string event_name);
-	bool personConversationEvent(std::string event_name);
 	bool personFightEvent(std::string event_name);
 	bool playerCardEvent(std::string event_name);
 	bool playerPanelEvent(std::string event_name);
