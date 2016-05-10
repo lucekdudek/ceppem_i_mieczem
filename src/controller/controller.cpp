@@ -110,24 +110,27 @@ bool Controller::playerFightEvent(std::string event_name)
 	if (event_name == "WEAPONA")
 	{
 		std::cout << "use weapon A" << std::endl;
-		enemy->decHealth(10);
+		enemy->decHealth(player->getStrength() * 2);
 	}
 	else if (event_name == "WEAPONB")
 	{
 		std::cout << "use weapon B" << std::endl;
-		enemy->decHealth(5);
+		enemy->decHealth(player->getStrength());
 	}
+
+	player->decHealth(enemy->getStrength() * (rand() % 2 + 1));
 
 	current_view->setFill("player", player->getHealth());
 	current_view->setFill("oponent", enemy->getHealth());
 	if (player->getHealth() == 0)
 	{
+		std::cout << "game over" << std::endl;
 		player->incHealth(10);
 		travel(next_view_name);
 		delete enemy;
 		enemy = nullptr;
 	}
-	if (enemy->getHealth() == 0)
+	else if (enemy->getHealth() == 0)
 	{
 		std::cout << "you won -> open container" << std::endl;
 		travel(next_view_name);

@@ -1,9 +1,17 @@
 #include "enemy.h"
+#include <iostream>
 
 Enemy::Enemy(std::string name)
 {
 	this->name = name;
-	strength = 4;
+	int sum = 0;
+	for (int i = 0; i < name.length(); i++)
+	{
+		sum += name[i];
+	}
+	sum = sum / name.length() / 70;
+	std::cout << sum << std::endl;
+	strength = 4 + sum;
 	health = 100;
 }
 
