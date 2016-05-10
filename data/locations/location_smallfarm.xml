@@ -12,7 +12,7 @@
   <!-- conversation with farmer's wife -->
   <event place="{EVENTB}">
     <text>{walk to} {farmer_wife}</text>
-    <onclick>PERSON_CONVERSATION_FHENRYWIFE</onclick>
+    <onclick>GOTO_FHENRYWIFE</onclick>
   </event>
   <!-- walk to chest -->
   <event place="{EVENTC}">

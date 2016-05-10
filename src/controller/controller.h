@@ -29,6 +29,7 @@ private:
 	void startNewGame();
 	bool containerEvent(std::string event_name);
 	bool containerOpenEvent(std::string event_name);
+	bool conversationEvent(std::string event_name);
 	bool equipmentEvent(std::string event_name);
 	bool exitEvent(std::string event_name);
 	bool gameMenuEvent(std::string event_name);
