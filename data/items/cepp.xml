@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item>
+  <type>weapon</type>
+  <id>2</id>
+  <goldValue>10</goldValue>
+  <minDamage>5</minDamage>
+  <maxDamage>20</maxDamage>
+  <strength>1</strength>
+  <dexterity>1</dexterity>
+  <agility>2</agility>
+  <wisdom>2</wisdom>
+  <inteligence>1</inteligence>
+  <charisma>2</charisma>
+</item>

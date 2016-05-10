@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item>
+  <type>wearable</type>
+  <id>4</id>
+  <slot>2</slot>
+  <goldValue>10</goldValue>
+  <armor>10</armor>
+  <strength>1</strength>
+  <dexterity>1</dexterity>
+  <agility>2</agility>
+  <wisdom>2</wisdom>
+  <inteligence>1</inteligence>
+  <charisma>2</charisma>
+</item>
