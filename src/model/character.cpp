@@ -317,3 +317,22 @@ void Character::addItem(Itemz * item)
 {
 	backpack->putItem(item);
 }
+
+std::string Character::eqToString()
+{
+	std::string result = "";
+	result += "Twój ekwipunek:";
+	if(head != nullptr)
+		result += "\n G³owa: " + head->getName();
+	if(chest != nullptr)
+		result += "\n T³ów: " + chest->getName();
+	if(hands != nullptr)
+		result += "\n Rêce: " + hands->getName();
+	if(legs != nullptr)
+		result += "\n Nogi: " + legs->getName();
+	if(feet != nullptr)
+		result += "\n Stopy: " + feet->getName();
+	if(weapon != nullptr)
+		result += "\n Broñ: " + weapon->getName();
+	return result;
+}

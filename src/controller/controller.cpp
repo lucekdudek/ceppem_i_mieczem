@@ -212,6 +212,7 @@ bool Controller::equipmentEvent(std::string event_name)
 	{
 		Itemz* item = player->getInventoryItem(active_slot);
 		useItem(item);
+		std::cout<<player->eqToString()<<std::endl;
 	}
 	else if(event_name == "THROW")
 	{
@@ -234,7 +235,7 @@ void Controller::equipmentLoadData(int current_element, int active_slot)
 	current_view->setText("{item4}", player->getInventoryItemName(current_element + 4));
 	current_view->setText("{item5}", player->getInventoryItemName(current_element + 5));
 	Itemz* item = player->getInventoryItem(active_slot);
-	current_view->setText("{item_description}", item->getName() + " - " + item->getDescription());
+	current_view->setText("{item_description}", item->getName() + " \n " + item->getDescription());
 }
 
 bool Controller::exitEvent(std::string event_name)
@@ -625,23 +626,23 @@ void Controller::wear(Wearable *item)
 	//4 boots
 	//5 hands
 	int slot = item->getSlot();
-	if(slot = 1)
+	if(slot == 1)
 	{
 		player->wearHead(item);
 	}
-	else if(slot = 2)
+	else if(slot == 2)
 	{
 		player->wearChest(item);
 	}
-	else if(slot = 3)
+	else if(slot == 3)
 	{
 		player->wearLegs(item);
 	}
-	else if(slot = 4)
+	else if(slot == 4)
 	{
 		player->wearFeet(item);
 	}
-	else if(slot = 5)
+	else if(slot == 5)
 	{
 		player->wearHands(item);
 	}

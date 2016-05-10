@@ -54,6 +54,7 @@ public:
 	void wearHands(Wearable *item);
 	void wearWeapon(Weapon *item);
 	void addItem(Itemz* item);
+	std::string eqToString();
 private:
 	int points;
 	int strength;
