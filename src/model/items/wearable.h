@@ -5,8 +5,10 @@
 class Wearable: public Itemz
 {
 public:
-	Wearable(int id, std::string name, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
+	Wearable(int id, std::string name, std::string description, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
 	~Wearable();
+
+	std::string getType();
 
 	int getSlot();
 	int getArmor();
@@ -17,8 +19,6 @@ public:
 	int getInteligence();
 	int getCharisma();
 
-	void setId(int value);
-	void setName(std::string value);
 	void setSlot(int value);
 	void setGoldValue(int value);
 	void setArmor(int value);

@@ -1,9 +1,10 @@
 #include "weapon.h"
 
-Weapon::Weapon(int id, std::string name, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma)
+Weapon::Weapon(int id, std::string name, std::string description, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma)
 {
 	Weapon::id = id;
 	Weapon::name = name;
+	Weapon::description = description;
 	Weapon::goldValue = goldValue;
 	Weapon::minDamage = minDamage;
 	Weapon::maxDamage = maxDamage;
@@ -20,6 +21,10 @@ Weapon::~Weapon()
 {
 }
 
+std::string Weapon::getType()
+{
+	return "weapon";
+}
 
 int Weapon::getMinDamage()
 {
@@ -54,18 +59,6 @@ int Weapon::getCharisma()
 	return charisma;
 }
 
-void Weapon::setId(int value)
-{
-	id = value;
-}
-void Weapon::setName(std::string value)
-{
-	name = value;
-}
-void Weapon::setGoldValue(int value)
-{
-	goldValue = value;
-}
 void Weapon::setMaxDamage(int value)
 {
 	maxDamage = value;
