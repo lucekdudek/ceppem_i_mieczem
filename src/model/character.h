@@ -46,12 +46,14 @@ public:
 	void decHealth(int value);
 	Itemz *getInventoryItem(int number);
 	char *getInventoryItemName(int number);
+	int getInventorySize();
 	void wearHead(Wearable *item);
 	void wearChest(Wearable *item);
 	void wearLegs(Wearable *item);
 	void wearFeet(Wearable *item);
 	void wearHands(Wearable *item);
 	void wearWeapon(Weapon *item);
+	void addItem(Itemz* item);
 private:
 	int points;
 	int strength;

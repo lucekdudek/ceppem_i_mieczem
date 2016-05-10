@@ -23,6 +23,7 @@ Character::Character(int basic, int points)
 	charisma = basic;
 	min_charisma = basic;
 	health = 100;
+	backpack = new Inventory();
 }
 
 Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
@@ -267,7 +268,6 @@ char* Character::getInventoryItemName(int number)
 
 	int len = backpack->getLength();
 	std::cout << len << ">" << number << std::endl;
-	return _strdup("-");
 	if(len > number)
 	{
 		return _strdup(backpack->getItem(number)->getName().c_str());
@@ -276,6 +276,11 @@ char* Character::getInventoryItemName(int number)
 	{
 		return "-";
 	}
+}
+
+int  Character::getInventorySize()
+{
+	return backpack->getLength();
 }
 
 void Character::wearHead(Wearable * item)
@@ -306,4 +311,9 @@ void Character::wearHands(Wearable * item)
 void Character::wearWeapon(Weapon * item)
 {
 	weapon = item;
+}
+
+void Character::addItem(Itemz * item)
+{
+	backpack->putItem(item);
 }

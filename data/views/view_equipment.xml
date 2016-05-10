@@ -22,10 +22,22 @@
       <text x="0" y="0" width="180" height="50" color="255,255,255" size="30">{previous}</text>
     </textures>
   </element>
-  <!-- item1 -->
+  <!-- item0 -->
   <element>
     <x>280</x>
     <y>160</y>
+    <width>180</width>
+    <height>50</height>
+    <onclick>ITEM0</onclick>
+    <textures>
+      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
+      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item0}</text>
+    </textures>
+  </element>
+  <!-- item1 -->
+  <element>
+    <x>280</x>
+    <y>230</y>
     <width>180</width>
     <height>50</height>
     <onclick>ITEM1</onclick>
@@ -37,7 +49,7 @@
   <!-- item2 -->
   <element>
     <x>280</x>
-    <y>230</y>
+    <y>300</y>
     <width>180</width>
     <height>50</height>
     <onclick>ITEM2</onclick>
@@ -49,7 +61,7 @@
   <!-- item3 -->
   <element>
     <x>280</x>
-    <y>300</y>
+    <y>370</y>
     <width>180</width>
     <height>50</height>
     <onclick>ITEM3</onclick>
@@ -61,7 +73,7 @@
   <!-- item4 -->
   <element>
     <x>280</x>
-    <y>370</y>
+    <y>440</y>
     <width>180</width>
     <height>50</height>
     <onclick>ITEM4</onclick>
@@ -73,25 +85,13 @@
   <!-- item5 -->
   <element>
     <x>280</x>
-    <y>440</y>
+    <y>510</y>
     <width>180</width>
     <height>50</height>
     <onclick>ITEM5</onclick>
     <textures>
       <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
       <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item5}</text>
-    </textures>
-  </element>
-  <!-- item6 -->
-  <element>
-    <x>280</x>
-    <y>510</y>
-    <width>180</width>
-    <height>50</height>
-    <onclick>ITEM6</onclick>
-    <textures>
-      <texture x="0" y="0" width="180" height="50">high_resolution_textures/black.png</texture>
-      <text x="0" y="0" width="180" height="50" color="255,255,255" size="25">{item6}</text>
     </textures>
   </element>
   <!-- next -->

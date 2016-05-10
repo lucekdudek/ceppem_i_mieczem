@@ -1,7 +1,9 @@
+#include <iostream>
 #include "inventory.h"
 
 void Inventory::putItem(Itemz* item)
 {
+	std::cout << item->getName().c_str();
 	itemList.push_back(item);
 }
 
@@ -15,10 +17,10 @@ Itemz* Inventory::getItem(int itemNumber)
 int Inventory::getLength()
 {
 	int result = 0;
-	/*for(std::list<Itemz*>::iterator it = itemList.begin(); it != itemList.end(); it++)
+	for(std::list<Itemz*>::iterator it = itemList.begin(); it != itemList.end(); it++)
 	{
 		result++;
-	}*/
+	}
 	return result;
 }
 

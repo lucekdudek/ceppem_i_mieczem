@@ -193,12 +193,14 @@ bool Controller::equipmentEvent(std::string event_name)
 	}
 	else if(event_name == "PREVIOUS")
 	{
-		current_element--;
+		if(current_element > 0)
+			current_element--;
 		equipmentLoadData(current_element, active_slot);
 	}
 	else if(event_name == "NEXT")
 	{
-		current_element++;
+		if(current_element < player->getInventorySize()-6)
+			current_element++;
 		equipmentLoadData(current_element, active_slot);
 	}
 	else if(event_name.substr(0, 4) == "ITEM")
@@ -225,15 +227,14 @@ bool Controller::equipmentEvent(std::string event_name)
 void Controller::equipmentLoadData(int current_element, int active_slot)
 {
 	std::cout << player->getInventoryItemName(current_element) << std::endl;
-	current_view->setText("{item1}", player->getInventoryItemName(current_element));
-	current_view->setText("{item2}", player->getInventoryItemName(current_element + 1));
-	current_view->setText("{item3}", player->getInventoryItemName(current_element + 2));
-	current_view->setText("{item4}", player->getInventoryItemName(current_element + 3));
-	current_view->setText("{item5}", player->getInventoryItemName(current_element + 4));
-	current_view->setText("{item6}", player->getInventoryItemName(current_element + 5));
+	current_view->setText("{item0}", player->getInventoryItemName(current_element));
+	current_view->setText("{item1}", player->getInventoryItemName(current_element + 1));
+	current_view->setText("{item2}", player->getInventoryItemName(current_element + 2));
+	current_view->setText("{item3}", player->getInventoryItemName(current_element + 3));
+	current_view->setText("{item4}", player->getInventoryItemName(current_element + 4));
+	current_view->setText("{item5}", player->getInventoryItemName(current_element + 5));
 	Itemz* item = player->getInventoryItem(active_slot);
-	current_view->setText("{item_description}", item->getName());
-
+	current_view->setText("{item_description}", item->getName() + " - " + item->getDescription());
 }
 
 bool Controller::exitEvent(std::string event_name)
@@ -376,6 +377,13 @@ bool Controller::newGameEvent(std::string event_name)
 	else if(event_name == "START_GAME")
 	{
 		player->saveAttributes();
+		player->addItem(model->loadItem("armor"));
+		player->addItem(model->loadItem("boots"));
+		player->addItem(model->loadItem("cepp"));
+		player->addItem(model->loadItem("hands"));
+		player->addItem(model->loadItem("helm"));
+		player->addItem(model->loadItem("legs"));
+		player->addItem(model->loadItem("potion_hp"));
 		setLocation("smallfarm");
 	}
 	else if(event_name.substr(0, 4) == "INC_" || event_name.substr(0, 4) == "DEC_")
