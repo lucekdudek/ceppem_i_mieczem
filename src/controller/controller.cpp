@@ -49,6 +49,7 @@ void Controller::event(std::string event_name)
 	{
 		if(*it == "equipment")
 		{
+			controller.current_view->setFill("player", controller.player->getHealth());
 			if(controller.equipmentEvent(event_name))
 				break;
 		}
