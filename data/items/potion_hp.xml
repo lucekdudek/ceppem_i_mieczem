@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<item>
+  <type>potion</type>
+  <id>1</id>
+  <goldValue>10</goldValue>
+  <healing>100</healing>
+  <stack>5</stack>
+</item>
