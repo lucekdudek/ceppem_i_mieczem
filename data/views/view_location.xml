@@ -57,6 +57,6 @@
     <textures>
       <texture x="0" y="0" width="600" height="40">high_resolution_textures/black.png</texture>
       <text x="0" y="0" width="600" height="40" color="255,255,255" size="25">{action_d}</text>
-  </textures>
+    </textures>
   </element>
 </view>

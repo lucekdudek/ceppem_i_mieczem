@@ -1,7 +1,7 @@
 #ifndef POTION_H
 #define POTION_H
 #include "itemz.h"
-class Potion: Itemz
+class Potion: public Itemz
 {
 public:
 	Potion(int id, std::string name, int value, int healing, int stack);
@@ -12,9 +12,6 @@ private:
 
 	int use();
 
-	int getId();
-	std::string getName();
-	int getGoldValue();
 	void setId(int value);
 	void setName(std::string value);
 	void setGoldValue(int value);

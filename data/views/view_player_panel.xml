@@ -13,28 +13,28 @@
   <!-- points -->
   <element>
     <x>320</x>
-    <y>70</y>
+    <y>100</y>
     <width>240</width>
     <height>50</height>
     <textures>
-      <text x="0" y="0" width="240" height="50">{points}</text>
-      <text x="300" y="0" width="80" height="50">{points_value}</text>
+      <text x="0" y="0" width="240" height="50" color="255,255,255" size="40">{points}</text>
+      <text x="300" y="0" width="80" height="50" color="255,255,255" size="40">{points_value}</text>
     </textures>
   </element>
   <!-- strenght -->
   <element>
     <x>320</x>
-    <y>100</y>
+    <y>160</y>
     <width>240</width>
     <height>50</height>
     <textures>
-      <text x="0" y="0" width="240" height="50">{strength}</text>
-      <text x="300" y="0" width="80" height="50">{strength_value}</text>
+      <text x="0" y="0" width="240" height="50" color="255,255,255" size="30">{strength}</text>
+      <text x="300" y="0" width="80" height="50" color="255,255,255" size="30">{strength_value}</text>
     </textures>
   </element>
   <element>
     <x>565</x>
-    <y>100</y>
+    <y>160</y>
     <width>50</width>
     <height>50</height>
     <onclick>DEC_STRENGTH</onclick>
@@ -45,7 +45,7 @@
   </element>
   <element>
     <x>705</x>
-    <y>100</y>
+    <y>160</y>
     <width>50</width>
     <height>50</height>
     <onclick>INC_STRENGTH</onclick>
@@ -58,17 +58,17 @@
   <!-- dexterity -->
   <element>
     <x>320</x>
-    <y>170</y>
+    <y>230</y>
     <width>240</width>
     <height>50</height>
     <textures>
-      <text x="0" y="0" width="240" height="50">{dexterity}</text>
-      <text x="300" y="0" width="80" height="50">{dexterity_value}</text>
+      <text x="0" y="0" width="240" height="50" color="255,255,255" size="30">{dexterity}</text>
+      <text x="300" y="0" width="80" height="50" color="255,255,255" size="30">{dexterity_value}</text>
     </textures>
   </element>
   <element>
     <x>565</x>
-    <y>170</y>
+    <y>230</y>
     <width>50</width>
     <height>50</height>
     <onclick>DEC_DEXTERITY</onclick>
@@ -79,7 +79,7 @@
   </element>
   <element>
     <x>705</x>
-    <y>170</y>
+    <y>230</y>
     <width>50</width>
     <height>50</height>
     <onclick>INC_DEXTERITY</onclick>
@@ -92,17 +92,17 @@
   <!-- agility -->
   <element>
     <x>320</x>
-    <y>240</y>
+    <y>300</y>
     <width>240</width>
     <height>50</height>
     <textures>
-      <text x="0" y="0" width="240" height="50">{agility}</text>
-      <text x="300" y="0" width="80" height="50">{agility_value}</text>
+      <text x="0" y="0" width="240" height="50" color="255,255,255" size="30">{agility}</text>
+      <text x="300" y="0" width="80" height="50" color="255,255,255" size="30">{agility_value}</text>
     </textures>
   </element>
   <element>
     <x>565</x>
-    <y>240</y>
+    <y>300</y>
     <width>50</width>
     <height>50</height>
     <onclick>DEC_AGILITY</onclick>
@@ -113,7 +113,7 @@
   </element>
   <element>
     <x>705</x>
-    <y>240</y>
+    <y>300</y>
     <width>50</width>
     <height>50</height>
     <onclick>INC_AGILITY</onclick>
@@ -126,17 +126,17 @@
   <!-- wisdom -->
   <element>
     <x>320</x>
-    <y>310</y>
+    <y>370</y>
     <width>240</width>
     <height>50</height>
     <textures>
-      <text x="0" y="0" width="240" height="50">{wisdom}</text>
-      <text x="300" y="0" width="80" height="50">{wisdom_value}</text>
+      <text x="0" y="0" width="240" height="50" color="255,255,255" size="30">{wisdom}</text>
+      <text x="300" y="0" width="80" height="50" color="255,255,255" size="30">{wisdom_value}</text>
     </textures>
   </element>
   <element>
     <x>565</x>
-    <y>310</y>
+    <y>370</y>
     <width>50</width>
     <height>50</height>
     <onclick>DEC_WISDOM</onclick>
@@ -147,7 +147,7 @@
   </element>
   <element>
     <x>705</x>
-    <y>310</y>
+    <y>370</y>
     <width>50</width>
     <height>50</height>
     <onclick>INC_WISDOM</onclick>
@@ -160,17 +160,17 @@
   <!-- inteligence -->
   <element>
     <x>320</x>
-    <y>380</y>
+    <y>440</y>
     <width>240</width>
     <height>50</height>
     <textures>
-      <text x="0" y="0" width="240" height="50">{inteligence}</text>
-      <text x="300" y="0" width="80" height="50">{inteligence_value}</text>
+      <text x="0" y="0" width="240" height="50" color="255,255,255" size="30">{inteligence}</text>
+      <text x="300" y="0" width="80" height="50" color="255,255,255" size="30">{inteligence_value}</text>
     </textures>
   </element>
   <element>
     <x>565</x>
-    <y>380</y>
+    <y>440</y>
     <width>50</width>
     <height>50</height>
     <onclick>DEC_INTELIGENCE</onclick>
@@ -181,7 +181,7 @@
   </element>
   <element>
     <x>705</x>
-    <y>380</y>
+    <y>440</y>
     <width>50</width>
     <height>50</height>
     <onclick>INC_INTELIGENCE</onclick>
@@ -194,18 +194,18 @@
   <!-- charisma -->
   <element>
     <x>320</x>
-    <y>450</y>
+    <y>510</y>
     <width>240</width>
     <height>50</height>
     <textures>
 
-      <text x="0" y="0" width="240" height="50">{charisma}</text>
-      <text x="300" y="0" width="80" height="50">{charisma_value}</text>
+      <text x="0" y="0" width="240" height="50" color="255,255,255" size="30">{charisma}</text>
+      <text x="300" y="0" width="80" height="50" color="255,255,255" size="30">{charisma_value}</text>
     </textures>
   </element>
   <element>
     <x>565</x>
-    <y>450</y>
+    <y>510</y>
     <width>50</width>
     <height>50</height>
     <onclick>DEC_CHARISMA</onclick>
@@ -216,7 +216,7 @@
   </element>
   <element>
     <x>705</x>
-    <y>450</y>
+    <y>510</y>
     <width>50</width>
     <height>50</height>
     <onclick>INC_CHARISMA</onclick>

@@ -26,7 +26,7 @@
   <element>
     <x>280</x>
     <y>160</y>
-    <width>120</width>
+    <width>180</width>
     <height>50</height>
     <onclick>ITEM1</onclick>
     <textures>
@@ -38,7 +38,7 @@
   <element>
     <x>280</x>
     <y>230</y>
-    <width>120</width>
+    <width>180</width>
     <height>50</height>
     <onclick>ITEM2</onclick>
     <textures>
@@ -50,7 +50,7 @@
   <element>
     <x>280</x>
     <y>300</y>
-    <width>120</width>
+    <width>180</width>
     <height>50</height>
     <onclick>ITEM3</onclick>
     <textures>
@@ -62,7 +62,7 @@
   <element>
     <x>280</x>
     <y>370</y>
-    <width>120</width>
+    <width>180</width>
     <height>50</height>
     <onclick>ITEM4</onclick>
     <textures>
@@ -74,7 +74,7 @@
   <element>
     <x>280</x>
     <y>440</y>
-    <width>120</width>
+    <width>180</width>
     <height>50</height>
     <onclick>ITEM5</onclick>
     <textures>
@@ -86,7 +86,7 @@
   <element>
     <x>280</x>
     <y>510</y>
-    <width>120</width>
+    <width>180</width>
     <height>50</height>
     <onclick>ITEM6</onclick>
     <textures>

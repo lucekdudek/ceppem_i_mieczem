@@ -24,6 +24,7 @@ private:
 	View* current_view;
 	Character* player;
 	Location* location;
+	std::string next_view_name="";
 	Controller();
 	~Controller();
 	void startNewGame();
@@ -50,6 +51,7 @@ private:
 	void setLocation(std::string view);
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);
+	inline void setView(std::string view, std::string name, std::string image_file);
 	inline void addView(std::string view, bool deactivation = false);
 	inline void addView(std::string view, std::string location, bool deactivation = false);
 	inline void delView();

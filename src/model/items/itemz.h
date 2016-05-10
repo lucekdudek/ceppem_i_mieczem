@@ -8,6 +8,11 @@ class Itemz
 public:
 	Itemz();
 	~Itemz();
+
+	int getId();
+	std::string getName();
+	int getGoldValue();
+
 protected:
 	int id;
 	int goldValue;

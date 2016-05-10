@@ -1,0 +1,16 @@
+﻿{points}
+Punkty
+{strength}
+Siła
+{dexterity}
+Zręczność
+{agility}
+Zwinność
+{wisdom}
+Wiedza
+{inteligence}
+Inteligencja
+{charisma}
+Charyzma
+{save}
+Zapisz

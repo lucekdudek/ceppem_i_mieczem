@@ -1,4 +1,6 @@
-﻿{none}
+﻿{locationName}
+Miasto
+{none}
 -
 {console}
 Miasto wygląda na zamknięte, ciekawe dlaczego.

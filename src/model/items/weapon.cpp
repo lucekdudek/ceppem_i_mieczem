@@ -20,18 +20,7 @@ Weapon::~Weapon()
 {
 }
 
-int Weapon::getId()
-{
-	return id;
-}
-std::string Weapon::getName()
-{
-	return name;
-}
-int Weapon::getGoldValue()
-{
-	return goldValue;
-}
+
 int Weapon::getMinDamage()
 {
 	return minDamage;

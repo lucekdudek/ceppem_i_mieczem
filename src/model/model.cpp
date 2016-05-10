@@ -89,7 +89,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 		{
 			const char *name = pParm2->Value();
 			char * text;
-			if ((strcmp(name, "texture") == 0) || (strcmp(name, "text") == 0))
+			if ((strcmp(name, "texture") == 0) || (strcmp(name, "text") == 0) || (strcmp(name, "progress") == 0))
 			{
 				int x = atoi(pParm2->Attribute("x"));
 				int y = atoi(pParm2->Attribute("y"));
@@ -103,6 +103,13 @@ View *Model::getXml(std::string file_name, std::string location_name)
 					text = _strdup(temp.c_str());
 					//load textures into opengl and add it to Element
 					el->addTexture(new Texture(x, y, width, height, text));
+				}
+				else if (strcmp(name, "progress") == 0)
+				{
+					temp = "../data/images/" + temp;
+					text = _strdup(temp.c_str());
+					//load textures into opengl and add it to Element
+					el->addTexture(new Progress(x, y, width, height, _strdup(pParm2->Attribute("name")), text));
 				}
 				else
 				{
@@ -313,6 +320,26 @@ View* Model::getMap(std::string file_name, std::string location_name)
 	View* temp = new View(elements);
 
 	View* v = getXml(file_name);
+	v->extendView(temp);
+	delete temp;
+	return v;
+}
+
+View* Model::getFightView(std::string file_name, std::string name, std::string image_file)
+{
+	std::list<Element*> elements;
+
+	Element* el = new Element(0, 0, 1280, 720);
+	el->addTexture(new Texture(0, 0, 1280, 720, "../data/images/fight.jpg"));
+	image_file = "../data/images/" + image_file;
+	char* image_file_path = _strdup(image_file.c_str());
+	el->addTexture(new Texture(750, 180, 235, 235, image_file_path));
+	elements.push_back(el);
+
+	View* temp = getXml(file_name);
+	temp->setText("{oponent}", name.c_str());
+
+	View* v = new View(elements);
 	v->extendView(temp);
 	delete temp;
 	return v;

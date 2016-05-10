@@ -93,6 +93,11 @@ void Controller::event(std::string event_name)
 			if(controller.gameMenuEvent(event_name))
 				break;
 		}
+		else if (*it == "fight_card")
+		{
+			if (controller.playerCardEvent(event_name))
+				break;
+		}
 	}
 }
 
@@ -198,7 +203,20 @@ bool Controller::mapEvent(std::string event_name)
 	}
 	else if(event_name.substr(0, 5) == "GOTO_")
 	{
-		travel(event_name.substr(5));
+		srand(time(NULL));
+		if (rand() % 2)
+		{
+			next_view_name = event_name.substr(5);
+			//open fight view
+			setView("fight","Pikachu","enemy.png");
+			addView("fight_card", false);
+			current_view->setFill("player", 75);
+			current_view->setFill("oponent", 50);
+		}
+		else
+		{
+			travel(event_name.substr(5));
+		}
 	}
 	else
 	{
@@ -493,6 +511,14 @@ void Controller::setView(std::string view, std::string location)
 	current_view_name.clear();
 	current_view_name.push_front(view);
 	current_view = model->getXml("view_" + view, "location_" + location);
+	window->setView(current_view);
+}
+
+void Controller::setView(std::string view, std::string name, std::string image_file)
+{
+	current_view_name.clear();
+	current_view_name.push_front(view);
+	current_view = model->getFightView("view_" + view, name, image_file);
 	window->setView(current_view);
 }
 

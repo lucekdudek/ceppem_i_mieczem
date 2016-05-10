@@ -19,15 +19,6 @@ Wearable::~Wearable()
 {
 
 }
-
-int Wearable::getId()
-{
-	return id;
-}
-std::string Wearable::getName()
-{
-	return name;
-}
 int Wearable::getArmor()
 {
 	return armor;
@@ -36,11 +27,6 @@ int Wearable::getSlot()
 {
 	return slot;
 }
-int Wearable::getGoldValue()
-{
-	return goldValue;
-}
-
 int Wearable::getStrength()
 {
 	return strength;

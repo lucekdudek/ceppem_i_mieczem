@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+  <!-- background -->
+  <element>
+    <x>1140</x>
+    <y>0</y>
+    <width>280</width>
+    <height>720</height>
+    <textures>
+      <texture x="0" y="0" width="140" height="720">menu.jpg</texture>
+    </textures>
+  </element>
+  <!-- menu -->
+  <element>
+    <x>1180</x>
+    <y>640</y>
+    <width>71</width>
+    <height>71</height>
+    <onclick>MENU</onclick>
+    <textures>
+      <texture x="0" y="0" width="71" height="71">menuMenu.png</texture>
+    </textures>
+  </element>
+</view>

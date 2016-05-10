@@ -2,7 +2,7 @@
 Kontynuuj grę
 {newGame}
 Nowa gra
-{loadGame}
+{load_game}
 Wczytaj grę
 {settings}
 Ustawienia

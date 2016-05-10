@@ -76,3 +76,18 @@ void Element::setText(char* name, char* text){
 		}
 	}
 }
+
+void Element::setFill(char* name, unsigned char fill)
+{
+	for (auto i = textures.begin(); i != textures.end(); i++)
+	{
+		auto tmpElem = *i;
+		if (Progress* t = dynamic_cast<Progress*>(tmpElem))
+		{
+			if (strcmp(t->getName(), name) == 0)
+			{
+				t->setFill(fill);
+			}
+		}
+	}
+}
