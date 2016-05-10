@@ -50,6 +50,7 @@ private:
 	void setLocation(std::string view);
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);
+	inline void setView(std::string view, std::string name, std::string image_file);
 	inline void addView(std::string view, bool deactivation = false);
 	inline void addView(std::string view, std::string location, bool deactivation = false);
 	inline void delView();

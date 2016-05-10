@@ -1,4 +1,5 @@
 #include "view.h"
+#include "../controller/controller.h"
 #include <iostream>
 
 View::View(std::list<Element*> elements) {
@@ -25,6 +26,17 @@ void View::setText(char* name, std::string text) {
 		auto tmpElem = *i;
 		i = this->elements.erase(i);
 		tmpElem->setText(name,t);
+		this->elements.insert(i, tmpElem);
+	}
+}
+
+void View::setFill(char* name, unsigned char fill)
+{
+	for (auto i = this->elements.begin(); i != this->elements.end();)
+	{
+		auto tmpElem = *i;
+		i = this->elements.erase(i);
+		tmpElem->setFill(name, fill);
 		this->elements.insert(i, tmpElem);
 	}
 }

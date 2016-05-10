@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <view>
-	<!-- logConsoleBackground -->
-  <element>
-    <x>0</x>
-    <y>0</y>
-    <width>1280</width>
-    <height>720</height>
-    <textures>
-      <texture x="0" y="0" width="1280" height="720">fight.jpg</texture>
-      <texture x="750" y="180" width="235" height="235">enemy.png</texture>
-    </textures>
-  </element>
   <!-- heroHealth -->
   <element>
     <x>40</x>
@@ -19,7 +8,7 @@
     <height>200</height>
     <textures>
         <texture x="0" y="0" width="300" height="50">high_resolution_textures/black.png</texture>
-        <texture x="5" y="35" width="150" height="10">high_resolution_textures/black.png</texture>
+        <progress x="5" y="35" width="290" height="10" name="player">high_resolution_textures/black.png</progress>
         <text x="0" y="5" width="300" height="20" color="255,255,255" size="30">Ja</text>
     </textures>
   </element>
@@ -31,8 +20,8 @@
     <height>200</height>
     <textures>
       <texture x="0" y="0" width="300" height="50">high_resolution_textures/black.png</texture>
-      <texture x="5" y="35" width="150" height="10">high_resolution_textures/black.png</texture>
-      <text x="0" y="5" width="300" height="20" color="255,255,255" size="30">Potwor</text>
+      <progress x="5" y="35" width="290" height="10" name="oponent">high_resolution_textures/black.png</progress>
+      <text x="0" y="5" width="300" height="20" color="255,255,255" size="30">{oponent}</text>
     </textures>
   </element>
   <!-- buttons -->

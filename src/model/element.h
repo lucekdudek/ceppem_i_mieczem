@@ -2,6 +2,7 @@
 #define SRC_VIEW_ELEMENT_H_
 
 #include "../view/texture.h"
+#include "../view/progress.h"
 #include "../view/text.h"
 #include <list>
 #include <string>
@@ -19,6 +20,7 @@ public:
 	std::list<Texture*> getTextures();
 	bool clickable();
 	void setText(char* name, char* text);
+	void setFill(char* name, unsigned char fill);
 
 	int getHeight() const {
 		return height;
