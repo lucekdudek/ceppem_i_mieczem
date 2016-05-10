@@ -30,6 +30,7 @@
     <y>480</y>
     <width>100</width>
     <height>100</height>
+	<onclick>WEAPONA</onclick>
     <textures>
       <texture x="0" y="0" width="100" height="100">high_resolution_textures/black.png</texture>
     </textures>
@@ -39,6 +40,7 @@
     <y>581</y>
     <width>100</width>
     <height>100</height>
+	<onclick>WEAPONB</onclick>
     <textures>
       <texture x="0" y="0" width="100" height="100">high_resolution_textures/black.png</texture>
     </textures>

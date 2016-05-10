@@ -48,6 +48,7 @@ private:
 	void saveGame();
 	void loadGame();
 	void travel(std::string destination);
+	void fight(std::string next_view, std::string oponent);
 	void setLocation(std::string view);
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);

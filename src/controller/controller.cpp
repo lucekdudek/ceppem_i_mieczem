@@ -98,6 +98,10 @@ void Controller::event(std::string event_name)
 			if (controller.playerCardEvent(event_name))
 				break;
 		}
+		else if (*it == "fight")
+		{
+			std::cout << "fight event" << std::endl;
+		}
 	}
 }
 
@@ -245,12 +249,7 @@ bool Controller::mapEvent(std::string event_name)
 		srand(time(NULL));
 		if (rand() % 2)
 		{
-			next_view_name = event_name.substr(5);
-			//open fight view
-			setView("fight","Pikachu","enemy.png");
-			addView("fight_card", false);
-			current_view->setFill("player", 75);
-			current_view->setFill("oponent", 50);
+			fight(event_name.substr(5), "Pikachu");
 		}
 		else
 		{
@@ -262,6 +261,19 @@ bool Controller::mapEvent(std::string event_name)
 		return false;
 	}
 	return true;
+}
+
+void Controller::fight(std::string next_view, std::string oponent)
+{
+	next_view_name = next_view;
+	std::transform(oponent.begin(), oponent.end(), oponent.begin(), ::tolower);
+	char* oponent_name = _strdup(oponent.c_str());
+	char* oponent_file_name = _strdup((oponent + ".png").c_str());
+	//open fight view
+	setView("fight", oponent_name, oponent_file_name);
+	addView("fight_card", false);
+	current_view->setFill("player", player->getHealth());
+	current_view->setFill("oponent", 50);
 }
 
 bool Controller::locationEvent(std::string event_name)

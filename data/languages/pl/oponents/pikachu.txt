@@ -1,0 +1,4 @@
+﻿{oponent}
+Pikachu
+{log_console}
+Pikachu - jest Elektrycznym Pokémonem. Pikachu to ewolucja Pichu. Ewoluuje w Raichu pod wpływem Kamienia Pioruna. Zdolnością Pikachu jest Statyczność.

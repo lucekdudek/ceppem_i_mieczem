@@ -337,7 +337,9 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 	elements.push_back(el);
 
 	View* temp = getXml(file_name);
-	temp->setText("{oponent}", name.c_str());
+	std::unordered_map<std::string, std::string> map = getTextMap("oponents/"+name);
+	temp->setText("{oponent}", map["{oponent}"]);
+	temp->setText("{log_console}", map["{log_console}"]);
 
 	View* v = new View(elements);
 	v->extendView(temp);
