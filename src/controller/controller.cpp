@@ -177,16 +177,55 @@ bool Controller::conversationEvent(std::string event_name)
 
 bool Controller::equipmentEvent(std::string event_name)
 {
-	if(event_name == "BACK")
+	static int current_element = 0;
+	static int active_slot = 0;
+	std::cout << "eqEvent: " << event_name<<std::endl;
+	if(event_name == "LOAD_DATA")
+	{
+		equipmentLoadData(current_element, active_slot);
+	}
+	else if(event_name == "BACK")
 	{
 		player->clearAttributes();
 		delView();
+	}
+	else if(event_name == "PREVIOUS")
+	{
+		std::cout << "good: " << event_name << std::endl;
+		current_element--;
+		equipmentLoadData(current_element, active_slot);
+	}
+	else if(event_name == "NEXT")
+	{
+		std::cout << "good: " << event_name << std::endl;
+		current_element++;
+		equipmentLoadData(current_element, active_slot);
+	}
+	else if(event_name.substr(0, 4) == "ITEM")
+	{
+		std::cout << "good: " << event_name << std::endl;
+		active_slot = current_element + int(event_name[4]) - int('0');
+		equipmentLoadData(current_element, active_slot);
 	}
 	else
 	{
 		return false;
 	}
 	return true;
+}
+
+void Controller::equipmentLoadData(int current_element, int active_slot)
+{
+	std::cout << player->getInventoryItemName(current_element) << std::endl;
+	current_view->setText("{item1}", player->getInventoryItemName(current_element));
+	current_view->setText("{item2}", player->getInventoryItemName(current_element + 1));
+	current_view->setText("{item3}", player->getInventoryItemName(current_element + 2));
+	current_view->setText("{item4}", player->getInventoryItemName(current_element + 3));
+	current_view->setText("{item5}", player->getInventoryItemName(current_element + 4));
+	current_view->setText("{item6}", player->getInventoryItemName(current_element + 5));
+	Itemz* item = player->getInventoryItem(active_slot);
+	current_view->setText("{item_description}", item->getName());
+
 }
 
 bool Controller::exitEvent(std::string event_name)
@@ -372,6 +411,7 @@ bool Controller::playerCardEvent(std::string event_name)
 	if(event_name == "EQUIPMENT")
 	{
 		addView("equipment", true);
+		equipmentEvent("LOAD_DATA");
 	}
 	else if(event_name == "MAP")
 	{
