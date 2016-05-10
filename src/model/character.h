@@ -5,6 +5,8 @@
 #ifndef CEPEM_I_MIECZEM_CHAR_H
 #define CEPEM_I_MIECZEM_CHAR_H
 #include "items/itemz.h"
+#include "items/wearable.h"
+#include "items/weapon.h"
 #include "inventory.h"
 
 class Character
@@ -44,6 +46,12 @@ public:
 	void decHealth(int value);
 	Itemz *getInventoryItem(int number);
 	char *getInventoryItemName(int number);
+	void wearHead(Wearable *item);
+	void wearChest(Wearable *item);
+	void wearLegs(Wearable *item);
+	void wearFeet(Wearable *item);
+	void wearHands(Wearable *item);
+	void wearWeapon(Weapon *item);
 private:
 	int points;
 	int strength;

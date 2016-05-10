@@ -7,6 +7,9 @@
 #include "../model/model.h"
 #include "../model/character.h"
 #include "../locations/location.h"
+#include "../model/items/wearable.h"
+#include "../model/items/weapon.h"
+#include "../model/items/potion.h"
 
 class Controller
 {
@@ -50,6 +53,9 @@ private:
 	void travel(std::string destination);
 	void fight(std::string next_view, std::string oponent);
 	void setLocation(std::string view);
+	void useItem(Itemz *item);
+	void wear(Wearable *item);
+	void wear(Weapon *item);
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);
 	inline void setView(std::string view, std::string name, std::string image_file);

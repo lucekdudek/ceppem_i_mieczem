@@ -93,12 +93,12 @@ void Controller::event(std::string event_name)
 			if(controller.gameMenuEvent(event_name))
 				break;
 		}
-		else if (*it == "fight_card")
+		else if(*it == "fight_card")
 		{
-			if (controller.playerCardEvent(event_name))
+			if(controller.playerCardEvent(event_name))
 				break;
 		}
-		else if (*it == "fight")
+		else if(*it == "fight")
 		{
 			std::cout << "fight event" << std::endl;
 		}
@@ -147,7 +147,6 @@ bool Controller::equipmentEvent(std::string event_name)
 {
 	static int current_element = 0;
 	static int active_slot = 0;
-	std::cout << "eqEvent: " << event_name<<std::endl;
 	if(event_name == "LOAD_DATA")
 	{
 		equipmentLoadData(current_element, active_slot);
@@ -159,21 +158,27 @@ bool Controller::equipmentEvent(std::string event_name)
 	}
 	else if(event_name == "PREVIOUS")
 	{
-		std::cout << "good: " << event_name << std::endl;
 		current_element--;
 		equipmentLoadData(current_element, active_slot);
 	}
 	else if(event_name == "NEXT")
 	{
-		std::cout << "good: " << event_name << std::endl;
 		current_element++;
 		equipmentLoadData(current_element, active_slot);
 	}
 	else if(event_name.substr(0, 4) == "ITEM")
 	{
-		std::cout << "good: " << event_name << std::endl;
 		active_slot = current_element + int(event_name[4]) - int('0');
 		equipmentLoadData(current_element, active_slot);
+	}
+	else if(event_name == "USE")
+	{
+		Itemz* item = player->getInventoryItem(active_slot);
+		useItem(item);
+	}
+	else if(event_name == "THROW")
+	{
+
 	}
 	else
 	{
@@ -247,7 +252,7 @@ bool Controller::mapEvent(std::string event_name)
 	else if(event_name.substr(0, 5) == "GOTO_")
 	{
 		srand(time(NULL));
-		if (rand() % 2)
+		if(rand() % 2)
 		{
 			fight(event_name.substr(5), "Pikachu");
 		}
@@ -548,6 +553,58 @@ void Controller::setLocation(std::string location)
 	current_location = location;
 	setView("location", location);
 	addView("player_card", false);
+}
+
+void Controller::useItem(Itemz * item)
+{
+	std::string type = item->getType();
+	if(type == "wearable")
+	{
+		wear((Wearable*)item);
+	}
+	if(type == "weapon")
+	{
+		wear((Weapon*)item);
+	}
+	else if(type == "potion")
+	{
+		player->incHealth(((Potion*)item)->use());
+	}
+}
+
+void Controller::wear(Wearable *item)
+{
+	//1 helm
+	//2 armor
+	//3 legs
+	//4 boots
+	//5 hands
+	int slot = item->getSlot();
+	if(slot = 1)
+	{
+		player->wearHead(item);
+	}
+	else if(slot = 2)
+	{
+		player->wearChest(item);
+	}
+	else if(slot = 3)
+	{
+		player->wearLegs(item);
+	}
+	else if(slot = 4)
+	{
+		player->wearFeet(item);
+	}
+	else if(slot = 5)
+	{
+		player->wearHands(item);
+	}
+}
+
+void Controller::wear(Weapon *item)
+{
+	player->wearWeapon(item);
 }
 
 void Controller::setView(std::string view)

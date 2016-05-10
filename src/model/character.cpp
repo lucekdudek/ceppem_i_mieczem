@@ -277,3 +277,33 @@ char* Character::getInventoryItemName(int number)
 		return "-";
 	}
 }
+
+void Character::wearHead(Wearable * item)
+{
+	head = item;
+}
+
+void Character::wearChest(Wearable * item)
+{
+	chest = item;
+}
+
+void Character::wearLegs(Wearable * item)
+{
+	legs = item;
+}
+
+void Character::wearFeet(Wearable * item)
+{
+	feet = item;
+}
+
+void Character::wearHands(Wearable * item)
+{
+	hands = item;
+}
+
+void Character::wearWeapon(Weapon * item)
+{
+	weapon = item;
+}
