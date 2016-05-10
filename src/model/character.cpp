@@ -238,11 +238,15 @@ int Character::getHealth()
 void Character::incHealth(int value)
 {
 	health += value;
+	if(health < 100)
+		health = 100;
 }
 
 void Character::decHealth(int value)
 {
 	health -= value;
+	if(health < 0)
+		health = 0;
 }
 
 Itemz * Character::getInventoryItem(int number)
