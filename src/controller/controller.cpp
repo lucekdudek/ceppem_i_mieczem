@@ -175,7 +175,17 @@ bool Controller::conversationEvent(std::string event_name)
 	std::string person = event_name.substr(0, i);
 	std::string topic = event_name.substr(i + 1);
 	//current_view->setText("{console}", model->getConversation(person, topic)));
-	current_view->setText("{console}", "it is conversation with " + person + ", about " + topic);
+	
+
+	std::transform(person.begin(), person.end(), person.begin(), ::tolower);
+	std::transform(topic.begin(), topic.end(), topic.begin(), ::tolower);
+	std::string text=model->getTextMap("conversations/" + person)["{" + topic + "}"];
+	if (text == "")
+	{
+		text = "-";
+	}
+	std::cout << person << ": " << topic << std::endl;
+	current_view->setText("{console}", text);
 	return true;
 }
 

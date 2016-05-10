@@ -1,0 +1,4 @@
+﻿{job}
+praca
+{help}
+pomoc

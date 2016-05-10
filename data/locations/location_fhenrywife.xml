@@ -21,10 +21,10 @@
   </event>
   <!-- back to small farm view -->
   <event place="{EVENTD}">
-    <text>{small_farm}</text>
+    <text>{smallfarm}</text>
     <onclick>GOTO_SMALLFARM</onclick>
   </event>
   <road>
-    <place onclick="GOTO_SMALLFARM">{small_farm}</place>
+    <place onclick="GOTO_SMALLFARM">{smallfarm}</place>
   </road>
 </location>
