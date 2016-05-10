@@ -6,6 +6,7 @@
 #include "../view/window.h"
 #include "../model/model.h"
 #include "../model/character.h"
+#include "../model/enemy.h"
 #include "../locations/location.h"
 
 class Controller
@@ -23,6 +24,7 @@ private:
 	Model* model;
 	View* current_view;
 	Character* player;
+	Enemy* enemy;
 	Location* location;
 	std::string next_view_name="";
 	Controller();
@@ -49,6 +51,7 @@ private:
 	void loadGame();
 	void travel(std::string destination);
 	void fight(std::string next_view, std::string oponent);
+	bool playerFightEvent(std::string event_name);
 	void setLocation(std::string view);
 	inline void setView(std::string view);
 	inline void setView(std::string view, std::string location);
