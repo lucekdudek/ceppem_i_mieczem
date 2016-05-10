@@ -5,6 +5,7 @@
 #ifndef CEPEM_I_MIECZEM_CHAR_H
 #define CEPEM_I_MIECZEM_CHAR_H
 #include "items/itemz.h"
+#include "inventory.h"
 
 class Character
 {
@@ -38,6 +39,9 @@ public:
     void setCharisma(int value);
 	void saveAttributes();
 	void clearAttributes();
+	int getHealth();
+	void incHealth(int value);
+	void decHealth(int value);
 private:
 	int points;
 	int strength;
@@ -52,6 +56,7 @@ private:
     int min_inteligence;
     int charisma;
     int min_charisma;
+	int health;
 
 	Itemz* weapon;
 	Itemz* head;
@@ -59,6 +64,10 @@ private:
 	Itemz* legs;
 	Itemz* feet;
 	Itemz* hands;
+	Itemz* slot1;
+	Itemz* slot2;
+
+	Inventory* backpack;
 };
 
 #endif //CEPEM_I_MIECZEM_CHAR_H

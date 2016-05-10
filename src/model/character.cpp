@@ -226,3 +226,18 @@ void Character::clearAttributes()
 	inteligence = min_inteligence;
 	charisma = min_charisma;
 }
+
+int Character::getHealth()
+{
+	return health;
+}
+
+void Character::incHealth(int value)
+{
+	health += value;
+}
+
+void Character::decHealth(int value)
+{
+	health -= value;
+}
