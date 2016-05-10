@@ -13,6 +13,16 @@ std::list<std::string> splitString(std::string str)
 {
 	std::list<std::string> words;
 
+	while (str.find("\n") != std::string::npos)
+	{
+		str.replace(str.find("\n"), 1, " \t ");
+	}
+
+	while (str.find("\t") != std::string::npos)
+	{
+		str.replace(str.find("\t"), 1, "\n");
+	}
+
 	std::size_t last = -1;
 	std::size_t found;
 
@@ -303,6 +313,10 @@ int Window::renderText(char *text, int &w, int &h, int fontSize, unsigned char r
 
 int Window::getTextWidth(const char *text, int fontSize)
 {
+	if (strlen(text) == 0)
+	{
+		return 0;
+	}
 	SDL_Color textColor = { 128, 0, 0 };
 	SDL_Surface *sdl_surface = TTF_RenderUTF8_Blended(Window::fontLoader->getFont(fontSize), text, textColor);
 	int sw = sdl_surface->w;
@@ -341,8 +355,12 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 			curr = curr + " ";
 		}
 		curr = curr + *i;
-		if (getTextWidth(curr.c_str(), fontSize) > t_width)
+		if (getTextWidth(curr.c_str(), fontSize) > t_width || tmpElem=="\n")
 		{
+			if (tmpElem == "\n")
+			{
+				i = words.erase(i);
+			}
 			if (i != words.begin())
 			{
 				lines.push_back(prev);
@@ -386,6 +404,11 @@ int Window::renderTextBox(char *text, int &w, int &h, int t_width, int t_heigth,
 	int index = 0;
 	for (auto i = lines.begin(); i != lines.end(); i++)
 	{
+		while ((*i) == "")
+		{
+			i++;
+			index++;
+		}
 		SDL_Surface *surface = TTF_RenderUTF8_Blended(Window::fontLoader->getFont(fontSize), (*i).c_str(), textColor);
 		SDL_SetSurfaceBlendMode(surface, SDL_BLENDMODE_NONE);
 		SDL_Rect dest;
