@@ -24,7 +24,6 @@ View *Model::getXml(std::string file_name, std::string location_name)
 		doc2.LoadFile();
 		pRoot2 = doc2.FirstChildElement("location");
 
-
 		Element* bgElement = new Element(0, 0, 1280, 720);
 		std::string tmp = "../data/images/" + std::string(pRoot2->FirstChildElement("background")->FirstChild()->ToText()->Value());
 		char* background = _strdup(tmp.c_str());
@@ -343,4 +342,64 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 	v->extendView(temp);
 	delete temp;
 	return v;
+}
+
+Itemz* Model::loadItem(std::string name)
+{
+	Itemz *item = new Itemz();
+	std::string itemName;
+	std::string itemDescription;
+	TiXmlDocument doc(("../data/items/" + name + ".xml").c_str());
+	doc.LoadFile();
+	TiXmlElement *elem;
+	elem = doc.FirstChildElement("item");
+	std::string temp = elem->FirstChildElement("type")->FirstChild()->ToText()->Value();
+	
+	std::ifstream readfile;
+	readfile.open("../data/languages/" + language + "/" + name + ".txt");
+
+	
+	
+	readfile >> itemName;
+	readfile >> itemDescription;
+
+	if (temp == "wearable")
+	{
+		item = new Wearable(atoi(elem->FirstChildElement("id")->FirstChild()->Value()),
+			itemName,
+			itemDescription,
+			atoi(elem->FirstChildElement("slot")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("goldValue")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("armor")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("strength")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("dexterity")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("agility")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("wisdom")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("inteligence")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("charisma")->FirstChild()->Value()));
+	}else if (temp == "weapon")
+	{
+		item = new Weapon(atoi(elem->FirstChildElement("id")->FirstChild()->Value()),
+			itemName,
+			itemDescription,
+			atoi(elem->FirstChildElement("goldValue")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("minDamage")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("maxDamage")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("strength")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("dexterity")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("agility")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("wisdom")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("inteligence")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("charisma")->FirstChild()->Value()));
+	}else if (temp == "potion")
+	{
+		item = new Potion(atoi(elem->FirstChildElement("id")->FirstChild()->Value()),
+			itemName,
+			itemDescription,
+			atoi(elem->FirstChildElement("goldValue")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("healing")->FirstChild()->Value()),
+			atoi(elem->FirstChildElement("stack")->FirstChild()->Value()));
+	}
+	
+	return item;
 }
