@@ -4,7 +4,6 @@
 #include "controller.h"
 #include "fpshandler.h"
 #include "../locations/l_small_farm.h"
-
 #include <stdlib.h>
 
 
@@ -98,7 +97,47 @@ void Controller::event(std::string event_name)
 			if (controller.playerCardEvent(event_name))
 				break;
 		}
+		else if (*it == "fight")
+		{
+			if (controller.playerFightEvent(event_name))
+				break;
+		}
 	}
+}
+
+bool Controller::playerFightEvent(std::string event_name)
+{
+	if (event_name == "WEAPONA")
+	{
+		std::cout << "use weapon A" << std::endl;
+		enemy->decHealth(player->getStrength() * 2);
+	}
+	else if (event_name == "WEAPONB")
+	{
+		std::cout << "use weapon B" << std::endl;
+		enemy->decHealth(player->getStrength());
+	}
+
+	player->decHealth(enemy->getStrength() * (rand() % 2 + 1));
+
+	current_view->setFill("player", player->getHealth());
+	current_view->setFill("oponent", enemy->getHealth());
+	if (player->getHealth() == 0)
+	{
+		std::cout << "game over" << std::endl;
+		player->incHealth(10);
+		travel(next_view_name);
+		delete enemy;
+		enemy = nullptr;
+	}
+	else if (enemy->getHealth() == 0)
+	{
+		std::cout << "you won -> open container" << std::endl;
+		travel(next_view_name);
+		delete enemy;
+		enemy = nullptr;
+	}
+	return true;
 }
 
 bool Controller::containerEvent(std::string event_name)
@@ -141,16 +180,55 @@ bool Controller::conversationEvent(std::string event_name)
 
 bool Controller::equipmentEvent(std::string event_name)
 {
-	if(event_name == "BACK")
+	static int current_element = 0;
+	static int active_slot = 0;
+	std::cout << "eqEvent: " << event_name<<std::endl;
+	if(event_name == "LOAD_DATA")
+	{
+		equipmentLoadData(current_element, active_slot);
+	}
+	else if(event_name == "BACK")
 	{
 		player->clearAttributes();
 		delView();
+	}
+	else if(event_name == "PREVIOUS")
+	{
+		std::cout << "good: " << event_name << std::endl;
+		current_element--;
+		equipmentLoadData(current_element, active_slot);
+	}
+	else if(event_name == "NEXT")
+	{
+		std::cout << "good: " << event_name << std::endl;
+		current_element++;
+		equipmentLoadData(current_element, active_slot);
+	}
+	else if(event_name.substr(0, 4) == "ITEM")
+	{
+		std::cout << "good: " << event_name << std::endl;
+		active_slot = current_element + int(event_name[4]) - int('0');
+		equipmentLoadData(current_element, active_slot);
 	}
 	else
 	{
 		return false;
 	}
 	return true;
+}
+
+void Controller::equipmentLoadData(int current_element, int active_slot)
+{
+	std::cout << player->getInventoryItemName(current_element) << std::endl;
+	current_view->setText("{item1}", player->getInventoryItemName(current_element));
+	current_view->setText("{item2}", player->getInventoryItemName(current_element + 1));
+	current_view->setText("{item3}", player->getInventoryItemName(current_element + 2));
+	current_view->setText("{item4}", player->getInventoryItemName(current_element + 3));
+	current_view->setText("{item5}", player->getInventoryItemName(current_element + 4));
+	current_view->setText("{item6}", player->getInventoryItemName(current_element + 5));
+	Itemz* item = player->getInventoryItem(active_slot);
+	current_view->setText("{item_description}", item->getName());
+
 }
 
 bool Controller::exitEvent(std::string event_name)
@@ -206,12 +284,7 @@ bool Controller::mapEvent(std::string event_name)
 		srand(time(NULL));
 		if (rand() % 2)
 		{
-			next_view_name = event_name.substr(5);
-			//open fight view
-			setView("fight","Pikachu","enemy.png");
-			addView("fight_card", false);
-			current_view->setFill("player", 75);
-			current_view->setFill("oponent", 50);
+			fight(event_name.substr(5), "Pikachu");
 		}
 		else
 		{
@@ -223,6 +296,20 @@ bool Controller::mapEvent(std::string event_name)
 		return false;
 	}
 	return true;
+}
+
+void Controller::fight(std::string next_view, std::string oponent)
+{
+	enemy = new Enemy(oponent);
+	next_view_name = next_view;
+	std::transform(oponent.begin(), oponent.end(), oponent.begin(), ::tolower);
+	char* oponent_name = _strdup(oponent.c_str());
+	char* oponent_file_name = _strdup((oponent + ".png").c_str());
+	//open fight view
+	setView("fight", oponent_name, oponent_file_name);
+	addView("fight_card", false);
+	current_view->setFill("player", player->getHealth());
+	current_view->setFill("oponent", enemy->getHealth());
 }
 
 bool Controller::locationEvent(std::string event_name)
@@ -318,6 +405,7 @@ bool Controller::personEvent(std::string event_name)
 bool Controller::personFightEvent(std::string event_name)
 {
 	std::cout << "fighting with " << event_name << std::endl;
+	fight(current_location, event_name);
 	return true;
 }
 
@@ -326,6 +414,7 @@ bool Controller::playerCardEvent(std::string event_name)
 	if(event_name == "EQUIPMENT")
 	{
 		addView("equipment", true);
+		equipmentEvent("LOAD_DATA");
 	}
 	else if(event_name == "MAP")
 	{

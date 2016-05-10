@@ -2,7 +2,9 @@
 
 Itemz::Itemz()
 {
-
+	name = "-";
+	goldValue = 100;
+	id = 0;
 }
 
 Itemz::~Itemz()

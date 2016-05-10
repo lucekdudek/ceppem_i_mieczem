@@ -1,4 +1,4 @@
-{none}
+﻿{none}
 -
 {console}
 Mała skrzynka, zawiera niezbędne narzędzia każdego farmera.
