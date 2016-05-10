@@ -1,5 +1,5 @@
 #pragma once
-#include "C:\Users\Michal\Documents\Visual Studio 2015\Projects\ceppem_i_mieczem\ceppem_i_mieczem\src\view\texture.h"
+#include "texture.h"
 class Progress :
 	public Texture
 {

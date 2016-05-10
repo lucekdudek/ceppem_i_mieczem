@@ -78,19 +78,19 @@ void Controller::event(std::string event_name)
 			if(controller.playerPanelEvent(event_name))
 				break;
 		}
-		else if (*it == "settings")
+		else if(*it == "settings")
 		{
-			if (controller.settingsEvent(event_name))
+			if(controller.settingsEvent(event_name))
 				break;
 		}
-		else if (*it == "map")
+		else if(*it == "map")
 		{
-			if (controller.mapEvent(event_name))
+			if(controller.mapEvent(event_name))
 				break;
 		}
-		else if (*it == "game_menu")
+		else if(*it == "game_menu")
 		{
-			if (controller.gameMenuEvent(event_name))
+			if(controller.gameMenuEvent(event_name))
 				break;
 		}
 		else if (*it == "fight_card")
@@ -107,6 +107,10 @@ bool Controller::containerEvent(std::string event_name)
 	{
 		return containerOpenEvent(event_name.substr(5));
 	}
+	else if(event_name.substr(0, 12) == "INVESTIGATE_")
+	{
+		return conversationEvent(event_name);
+	}
 	else
 	{
 		return false;
@@ -120,9 +124,24 @@ bool Controller::containerOpenEvent(std::string event_name)
 	return true;
 }
 
+bool Controller::conversationEvent(std::string event_name)
+{
+	int i;
+	for(i = 0; i < event_name.length(); i++)
+	{
+		if(event_name[i] == '_')
+			break;
+	}
+	std::string person = event_name.substr(0, i);
+	std::string topic = event_name.substr(i + 1);
+	//current_view->setText("{console}", model->getConversation(person, topic)));
+	current_view->setText("{console}", "it is conversation with " + person + ", about " + topic);
+	return true;
+}
+
 bool Controller::equipmentEvent(std::string event_name)
 {
-	if (event_name == "BACK")
+	if(event_name == "BACK")
 	{
 		player->clearAttributes();
 		delView();
@@ -178,7 +197,7 @@ bool Controller::gameMenuEvent(std::string event_name)
 
 bool Controller::mapEvent(std::string event_name)
 {
-	if (event_name == "BACK")
+	if(event_name == "BACK")
 	{
 		delView();
 	}
@@ -215,6 +234,10 @@ bool Controller::locationEvent(std::string event_name)
 	else if(event_name.substr(0, 10) == "CONTAINER_")
 	{
 		return containerEvent(event_name.substr(10));
+	}
+	else if(event_name.substr(0, 5) == "GOTO_")
+	{
+		travel(event_name.substr(5));
 	}
 	else
 	{
@@ -279,7 +302,7 @@ bool Controller::personEvent(std::string event_name)
 
 	if(event_name.substr(0, 13) == "CONVERSATION_")
 	{
-		return personConversationEvent(event_name.substr(13));
+		return conversationEvent(event_name.substr(13));
 	}
 	else if(event_name.substr(0, 7) == "ATTACK_")
 	{
@@ -289,12 +312,6 @@ bool Controller::personEvent(std::string event_name)
 	{
 		return false;
 	}
-	return true;
-}
-
-bool Controller::personConversationEvent(std::string event_name)
-{
-	std::cout << "conversation with " << event_name << std::endl;
 	return true;
 }
 
@@ -314,7 +331,7 @@ bool Controller::playerCardEvent(std::string event_name)
 	{
 		addView("map", current_location, true);
 	}
-	else if (event_name == "PROFILE")
+	else if(event_name == "PROFILE")
 	{
 		addView("player_panel", true);
 		loadStats(player);
@@ -466,7 +483,7 @@ void Controller::travel(std::string destination)
 {
 	std::transform(destination.begin(), destination.end(), destination.begin(), ::tolower);
 	setLocation(destination);
-	
+
 }
 
 void Controller::startNewGame()
@@ -516,7 +533,7 @@ void Controller::addView(std::string view, bool deactivation)
 void Controller::addView(std::string view, std::string location, bool deactivation)
 {
 	View* v;
-	if (view == "map")
+	if(view == "map")
 	{
 		v = model->getMap("view_" + view, "location_" + location);
 	}
