@@ -27,7 +27,7 @@ Character::Character(int basic, int points)
 	gold = 2000;
 }
 
-Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
+Character::Character(int st, int dex, int ag, int wi, int in, int ch, int health, int gold, int pkt)
 {
 	points = pkt;
 	min_strength = strength = st;
@@ -36,8 +36,9 @@ Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
 	min_wisdom = wisdom = wi;
 	min_inteligence = inteligence = in;
 	min_charisma = charisma = ch;
-	health = 100;
-	gold = 2000;
+	this->health = health;
+	this->gold = gold;
+	backpack = new Inventory();
 }
 
 int Character::getPoints()

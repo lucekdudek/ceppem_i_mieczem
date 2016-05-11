@@ -600,6 +600,10 @@ void Controller::saveGame()
 void Controller::loadGame()
 {
 	std::cout << "game loaded\n";
+	if (model->loadGame(player))
+	{
+		setLocation("smallfarm");
+	}
 }
 
 void Controller::travel(std::string destination)

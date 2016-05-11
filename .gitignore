@@ -3,7 +3,7 @@
 .cproject
 .project
 *.exe
-/bin/*.dll
+/bin/*
 .idea/
 CMakeLists.txt
 scripts/list_of_files.txt
