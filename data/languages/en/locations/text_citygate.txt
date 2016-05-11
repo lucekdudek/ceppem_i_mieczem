@@ -1,0 +1,22 @@
+﻿{locationName}
+Town
+{none}
+-
+{console}
+The town looks closed, I wonder why.
+{conversation with}
+ask
+{guard}
+guard
+{letting you in}
+if let you in
+{close city}
+why town is closed
+{attack}
+attack
+{steal}
+steal
+{smallfarm}
+Small farm
+{forest}
+Forest

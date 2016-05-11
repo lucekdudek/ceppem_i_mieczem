@@ -1,0 +1,16 @@
+﻿{none}
+-
+{console}
+Hanryk's wife is not bad little woman. Well wield flail.
+{conversation about}
+Ask
+{job}
+what she does.
+{helping fhenrywife}
+if she neads help.
+{steal}
+steal
+{flail}
+flail
+{smallfarm}
+Small Farm

@@ -1,0 +1,24 @@
+﻿{previous}
+Previous
+{next}
+Next
+{use}
+use
+{throw}
+throw
+{your_equipment}
+Your equipment
+{head}
+head
+{chest}
+chest
+{hands}
+hands
+{legs}
+legs
+{feet}
+feet
+{weapon}
+weapon
+{gold}
+Gold

@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <ctime>
 #include "character.h"
 
 const int MAX_ATTRIBUTE = 99;
@@ -27,7 +28,7 @@ Character::Character(int basic, int points)
 	gold = 2000;
 }
 
-Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
+Character::Character(int st, int dex, int ag, int wi, int in, int ch, int health, int gold, int pkt)
 {
 	points = pkt;
 	min_strength = strength = st;
@@ -36,8 +37,9 @@ Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
 	min_wisdom = wisdom = wi;
 	min_inteligence = inteligence = in;
 	min_charisma = charisma = ch;
-	health = 100;
-	gold = 2000;
+	this->health = health;
+	this->gold = gold;
+	backpack = new Inventory();
 }
 
 int Character::getPoints()
@@ -248,6 +250,19 @@ void Character::incHealth(int value)
 
 void Character::decHealth(int value)
 {
+	if (head != nullptr)
+		value -= ((Wearable*)head)->getArmor();
+	if (chest != nullptr)
+		value -= ((Wearable*)chest)->getArmor();
+	if (hands != nullptr)
+		value -= ((Wearable*)hands)->getArmor();
+	if (legs != nullptr)
+		value -= ((Wearable*)legs)->getArmor();
+	if (feet != nullptr)
+		value -= ((Wearable*)feet)->getArmor();
+
+	if (value < 0)
+		value = 0;
 	health -= value;
 	if(health < 0)
 		health = 0;
@@ -390,4 +405,18 @@ void Character::throwItem(Itemz * item)
 	{
 		feet = nullptr;
 	}
+}
+
+int Character::getAttack()
+{
+	srand(time(NULL));
+	int s = this->strength;
+
+	if (weapon != nullptr)
+	{
+		int min = ((Weapon*)weapon)->getMinDamage();
+		int max = ((Weapon*)weapon)->getMaxDamage();
+		s += rand()%(max-min)+min;
+	}
+	return s;
 }

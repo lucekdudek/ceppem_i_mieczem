@@ -1,0 +1,14 @@
+﻿{none}
+-
+{console}
+Small chest with farmer's stuff.
+{check}
+Check
+{content}
+content
+{steal}
+steal
+{stuff}
+stuff
+{smallfarm}
+Small farm

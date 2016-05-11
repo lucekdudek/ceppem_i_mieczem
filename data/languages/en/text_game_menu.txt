@@ -1,0 +1,10 @@
+﻿{back_to_game}
+Back to game
+{save_game}
+save game
+{load_game}
+Load_game
+{exit_to_menu}
+Exit to menu
+{exit_to_desktop}
+Exit to desktop

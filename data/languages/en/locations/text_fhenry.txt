@@ -1,0 +1,16 @@
+﻿{none}
+-
+{console}
+Farmer Henryk looks good.
+{conversation about}
+Ask
+{job}
+what he does.
+{helping fhenry}
+if he need help.
+{attack}
+attack
+{fhenry}
+Henryk
+{smallfarm}
+Small farm

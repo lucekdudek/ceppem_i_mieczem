@@ -1,0 +1,6 @@
+﻿{job}
+Work, work, all day long
+{help}
+Farmer's wife is not interested
+{open}
+You succesfuly stolen womens Flail.

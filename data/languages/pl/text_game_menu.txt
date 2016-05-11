@@ -1,0 +1,10 @@
+﻿{back_to_game}
+Powrót do gry
+{save_game}
+Zapisz grę
+{load_game}
+Wczytaj grę
+{exit_to_menu}
+Wyjście do menu
+{exit_to_desktop}
+Wyjście do pulpitu

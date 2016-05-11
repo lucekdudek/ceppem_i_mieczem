@@ -4,7 +4,7 @@
   <id>1</id>
   <slot>3</slot>
   <goldValue>10</goldValue>
-  <armor>10</armor>
+  <armor>1</armor>
   <strength>1</strength>
   <dexterity>1</dexterity>
   <agility>2</agility>

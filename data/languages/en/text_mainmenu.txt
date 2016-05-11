@@ -2,7 +2,7 @@
 Continue game
 {newGame}
 New game
-{loadGame}
+{load_game}
 Load game
 {settings}
 Settings

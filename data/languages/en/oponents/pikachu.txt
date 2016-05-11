@@ -1,0 +1,6 @@
+﻿{me}
+Me
+{oponent}
+Pikachu
+{log_console}
+Pikachu's special ability is Static, which can cause paralysis in battle if hit by a physical move. Pikachu evolves into a Raichu by using a Thunder Stone.

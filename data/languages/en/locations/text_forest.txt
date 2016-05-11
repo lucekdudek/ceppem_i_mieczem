@@ -1,0 +1,10 @@
+﻿{locationName}
+Forest
+{none}
+-
+{console}
+Forest Forest Forest, nothing special.
+{city}
+Town
+{smallfarm}
+Small farm

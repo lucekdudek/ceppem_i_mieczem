@@ -103,6 +103,16 @@ void Controller::event(std::string event_name)
 			if (controller.playerFightEvent(event_name))
 				break;
 		}
+		else if(*it == "message")
+		{
+			if(controller.messageEvent(event_name))
+				break;
+		}
+	}
+
+	if (controller.player != nullptr)
+	{
+		controller.current_view->setFill("player", controller.player->getHealth());
 	}
 }
 
@@ -111,9 +121,9 @@ bool Controller::playerFightEvent(std::string event_name)
 	if (event_name == "WEAPON")
 	{
 		std::cout << "use weapon A" << std::endl;
-		enemy->decHealth(player->getStrength() * 2);
+		enemy->decHealth(player->getAttack());
 	}
-	player->decHealth(enemy->getStrength() * (rand() % 2 + 1));
+	player->decHealth(enemy->getStrength()/10);
 
 	current_view->setFill("player", player->getHealth());
 	current_view->setFill("oponent", enemy->getHealth());
@@ -122,6 +132,7 @@ bool Controller::playerFightEvent(std::string event_name)
 		std::cout << "game over" << std::endl;
 		player->incHealth(10);
 		travel(next_view_name);
+		showMessage("game_over");
 		delete enemy;
 		enemy = nullptr;
 	}
@@ -129,6 +140,7 @@ bool Controller::playerFightEvent(std::string event_name)
 	{
 		std::cout << "you won -> open container" << std::endl;
 		travel(next_view_name);
+		showMessage("you_won");
 		delete enemy;
 		enemy = nullptr;
 	}
@@ -154,9 +166,13 @@ bool Controller::containerEvent(std::string event_name)
 
 bool Controller::containerOpenEvent(std::string event_name)
 {
-
+	std::transform(event_name.begin(), event_name.end(), event_name.begin(), ::tolower);
 	conversationEvent(event_name + "_OPEN");
-	std::cout << event_name << " opened\n";
+	Inventory* container = model->loadInventory(event_name);
+	for(int i = 0; i < container->getLength(); i++)
+	{
+		player->addItem(container->getItem(i));
+	}
 	return true;
 }
 
@@ -386,6 +402,19 @@ bool Controller::mainMenuEvent(std::string event_name)
 	return true;
 }
 
+bool Controller::messageEvent(std::string event_name)
+{
+	if(event_name == "BACK")
+	{
+		delView();
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
 bool Controller::newGameEvent(std::string event_name)
 {
 	if(event_name == "BACK")
@@ -595,11 +624,22 @@ void Controller::saveGame()
 {
 	std::cout << "game saved\n";
 	model->saveGame(player);
+	delView();
+	showMessage("saved");
 }
 
 void Controller::loadGame()
 {
 	std::cout << "game loaded\n";
+	if (model->loadGame(player))
+	{
+		setLocation("smallfarm");
+		showMessage("loaded");
+	}
+	else
+	{
+		showMessage("loading_error");
+	}
 }
 
 void Controller::travel(std::string destination)
@@ -627,14 +667,22 @@ void Controller::useItem(Itemz * item)
 	if(type == "wearable")
 	{
 		wear((Wearable*)item);
+		showMessage("use_wearable");
 	}
 	if(type == "weapon")
 	{
 		wear((Weapon*)item);
+		showMessage("use_weapon");
 	}
 	else if(type == "potion")
 	{
-		player->incHealth(((Potion*)item)->use());
+		int heal = ((Potion*)item)->use();
+		if (((Potion*)item)->getSize() == "0")
+		{
+			equipmentEvent("THROW");
+		}
+		player->incHealth(heal);
+		showMessage("use_potion");
 	}
 }
 
@@ -736,6 +784,16 @@ void Controller::delView()
 void Controller::setDone()
 {
 	getController().running = false;
+}
+
+void Controller::showMessage(std::string message_tag)
+{
+	View* v = model->getXml("view_message");
+	current_view_name.push_front("message");
+	current_view->extendView(v, true);
+	std::cout << "text:" << model->getTextMap("text_message")["{" + message_tag + "}"] << std::endl;
+	current_view->setText("{message}", model->getTextMap("text_message")["{" + message_tag + "}"]);
+	window->updateClickmap();
 }
 
 Controller &Controller::getController()

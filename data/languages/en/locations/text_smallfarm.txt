@@ -1,0 +1,18 @@
+﻿{locationName}
+Small farm
+{none}
+-
+{console}
+You see a small farm, a friendly-looking farmer Henry and his wife. You see a chest against the wall of the building and wonder what's inside.
+{walk to}
+go to
+{farmer}
+farmer
+{farmer_wife}
+farmer's wife
+{chest}
+chest
+{city}
+Town
+{forest}
+Forest

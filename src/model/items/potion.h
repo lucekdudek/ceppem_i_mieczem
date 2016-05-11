@@ -9,7 +9,7 @@ public:
 
 	std::string getType();
 	std::string getSize();
-
+	void setSize(int size);
 	int use();
 private:
 	int healing;

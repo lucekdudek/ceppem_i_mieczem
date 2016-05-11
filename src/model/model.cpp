@@ -367,7 +367,7 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 	return v;
 }
 
-Itemz* Model::loadItem(std::string name)
+Itemz* Model::loadItem(std::string name, int size)
 {
 	Itemz *item = new Itemz("");
 	std::string itemName;
@@ -416,12 +416,18 @@ Itemz* Model::loadItem(std::string name)
 			atoi(elem->FirstChildElement("charisma")->FirstChild()->Value()));
 	}else if (temp == "potion")
 	{
+		int s = atoi(elem->FirstChildElement("stack")->FirstChild()->Value()); 
+		if (size > 0)
+		{
+			s = size;
+		}
 		item = new Potion(atoi(elem->FirstChildElement("id")->FirstChild()->Value()),
 			itemName, name,
 			itemDescription,
 			atoi(elem->FirstChildElement("goldValue")->FirstChild()->Value()),
 			atoi(elem->FirstChildElement("healing")->FirstChild()->Value()),
-			atoi(elem->FirstChildElement("stack")->FirstChild()->Value()));
+			s
+			);
 	}
 	
 	return item;
@@ -445,6 +451,7 @@ void Model::saveGame(Character* player)
 	element2->SetAttribute("charisma", player->getCharisma());
 	element2->SetAttribute("health", player->getHealth());
 	element2->SetAttribute("gold", player->getGold());
+	element2->SetAttribute("points", player->getPoints());
 	element->LinkEndChild(element2);
 
 	element2 = new TiXmlElement("backpack");
@@ -470,4 +477,66 @@ void Model::saveGame(Character* player)
 	element2->LinkEndChild(text2);
 
 	doc.SaveFile("save.xml");
+}
+
+bool Model::loadGame(Character* &player)
+{
+	TiXmlDocument doc("save.xml");
+	bool ok = doc.LoadFile();
+	if (!ok) return false;
+	TiXmlElement *pRoot, *pElem;
+	pRoot = doc.FirstChildElement("save");
+	pElem = pRoot->FirstChildElement("player");
+
+	player = new Character(
+		atoi(pElem->Attribute("strength")),
+		atoi(pElem->Attribute("dexterity")),
+		atoi(pElem->Attribute("agility")),
+		atoi(pElem->Attribute("wisdom")),
+		atoi(pElem->Attribute("inteligence")),
+		atoi(pElem->Attribute("charisma")),
+		atoi(pElem->Attribute("health")),
+		atoi(pElem->Attribute("gold")),
+		atoi(pElem->Attribute("points"))
+		);
+	pElem = pRoot->FirstChildElement("backpack")->FirstChildElement("item");
+	while (pElem)
+	{
+		std::string text = pElem->FirstChild()->ToText()->Value();
+		if (text == "potion_hp")
+		{
+			player->addItem(loadItem(text, atoi(pElem->Attribute("size"))));
+		}
+		else
+		{
+			player->addItem(loadItem(text));
+		}
+		pElem = pElem->NextSiblingElement("item");
+	}
+	return true;
+}
+
+Inventory* Model::loadInventory(std::string filename)
+{
+	Inventory* inv = new Inventory();
+	TiXmlDocument doc(("../data/containers/" + filename + ".xml").c_str());
+	bool ok = doc.LoadFile();
+
+	TiXmlElement *pRoot, *pElem;
+	pRoot = doc.FirstChildElement("inventory");
+	pElem = pRoot->FirstChildElement("item");
+	while (pElem)
+	{
+		std::string text = pElem->FirstChild()->ToText()->Value();
+		if (text.substr(0,6) == "potion")
+		{
+			inv->putItem(loadItem(text, atoi(pElem->Attribute("size"))));
+		}
+		else
+		{
+			inv->putItem(loadItem(text));
+		}
+		pElem = pElem->NextSiblingElement("item");
+	}
+	return inv;
 }
