@@ -58,6 +58,7 @@ public:
 	void wearWeapon(Weapon *item);
 	void addItem(Itemz* item);
 	std::string eqToString();
+	std::string getWeaponName();
 private:
 	int points;
 	int strength;

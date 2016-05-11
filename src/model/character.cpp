@@ -353,3 +353,11 @@ std::string Character::eqToString()
 		result += "\n {weapon}: " + weapon->getName();
 	return result;
 }
+
+std::string Character::getWeaponName()
+{
+	if (weapon != nullptr)
+		return weapon->getName();
+	else
+		return "{fists}";
+}
