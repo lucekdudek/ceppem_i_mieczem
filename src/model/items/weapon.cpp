@@ -1,6 +1,6 @@
 #include "weapon.h"
 
-Weapon::Weapon(int id, std::string name, std::string description, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma)
+Weapon::Weapon(int id, std::string name, std::string name_original, std::string description, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma) :Itemz(name_original)
 {
 	Weapon::id = id;
 	Weapon::name = name;

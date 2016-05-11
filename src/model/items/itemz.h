@@ -6,7 +6,7 @@
 class Itemz
 {
 public:
-	Itemz();
+	Itemz(std::string name_original);
 	~Itemz();
 
 	virtual std::string getType();
@@ -20,12 +20,14 @@ public:
 	void setName(std::string name);
 	void setDescription(std::string description);
 	void setGoldValue(int value);
+	std::string getItemOriginalName();
 
 protected:
 	int id;
 	int goldValue;
 	std::string name;
 	std::string description;
+	std::string name_original;
 };
 
 #endif // !ITEMZ_H

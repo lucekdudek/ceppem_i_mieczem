@@ -369,7 +369,7 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 
 Itemz* Model::loadItem(std::string name)
 {
-	Itemz *item = new Itemz();
+	Itemz *item = new Itemz("");
 	std::string itemName;
 	std::string itemDescription;
 	TiXmlDocument doc(("../data/items/" + name + ".xml").c_str());
@@ -389,7 +389,7 @@ Itemz* Model::loadItem(std::string name)
 	if (temp == "wearable")
 	{
 		item = new Wearable(atoi(elem->FirstChildElement("id")->FirstChild()->Value()),
-			itemName,
+			itemName, name,
 			itemDescription,
 			atoi(elem->FirstChildElement("slot")->FirstChild()->Value()),
 			atoi(elem->FirstChildElement("goldValue")->FirstChild()->Value()),
@@ -403,7 +403,7 @@ Itemz* Model::loadItem(std::string name)
 	}else if (temp == "weapon")
 	{
 		item = new Weapon(atoi(elem->FirstChildElement("id")->FirstChild()->Value()),
-			itemName,
+			itemName, name,
 			itemDescription,
 			atoi(elem->FirstChildElement("goldValue")->FirstChild()->Value()),
 			atoi(elem->FirstChildElement("minDamage")->FirstChild()->Value()),
@@ -417,7 +417,7 @@ Itemz* Model::loadItem(std::string name)
 	}else if (temp == "potion")
 	{
 		item = new Potion(atoi(elem->FirstChildElement("id")->FirstChild()->Value()),
-			itemName,
+			itemName, name,
 			itemDescription,
 			atoi(elem->FirstChildElement("goldValue")->FirstChild()->Value()),
 			atoi(elem->FirstChildElement("healing")->FirstChild()->Value()),
@@ -425,4 +425,49 @@ Itemz* Model::loadItem(std::string name)
 	}
 	
 	return item;
+}
+
+void Model::saveGame(Character* player)
+{
+	TiXmlDocument doc;
+	TiXmlDeclaration* decl = new TiXmlDeclaration("1.0", "", "");
+	doc.LinkEndChild(decl);
+
+	TiXmlElement* element = new TiXmlElement("save");
+	doc.LinkEndChild(element);
+
+	TiXmlElement* element2 = new TiXmlElement("player");
+	element2->SetAttribute("strength", player->getStrength());
+	element2->SetAttribute("dexterity", player->getDexterity());
+	element2->SetAttribute("agility", player->getAgility());
+	element2->SetAttribute("wisdom", player->getWisdom());
+	element2->SetAttribute("inteligence", player->getInteligence());
+	element2->SetAttribute("charisma", player->getCharisma());
+	element2->SetAttribute("health", player->getHealth());
+	element2->SetAttribute("gold", player->getGold());
+	element->LinkEndChild(element2);
+
+	element2 = new TiXmlElement("backpack");
+	element->LinkEndChild(element2);
+	element = element2;
+
+	int size = player->getInventorySize();
+	for (int i = 0; i < size; i++)
+	{
+		Itemz* item = player->getInventoryItem(i);
+		element2 = new TiXmlElement("item");
+		TiXmlText* text = new TiXmlText(item->getItemOriginalName().c_str());
+		if (item->getType() == "potion")
+		{
+			element2->SetAttribute("size", ((Potion*)item)->getSize().c_str());
+		}
+
+		element2->LinkEndChild(text);
+		element->LinkEndChild(element2);
+	}
+
+	TiXmlText* text2 = new TiXmlText("");
+	element2->LinkEndChild(text2);
+
+	doc.SaveFile("save.xml");
 }

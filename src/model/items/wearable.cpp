@@ -1,6 +1,6 @@
 #include "wearable.h"
 
-Wearable::Wearable(int id, std::string name, std::string description, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma)
+Wearable::Wearable(int id, std::string name, std::string name_original, std::string description, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma) :Itemz(name_original)
 {
 	Wearable::id = id;
 	Wearable::name = name;

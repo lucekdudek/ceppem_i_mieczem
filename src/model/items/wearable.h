@@ -5,7 +5,7 @@
 class Wearable: public Itemz
 {
 public:
-	Wearable(int id, std::string name, std::string description, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
+	Wearable(int id, std::string name, std::string name_original, std::string description, int slot, int goldValue, int armor, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
 	~Wearable();
 
 	std::string getType();

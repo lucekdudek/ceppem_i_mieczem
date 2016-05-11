@@ -6,7 +6,7 @@
 class Weapon: public Itemz
 {
 public:
-	Weapon(int id, std::string name, std::string description, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
+	Weapon(int id, std::string name, std::string name_original, std::string description, int goldValue, int minDamage, int maxDamage, int bonusStrength, int bonusDexterity, int bonusAgility, int bonusWisdom, int bonusInteligence, int bonusCharisma);
 	~Weapon();
 	
 	std::string getType();

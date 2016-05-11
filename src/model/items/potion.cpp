@@ -1,6 +1,6 @@
 #include "potion.h"
 
-Potion::Potion(int id, std::string name, std::string description, int goldValue, int healing, int stack)
+Potion::Potion(int id, std::string name, std::string name_original, std::string description, int goldValue, int healing, int stack) :Itemz(name_original)
 {
 	Potion::id = id;
 	Potion::name = name;
@@ -29,4 +29,10 @@ int Potion::use()
 	}
 		
 	else return 0;
+}
+
+std::string Potion::getSize()
+{
+	char buff[3];
+	return std::string(_itoa(this->stack, buff, 10));
 }
