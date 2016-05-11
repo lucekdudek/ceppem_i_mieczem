@@ -60,6 +60,7 @@ public:
 	std::string eqToString();
 	std::string getWeaponName();
 	void throwItem(Itemz* item);
+	int getAttack();
 private:
 	int points;
 	int strength;

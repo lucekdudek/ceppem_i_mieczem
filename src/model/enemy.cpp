@@ -9,7 +9,7 @@ Enemy::Enemy(std::string name)
 	{
 		sum += name[i];
 	}
-	sum = sum / name.length() / 70;
+	sum = sum / name.length();
 	std::cout << sum << std::endl;
 	strength = 4 + sum;
 	health = 100;

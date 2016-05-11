@@ -116,9 +116,9 @@ bool Controller::playerFightEvent(std::string event_name)
 	if (event_name == "WEAPON")
 	{
 		std::cout << "use weapon A" << std::endl;
-		enemy->decHealth(player->getStrength() * 2);
+		enemy->decHealth(player->getAttack());
 	}
-	player->decHealth(enemy->getStrength() * (rand() % 2 + 1));
+	player->decHealth(enemy->getStrength()/10);
 
 	current_view->setFill("player", player->getHealth());
 	current_view->setFill("oponent", enemy->getHealth());

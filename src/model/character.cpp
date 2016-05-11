@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <ctime>
 #include "character.h"
 
 const int MAX_ATTRIBUTE = 99;
@@ -249,6 +250,19 @@ void Character::incHealth(int value)
 
 void Character::decHealth(int value)
 {
+	if (head != nullptr)
+		value -= ((Wearable*)head)->getArmor();
+	if (chest != nullptr)
+		value -= ((Wearable*)chest)->getArmor();
+	if (hands != nullptr)
+		value -= ((Wearable*)hands)->getArmor();
+	if (legs != nullptr)
+		value -= ((Wearable*)legs)->getArmor();
+	if (feet != nullptr)
+		value -= ((Wearable*)feet)->getArmor();
+
+	if (value < 0)
+		value = 0;
 	health -= value;
 	if(health < 0)
 		health = 0;
@@ -391,4 +405,18 @@ void Character::throwItem(Itemz * item)
 	{
 		feet = nullptr;
 	}
+}
+
+int Character::getAttack()
+{
+	srand(time(NULL));
+	int s = this->strength;
+
+	if (weapon != nullptr)
+	{
+		int min = ((Weapon*)weapon)->getMinDamage();
+		int max = ((Weapon*)weapon)->getMaxDamage();
+		s += rand()%(max-min)+min;
+	}
+	return s;
 }
