@@ -1,10 +1,10 @@
 ﻿{locationName}
-Las
+Forest
 {none}
 -
 {console}
-Las las las, nic ciekawego.
+Forest Forest Forest, nothing special.
 {city}
-Miasto
+Town
 {smallfarm}
-Mała farma
+Small farm

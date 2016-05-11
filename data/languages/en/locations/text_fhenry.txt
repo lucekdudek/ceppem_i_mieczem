@@ -1,16 +1,16 @@
 ﻿{none}
 -
 {console}
-Farmer Henryk wygląda niegroźnie.
+Farmer Henryk looks good.
 {conversation about}
-Zapytaj
+Ask
 {job}
-czym się zajmuje.
+what he does.
 {helping fhenry}
-czy potrzebuje pomocy
+if he need help.
 {attack}
-zaatakuj
+attack
 {fhenry}
-Henryka
+Henryk
 {smallfarm}
-Mała farma
+Small farm

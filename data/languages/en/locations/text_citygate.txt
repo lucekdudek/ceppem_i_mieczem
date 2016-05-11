@@ -1,22 +1,22 @@
 ﻿{locationName}
-Miasto
+Town
 {none}
 -
 {console}
-Miasto wygląda na zamknięte, ciekawe dlaczego.
+The town looks closed, I wonder why.
 {conversation with}
-zapytaj
+ask
 {guard}
-strażnika
+guard
 {letting you in}
-czy wpuści Cię do środka
+if let you in
 {close city}
-dlaczego miasto jest zamknięte
+why town is closed
 {attack}
-zaatakuj
+attack
 {steal}
-okradnij
+steal
 {smallfarm}
-Mała farma
+Small farm
 {forest}
-Las
+Forest
