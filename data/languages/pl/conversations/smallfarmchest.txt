@@ -1,0 +1,4 @@
+﻿{description}
+Skrzynia z narzędziami farmera
+{open}
+Zabrałeś ze skrzyni jakieś pierdoły

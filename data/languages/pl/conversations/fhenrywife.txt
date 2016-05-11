@@ -1,0 +1,6 @@
+﻿{job}
+Praca, praca, cały dzień.
+{help}
+Żona farmera jest koniem, nie może ci pomóc.
+{open}
+Udało ci się podkraść i ukraść Cepp pozostając niezauważonym.

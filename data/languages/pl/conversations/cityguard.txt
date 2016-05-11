@@ -1,0 +1,6 @@
+﻿{lettingin}
+- Nie ma wejścia, Idź pan i nie budź mnie - Powiedział strażnik szybko wracając do spania.
+{closecity}
+- Spadaj, daj człowiekowi spać, odwarknął przysypiający strażnik
+{open}
+Śpiący strażnik nawet nie drgnął, gdy gwizdnąłeś mu tarcze.

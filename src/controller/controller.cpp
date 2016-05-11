@@ -174,9 +174,6 @@ bool Controller::conversationEvent(std::string event_name)
 	}
 	std::string person = event_name.substr(0, i);
 	std::string topic = event_name.substr(i + 1);
-	//current_view->setText("{console}", model->getConversation(person, topic)));
-	
-
 	std::transform(person.begin(), person.end(), person.begin(), ::tolower);
 	std::transform(topic.begin(), topic.end(), topic.begin(), ::tolower);
 	std::string text=model->getTextMap("conversations/" + person)["{" + topic + "}"];
@@ -247,9 +244,8 @@ void Controller::equipmentLoadData(int current_element, int active_slot)
 	current_view->setText("{item5}", player->getInventoryItemName(current_element + 5));
 	Itemz* item = player->getInventoryItem(active_slot);
 	current_view->setText("{item_description}", item->getName() + " \n \n " + item->getDescription());
-	current_view->setText("{equipment}", player->eqToString());
+	current_view->setText("{equipment}", model->translateText(player->eqToString(), "text_equipment"));
 	current_view->setText("{gold_value}", asText(player->getGold()));
-	model->translateText(current_view, "text_equipment");
 }
 
 bool Controller::exitEvent(std::string event_name)

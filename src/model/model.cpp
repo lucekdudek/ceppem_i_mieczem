@@ -235,7 +235,7 @@ std::unordered_map<std::string, std::string> Model::getTextMap(
 	return textMap;
 }
 
-void Model::translateText(View* view, std::string file_name)
+std::string Model::translateText(std::string text, std::string file_name)
 {
 	std::unordered_map<std::string, std::string> map = getTextMap(file_name);
 	for(auto& x : map)
@@ -245,8 +245,11 @@ void Model::translateText(View* view, std::string file_name)
 		strcpy(first, x.first.c_str());
 		strcpy(second, x.second.c_str());
 		std::cout << first << "->" << second << std::endl;
-		//view->setText(first, second);
+		int pos = text.find(first);
+		if (pos!=-1)
+			text.replace(text.find(first), std::string(first).length(), second);
 	}
+	return text;
 }
 
 void rotatePoint(int &x, int &y, float angle)
