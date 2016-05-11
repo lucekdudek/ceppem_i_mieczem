@@ -35,6 +35,7 @@ public:
 	std::string translateText(std::string text, std::string file_name);
 	void saveGame(Character* player);
 	bool loadGame(Character* &player);
+	Inventory* loadInventory(std::string filename);
 	const std::string& getLanguage() const {
 		return language;
 	}

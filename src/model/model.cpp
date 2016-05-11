@@ -515,3 +515,28 @@ bool Model::loadGame(Character* &player)
 	}
 	return true;
 }
+
+Inventory* Model::loadInventory(std::string filename)
+{
+	Inventory* inv = new Inventory();
+	TiXmlDocument doc(filename.c_str());
+	bool ok = doc.LoadFile();
+
+	TiXmlElement *pRoot, *pElem;
+	pRoot = doc.FirstChildElement("inventory");
+	pElem = pRoot->FirstChildElement("item");
+	while (pElem)
+	{
+		std::string text = pElem->FirstChild()->ToText()->Value();
+		if (text == "potion_hp")
+		{
+			inv->putItem(loadItem(text, atoi(pElem->Attribute("size"))));
+		}
+		else
+		{
+			inv->putItem(loadItem(text));
+		}
+		pElem = pElem->NextSiblingElement("item");
+	}
+	return inv;
+}
