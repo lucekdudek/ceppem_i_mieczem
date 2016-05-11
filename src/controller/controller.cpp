@@ -222,6 +222,10 @@ bool Controller::equipmentEvent(std::string event_name)
 	{
 		Itemz* item = player->getInventoryItem(active_slot);
 		throwItem(item);
+		if(active_slot >= player->getInventorySize())
+		{
+			active_slot = player->getInventorySize() - 1;
+		}
 		equipmentLoadData(current_element, active_slot);
 	}
 	else

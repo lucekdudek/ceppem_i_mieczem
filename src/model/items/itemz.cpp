@@ -3,6 +3,7 @@
 Itemz::Itemz()
 {
 	name = "-";
+	description = "-";
 	goldValue = 100;
 	id = 0;
 }

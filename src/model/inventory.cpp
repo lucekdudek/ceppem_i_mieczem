@@ -33,3 +33,8 @@ Inventory::~Inventory()
 {
 
 }
+
+void Inventory::throwItem(Itemz * item)
+{
+	itemList.remove(item);
+}

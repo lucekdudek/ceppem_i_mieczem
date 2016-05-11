@@ -11,6 +11,7 @@ public:
 
 	Inventory();
 	~Inventory();
+	void throwItem(Itemz *item);
 private:
 	std::list<Itemz*> itemList;
 };

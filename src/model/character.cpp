@@ -271,7 +271,7 @@ void Character::decGold(int value)
 Itemz * Character::getInventoryItem(int number)
 {
 	int len = backpack->getLength();
-	if(len > number)
+	if((len > number) && (number >= 0))
 	{
 		return backpack->getItem(number);
 	}
@@ -365,4 +365,29 @@ std::string Character::getWeaponName()
 
 void Character::throwItem(Itemz * item)
 {
+	backpack->throwItem(item);
+	if(weapon == item)
+	{
+		weapon = nullptr;
+	}
+	else if(head == item)
+	{
+		head = nullptr;
+	}
+	else if(chest == item)
+	{
+		chest = nullptr;
+	}
+	else if(hands == item)
+	{
+		hands = nullptr;
+	}
+	else if(legs == item)
+	{
+		legs = nullptr;
+	}
+	else if(feet == item)
+	{
+		feet = nullptr;
+	}
 }
