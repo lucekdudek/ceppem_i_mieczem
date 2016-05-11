@@ -109,6 +109,11 @@ void Controller::event(std::string event_name)
 				break;
 		}
 	}
+
+	if (controller.player != nullptr)
+	{
+		controller.current_view->setFill("player", controller.player->getHealth());
+	}
 }
 
 bool Controller::playerFightEvent(std::string event_name)

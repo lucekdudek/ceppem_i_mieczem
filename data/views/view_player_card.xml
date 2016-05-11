@@ -8,6 +8,7 @@
     <height>720</height>
     <textures>
       <texture x="0" y="0" width="140" height="720">menu.jpg</texture>
+	  <progress x="5" y="35" width="130" height="10" name="player">high_resolution_textures/black.png</progress>
     </textures>
   </element>
 	<!-- equipment -->
