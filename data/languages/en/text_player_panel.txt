@@ -1,0 +1,16 @@
+﻿{points}
+Points
+{strength}
+Strenght
+{dexterity}
+dexterity
+{agility}
+Agility
+{wisdom}
+Wisdom
+{inteligence}
+Inteligence
+{charisma}
+Charisma
+{save}
+Save

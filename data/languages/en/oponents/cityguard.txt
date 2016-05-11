@@ -1,0 +1,6 @@
+﻿{me}
+Me
+{oponent}
+City Guard
+{log_console}
+City Guard he's main job is to keep people of the city saved.

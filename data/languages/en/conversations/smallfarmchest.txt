@@ -1,0 +1,4 @@
+﻿{description}
+Chest with Farming stuff
+{open}
+You took everything you found in chest.

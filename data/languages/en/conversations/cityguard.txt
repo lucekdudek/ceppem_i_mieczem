@@ -1,0 +1,6 @@
+﻿{lettingin}
+- Gate closet nobody gets in. \n said sleepy Guard.
+{closecity}
+- Get lost, let me sleep
+{open}
+Sleeping Guard didn't noticed absence of his shield.

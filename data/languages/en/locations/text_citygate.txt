@@ -1,0 +1,22 @@
+﻿{locationName}
+Miasto
+{none}
+-
+{console}
+Miasto wygląda na zamknięte, ciekawe dlaczego.
+{conversation with}
+zapytaj
+{guard}
+strażnika
+{letting you in}
+czy wpuści Cię do środka
+{close city}
+dlaczego miasto jest zamknięte
+{attack}
+zaatakuj
+{steal}
+okradnij
+{smallfarm}
+Mała farma
+{forest}
+Las
