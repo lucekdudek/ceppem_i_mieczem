@@ -108,17 +108,11 @@ void Controller::event(std::string event_name)
 
 bool Controller::playerFightEvent(std::string event_name)
 {
-	if (event_name == "WEAPONA")
+	if (event_name == "WEAPON")
 	{
 		std::cout << "use weapon A" << std::endl;
 		enemy->decHealth(player->getStrength() * 2);
 	}
-	else if (event_name == "WEAPONB")
-	{
-		std::cout << "use weapon B" << std::endl;
-		enemy->decHealth(player->getStrength());
-	}
-
 	player->decHealth(enemy->getStrength() * (rand() % 2 + 1));
 
 	current_view->setFill("player", player->getHealth());
@@ -160,6 +154,8 @@ bool Controller::containerEvent(std::string event_name)
 
 bool Controller::containerOpenEvent(std::string event_name)
 {
+
+	conversationEvent(event_name + "_OPEN");
 	std::cout << event_name << " opened\n";
 	return true;
 }
@@ -224,6 +220,8 @@ bool Controller::equipmentEvent(std::string event_name)
 	}
 	else if(event_name == "THROW")
 	{
+		Itemz* item = player->getInventoryItem(active_slot);
+		throwItem(item);
 		equipmentLoadData(current_element, active_slot);
 	}
 	else
@@ -633,6 +631,11 @@ void Controller::useItem(Itemz * item)
 	{
 		player->incHealth(((Potion*)item)->use());
 	}
+}
+
+void Controller::throwItem(Itemz *item)
+{
+	player->throwItem(item);
 }
 
 void Controller::wear(Wearable *item)

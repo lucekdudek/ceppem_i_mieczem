@@ -362,3 +362,7 @@ std::string Character::getWeaponName()
 	else
 		return "{fists}";
 }
+
+void Character::throwItem(Itemz * item)
+{
+}

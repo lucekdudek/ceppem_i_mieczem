@@ -57,6 +57,7 @@ private:
 	bool playerFightEvent(std::string event_name);
 	void setLocation(std::string view);
 	void useItem(Itemz *item);
+	void throwItem(Itemz *item);
 	void wear(Wearable *item);
 	void wear(Weapon *item);
 	inline void setView(std::string view);
