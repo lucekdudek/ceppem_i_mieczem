@@ -528,7 +528,7 @@ Inventory* Model::loadInventory(std::string filename)
 	while (pElem)
 	{
 		std::string text = pElem->FirstChild()->ToText()->Value();
-		if (text == "potion_hp")
+		if (text.substr(0,6) == "potion")
 		{
 			inv->putItem(loadItem(text, atoi(pElem->Attribute("size"))));
 		}
