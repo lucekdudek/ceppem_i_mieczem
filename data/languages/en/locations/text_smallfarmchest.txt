@@ -11,4 +11,4 @@ steal
 {staff}
 stuff
 {smallfarm}
-small farm
+Small farm

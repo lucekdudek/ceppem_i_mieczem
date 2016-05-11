@@ -1,17 +1,16 @@
 ﻿{none}
 -
 {console}
-Żonka Hanryka to niebrzydka kobietka. Dobrze włada ceppem.
+Hanryk's wife is not bad little woman. Well wield flail.
 {conversation about}
-Zapytaj
+Ask
 {job}
-czym się zajmuje.
+what she does.
 {helping fhenrywife}
-czy potrzebuje pomocy
+if she neads help.
 {steal}
-ukradnij
+steal
 {flail}
-cep
+flail
 {smallfarm}
-Mała farma
-
+Small Farm
