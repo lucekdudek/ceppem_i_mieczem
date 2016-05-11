@@ -2,29 +2,29 @@
 <view>
   <!-- mainmenuBackground -->
   <element>
-    <x>240</x>
-    <y>60</y>
+    <x>440</x>
+    <y>215</y>
     <width>400</width>
     <height>200</height>
     <textures>
-      <texture x="0" y="0" width="200" height="400">playerSettings.jpg</texture>
+      <texture x="0" y="0" width="400" height="230">playerSettings.jpg</texture>
     </textures>
   </element>
   <!-- equipment -->
   <element>
-    <x>470</x>
-    <y>440</y>
+    <x>460</x>
+    <y>250</y>
     <width>550</width>
     <height>300</height>
     <textures>
-      <texture x="0" y="0" width="550" height="190">high_resolution_textures/black.png</texture>
-      <text x="15" y="15" width="545" height="160" color="255,255,255" size="25" display="box">{message}</text>
+      <texture x="0" y="0" width="360" height="160">high_resolution_textures/black.png</texture>
+      <text x="15" y="15" width="330" height="130" color="255,255,255" size="25">{message}</text>
     </textures>
   </element>
   <!-- back -->
   <element>
-    <x>1000</x>
-    <y>30</y>
+    <x>810</x>
+    <y>180</y>
     <width>70</width>
     <height>70</height>
     <onclick>BACK</onclick>
