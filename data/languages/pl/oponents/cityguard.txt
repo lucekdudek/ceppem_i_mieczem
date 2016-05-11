@@ -1,4 +1,6 @@
-﻿{oponent}
+﻿{me}
+Ja
+{oponent}
 Strażnik miejski
 {log_console}
 Strażnik miejski - jego podstawowym zadaniem jest ochrona porządku publicznego i zapewnienie spokoju mieszkańcom miasta.

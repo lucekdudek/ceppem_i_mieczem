@@ -327,6 +327,13 @@ void Controller::fight(std::string next_view, std::string oponent)
 	addView("fight_card", false);
 	current_view->setFill("player", player->getHealth());
 	current_view->setFill("oponent", enemy->getHealth());
+	std::string weapon_name = player->getWeaponName();
+	std::unordered_map<std::string, std::string> map = model->getTextMap("fists");
+	if (map["{fists}"] != "" && weapon_name=="{fists}")
+	{
+		weapon_name = map["{fists}"];
+	}
+	current_view->setText("{weapon_name}", weapon_name);
 }
 
 bool Controller::locationEvent(std::string event_name)

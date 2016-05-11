@@ -232,7 +232,6 @@ void Character::clearAttributes()
 	wisdom = min_wisdom;
 	inteligence = min_inteligence;
 	charisma = min_charisma;
-
 }
 
 int Character::getHealth()

@@ -17,6 +17,10 @@ std::list<std::string> splitString(std::string str)
 	{
 		str.replace(str.find("\n"), 1, " \t ");
 	}
+	while (str.find("\\n") != std::string::npos)
+	{
+		str.replace(str.find("\\n"), 2, " \t ");
+	}
 
 	while (str.find("\t") != std::string::npos)
 	{

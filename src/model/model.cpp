@@ -358,6 +358,8 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 		temp->setText("{oponent}", map["{oponent}"]);
 	if (map["{log_console}"] != "")
 		temp->setText("{log_console}", map["{log_console}"]);
+	if (map["{me}"] != "")
+		temp->setText("{me}", map["{me}"]);
 
 	View* v = new View(elements);
 	v->extendView(temp);
