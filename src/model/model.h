@@ -18,7 +18,9 @@
 #include "items/wearable.h"
 #include "items/weapon.h"
 #include "items/potion.h"
+#include "character.h"
 #include <fstream>
+
 class Model
 {
 public:
@@ -31,6 +33,7 @@ public:
 	Itemz* loadItem(std::string name);
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
 	std::string translateText(std::string text, std::string file_name);
+	void saveGame(Character* player);
 	const std::string& getLanguage() const {
 		return language;
 	}

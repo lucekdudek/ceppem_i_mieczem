@@ -1,11 +1,12 @@
 #include "itemz.h"
 
-Itemz::Itemz()
+Itemz::Itemz(std::string name_original)
 {
 	name = "-";
 	description = "-";
 	goldValue = 100;
 	id = 0;
+	this->name_original = name_original;
 }
 
 Itemz::~Itemz()
@@ -50,4 +51,9 @@ void Itemz::setDescription(std::string description)
 void Itemz::setGoldValue(int value)
 {
 	Itemz::goldValue = value;
+}
+
+std::string Itemz::getItemOriginalName()
+{
+	return name_original;
 }

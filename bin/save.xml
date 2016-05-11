@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<save>
+    <player strength="4" dexterity="4" agility="4" wisdom="4" inteligence="4" charisma="4" health="100" gold="2000" />
+    <backpack>
+        <item>armor</item>
+        <item>boots</item>
+        <item>cepp</item>
+        <item>hands</item>
+        <item>helm</item>
+        <item>legs</item>
+        <item size="4">potion_hp
+        </item>
+    </backpack>
+</save>

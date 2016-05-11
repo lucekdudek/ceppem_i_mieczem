@@ -594,6 +594,7 @@ bool Controller::lvl_up(std::string event_name)
 void Controller::saveGame()
 {
 	std::cout << "game saved\n";
+	model->saveGame(player);
 }
 
 void Controller::loadGame()
