@@ -109,18 +109,18 @@
   <!-- description -->
   <element>
     <x>470</x>
-    <y>160</y>
+    <y>90</y>
     <width>550</width>
-    <height>340</height>
+    <height>300</height>
     <textures>
-      <texture x="0" y="0" width="550" height="340">high_resolution_textures/black.png</texture>
-      <text x="15" y="15" width="545" height="315" color="255,255,255" size="25" display="box">{item_description}</text>
+      <texture x="0" y="0" width="550" height="260">high_resolution_textures/black.png</texture>
+      <text x="15" y="15" width="545" height="230" color="255,255,255" size="25" display="box">{item_description}</text>
     </textures>
   </element>
   <!-- use -->
   <element>
     <x>470</x>
-    <y>510</y>
+    <y>370</y>
     <width>270</width>
     <height>50</height>
     <onclick>USE</onclick>
@@ -132,7 +132,7 @@
   <!-- throw -->
   <element>
     <x>750</x>
-    <y>510</y>
+    <y>370</y>
     <width>270</width>
     <height>50</height>
     <onclick>THROW</onclick>
@@ -141,7 +141,19 @@
       <text x="0" y="0" width="270" height="50" color="255,255,255" size="30">{throw}</text>
     </textures>
   </element>
-
+  <!-- equipment -->
+  <element>
+    <x>470</x>
+    <y>440</y>
+    <width>550</width>
+    <height>300</height>
+    <textures>
+      <texture x="0" y="0" width="550" height="190">high_resolution_textures/black.png</texture>
+      <text x="15" y="15" width="545" height="160" color="255,255,255" size="25" display="box">{equipment}</text>
+      <text x="300" y="160" width="150" height="30" color="255,255,255" size="25">{gold}:</text>
+      <text x="450" y="160" width="100" height="30" color="255,255,255" size="25">{gold_value}</text>
+    </textures>
+  </element>
   <!-- back -->
   <element>
     <x>1000</x>

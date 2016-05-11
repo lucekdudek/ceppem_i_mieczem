@@ -30,7 +30,7 @@ public:
 	View* getFightView(std::string file_name, std::string name, std::string image_file);
 	Itemz* loadItem(std::string name);
     std::unordered_map<std::string, std::string> getTextMap(std::string filename);
-
+	void translateText(View* view, std::string file_name);
 	const std::string& getLanguage() const {
 		return language;
 	}

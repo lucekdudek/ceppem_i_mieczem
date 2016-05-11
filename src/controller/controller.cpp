@@ -149,7 +149,7 @@ bool Controller::containerEvent(std::string event_name)
 	}
 	else if(event_name.substr(0, 12) == "INVESTIGATE_")
 	{
-		return conversationEvent(event_name);
+		return conversationEvent(event_name.substr(12) + "_DESCRIPTION");
 	}
 	else
 	{
@@ -223,11 +223,11 @@ bool Controller::equipmentEvent(std::string event_name)
 	{
 		Itemz* item = player->getInventoryItem(active_slot);
 		useItem(item);
-		std::cout<<player->eqToString()<<std::endl;
+		equipmentLoadData(current_element, active_slot);
 	}
 	else if(event_name == "THROW")
 	{
-
+		equipmentLoadData(current_element, active_slot);
 	}
 	else
 	{
@@ -247,6 +247,9 @@ void Controller::equipmentLoadData(int current_element, int active_slot)
 	current_view->setText("{item5}", player->getInventoryItemName(current_element + 5));
 	Itemz* item = player->getInventoryItem(active_slot);
 	current_view->setText("{item_description}", item->getName() + " \n \n " + item->getDescription());
+	current_view->setText("{equipment}", player->eqToString());
+	current_view->setText("{gold_value}", asText(player->getGold()));
+	model->translateText(current_view, "text_equipment");
 }
 
 bool Controller::exitEvent(std::string event_name)
@@ -732,7 +735,7 @@ Controller &Controller::getController()
 
 std::string Controller::asText(int number)
 {
-	char buff[3];
+	char buff[15];
 	snprintf(buff, sizeof(buff), "%d", number);
 	return buff;
 }

@@ -24,6 +24,7 @@ Character::Character(int basic, int points)
 	min_charisma = basic;
 	health = 100;
 	backpack = new Inventory();
+	gold = 2000;
 }
 
 Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
@@ -36,6 +37,7 @@ Character::Character(int st, int dex, int ag, int wi, int in, int ch,int pkt)
 	min_inteligence = inteligence = in;
 	min_charisma = charisma = ch;
 	health = 100;
+	gold = 2000;
 }
 
 int Character::getPoints()
@@ -250,6 +252,21 @@ void Character::decHealth(int value)
 		health = 0;
 }
 
+int Character::getGold()
+{
+	return gold;
+}
+
+void Character::incGold(int value)
+{
+	gold += value;
+}
+
+void Character::decGold(int value)
+{
+	gold += value;
+}
+
 Itemz * Character::getInventoryItem(int number)
 {
 	int len = backpack->getLength();
@@ -321,18 +338,18 @@ void Character::addItem(Itemz * item)
 std::string Character::eqToString()
 {
 	std::string result = "";
-	result += "Twój ekwipunek:";
+	result += "{your_equipment}:";
 	if(head != nullptr)
-		result += "\n G³owa: " + head->getName();
+		result += "\n {head}: " + head->getName();
 	if(chest != nullptr)
-		result += "\n T³ów: " + chest->getName();
+		result += "\n {chest}: " + chest->getName();
 	if(hands != nullptr)
-		result += "\n Rêce: " + hands->getName();
+		result += "\n {hands}: " + hands->getName();
 	if(legs != nullptr)
-		result += "\n Nogi: " + legs->getName();
+		result += "\n {legs}: " + legs->getName();
 	if(feet != nullptr)
-		result += "\n Stopy: " + feet->getName();
+		result += "\n {feet}: " + feet->getName();
 	if(weapon != nullptr)
-		result += "\n Broñ: " + weapon->getName();
+		result += "\n {weapon}: " + weapon->getName();
 	return result;
 }

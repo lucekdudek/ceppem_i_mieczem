@@ -44,6 +44,9 @@ public:
 	int getHealth();
 	void incHealth(int value);
 	void decHealth(int value);
+	int getGold();
+	void incGold(int value);
+	void decGold(int value);
 	Itemz *getInventoryItem(int number);
 	char *getInventoryItemName(int number);
 	int getInventorySize();
@@ -70,6 +73,7 @@ private:
     int charisma;
     int min_charisma;
 	int health;
+	int gold;
 
 	Itemz* weapon;
 	Itemz* head;

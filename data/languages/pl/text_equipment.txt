@@ -1,0 +1,24 @@
+﻿{previous}
+poprzednie
+{next}
+następne
+{use}
+użyj
+{throw}
+wyrzuć
+{your_equipment}
+Twój ekwipunek
+{head}
+głowa
+{chest}
+zbroja
+{hands}
+ręce
+{legs}
+nogi
+{feet}
+stopy
+{weapon}
+broń
+{gold}
+Złoto
