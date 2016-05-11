@@ -8,7 +8,7 @@ sprawdź
 zawartość
 {steal}
 ukradnij
-{staff}
+{stuff}
 przedmioty
 {smallfarm}
 mała farma
