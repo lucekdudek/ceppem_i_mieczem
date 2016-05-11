@@ -519,7 +519,7 @@ bool Model::loadGame(Character* &player)
 Inventory* Model::loadInventory(std::string filename)
 {
 	Inventory* inv = new Inventory();
-	TiXmlDocument doc(filename.c_str());
+	TiXmlDocument doc(("../data/containers/" + filename + ".xml").c_str());
 	bool ok = doc.LoadFile();
 
 	TiXmlElement *pRoot, *pElem;

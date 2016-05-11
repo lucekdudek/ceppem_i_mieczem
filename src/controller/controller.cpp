@@ -166,9 +166,13 @@ bool Controller::containerEvent(std::string event_name)
 
 bool Controller::containerOpenEvent(std::string event_name)
 {
-
+	std::transform(event_name.begin(), event_name.end(), event_name.begin(), ::tolower);
 	conversationEvent(event_name + "_OPEN");
-	std::cout << event_name << " opened\n";
+	Inventory* container = model->loadInventory(event_name);
+	for(int i = 0; i < container->getLength(); i++)
+	{
+		player->addItem(container->getItem(i));
+	}
 	return true;
 }
 
@@ -673,7 +677,7 @@ void Controller::useItem(Itemz * item)
 	else if(type == "potion")
 	{
 		int heal = ((Potion*)item)->use();
-		if (heal == 0)
+		if (((Potion*)item)->getSize() == "0")
 		{
 			equipmentEvent("THROW");
 		}
