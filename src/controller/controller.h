@@ -42,6 +42,7 @@ private:
 	bool gameMenuEvent(std::string event_name);
 	bool locationEvent(std::string event_name);
 	bool mainMenuEvent(std::string event_name);
+	bool messageEvent(std::string event_name);
 	bool newGameEvent(std::string event_name);
 	bool personEvent(std::string event_name);
 	bool personFightEvent(std::string event_name);
@@ -66,8 +67,10 @@ private:
 	inline void addView(std::string view, bool deactivation = false);
 	inline void addView(std::string view, std::string location, bool deactivation = false);
 	inline void delView();
+	void showMessage(std::string message_tag);
 	static inline std::string asText(int number);
 	void loadStats(Character *character);
+	
 };
 
 #endif //CEPEM_I_MIECZEM_CONTROLLER_H

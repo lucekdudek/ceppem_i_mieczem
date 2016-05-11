@@ -1,5 +1,5 @@
 ﻿{lettingin}
-- Nie ma wejścia, Idź pan i nie budź mnie\n- Powiedział strażnik szybko wracając do spania.
+- Nie ma wejścia, Idź pan i nie budź mnie \n Powiedział strażnik szybko wracając do spania.
 {closecity}
 - Spadaj, daj człowiekowi spać, odwarknął przysypiający strażnik
 {open}

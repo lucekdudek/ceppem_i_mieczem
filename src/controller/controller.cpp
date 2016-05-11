@@ -103,6 +103,11 @@ void Controller::event(std::string event_name)
 			if (controller.playerFightEvent(event_name))
 				break;
 		}
+		else if(*it == "message")
+		{
+			if(controller.messageEvent(event_name))
+				break;
+		}
 	}
 }
 
@@ -386,6 +391,19 @@ bool Controller::mainMenuEvent(std::string event_name)
 	return true;
 }
 
+bool Controller::messageEvent(std::string event_name)
+{
+	if(event_name == "BACK")
+	{
+		delView();
+	}
+	else
+	{
+		return false;
+	}
+	return true;
+}
+
 bool Controller::newGameEvent(std::string event_name)
 {
 	if(event_name == "BACK")
@@ -595,6 +613,8 @@ void Controller::saveGame()
 {
 	std::cout << "game saved\n";
 	model->saveGame(player);
+	delView();
+	showMessage("saved");
 }
 
 void Controller::loadGame()
@@ -740,6 +760,16 @@ void Controller::delView()
 void Controller::setDone()
 {
 	getController().running = false;
+}
+
+void Controller::showMessage(std::string message_tag)
+{
+	View* v = model->getXml("view_message");
+	current_view_name.push_front("message");
+	current_view->extendView(v, true);
+	std::cout << "text:" << model->getTextMap("text_message")["{" + message_tag + "}"] << std::endl;
+	current_view->setText("{message}", model->getTextMap("text_message")["{" + message_tag + "}"]);
+	window->updateClickmap();
 }
 
 Controller &Controller::getController()
