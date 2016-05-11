@@ -672,7 +672,12 @@ void Controller::useItem(Itemz * item)
 	}
 	else if(type == "potion")
 	{
-		player->incHealth(((Potion*)item)->use());
+		int heal = ((Potion*)item)->use();
+		if (heal == 0)
+		{
+			equipmentEvent("THROW");
+		}
+		player->incHealth(heal);
 		showMessage("use_potion");
 	}
 }
