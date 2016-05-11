@@ -225,12 +225,14 @@ void Character::saveAttributes()
 
 void Character::clearAttributes()
 {
+	points += strength - min_strength + agility - min_agility + dexterity - min_dexterity + wisdom - min_wisdom + inteligence - min_inteligence + charisma - min_charisma;
 	strength = min_strength;
 	agility = min_agility;
 	dexterity = min_dexterity;
 	wisdom = min_wisdom;
 	inteligence = min_inteligence;
 	charisma = min_charisma;
+
 }
 
 int Character::getHealth()
