@@ -132,6 +132,7 @@ bool Controller::playerFightEvent(std::string event_name)
 		std::cout << "game over" << std::endl;
 		player->incHealth(10);
 		travel(next_view_name);
+		showMessage("game_over");
 		delete enemy;
 		enemy = nullptr;
 	}
@@ -139,6 +140,7 @@ bool Controller::playerFightEvent(std::string event_name)
 	{
 		std::cout << "you won -> open container" << std::endl;
 		travel(next_view_name);
+		showMessage("you_won");
 		delete enemy;
 		enemy = nullptr;
 	}
@@ -628,6 +630,11 @@ void Controller::loadGame()
 	if (model->loadGame(player))
 	{
 		setLocation("smallfarm");
+		showMessage("loaded");
+	}
+	else
+	{
+		showMessage("loading_error");
 	}
 }
 
@@ -656,14 +663,17 @@ void Controller::useItem(Itemz * item)
 	if(type == "wearable")
 	{
 		wear((Wearable*)item);
+		showMessage("use_wearable");
 	}
 	if(type == "weapon")
 	{
 		wear((Weapon*)item);
+		showMessage("use_weapon");
 	}
 	else if(type == "potion")
 	{
 		player->incHealth(((Potion*)item)->use());
+		showMessage("use_potion");
 	}
 }
 

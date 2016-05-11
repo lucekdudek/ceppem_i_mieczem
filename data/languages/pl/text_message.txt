@@ -2,3 +2,15 @@
 gra została wczytana
 {saved}
 gra została zapisana
+{game_over}
+przegrałeś walkę
+{you_won}
+wygrałeś
+{loading_error}
+błąd podczas ładowania
+{use_wearable}
+przebrałeś się
+{use_weapon}
+założyłeś broń
+{use_potion}
+użyłeś mikstury
