@@ -1,0 +1,4 @@
+﻿{loaded}
+gra została wczytana
+{saved}
+gra została wczytana

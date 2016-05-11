@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<view>
+  <!-- mainmenuBackground -->
+  <element>
+    <x>240</x>
+    <y>60</y>
+    <width>400</width>
+    <height>200</height>
+    <textures>
+      <texture x="0" y="0" width="200" height="400">playerSettings.jpg</texture>
+    </textures>
+  </element>
+  <!-- equipment -->
+  <element>
+    <x>470</x>
+    <y>440</y>
+    <width>550</width>
+    <height>300</height>
+    <textures>
+      <texture x="0" y="0" width="550" height="190">high_resolution_textures/black.png</texture>
+      <text x="15" y="15" width="545" height="160" color="255,255,255" size="25" display="box">{message}</text>
+    </textures>
+  </element>
+  <!-- back -->
+  <element>
+    <x>1000</x>
+    <y>30</y>
+    <width>70</width>
+    <height>70</height>
+    <onclick>BACK</onclick>
+    <textures>
+      <texture x="0" y="0" width="70" height="70">mainmenu/button.png</texture>
+      <text x="0" y="0" width="70" height="70" size="45">X</text>
+    </textures>
+  </element>
+</view>
