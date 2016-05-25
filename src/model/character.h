@@ -14,6 +14,7 @@ class Character
 public:
     Character(int basic=4, int points=10);
 	Character(int st, int dex, int ag, int wi, int in, int ch, int health, int gold, int pkt = 0);
+	~Character();
 	int getPoints();
     int getStrength();
 	void decStrength();

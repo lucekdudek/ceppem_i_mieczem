@@ -173,6 +173,7 @@ bool Controller::containerOpenEvent(std::string event_name)
 	{
 		player->addItem(container->getItem(i));
 	}
+	delete container;
 	return true;
 }
 
@@ -631,6 +632,10 @@ void Controller::saveGame()
 void Controller::loadGame()
 {
 	std::cout << "game loaded\n";
+	if(player != nullptr)
+	{
+		delete player;
+	}
 	if (model->loadGame(player))
 	{
 		setLocation("smallfarm");

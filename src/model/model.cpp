@@ -192,8 +192,8 @@ View *Model::getXml(std::string file_name, std::string location_name)
 	{
 		char first[256];
 		char second[256];
-		strcpy(first, x.first.c_str());
-		strcpy(second, x.second.c_str());
+		strcpy_s(first, x.first.c_str());
+		strcpy_s(second, x.second.c_str());
 		view->setText(first, second);
 	}
 
@@ -205,8 +205,8 @@ View *Model::getXml(std::string file_name, std::string location_name)
 		{
 			char first[256];
 			char second[256];
-			strcpy(first, x.first.c_str());
-			strcpy(second, x.second.c_str());
+			strcpy_s(first, x.first.c_str());
+			strcpy_s(second, x.second.c_str());
 			view->setText(first, second);
 		}
 	}
@@ -242,8 +242,8 @@ std::string Model::translateText(std::string text, std::string file_name)
 	{
 		char first[256];
 		char second[256];
-		strcpy(first, x.first.c_str());
-		strcpy(second, x.second.c_str());
+		strcpy_s(first, x.first.c_str());
+		strcpy_s(second, x.second.c_str());
 		std::cout << first << "->" << second << std::endl;
 		int pos = text.find(first);
 		if (pos!=-1)

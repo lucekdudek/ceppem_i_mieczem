@@ -34,7 +34,7 @@ int Potion::use()
 std::string Potion::getSize()
 {
 	char buff[3];
-	return std::string(_itoa(this->stack, buff, 10));
+	return std::to_string(this->stack);
 }
 
 void Potion::setSize(int size)

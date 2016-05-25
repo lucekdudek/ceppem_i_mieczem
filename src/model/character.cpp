@@ -42,6 +42,15 @@ Character::Character(int st, int dex, int ag, int wi, int in, int ch, int health
 	backpack = new Inventory();
 }
 
+Character::~Character()
+{
+	for(int i = 0; i < backpack->getLength(); i++)
+	{
+		backpack->throwItem(backpack->getItem(0));
+	}
+	delete backpack;
+}
+
 int Character::getPoints()
 {
 	return points;
