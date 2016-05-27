@@ -33,7 +33,7 @@
 	<onclick>WEAPON</onclick>
     <textures>
       <texture x="0" y="0" width="200" height="200">high_resolution_textures/black.png</texture>
-      <texture x="36" y="0" width="128" height="128">icons/icon256.png</texture>
+      <texture x="60" y="15" width="92" height="127">attack.png</texture>
       <text x="5" y="160" width="190" height="20" color="255,255,255" size="30">{weapon_name}</text>
     </textures>
   </element>
