@@ -1,0 +1,6 @@
+﻿{me}
+Ja
+{oponent}
+Farmer Henryk
+{log_console}
+Farmer Henryk - prosty, dobry człowiek, który ciężko pracuje na polu aby utrzymać swoją rodzinę
