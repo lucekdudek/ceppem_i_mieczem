@@ -6,7 +6,6 @@
 #include "../locations/l_small_farm.h"
 #include <stdlib.h>
 
-
 Controller::Controller()
 {
 	running = true;
@@ -31,13 +30,12 @@ void Controller::run()
 {
 	Controller &controller = getController();
 	controller.setView("mainmenu");
-	FpsHandler clock;
 	while(controller.running)
 	{
-		clock.start();
+		controller.clock.start();
 		controller.window->eventLoop();
 		controller.window->renderFrame();
-		clock.delay();
+		controller.clock.delay();
 	}
 }
 

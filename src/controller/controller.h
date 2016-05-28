@@ -11,6 +11,7 @@
 #include "../model/items/wearable.h"
 #include "../model/items/weapon.h"
 #include "../model/items/potion.h"
+#include "fpshandler.h"
 
 class Controller
 {
@@ -29,6 +30,7 @@ private:
 	Character* player;
 	Enemy* enemy;
 	Location* location;
+	FpsHandler clock;
 	std::string next_view_name="";
 	Controller();
 	~Controller();
