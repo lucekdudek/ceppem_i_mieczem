@@ -369,7 +369,7 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 
 Itemz* Model::loadItem(std::string name, int size)
 {
-	Itemz *item = new Itemz("");
+	Itemz *item = nullptr;
 	std::string itemName;
 	std::string itemDescription;
 	TiXmlDocument doc(("../data/items/" + name + ".xml").c_str());

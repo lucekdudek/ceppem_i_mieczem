@@ -262,7 +262,14 @@ void Controller::equipmentLoadData(int current_element, int active_slot)
 	current_view->setText("{item4}", player->getInventoryItemName(current_element + 4));
 	current_view->setText("{item5}", player->getInventoryItemName(current_element + 5));
 	Itemz* item = player->getInventoryItem(active_slot);
-	current_view->setText("{item_description}", item->getName() + " \n \n " + item->getDescription());
+	if(item != nullptr)
+	{
+		current_view->setText("{item_description}", item->getName() + " \n \n " + item->getDescription());
+	}
+	else
+	{
+		current_view->setText("{item_description}","- \n \n -");
+	}
 	current_view->setText("{equipment}", model->translateText(player->eqToString(), "text_equipment"));
 	current_view->setText("{gold_value}", asText(player->getGold()));
 }

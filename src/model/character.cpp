@@ -301,7 +301,7 @@ Itemz * Character::getInventoryItem(int number)
 	}
 	else
 	{
-		return new Itemz("");
+		return nullptr;
 	}
 }
 
