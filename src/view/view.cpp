@@ -28,6 +28,7 @@ void View::setText(char* name, std::string text) {
 		tmpElem->setText(name,t);
 		this->elements.insert(i, tmpElem);
 	}
+	delete t;
 }
 
 void View::setFill(char* name, unsigned char fill)

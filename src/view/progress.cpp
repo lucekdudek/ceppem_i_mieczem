@@ -12,6 +12,7 @@ Progress::Progress(int x, int y, int width, int height, char* name, char* path) 
 
 Progress::~Progress()
 {
+	delete name;
 }
 
 void Progress::setFill(unsigned char fill)

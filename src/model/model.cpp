@@ -28,6 +28,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 		std::string tmp = "../data/images/" + std::string(pRoot2->FirstChildElement("background")->FirstChild()->ToText()->Value());
 		char* background = _strdup(tmp.c_str());
 		bgElement->addTexture(new Texture(0, 0, 1280, 720, background));
+		delete background;
 		elements.push_back(bgElement);
 	}
 
@@ -108,7 +109,9 @@ View *Model::getXml(std::string file_name, std::string location_name)
 					temp = "../data/images/" + temp;
 					text = _strdup(temp.c_str());
 					//load textures into opengl and add it to Element
-					el->addTexture(new Progress(x, y, width, height, _strdup(pParm2->Attribute("name")), text));
+					char* temporary = _strdup(pParm2->Attribute("name"));
+					el->addTexture(new Progress(x, y, width, height, temporary, text));
+					delete temporary;
 				}
 				else
 				{
@@ -118,6 +121,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 						if (location_name.length() > 0)
 						{
 							pEvent = pRoot2->FirstChildElement("console");
+							delete text;
 							text = _strdup(pEvent->FirstChild()->ToText()->Value());
 						}
 						int fontSize = 0;
@@ -148,6 +152,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 							{
 								if (eventName == pEvent->Attribute("place"))
 								{
+									delete text;
 									text = _strdup(pEvent->FirstChildElement("text")->FirstChild()->ToText()->Value());
 								}
 								pEvent = pEvent->NextSiblingElement("event");
@@ -175,6 +180,7 @@ View *Model::getXml(std::string file_name, std::string location_name)
 						el->addTexture(t);
 					}
 				}
+				delete text;
 			}
 			pParm2 = pParm2->NextSiblingElement();
 		}

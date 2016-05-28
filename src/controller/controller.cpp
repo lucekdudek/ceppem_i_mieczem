@@ -769,6 +769,7 @@ void Controller::addView(std::string view, bool deactivation)
 	View* v = model->getXml("view_" + view);
 	current_view_name.push_front(view);
 	current_view->extendView(v, deactivation);
+	delete v;
 	window->updateClickmap();
 }
 
