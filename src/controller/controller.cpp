@@ -276,6 +276,8 @@ void Controller::equipmentLoadData(int current_element, int active_slot)
 
 bool Controller::exitEvent(std::string event_name)
 {
+	delete player;
+	player = nullptr;
 	if(event_name == "MENU")
 	{
 		setView("mainmenu");

@@ -44,7 +44,7 @@ Character::Character(int st, int dex, int ag, int wi, int in, int ch, int health
 
 Character::~Character()
 {
-	for(int i = 0; i < backpack->getLength(); i++)
+	while(backpack->getLength()>0)
 	{
 		backpack->throwItem(backpack->getItem(0));
 	}
