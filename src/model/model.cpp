@@ -349,7 +349,7 @@ View* Model::getFightView(std::string file_name, std::string name, std::string i
 	el->addTexture(new Texture(0, 0, 1280, 720, "../data/images/fight.jpg"));
 	image_file = "../data/images/" + image_file;
 	char* image_file_path = _strdup(image_file.c_str());
-	el->addTexture(new Texture(750, 180, 235, 235, image_file_path));
+	el->addTexture(new Texture(730, 115, 240, 318, image_file_path));
 	elements.push_back(el);
 
 	View* temp = getXml(file_name);
