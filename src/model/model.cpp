@@ -291,6 +291,7 @@ View* Model::getMap(std::string file_name, std::string location_name)
 	{
 		el->addTexture(new Text(-90, -50, 200, 50, "?", 0));
 	}
+	delete loc_name;
 	elements.push_back(el);
 
 	TiXmlDocument doc(("../data/locations/" + location_name + ".xml").c_str());
@@ -325,18 +326,24 @@ View* Model::getMap(std::string file_name, std::string location_name)
 
 		char * text = _strdup(pRoad->Attribute("onclick"));
 		el->setOnClick(text);
+		delete text;
 		text = _strdup(pRoad->FirstChild()->ToText()->Value());
 		char * temp_text = _strdup(map[text].c_str());
 		if (strlen(temp_text) > 0)
 		{
+			delete text;
 			text = temp_text;
 		}
-
+		else
+		{
+			delete temp_text;
+		}
 		el->setOnHover(new Text(-90, -50, 200, 50, text, 0));
 		elements.push_back(el);
 
 		i++;
 		pRoad = pRoad->NextSiblingElement("place");
+		delete text;
 	}
 
 	View* temp = new View(elements);

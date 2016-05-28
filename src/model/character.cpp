@@ -305,14 +305,14 @@ Itemz * Character::getInventoryItem(int number)
 	}
 }
 
-char* Character::getInventoryItemName(int number)
+std::string Character::getInventoryItemName(int number)
 {
 
 	int len = backpack->getLength();
 	std::cout << len << ">" << number << std::endl;
 	if(len > number)
 	{
-		return _strdup(backpack->getItem(number)->getName().c_str());
+		return backpack->getItem(number)->getName();
 	}
 	else
 	{

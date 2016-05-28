@@ -49,7 +49,7 @@ public:
 	void incGold(int value);
 	void decGold(int value);
 	Itemz *getInventoryItem(int number);
-	char *getInventoryItemName(int number);
+	std::string getInventoryItemName(int number);
 	int getInventorySize();
 	void wearHead(Wearable *item);
 	void wearChest(Wearable *item);
