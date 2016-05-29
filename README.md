@@ -29,8 +29,8 @@ W projekcie użyliśmy następujacych wzorców projektowych:
  - Iterator
 
 Diagram przypadków użycia:
-![](use_case.png)
+![]("diagrams/Use case diagram.png")
 Diagram czynności:
-![](activity.png)
+![]("diagrams/Activity diagram.png")
 Diagram klas:
-![](class.png)
+![]("diagrams/Class diagram.png")
