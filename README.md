@@ -31,6 +31,6 @@ W projekcie użyliśmy następujacych wzorców projektowych:
 Diagram przypadków użycia:
 ![](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/diagrams/Use%20case%20diagram.png)
 Diagram czynności:
-![]("diagrams/Activity diagram.png")
+![](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/diagrams/Activity%20diagram.png)
 Diagram klas:
-![]("diagrams/Class diagram.png")
+![](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/diagrams/Class%20diagram.png)
