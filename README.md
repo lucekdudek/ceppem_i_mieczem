@@ -1,7 +1,7 @@
 # ceppem_i_mieczem
 
 ## Opis:
-Gra RPG  
+Silnik gier RPG w której elementy świata wczytywane są z plików XML. Repozytorium zawiera przykładową grę prezentującą elementy silnika. 
 
 ## Autorzy:
 Łukasz Bryniarski  
@@ -22,3 +22,13 @@ Do uruchomienia projektu wymagany jest program Visual Studio 2015.
 7. Skompiluj i uruchom projekt.
 
 ## Dokumentacja:
+
+W projekcie użyliśmy następujacych wzorców projektowych:
+ - MVC
+ - Singleton
+
+Diagram przypadków użycia
+
+Diagram czynności
+
+Diagram klas
