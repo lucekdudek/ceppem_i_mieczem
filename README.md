@@ -28,7 +28,8 @@ W projekcie użyliśmy następujacych wzorców projektowych:
  - Singleton
 
 Diagram przypadków użycia
-
+![](use_case.png)
 Diagram czynności
-
+![](activity.png)
 Diagram klas
+![](class.png)
