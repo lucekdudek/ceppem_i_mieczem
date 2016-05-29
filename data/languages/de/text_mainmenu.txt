@@ -2,7 +2,7 @@
 Weiter Spiel
 {newGame}
 Neues Spiel
-{loadGame}
+{load_game}
 Spiel laden
 {settings}
 Einstellungen

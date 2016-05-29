@@ -1,0 +1,6 @@
+﻿{me}
+Ja
+{oponent}
+Farmer Henryk
+{log_console}
+Farmer Henryk - simple, good man, who works hard to sustaing his family

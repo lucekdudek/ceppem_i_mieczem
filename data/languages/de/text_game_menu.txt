@@ -1,0 +1,10 @@
+﻿{back_to_game}
+Zurück zum Spiel
+{save_game}
+Spiel speichern
+{load_game}
+Spiel laden
+{exit_to_menu}
+Ausgang zum Menü
+{exit_to_desktop}
+Beenden Sie auf dem Desktop

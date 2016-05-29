@@ -1,0 +1,6 @@
+﻿{job}
+Arbeit, Arbeit, den ganzen Tag.
+{help}
+Die Bäuerin ist ein Pferd, das kann ich Ihnen nicht helfen.
+{open}
+Du hast es geschafft in schleichen und stehlen Halten Sie unbemerkt zu bleiben.

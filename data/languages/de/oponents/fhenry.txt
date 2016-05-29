@@ -1,0 +1,6 @@
+﻿{me}
+ich
+{oponent}
+Farmer Henry
+{log_console}
+Farmer Henry - ein einfaches, guter Mann, der hart auf dem Gebiet arbeitet, seine Familie zu pflegen

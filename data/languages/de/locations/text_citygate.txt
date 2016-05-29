@@ -1,0 +1,22 @@
+﻿{locationName}
+Stadt
+{none}
+-
+{console}
+Die Stadt sieht geschlossen, frage ich mich, warum.
+{conversation with}
+fragen
+{guard}
+Wache
+{letting you in}
+oder lassen Sie sich im Inneren
+{close city}
+warum die Stadt geschlossen
+{attack}
+Angriff
+{steal}
+stehlen
+{smallfarm}
+kleines Bauernhaus
+{forest}
+Wald

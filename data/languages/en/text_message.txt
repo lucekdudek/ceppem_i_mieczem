@@ -1,0 +1,16 @@
+﻿{loaded}
+game saved}
+{saved}
+game loaded
+{game_over}
+you lost!
+{you_won}
+you won!
+{loading_error}
+error loading game
+{use_wearable}
+you've changed clothes
+{use_weapon}
+you've equipped a weapon
+{use_potion}
+you've used a potion

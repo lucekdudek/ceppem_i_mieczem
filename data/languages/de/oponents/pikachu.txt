@@ -1,0 +1,6 @@
+﻿{me}
+ich
+{oponent}
+Pikachu
+{log_console}
+Pikachu - das Elektro-Pokémon. Pikachu ist Pikachu Evolution. Es entwickelt sich zu Raichu unter Stein Blitz. Die Fähigkeit, Pikachu ist statisch.

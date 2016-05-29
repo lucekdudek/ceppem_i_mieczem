@@ -1,0 +1,14 @@
+﻿{none}
+-
+{console}
+Die kleine Box enthält die notwendigen Werkzeuge für jeden Landwirt.
+{check}
+überprüfen
+{content}
+Inhalt
+{steal}
+stehlen
+{stuff}
+Artikel
+{smallfarm}
+kleine Farm

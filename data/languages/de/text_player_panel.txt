@@ -1,9 +1,5 @@
-﻿{back}
-Zurück
-{points}
+﻿{points}
 Punkte
-{startGame}
-Spiel beginnen
 {strength}
 Stärke
 {dexterity}
@@ -11,8 +7,10 @@ Geschicklichkeit
 {agility}
 Beweglichkeit
 {wisdom}
-Weisheit
+Wissen
 {inteligence}
 Intelligenz
 {charisma}
 Charisma
+{save}
+Speichern

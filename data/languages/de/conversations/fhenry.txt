@@ -1,0 +1,4 @@
+﻿{job}
+Arbeit
+{help}
+Hilfe

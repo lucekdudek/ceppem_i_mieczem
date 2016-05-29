@@ -1,0 +1,16 @@
+﻿{none}
+-
+{console}
+Farmer Henry sieht harmlos.
+{conversation about}
+fragen
+{job}
+was sie tut.
+{helping fhenry}
+oder braucht Hilfe
+{attack}
+Angriff
+{fhenry}
+Henryk
+{smallfarm}
+kleines Bauernhaus

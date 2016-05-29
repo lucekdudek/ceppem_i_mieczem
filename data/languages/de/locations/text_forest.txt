@@ -1,0 +1,10 @@
+﻿{locationName}
+Wald
+{none}
+-
+{console}
+Wald Wald Wald, nichts.
+{city}
+Stadt
+{smallfarm}
+kleines Bauernhaus

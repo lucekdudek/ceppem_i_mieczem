@@ -1,0 +1,18 @@
+﻿{locationName}
+kleines Bauernhaus
+{none}
+-
+{console}
+Sie sehen eine kleine Farm, eine freundliche aussehenden Bauer Henry und seine Frau. Sie sehen eine Brust gegen die Wand des Gebäudes und sich fragen, was drin ist.
+{walk to}
+Fuß bis zu
+{farmer}
+Bauer
+{farmer_wife}
+Bäuerin
+{chest}
+Brust
+{city}
+Stadt
+{forest}
+Wald

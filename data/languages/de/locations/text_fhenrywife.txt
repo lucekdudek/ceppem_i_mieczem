@@ -1,0 +1,17 @@
+﻿{none}
+-
+{console}
+Zonk Hanryka ist nicht schlecht, kleine Frau. Nun spricht Ceppe.
+{conversation about}
+Fragen
+{job}
+was sie tut.
+{helping fhenrywife}
+oder braucht Hilfe
+{steal}
+stehlen
+{flail}
+Flegel
+{smallfarm}
+kleines Bauernhaus
+

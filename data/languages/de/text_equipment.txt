@@ -1,0 +1,24 @@
+﻿{previous}
+früher
+{next}
+mehr
+{use}
+Verwendung
+{throw}
+verwerfen
+{your_equipment}
+Ihre Ausrüstung
+{head}
+Kopf
+{chest}
+Rüstung
+{hands}
+Hände
+{legs}
+Beine
+{feet}
+Füße
+{weapon}
+Waffe
+{gold}
+Gold

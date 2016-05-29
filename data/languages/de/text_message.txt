@@ -1,0 +1,16 @@
+﻿{loaded}
+Das Spiel geladen wurde
+{saved}
+Das Spiel gespeichert wurde
+{game_over}
+Sie verloren den Kampf
+{you_won}
+Won
+{loading_error}
+Fehler beim Laden
+{use_wearable}
+Geänderte Kleidung
+{use_weapon}
+Sie erstellt ein Waffen
+{use_potion}
+Haben Sie verwendet Tränke
