@@ -26,10 +26,11 @@ Do uruchomienia projektu wymagany jest program Visual Studio 2015.
 W projekcie użyliśmy następujacych wzorców projektowych:
  - MVC
  - Singleton
+ - Iterator
 
-Diagram przypadków użycia
+Diagram przypadków użycia:
 ![](use_case.png)
-Diagram czynności
+Diagram czynności:
 ![](activity.png)
-Diagram klas
+Diagram klas:
 ![](class.png)
