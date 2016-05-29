@@ -29,7 +29,7 @@ W projekcie użyliśmy następujacych wzorców projektowych:
  - Iterator
 
 Diagram przypadków użycia:
-![]("diagrams/Use case diagram.png")
+![](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/diagrams/Use%20case%20diagram.png)
 Diagram czynności:
 ![]("diagrams/Activity diagram.png")
 Diagram klas:
