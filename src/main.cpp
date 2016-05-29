@@ -1,4 +1,6 @@
-//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+#ifndef _DEBUG
+	#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+#endif
 #include <iostream>
 #include "controller/controller.h"
 using namespace std;
