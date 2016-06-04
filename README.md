@@ -28,9 +28,9 @@ W projekcie użyliśmy następujacych wzorców projektowych:
  - Singleton
  - Iterator
 
-Diagram przypadków użycia:
+#### Diagram przypadków użycia:
 ![](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/diagrams/Use%20case%20diagram.png)
-Diagram czynności:
+#### Diagram czynności:
 ![](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/diagrams/Activity%20diagram.png)
-Diagram klas:
+#### Diagram klas:
 ![](https://raw.githubusercontent.com/lucekdudek/ceppem_i_mieczem/master/diagrams/Class%20diagram.png)
